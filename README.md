@@ -6,7 +6,7 @@ Scripts that add traveller features to itravelforveganfood.com. They are served 
 | File | Loaded on | What it does |
 |---|---|---|
 | `core.js` | Every page | Saved places, vegan phrase card, price converter, closed badges, image captions, back button, and the shared toolbox (`window.VT`) the other scripts use |
-| `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, the interactive map guide, Save buttons, "Save this guide", the walking companion and "My location" |
+| `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, the interactive map guide, Save buttons, "Save this guide", "My location" with Directions, and Google Maps directions for each leg of a route |
 | `destination.js` | Destinations template | Coming after that |
 
 Test checklists live in `docs/`, along with `writing-guide.md`, which explains the tip box and divider shortcuts.
@@ -35,7 +35,7 @@ tag, and each file has its own version number written at the top of the file.
 | Where in Webflow | Script line uses | File version inside |
 |---|---|---|
 | Site settings > Footer | `@v1.3.0/core.min.js` | core.js 1.2.0 |
-| Articles and Map Guides templates | `@v1.3.0/guide.min.js` | guide.js 1.1.0 |
+| Articles and Map Guides templates | `@v1.4.0/guide.min.js` | guide.js 1.2.0 |
 
 You only change a script line when that script changes. For example, v1.2.0 contained core.js 1.1.1 unchanged, so
 the core line stayed at `@v1.1.1` until core itself changed in v1.3.0.
@@ -65,6 +65,17 @@ open the browser's developer tools (F12), and any error from these scripts appea
 Without that flag, the scripts stay silent.
 
 ## Changelog
+
+### guide.js v1.2.0 (release v1.4.0)
+- Articles: "Save this guide" sits under the short description (`.guide-hero-description`), or in
+  `data-vt-save-guide-slot` if you add one.
+- Articles: each restaurant's Save button shares a flex row with its name (space-between, centred); the row takes
+  over the heading's spacing.
+- Map guides: the walking companion is removed (and its stored ticks tidied away).
+- Map guides: a Directions button next to Save, shown while "My location" is on and the reader is within 50 km.
+  It opens Google Maps directions from the reader's position (walking under 3 km, otherwise Google chooses).
+- Route guides: "Open in Google Maps" inside each route block, with directions for that leg. The travel mode comes
+  from the block's text (walk, subway, or both).
 
 ### guide.js v1.1.0 and core.js v1.2.0 (release v1.3.0)
 - Save buttons on places in articles and map guides. A place with a restaurant page is the same saved item as on

@@ -9,11 +9,12 @@
  *   2. Articles: table of contents and side-by-side image pairs.
  *   3. Map guides: the interactive map that follows the guide as you scroll.
  *      Replaces the old map script and the three GSAP libraries.
- *   4. Traveller tools (v1.1.0): Save buttons on places, "Save this guide",
- *      the walking companion on route guides, and "My location" with distances.
+ *   4. Traveller tools: Save buttons on places, "Save this guide", the chain
+ *      note on the map, "My location" with walking times and directions from
+ *      where you are, and Google Maps directions for each leg of a route.
  *
  * Load it in Webflow on each template: Page settings > Custom code > Before </body> tag
- *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.3.0/guide.min.js"></script>
+ *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.4.0/guide.min.js"></script>
  *
  * Debugging: add ?vtdebug=1 to the page address to see errors in the console.
  */
@@ -21,7 +22,7 @@
   'use strict';
 
   if (window.VTGuide) return;
-  window.VTGuide = { version: '1.1.0' };
+  window.VTGuide = { version: '1.2.0' };
 
   const DEBUG = /[?&]vtdebug=1/.test(location.search);
 
@@ -31,17 +32,23 @@
 
   // Turn any traveller tool off by setting it to false.
   const FEATURES = {
-    saveButtons: true,      // Save on each place in guides
-    saveGuide: true,        // "Save this guide"
-    walkingCompanion: true, // visited stops and directions on route guides
-    myLocation: true,       // "My location" button and distances on map guides
-    chainNote: true,        // "... has multiple locations" note on the map
+    saveButtons: true,    // Save on each place in guides
+    saveGuide: true,      // "Save this guide"
+    chainNote: true,      // "... has multiple locations" note on the map
+    myLocation: true,     // "My location": blue dot, walking times, Directions from where you are
+    legDirections: true,  // "Open in Google Maps" in each route block
   };
 
   const MAPS_LINK = /maps\.app\.goo\.gl|goo\.gl\/maps|google\.[a-z.]+\/maps|maps\.google\./i;
   const clean = (text) => (text || '').replace(/\s+/g, ' ').trim();
   const pagePath = () => location.pathname.replace(/\/+$/, '');
   const pageTitle = () => clean((document.querySelector('h1') || {}).textContent) || document.title;
+
+  const ICONS = {
+    locate: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg>',
+    directions: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>',
+    route: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.5"/></svg>',
+  };
 
   // "Taro's Ramen & Bar" -> "taros-ramen-and-bar"
   function slugify(text) {
@@ -64,10 +71,24 @@
     return id;
   }
 
-  function insertRow(after, VT) {
-    const row = VT.ui.el('div', { class: 'vt-ui vt-row vt-place-row' });
-    after.insertAdjacentElement('afterend', row);
-    return row;
+  // Google Maps directions between two { lat, lng } points.
+  function directionsUrl(from, to, mode) {
+    const params = new URLSearchParams({ api: '1', origin: from.lat + ',' + from.lng, destination: to.lat + ',' + to.lng });
+    if (mode) params.set('travelmode', mode);
+    return 'https://www.google.com/maps/dir/?' + params;
+  }
+
+  // Reads the travel mode from a route block's text: "10-minute walk" -> walking,
+  // "25 minutes by subway" -> transit. Mixed ("walk or subway") lets Google Maps decide.
+  function travelMode(text) {
+    const t = (text || '').toLowerCase();
+    const walk = /walk/.test(t);
+    const transit = /subway|metro|train|tram|bus|ferry|\bmtr\b|\bmrt\b|\bjr\b|shinkansen|rail|\bline\b/.test(t);
+    const drive = /drive|driving|taxi|\bcar\b|uber|grab/.test(t);
+    if (walk && !transit && !drive) return 'walking';
+    if (transit && !walk && !drive) return 'transit';
+    if (drive && !walk && !transit) return 'driving';
+    return null;
   }
 
   // ======================================================================
@@ -352,7 +373,6 @@
     });
 
     // A chain: no coordinates, and the district says "multiple locations".
-    // Each place also gets a stable key for remembering visited stops.
     const keys = new Set();
     places.forEach((p) => {
       p.chain = isNaN(p.lat) && !!p.district && /multiple/i.test(p.district);
@@ -426,8 +446,9 @@
       observers: [], stopPan: () => {}, chainNote: null, routing,
     };
 
-    if (FEATURES.saveButtons || routing) guard('place rows', addPlaceRows);
-    const companion = guard('walking companion', setupCompanion);
+    if (FEATURES.saveButtons || FEATURES.myLocation) guard('place rows', addPlaceRows);
+    if (FEATURES.legDirections) guard('leg directions', addLegLinks);
+    VT.storage.remove('visited:' + pagePath()); // tidy up: the v1.1 walking companion stored ticks here
 
     // ---------- scrolling ----------
     function readScrollMode() {
@@ -781,7 +802,7 @@
     }
     function clearChainNote() { fadeOut(state.chainNote, MAP.overlayFadeMs); state.chainNote = null; }
 
-    // ---------- save buttons ----------
+    // ---------- buttons under each place ----------
     // Saving a place here and on its restaurant page is the same saved item.
     function placeItem(p) {
       const destination = VT.context.destination;
@@ -801,101 +822,42 @@
       };
     }
 
-    // A row of buttons under each place's info line.
+    // Save, plus a Directions button that appears while "My location" is on
+    // and the reader is nearby.
     function addPlaceRows() {
       places.forEach((p) => {
-        const real = !isNaN(p.lat) || p.pageSlug || p.mapsUrl;
-        if (!real) return;
-        const after = infoLine(p, false) || p.heading;
-        p.row = insertRow(after, VT);
-        if (FEATURES.saveButtons) p.row.appendChild(VT.saved.button(placeItem(p)));
+        const hasLocation = !isNaN(p.lat);
+        if (!hasLocation && !p.pageSlug && !p.mapsUrl) return;
+        const row = VT.ui.el('div', { class: 'vt-ui vt-row vt-place-row' });
+        (infoLine(p, false) || p.heading).insertAdjacentElement('afterend', row);
+        if (FEATURES.saveButtons) row.appendChild(VT.saved.button(placeItem(p)));
+        if (FEATURES.myLocation && hasLocation) {
+          p.go = VT.ui.el('a', {
+            class: 'vt-chip vt-go', target: '_blank', rel: 'noopener', hidden: true,
+            html: ICONS.directions + '<span>Directions</span>', 'aria-label': 'Directions to ' + p.title + ' from where you are',
+          });
+          row.appendChild(p.go);
+        }
+        if (!row.children.length) row.remove();
       });
     }
 
-    // ---------- walking companion (route guides) ----------
-    function setupCompanion() {
-      if (!FEATURES.walkingCompanion || !state.routing) return null;
-      const stops = places.filter((p) => !isNaN(p.lat));
-      if (stops.length < 2) return null;
-
-      const storeKey = 'visited:' + pagePath();
-      const visited = new Set(VT.storage.get(storeKey, []));
-      const multiDay = new Set(stops.map((s) => s.day)).size > 1;
-      const el = VT.ui.el;
-
-      const bar = el('i');
-      const count = el('span', { class: 'vt-walk-count' });
-      const next = el('a', { class: 'vt-btn', target: '_blank', rel: 'noopener' });
-      const route = el('a', { class: 'vt-btn vt-btn-ghost', target: '_blank', rel: 'noopener' });
-      const reset = el('button', { type: 'button', class: 'vt-link', text: 'Start over', onclick: () => { visited.clear(); update(); } });
-      const done = el('p', { class: 'vt-walk-done', text: "You've visited every stop. Enjoy the food coma 🌱" });
-      const card = el('div', { class: 'vt-ui vt-walk' }, [
-        el('div', { class: 'vt-walk-title', text: 'Following this itinerary today?' }),
-        el('p', { class: 'vt-walk-text', text: 'Tick off each stop as you go. Your progress stays on this device, so you can close the page and pick up where you left off.' }),
-        el('div', { class: 'vt-walk-progress' }, [el('div', { class: 'vt-walk-bar' }, [bar]), count]),
-        done,
-        el('div', { class: 'vt-walk-actions' }, [next, route, reset]),
-      ]);
-      places[0].heading.insertAdjacentElement('beforebegin', card);
-
-      stops.forEach((s) => {
-        s.visitButton = el('button', {
-          type: 'button', class: 'vt-ui vt-chip vt-visit',
-          html: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path class="vt-tick" d="M8 12.5l2.7 2.7L16.5 9"/></svg><span></span>',
-          onclick: () => toggle(s),
-        });
-        (s.row || (s.row = insertRow(infoLine(s, false) || s.heading, VT))).prepend(s.visitButton);
+    // "Open in Google Maps" inside each route block: directions for that leg,
+    // useful on the day and when planning from home.
+    function addLegLinks() {
+      if (!state.routing) return;
+      places.forEach((p, i) => {
+        const next = places[i + 1];
+        if (!p.routeEl || p.isEndOfDay || !next || isNaN(p.lat) || isNaN(next.lat)) return;
+        const block = p.routeEl.querySelector('.route-info');
+        if (!block || block.querySelector('.vt-leg')) return;
+        block.appendChild(VT.ui.el('a', {
+          class: 'vt-ui vt-leg', target: '_blank', rel: 'noopener',
+          href: directionsUrl(p, next, travelMode(p.route && p.route.text)),
+          'aria-label': 'Directions from ' + p.title + ' to ' + next.title + ' in Google Maps',
+          html: ICONS.route + '<span>Open in Google Maps</span>',
+        }));
       });
-
-      // Google Maps directions through several stops (up to 9 in between).
-      function directions(list, mode) {
-        const at = (s) => s.lat + ',' + s.lng;
-        const params = new URLSearchParams({ api: '1', destination: at(list[list.length - 1]) });
-        if (mode) params.set('travelmode', mode);
-        const between = list.slice(0, -1).slice(0, 9);
-        if (between.length) params.set('waypoints', between.map(at).join('|'));
-        return 'https://www.google.com/maps/dir/?' + params;
-      }
-
-      function update() {
-        VT.storage.set(storeKey, [...visited]);
-        const doneCount = stops.filter((s) => visited.has(s.key)).length;
-        bar.style.width = (doneCount / stops.length) * 100 + '%';
-        count.textContent = doneCount + ' of ' + stops.length + ' stops visited';
-        stops.forEach((s) => {
-          const on = visited.has(s.key);
-          s.visitButton.setAttribute('aria-pressed', on ? 'true' : 'false');
-          s.visitButton.querySelector('span').textContent = on ? 'Visited' : 'Mark as visited';
-          if (s.marker) s.marker.content.classList.toggle('vt-visited', on);
-        });
-        const upcoming = stops.find((s) => !visited.has(s.key));
-        done.hidden = !!upcoming;
-        next.hidden = !upcoming;
-        route.hidden = true;
-        reset.hidden = doneCount === 0;
-        if (!upcoming) return;
-        // The next stop opens its own Google Maps listing, where the reader can choose walking or transit.
-        next.href = upcoming.mapsUrl || directions([upcoming]);
-        next.textContent = 'Next stop: ' + upcoming.title;
-        const rest = stops.filter((s) => s.day === upcoming.day && !visited.has(s.key));
-        if (rest.length >= 2) {
-          route.hidden = false;
-          route.href = directions(rest.slice(0, 10), 'walking');
-          route.textContent = multiDay ? 'Walking route: rest of Day ' + upcoming.day : 'Walking route: remaining stops';
-        }
-      }
-
-      function toggle(s) {
-        if (visited.has(s.key)) visited.delete(s.key);
-        else visited.add(s.key);
-        update();
-        if (!visited.has(s.key)) return;
-        if (stops.every((x) => visited.has(x.key))) VT.ui.toast("You've visited every stop 🌱", 3500);
-        else if (multiDay && stops.filter((x) => x.day === s.day).every((x) => visited.has(x.key))) VT.ui.toast('Day ' + s.day + ' complete 🌱', 3000);
-      }
-
-      update();
-      return { refresh: update };
     }
 
     // ---------- my location ----------
@@ -910,6 +872,7 @@
       return line;
     }
 
+    // Walking times and Directions buttons, only when the reader is within 50 km.
     function showDistances(me) {
       let nearest = null;
       places.forEach((p) => {
@@ -928,6 +891,10 @@
           line.appendChild(span);
         }
         span.textContent = VT.location.describe(p.distance);
+        if (p.go) {
+          p.go.href = directionsUrl(me, p, p.distance < 3000 ? 'walking' : null);
+          p.go.hidden = false;
+        }
       });
       return nearest;
     }
@@ -938,13 +905,14 @@
         span.remove();
         if (line && line.dataset.vtCreated && !line.children.length) line.remove();
       });
+      places.forEach((p) => { if (p.go) p.go.hidden = true; });
     }
 
     function setupLocation() {
       if (!FEATURES.myLocation || !state.map || !VT.location || !VT.location.supported()) return;
       const button = VT.ui.el('button', {
         type: 'button', class: 'vt-ui vt-locate', 'aria-pressed': 'false', title: 'Show my location',
-        html: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg><span>My location</span>',
+        html: ICONS.locate + '<span>My location</span>',
       });
       state.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(button);
 
@@ -980,7 +948,7 @@
           if (!first) return;
           first = false;
           if (!nearest || nearest.distance > 50000) {
-            VT.ui.toast("You're far from these places. Distances will show when you're nearby.", 4000);
+            VT.ui.toast("You're far from these places. Walking times and directions will show when you're nearby.", 4500);
             return;
           }
           fitBounds([new google.maps.LatLng(me.lat, me.lng), new google.maps.LatLng(nearest.lat, nearest.lng)], state.isMobile ? 50 : 100);
@@ -1023,7 +991,6 @@
           gestureHandling: 'greedy', mapId: VT.maps.mapId, clickableIcons: false,
         });
         addMarkers();
-        if (companion) companion.refresh();
         guard('my location', setupLocation);
         state.intro = overlayMarker(centre, MAP.introText, 'end-of-day-overlay-content', 1002, MAP.overlayShowDelayMs);
         start();
@@ -1082,21 +1049,36 @@
           from: pagePath() + '#' + ensureId(heading, 'place-' + i),
           fromTitle: title,
         };
-        const after = veg && section[0] === firstText ? firstText : heading;
-        insertRow(after, VT).appendChild(VT.saved.button(item));
+        besideHeading(heading, VT.saved.button(item));
       });
     });
   }
 
+  // Puts the button on the same line as the restaurant name, pushed to the right:
+  // a flex row (space-between, centred) that takes over the heading's own spacing.
+  function besideHeading(heading, button) {
+    const style = getComputedStyle(heading);
+    const row = document.createElement('div');
+    row.className = 'vt-heading-row';
+    row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:12px;'
+      + 'margin-top:' + style.marginTop + ';margin-bottom:' + style.marginBottom;
+    heading.parentNode.insertBefore(row, heading);
+    row.appendChild(heading);
+    heading.style.margin = '0';
+    heading.style.minWidth = '0';
+    button.style.flex = 'none';
+    row.appendChild(button);
+  }
+
   // "Save this guide" goes in an element with data-vt-save-guide-slot if you add
-  // one in Webflow, otherwise under the page title.
+  // one in Webflow, otherwise under the short description (or the title).
   function saveGuideButton(VT) {
-    const h1 = document.querySelector('h1');
     const item = { id: VT.saved.guideId(), kind: 'guide', name: pageTitle(), page: pagePath(), destination: VT.context.destination };
     const button = VT.saved.button(item, { label: 'Save this guide', savedLabel: 'Guide saved' });
     const slot = document.querySelector('[data-vt-save-guide-slot]');
+    const anchor = document.querySelector('.guide-hero-description') || document.querySelector('h1');
     if (slot) slot.appendChild(button);
-    else if (h1) h1.insertAdjacentElement('afterend', VT.ui.el('div', { class: 'vt-ui vt-row' }, [button]));
+    else if (anchor) anchor.insertAdjacentElement('afterend', VT.ui.el('div', { class: 'vt-ui vt-row' }, [button]));
   }
 
   // ======================================================================
@@ -1130,7 +1112,6 @@
 .guide-rich-text .location-info-line span:not(:last-child)::after{content:"|";display:inline-block;margin-left:.5rem;color:#555;font-weight:400;font-style:normal}
 .day-button-disabled{background-color:#e0e0e0;color:#a0a0a0;cursor:not-allowed;opacity:.7}
 #map .end-of-day-overlay-content.vt-chain-note{width:max-content;max-width:min(260px,80vw);white-space:normal}
-#map .map-marker.vt-visited:not(.active){opacity:.45}
 #map .vt-locate{display:inline-flex;align-items:center;gap:6px;margin:10px;padding:8px 12px;border:0;border-radius:999px;background:#fff;color:#1f2a1c;font:600 13px/1 'Montserrat',sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer}
 #map .vt-locate svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 #map .vt-locate[aria-pressed="true"]{background:#1a73e8;color:#fff}
@@ -1140,20 +1121,12 @@
 #map .vt-me{width:18px;height:18px;border:3px solid #fff;border-radius:50%;background:#1a73e8;box-shadow:0 0 0 6px rgba(26,115,232,.22),0 1px 3px rgba(0,0,0,.35);transform:translate(0,50%)}
 .guide-rich-text .location-info-line .info-distance{color:#1a73e8;font-weight:600}
 .guide-rich-text .vt-place-row{margin:-.25rem 0 1rem}
-.vt-walk{margin:8px 0 32px;padding:18px 20px;border:1.5px solid #5a8707;border-radius:16px;background:#f4f9ec;color:#1f2a1c}
-.vt-walk-title{color:#5a8707;font-size:17px;font-weight:700}
-.vt-walk .vt-walk-text{margin:6px 0 14px;font-size:15px;line-height:1.5}
-.vt-walk-progress{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:13px;font-weight:600}
-.vt-walk-bar{flex:1;height:8px;overflow:hidden;border-radius:99px;background:#fff}
-.vt-walk-bar i{display:block;width:0;height:100%;border-radius:99px;background:#5a8707;transition:width .35s ease}
-.vt-walk-count{white-space:nowrap}
-.vt-walk .vt-walk-done{margin:0 0 12px;font-weight:600}
-.vt-walk [hidden]{display:none!important}
-.vt-walk-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.vt-visit .vt-tick{opacity:0}
-.vt-visit[aria-pressed="true"]{background:#5a8707!important;border-color:#5a8707!important;color:#fff!important}
-.vt-visit[aria-pressed="true"] .vt-tick{opacity:1}
-@media (prefers-reduced-motion:reduce){.vt-walk-bar i,#map .vt-locate.vt-busy svg{transition:none;animation:none}}
+.guide-rich-text .vt-go{border-color:#1a73e8!important;color:#1a73e8!important}
+.guide-rich-text .vt-go[hidden]{display:none!important}
+.guide-rich-text .route-info .vt-leg{display:inline-flex;align-items:center;gap:6px;margin-top:-1.5rem;padding:8px 14px;border:1.5px solid #5a8707;border-radius:999px;background:#fff;color:#5a8707!important;font:600 13px/1.2 'Montserrat',sans-serif;letter-spacing:.02em;text-decoration:none!important}
+.guide-rich-text .route-info .vt-leg:hover{background:#5a8707;color:#fff!important}
+.guide-rich-text .route-info .vt-leg svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (prefers-reduced-motion:reduce){#map .vt-locate.vt-busy svg{animation:none}}
 `;
     const style = document.createElement('style');
     style.id = 'vt-guide-styles';
