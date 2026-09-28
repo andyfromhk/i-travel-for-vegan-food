@@ -7,7 +7,7 @@ Scripts that add traveller features to itravelforveganfood.com. They are served 
 |---|---|---|
 | `core.js` | Every page | Saved places, vegan phrase card, price converter, closed badges, image captions, back button, and the shared toolbox (`window.VT`) the other scripts use |
 | `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, the interactive map guide, Save buttons, "Save this guide", "My location" with Directions, and Google Maps directions for each leg of a route |
-| `destination.js` | Destinations template | Coming after that |
+| `destination.js` | Destinations template | The fullscreen restaurant map (markers, tooltips, locate icon, Finsweet filters), Save hearts, the "Saved" filter and "Near me" sorting |
 
 Test checklists live in `docs/`, along with `writing-guide.md`, which explains the tip box and divider shortcuts.
 
@@ -35,7 +35,8 @@ tag, and each file has its own version number written at the top of the file.
 | Where in Webflow | Script line uses | File version inside |
 |---|---|---|
 | Site settings > Footer | `@v1.3.0/core.min.js` | core.js 1.2.0 |
-| Articles and Map Guides templates | `@v1.4.0/guide.min.js` | guide.js 1.2.0 |
+| Articles and Map Guides templates | `@v1.5.0/guide.min.js` | guide.js 1.2.1 |
+| Destinations template | `@v1.5.0/destination.min.js` | destination.js 1.0.0 |
 
 You only change a script line when that script changes. For example, v1.2.0 contained core.js 1.1.1 unchanged, so
 the core line stayed at `@v1.1.1` until core itself changed in v1.3.0.
@@ -65,6 +66,16 @@ open the browser's developer tools (F12), and any error from these scripts appea
 Without that flag, the scripts stay silent.
 
 ## Changelog
+
+### destination.js v1.0.0 and guide.js v1.2.1 (release v1.5.0)
+- destination.js replaces the old destination map script and its Google Maps line. Same behaviour: fullscreen
+  open/close, veg-coloured markers, tooltips, marker tap highlights and scrolls to the card, locate icon, markers
+  follow Finsweet filters with a zoom cap for one or two results.
+- Each card is read on its own (fixes the old position-matching risk); the map is built on first open (faster
+  pages, fewer paid map loads); a list watcher replaces the 300 ms / 1 s timers; no duplicate Finsweet load.
+- New: Save hearts on cards and in tooltips, a pink dot on saved markers, a "Saved" filter, and "Near me" sorting
+  with walking times and a blue dot. Optional card attributes `data-vt-maps`, `data-vt-address`, `data-vt-locator`.
+- guide.js v1.2.1: "My location" top left on phones; article heading rows take the heading's side margins as well.
 
 ### guide.js v1.2.0 (release v1.4.0)
 - Articles: "Save this guide" sits under the short description (`.guide-hero-description`), or in

@@ -14,7 +14,7 @@
  *      where you are, and Google Maps directions for each leg of a route.
  *
  * Load it in Webflow on each template: Page settings > Custom code > Before </body> tag
- *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.4.0/guide.min.js"></script>
+ *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.5.0/guide.min.js"></script>
  *
  * Debugging: add ?vtdebug=1 to the page address to see errors in the console.
  */
@@ -22,7 +22,7 @@
   'use strict';
 
   if (window.VTGuide) return;
-  window.VTGuide = { version: '1.2.0' };
+  window.VTGuide = { version: '1.2.1' };
 
   const DEBUG = /[?&]vtdebug=1/.test(location.search);
 
@@ -914,7 +914,23 @@
         type: 'button', class: 'vt-ui vt-locate', 'aria-pressed': 'false', title: 'Show my location',
         html: ICONS.locate + '<span>My location</span>',
       });
-      state.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(button);
+      // Top left on phones, where your menu button covers the map's top right corner;
+      // top right on larger screens. Moves if the screen size changes.
+      const phone = window.matchMedia('(max-width: 767px)');
+      const position = () => {
+        const want = phone.matches ? google.maps.ControlPosition.TOP_LEFT : google.maps.ControlPosition.TOP_RIGHT;
+        if (button.vtPosition === want) return;
+        if (button.vtPosition != null) {
+          const current = state.map.controls[button.vtPosition];
+          const index = current.getArray().indexOf(button);
+          if (index > -1) current.removeAt(index);
+        }
+        state.map.controls[want].push(button);
+        button.vtPosition = want;
+      };
+      position();
+      if (phone.addEventListener) phone.addEventListener('change', position);
+      else if (phone.addListener) phone.addListener(position);
 
       let stop = null;
       let dot = null;
@@ -1056,18 +1072,42 @@
 
   // Puts the button on the same line as the restaurant name, pushed to the right:
   // a flex row (space-between, centred) that takes over the heading's own spacing.
+  const headingRows = [];
   function besideHeading(heading, button) {
-    const style = getComputedStyle(heading);
     const row = document.createElement('div');
     row.className = 'vt-heading-row';
-    row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:12px;'
-      + 'margin-top:' + style.marginTop + ';margin-bottom:' + style.marginBottom;
+    row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:12px';
     heading.parentNode.insertBefore(row, heading);
     row.appendChild(heading);
     heading.style.margin = '0';
     heading.style.minWidth = '0';
     button.style.flex = 'none';
     row.appendChild(button);
+    headingRows.push([row, heading]);
+    matchSpacing(row, heading);
+    if (headingRows.length === 1) {
+      let timer = 0;
+      window.addEventListener('resize', () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => headingRows.forEach(([r, h]) => matchSpacing(r, h)), 150);
+      });
+    }
+  }
+
+  // Gives the row the margins a heading would have in that spot, on all four sides.
+  // On phones your headings have side margins, which is why the row needs them too.
+  // A hidden, empty copy of the heading is measured in the row's place, so this works
+  // whichever way your Webflow styles target headings, and again after rotating a phone.
+  function matchSpacing(row, heading) {
+    const probe = heading.cloneNode(false);
+    probe.removeAttribute('id');
+    probe.removeAttribute('style');
+    probe.setAttribute('aria-hidden', 'true');
+    row.parentNode.insertBefore(probe, row);
+    const s = getComputedStyle(probe);
+    const margin = [s.marginTop, s.marginRight, s.marginBottom, s.marginLeft].map((v) => v || '0px').join(' ');
+    probe.remove();
+    row.style.margin = margin;
   }
 
   // "Save this guide" goes in an element with data-vt-save-guide-slot if you add
