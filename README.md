@@ -6,10 +6,10 @@ Scripts that add traveller features to itravelforveganfood.com. They are served 
 | File | Loaded on | What it does |
 |---|---|---|
 | `core.js` | Every page | Saved places, vegan phrase card, price converter, closed badges, image captions, back button, and the shared toolbox (`window.VT`) the other scripts use |
-| `guide.js` | Articles and Map Guides templates | Coming next |
+| `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, and the interactive map guide |
 | `destination.js` | Destinations template | Coming after that |
 
-Test checklists live in `docs/`.
+Test checklists live in `docs/`, along with `writing-guide.md`, which explains the tip box and divider shortcuts.
 
 ## How the website loads a script
 
@@ -26,6 +26,19 @@ Each script is loaded with a line like this in Webflow's custom code:
 - `defer` tells the browser to download the script without pausing the page, then run it once the page is ready.
 
 The repository must be **public** for jsDelivr to serve it. That's fine: the code is visible in the browser anyway.
+
+### Tags are snapshots of the whole repository
+
+A tag like `v1.2.0` captures every file in the repository at that moment. Each script tag in Webflow points at a
+tag, and each file has its own version number written at the top of the file.
+
+| Where in Webflow | Script line uses | File version inside |
+|---|---|---|
+| Site settings > Footer | `@v1.1.1/core.min.js` | core.js 1.1.1 |
+| Articles and Map Guides templates | `@v1.2.0/guide.min.js` | guide.js 1.0.0 |
+
+You only change a script line when that script changes. For example, v1.2.0 also contains core.js 1.1.1, but there's
+no need to move the core line to `@v1.2.0` because the file is identical.
 
 ## Releasing a new version
 
@@ -52,6 +65,14 @@ open the browser's developer tools (F12), and any error from these scripts appea
 Without that flag, the scripts stay silent.
 
 ## Changelog
+
+### guide.js v1.0.0 (release v1.2.0)
+- New writing shortcuts: `---` for dividers, block quotes for tip boxes (emoji picks the icon). Old `[.tips]` codes still work.
+- Replaces the Refokus script, the table of contents and image pair scripts, the old map script and the three GSAP libraries.
+- Map guide: the intro message now disappears when the first place is reached; tooltips keep the veg-type pill and
+  price on one line; the map zooms back in to street level after a route overview.
+- Table of contents: same section ids as before (old links keep working), unique ids for repeated headings, and the
+  highlight no longer touches other elements with an `active` class.
 
 ### core.js v1.1.1
 - Heading badges use the same font as the paragraph text (matching the badges next to links).
