@@ -6,7 +6,7 @@ Scripts that add traveller features to itravelforveganfood.com. They are served 
 | File | Loaded on | What it does |
 |---|---|---|
 | `core.js` | Every page | Saved places, vegan phrase card, price converter, closed badges, image captions, back button, and the shared toolbox (`window.VT`) the other scripts use |
-| `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, and the interactive map guide |
+| `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, the interactive map guide, Save buttons, "Save this guide", the walking companion and "My location" |
 | `destination.js` | Destinations template | Coming after that |
 
 Test checklists live in `docs/`, along with `writing-guide.md`, which explains the tip box and divider shortcuts.
@@ -34,11 +34,11 @@ tag, and each file has its own version number written at the top of the file.
 
 | Where in Webflow | Script line uses | File version inside |
 |---|---|---|
-| Site settings > Footer | `@v1.1.1/core.min.js` | core.js 1.1.1 |
-| Articles and Map Guides templates | `@v1.2.0/guide.min.js` | guide.js 1.0.0 |
+| Site settings > Footer | `@v1.3.0/core.min.js` | core.js 1.2.0 |
+| Articles and Map Guides templates | `@v1.3.0/guide.min.js` | guide.js 1.1.0 |
 
-You only change a script line when that script changes. For example, v1.2.0 also contains core.js 1.1.1, but there's
-no need to move the core line to `@v1.2.0` because the file is identical.
+You only change a script line when that script changes. For example, v1.2.0 contained core.js 1.1.1 unchanged, so
+the core line stayed at `@v1.1.1` until core itself changed in v1.3.0.
 
 ## Releasing a new version
 
@@ -65,6 +65,16 @@ open the browser's developer tools (F12), and any error from these scripts appea
 Without that flag, the scripts stay silent.
 
 ## Changelog
+
+### guide.js v1.1.0 and core.js v1.2.0 (release v1.3.0)
+- Save buttons on places in articles and map guides. A place with a restaurant page is the same saved item as on
+  its page; places keep the guide's exact Google Maps link and link back to their section.
+- "Save this guide" (optional position: `data-vt-save-guide-slot`).
+- Walking companion on route guides: mark stops as visited (remembered on the device), progress bar, faded markers,
+  "Next stop" (opens the place's Google Maps listing) and a walking route through the rest of the day.
+- "My location" on map guides: blue dot and walking times, asked for only on tap; friendly message when far away.
+- Chains with multiple locations show "… has multiple locations" on the map.
+- core.js: new `VT.location` helper (watch position, distance, walking time, error messages).
 
 ### guide.js v1.0.0 (release v1.2.0)
 - New writing shortcuts: `---` for dividers, block quotes for tip boxes (emoji picks the icon). Old `[.tips]` codes still work.

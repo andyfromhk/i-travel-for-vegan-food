@@ -10,7 +10,7 @@
  *      so those scripts don't each carry their own copy of the same code.
  *
  * Load it in Webflow: Site settings > Custom code > Footer code
- *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.1.1/core.min.js"></script>
+ *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.3.0/core.min.js"></script>
  *
  * Debugging: add ?vtdebug=1 to any page URL and errors are printed to the
  * browser console. Without it, the script stays silent.
@@ -27,7 +27,7 @@
   // ======================================================================
 
   const CONFIG = {
-    version: '1.1.1',
+    version: '1.2.0',
     siteUrl: 'https://www.itravelforveganfood.com',
     mapsKey: 'AIzaSyCUbR04ahKoF2uAcAEhAr7gkTAOkbgVUPE',
     mapId: '7ffd42eb279d407c',
@@ -1108,7 +1108,58 @@
   }
 
   // ======================================================================
-  // 13. START-UP
+  // 13. LOCATION
+  // Asks for the reader's location only when they tap a button that needs it.
+  // Used by guide.js ("My location" on map guides) and later destination.js.
+  // (Called `geo` here so it doesn't clash with the browser's own `location`.)
+  // ======================================================================
+
+  const geo = {
+    last: null,
+    supported: () => !!navigator.geolocation,
+
+    // Follows the reader as they move. Returns a function that stops watching.
+    watch(onPosition, onError) {
+      if (!geo.supported()) { if (onError) onError({ code: 0 }); return () => {}; }
+      const id = navigator.geolocation.watchPosition(
+        (position) => onPosition(geo.remember(position)),
+        (error) => { if (onError) onError(error); },
+        { enableHighAccuracy: true, timeout: 20000, maximumAge: 30000 }
+      );
+      return () => navigator.geolocation.clearWatch(id);
+    },
+
+    remember(position) {
+      geo.last = { lat: position.coords.latitude, lng: position.coords.longitude, accuracy: position.coords.accuracy };
+      return geo.last;
+    },
+
+    // Straight-line distance in metres between two { lat, lng } points.
+    distance(a, b) {
+      const rad = Math.PI / 180;
+      const dLat = (b.lat - a.lat) * rad;
+      const dLng = (b.lng - a.lng) * rad;
+      const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLng / 2) ** 2;
+      return 2 * 6371000 * Math.asin(Math.sqrt(h));
+    },
+
+    // "6 min walk" nearby, "12.4 km away" further out. Walking time allows for
+    // streets not being straight lines (x1.3) at an easy 4.8 km/h.
+    describe(metres) {
+      if (metres < 3000) return Math.max(1, Math.round((metres * 1.3) / 80)) + ' min walk';
+      const km = metres / 1000;
+      return (km < 100 ? km.toFixed(1) : Math.round(km)) + ' km away';
+    },
+
+    errorMessage(error) {
+      return error && error.code === 1
+        ? 'Location is turned off for this site. You can allow it in your browser settings.'
+        : "Couldn't find your location. Please try again in a moment.";
+    },
+  };
+
+  // ======================================================================
+  // 14. START-UP
   // ======================================================================
 
   let context = { type: 'other', destinations: [], destination: null, country: null, countryInfo: null };
@@ -1129,6 +1180,7 @@
     statusOf,
     closedLabel,
     phraseCard,
+    location: geo,
     ui: { el, toast, overlay, icons: ICON, dock },
     debug: DEBUG,
   };
