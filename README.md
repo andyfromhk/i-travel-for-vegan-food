@@ -16,7 +16,7 @@ Test checklists live in `docs/`.
 Each script is loaded with a line like this in Webflow's custom code:
 
 ```html
-<script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.0.0/core.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.1.0/core.min.js"></script>
 ```
 
 - `andyfromhk/i-travel-for-vegan-food` is this repository.
@@ -50,3 +50,17 @@ The old version is still available instantly.
 Add `?vtdebug=1` to any page address (for example `https://www.itravelforveganfood.com/articles/...?vtdebug=1`),
 open the browser's developer tools (F12), and any error from these scripts appears in the **Console** tab.
 Without that flag, the scripts stay silent.
+
+## Changelog
+
+### core.js v1.1.0
+- Saved places open their actual Google Maps listing (searched by name and address) instead of a coordinate pin.
+  Chains show "Find a location" (store locator). Optional exact links via `data-vt-maps` or `data-vt-place-id`.
+- Copy list and Share list include each place's Google Maps (or store locator) link and its restaurant page link.
+- Phrase card: six phrases per language (no "Thank you"), and the logo and site name in the top left.
+- Closed badges read "Permanently Closed" / "Temporarily Closed" and also appear on the restaurant's section heading.
+  Optional `data-vt-name` attribute on the footer's closed list improves heading matching.
+- Permanently closed restaurant pages don't show a Save button; saved places that later close are flagged in the list.
+
+### core.js v1.0.0
+- First release: saved places, phrase card, price converter, closed badges, image captions, back button, `window.VT` toolbox.

@@ -10,7 +10,7 @@
  *      so those scripts don't each carry their own copy of the same code.
  *
  * Load it in Webflow: Site settings > Custom code > Footer code
- *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.0.0/core.min.js"></script>
+ *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.1.0/core.min.js"></script>
  *
  * Debugging: add ?vtdebug=1 to any page URL and errors are printed to the
  * browser console. Without it, the script stays silent.
@@ -27,10 +27,14 @@
   // ======================================================================
 
   const CONFIG = {
-    version: '1.0.0',
+    version: '1.1.0',
     siteUrl: 'https://www.itravelforveganfood.com',
     mapsKey: 'AIzaSyCUbR04ahKoF2uAcAEhAr7gkTAOkbgVUPE',
     mapId: '7ffd42eb279d407c',
+    brand: {
+      name: 'I Travel For Vegan Food',
+      logo: 'https://cdn.prod.website-files.com/60cbefb367e06dd6b12c5204/683d12c3ba958d15096befc9_i-travel-for-vegan-food-square-logo.webp',
+    },
     ratesUrl: 'https://open.er-api.com/v6/latest/USD',
     ratesMaxAgeHours: 12,
     storagePrefix: 'itfvf:',
@@ -87,15 +91,19 @@
     'melbourne': ['Melbourne', 'australia'], 'adelaide': ['Adelaide', 'australia'],
   };
 
-  // Phrase card text. `code` is the language tag, which makes browsers pick the
-  // right Chinese or Japanese glyphs.
+  // Phrase card text: six phrases per language. `code` is the language tag,
+  // which makes browsers pick the right Chinese or Japanese glyphs.
+  // `tab` is the short English label on each button.
   const PHRASES = {
     'ja': {
       label: 'Japanese', code: 'ja',
       lines: [
         { tab: "I'm vegan", text: '私はヴィーガンです。\n肉・魚・卵・乳製品・はちみつは食べられません。\nかつおだしなど、魚のだしも食べられません。', en: "I'm vegan. I can't eat meat, fish, eggs, dairy or honey. I also can't have fish stock such as bonito dashi." },
-        { tab: 'Is this vegan?', text: 'これはヴィーガン対応ですか？\n魚のだし・卵・乳製品は入っていますか？', en: 'Is this vegan? Does it contain fish stock, egg or dairy?' },
-        { tab: 'Thank you', text: 'ご対応ありがとうございます！', en: 'Thank you for accommodating me!' },
+        { tab: 'Vegan menu?', text: 'ヴィーガン対応のメニューはありますか？', en: 'Do you have any vegan dishes?' },
+        { tab: 'Is it vegan?', text: 'この料理はヴィーガン対応ですか？', en: 'Is this dish vegan?' },
+        { tab: 'Fish stock?', text: '魚のだし（かつお・煮干しなど）は\n使っていますか？', en: 'Is fish stock (such as bonito or dried sardine) used in this?' },
+        { tab: 'Make it vegan', text: '肉・魚・卵・乳製品を使わずに\n作っていただけますか？', en: 'Could you make it without meat, fish, egg and dairy?' },
+        { tab: 'Egg or dairy?', text: '卵・牛乳・バターは入っていますか？', en: 'Does this contain egg, milk or butter?' },
       ],
       note: 'Dashi (fish stock) hides in miso soup, noodle broth and sauces, so it is worth asking about.',
     },
@@ -103,17 +111,23 @@
       label: 'Korean', code: 'ko',
       lines: [
         { tab: "I'm vegan", text: '저는 비건입니다.\n고기, 생선, 달걀, 유제품, 꿀을 먹지 않습니다.\n멸치 육수나 젓갈도 먹지 않습니다.', en: "I'm vegan. I don't eat meat, fish, eggs, dairy or honey. I also don't eat anchovy stock or fermented seafood." },
-        { tab: 'Is this vegan?', text: '이 음식은 비건인가요?\n멸치 육수나 젓갈, 달걀이 들어가나요?', en: 'Is this dish vegan? Does it contain anchovy stock, fermented seafood or egg?' },
-        { tab: 'Thank you', text: '감사합니다!', en: 'Thank you!' },
+        { tab: 'Vegan menu?', text: '비건 메뉴가 있나요?', en: 'Do you have any vegan dishes?' },
+        { tab: 'Is it vegan?', text: '이 음식은 비건인가요?', en: 'Is this dish vegan?' },
+        { tab: 'Fish sauce?', text: '멸치 육수, 젓갈이나 액젓이\n들어가나요?', en: 'Does it contain anchovy stock, fermented seafood or fish sauce?' },
+        { tab: 'Make it vegan', text: '고기, 생선, 달걀, 유제품 없이\n만들어 주실 수 있나요?', en: 'Could you make it without meat, fish, egg and dairy?' },
+        { tab: 'Kimchi?', text: '김치에 젓갈이 들어가나요?', en: 'Is the kimchi made with fermented seafood (jeotgal)?' },
       ],
-      note: 'Kimchi and many soups are made with fish sauce or anchovy stock, so ask even about vegetable dishes.',
+      note: 'Most kimchi and many soups are made with fish sauce or anchovy stock, so ask even about vegetable dishes.',
     },
     'th': {
       label: 'Thai', code: 'th',
       lines: [
-        { tab: "I'm vegan", text: 'ฉันเป็นวีแกน\nไม่ทานเนื้อสัตว์ ปลา ไข่ นม และน้ำผึ้ง\nกรุณาไม่ใส่น้ำปลา กะปิ และน้ำมันหอย', en: "I'm vegan. I don't eat meat, fish, eggs, dairy or honey. Please don't add fish sauce, shrimp paste or oyster sauce." },
-        { tab: 'Is this vegan?', text: 'อาหารนี้เป็นวีแกนไหม\nมีน้ำปลา ไข่ หรือนมไหม', en: 'Is this dish vegan? Does it have fish sauce, egg or milk?' },
-        { tab: 'Thank you', text: 'ขอบคุณมาก', en: 'Thank you very much' },
+        { tab: "I'm vegan", text: 'ฉันเป็นวีแกน\nไม่ทานเนื้อสัตว์ ปลา อาหารทะเล ไข่ นม และน้ำผึ้ง', en: "I'm vegan. I don't eat meat, fish, seafood, eggs, dairy or honey." },
+        { tab: 'Vegan menu?', text: 'มีอาหารวีแกนหรืออาหารเจไหม', en: 'Do you have any vegan or jay (เจ) food?' },
+        { tab: 'Is it vegan?', text: 'จานนี้เป็นวีแกนไหม', en: 'Is this dish vegan?' },
+        { tab: 'Fish sauce?', text: 'มีน้ำปลา กะปิ น้ำมันหอย\nหรือน้ำซุปกระดูกไหม', en: 'Does it contain fish sauce, shrimp paste, oyster sauce or bone broth?' },
+        { tab: 'Make it vegan', text: 'กรุณาไม่ใส่เนื้อสัตว์ ไข่ น้ำปลา\nกะปิ และน้ำมันหอย', en: 'Please make it without meat, egg, fish sauce, shrimp paste or oyster sauce.' },
+        { tab: 'Soy sauce?', text: 'ใช้ซีอิ๊วแทนน้ำปลาได้ไหม', en: 'Can you use soy sauce instead of fish sauce?' },
       ],
       note: 'Yellow flags marked เจ (jay) signal Chinese-Thai vegan food, which also leaves out garlic and onion.',
     },
@@ -121,8 +135,11 @@
       label: 'Mandarin (Taiwan)', code: 'zh-Hant-TW',
       lines: [
         { tab: "I'm vegan", text: '我吃全素（純素）。\n不吃肉、海鮮、蛋、奶製品和蜂蜜。', en: "I'm vegan. I don't eat meat, seafood, eggs, dairy or honey." },
-        { tab: 'Is this vegan?', text: '請問這道菜是全素的嗎？\n有沒有加蛋或奶？', en: 'Is this dish vegan? Does it have egg or milk in it?' },
-        { tab: 'Thank you', text: '謝謝！', en: 'Thank you!' },
+        { tab: 'Vegan menu?', text: '請問有全素的餐點嗎？', en: 'Do you have any vegan dishes?' },
+        { tab: 'Is it vegan?', text: '請問這道菜是全素的嗎？', en: 'Is this dish vegan?' },
+        { tab: 'Egg or dairy?', text: '請問有加蛋、牛奶或奶油嗎？', en: 'Does it contain egg, milk or butter?' },
+        { tab: 'Make it vegan', text: '可以不要加肉、海鮮、蛋和奶嗎？', en: 'Could you make it without meat, seafood, egg and dairy?' },
+        { tab: 'Lard or stock?', text: '請問有沒有用豬油或肉類高湯？', en: 'Is it cooked with lard or meat stock?' },
       ],
       note: 'Look for 全素 (fully vegan) on menus. 蛋奶素 means eggs and dairy are included.',
     },
@@ -130,19 +147,25 @@
       label: 'Cantonese (Hong Kong)', code: 'zh-Hant-HK',
       lines: [
         { tab: "I'm vegan", text: '我食全素（純素）。\n唔食肉、海鮮、蛋、奶類同蜂蜜。', en: "I'm vegan. I don't eat meat, seafood, eggs, dairy or honey." },
-        { tab: 'Is this vegan?', text: '請問呢個係咪全素㗎？\n有冇落蛋或者奶？', en: 'Is this vegan? Does it have egg or milk in it?' },
-        { tab: 'Thank you', text: '唔該晒！', en: 'Thank you so much!' },
+        { tab: 'Vegan menu?', text: '請問有冇全素嘢食？', en: 'Do you have any vegan food?' },
+        { tab: 'Is it vegan?', text: '請問呢個係咪全素㗎？', en: 'Is this vegan?' },
+        { tab: 'Egg or dairy?', text: '有冇落蛋、牛奶或者牛油？', en: 'Is there egg, milk or butter in it?' },
+        { tab: 'Make it vegan', text: '可唔可以唔落肉、海鮮、蛋同奶？', en: 'Could you leave out the meat, seafood, egg and dairy?' },
+        { tab: 'Oyster sauce?', text: '有冇落蠔油、魚露或者上湯？', en: 'Does it have oyster sauce, fish sauce or meat-based stock?' },
       ],
-      note: 'Many 素 (vegetarian) restaurants use egg or dairy, so it is worth checking.',
+      note: 'Many 素 (vegetarian) restaurants use egg or dairy, and stir-fries often use oyster sauce, so it is worth checking.',
     },
     'zh-SG': {
       label: 'Mandarin (Singapore)', code: 'zh-Hans-SG',
       lines: [
         { tab: "I'm vegan", text: '我吃纯素。\n不吃肉、海鲜、蛋、奶制品和蜂蜜。', en: "I'm vegan. I don't eat meat, seafood, eggs, dairy or honey." },
-        { tab: 'Is this vegan?', text: '请问这个是纯素的吗？\n有没有加蛋或奶？', en: 'Is this vegan? Does it have egg or milk in it?' },
-        { tab: 'Thank you', text: '谢谢！', en: 'Thank you!' },
+        { tab: 'Vegan menu?', text: '请问有纯素的食物吗？', en: 'Do you have any vegan food?' },
+        { tab: 'Is it vegan?', text: '请问这个是纯素的吗？', en: 'Is this vegan?' },
+        { tab: 'Egg or dairy?', text: '有没有加蛋、牛奶或牛油？', en: 'Does it have egg, milk or butter?' },
+        { tab: 'Make it vegan', text: '可以不加肉、海鲜、蛋和奶吗？', en: 'Could you make it without meat, seafood, egg and dairy?' },
+        { tab: 'Shrimp paste?', text: '有没有加虾酱（峇拉煎）、\n虾米或鱼露？', en: 'Does it contain shrimp paste (belacan), dried shrimp or fish sauce?' },
       ],
-      note: 'English is widely spoken. This card helps at hawker stalls where Mandarin is easier.',
+      note: 'English is widely spoken. Sambal chilli usually contains shrimp paste, so ask at hawker stalls.',
     },
   };
 
@@ -239,12 +262,23 @@
 
   function destinationName(slug) { return (DESTINATIONS[slug] || [slug || ''])[0]; }
 
+  // Link that opens the place's listing in Google Maps (not just a pin).
+  //  1. An exact link, if there is one: a chain's store locator, or a Google
+  //     Maps link taken from a guide.
+  //  2. Otherwise a search for "Name, Address". Google opens the listing
+  //     directly when the search matches one place, which it does for
+  //     nearly every restaurant with an address.
+  //  3. A Google Place ID, if one is ever stored, guarantees the right listing.
   function mapsLink(item) {
     if (item.mapsUrl) return item.mapsUrl;
-    const q = item.lat && item.lng ? item.lat + ',' + item.lng
-      : [item.name, item.address || destinationName(item.destination)].filter(Boolean).join(', ');
-    return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+    const query = [item.name, item.address || destinationName(item.destination)].filter(Boolean).join(', ');
+    let url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(query);
+    if (item.placeId) url += '&query_place_id=' + encodeURIComponent(item.placeId);
+    return url;
   }
+
+  // Label for that link: chains go to a list of locations, not one listing.
+  function mapsLabel(item) { return item.chain ? 'Find a location' : 'Google Maps'; }
 
   // ======================================================================
   // 4. PAGE CONTEXT
@@ -521,14 +555,16 @@
       group.forEach((item) => {
         const actions = el('div', { class: 'vt-item-actions' });
         if (item.kind === 'place') {
-          actions.appendChild(el('a', { class: 'vt-chip', href: mapsLink(item), target: '_blank', rel: 'noopener', html: ICON.pin + '<span>Directions</span>' }));
+          actions.appendChild(el('a', { class: 'vt-chip', href: mapsLink(item), target: '_blank', rel: 'noopener', html: ICON.pin + '<span>' + mapsLabel(item) + '</span>' }));
           if (item.page) actions.appendChild(el('a', { class: 'vt-chip', href: item.page, html: ICON.page + '<span>Restaurant page</span>' }));
           if (item.from && item.from !== item.page) actions.appendChild(el('a', { class: 'vt-chip', href: item.from, html: ICON.back + '<span>In the guide</span>' }));
         }
         actions.appendChild(el('button', { type: 'button', class: 'vt-link', text: 'Remove', onclick: () => saved.remove(item.id) }));
         const meta = [item.area, item.fromTitle ? 'From: ' + item.fromTitle : ''].filter(Boolean).join(' · ');
+        const status = item.kind === 'place' ? closedLabel(statusOf(slugOf(item))) : null;
         container.appendChild(el('div', { class: 'vt-item' }, [
           el('a', { class: 'vt-item-name', href: item.page || item.from || '#', text: item.name }),
+          status ? el('span', { class: 'vt-closed' + (/temporar/i.test(status) ? ' vt-closed-temp' : ''), text: status }) : null,
           meta ? el('div', { class: 'vt-item-meta', text: meta }) : null,
           actions,
         ]));
@@ -551,15 +587,29 @@
 
   function absolute(url) { return url && url.startsWith('/') ? CONFIG.siteUrl + url : url; }
 
+  // Plain-text version of the list, used by Copy list and Share list.
+  //   BRISBANE
+  //   Neon Ramen
+  //   Google Maps: https://...
+  //   Restaurant page: https://www.itravelforveganfood.com/restaurants/neon-ramen
   function listAsText() {
-    let text = 'My saved vegan spots\n';
+    const lines = ['My saved vegan spots', 'From ' + CONFIG.brand.name + ' (' + CONFIG.siteUrl.replace('https://www.', '') + ')'];
     groupItems(saved.list()).forEach(([heading, group]) => {
-      text += '\n' + heading + '\n';
-      group.forEach((item) => {
-        text += '• ' + item.name + '\n  ' + absolute(item.kind === 'place' ? mapsLink(item) : item.page) + '\n';
+      lines.push('', heading.toUpperCase());
+      group.forEach((item, i) => {
+        if (i > 0) lines.push('');
+        if (item.kind === 'guide') {
+          lines.push(item.name, absolute(item.page));
+          return;
+        }
+        const status = closedLabel(statusOf(slugOf(item)));
+        lines.push(item.name + (status ? ' (' + status + ')' : ''));
+        lines.push(mapsLabel(item) + ': ' + mapsLink(item));
+        if (item.page) lines.push('Restaurant page: ' + absolute(item.page));
+        else if (item.from) lines.push('In the guide: ' + absolute(item.from));
       });
     });
-    return text + '\nFrom ' + CONFIG.siteUrl.replace('https://', '');
+    return lines.join('\n');
   }
 
   function shareList() {
@@ -596,6 +646,9 @@
     const lat = parseFloat(attr('data-vt-lat'));
     const lng = parseFloat(attr('data-vt-lng'));
 
+    // A permanently closed place can't be visited, so it gets no Save button.
+    if (/permanent/i.test(statusOf(slug))) return;
+
     const item = {
       id: saved.placeId(slug),
       kind: 'place',
@@ -605,7 +658,10 @@
       address: isChain ? null : attr('data-vt-address'),
       lat: isChain || isNaN(lat) ? null : lat,
       lng: isChain || isNaN(lng) ? null : lng,
-      mapsUrl: isChain ? attr('data-vt-locator') : null,
+      // Optional attributes, only if you ever add these fields in Webflow:
+      // data-vt-maps (an exact Google Maps link) and data-vt-place-id.
+      mapsUrl: isChain ? attr('data-vt-locator') : attr('data-vt-maps'),
+      placeId: isChain ? null : attr('data-vt-place-id'),
       page: '/restaurants/' + slug,
       chain: isChain,
     };
@@ -644,9 +700,14 @@
       const language = el('select', { class: 'vt-sign-lang', 'aria-label': 'Language', onchange: (e) => phraseCard.open(e.target.value) },
         Object.keys(PHRASES).map((k) => el('option', { value: k, selected: k === key, text: PHRASES[k].label })));
       const done = el('button', { type: 'button', class: 'vt-sign-done', text: 'Done', onclick: () => overlay.close() });
+      const brand = el('div', { class: 'vt-sign-brand' }, [
+        el('span', { class: 'vt-sign-logo' }, [el('img', { src: CONFIG.brand.logo, alt: '', width: '28', height: '28' })]),
+        el('span', { class: 'vt-sign-name', text: CONFIG.brand.name }),
+      ]);
 
       const card = el('div', { class: 'vt-ui vt-overlay vt-sign', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Vegan phrase card' }, [
-        el('div', { class: 'vt-sign-top' }, [language, el('span', { class: 'vt-sign-hint', text: 'Turn your screen toward the staff' }), done]),
+        el('div', { class: 'vt-sign-top' }, [brand, done]),
+        el('div', { class: 'vt-sign-controls' }, [language, el('span', { class: 'vt-sign-hint', text: 'Turn your screen toward the staff' })]),
         el('div', { class: 'vt-sign-body' }, [text, english]),
         tabs,
         el('p', { class: 'vt-sign-note', text: data.note }),
@@ -817,29 +878,77 @@
   // adds a small badge next to links to those restaurants in guide text.
   // ======================================================================
 
-  const closed = new Map(); // slug -> 'Permanently closed' | 'Temporarily closed'
+  const closed = new Map();      // slug -> status as written in Webflow
+  const closedNames = new Map(); // slug -> restaurant name (optional data-vt-name)
 
   function readClosedList() {
     document.querySelectorAll('[data-vt-closed]').forEach((node) => {
       const slug = clean(node.getAttribute('data-vt-slug'));
       const status = clean(node.getAttribute('data-vt-status'));
-      if (slug && /closed/i.test(status)) closed.set(slug, status);
+      if (!slug || !/closed/i.test(status)) return;
+      closed.set(slug, status);
+      const name = clean(node.getAttribute('data-vt-name'));
+      if (name) closedNames.set(slug, name);
     });
   }
 
   function statusOf(slug) { return closed.get(slug) || 'Open'; }
 
+  // 'Permanently Closed', 'Temporarily Closed', or null when open.
+  function closedLabel(status) {
+    if (!status || !/closed/i.test(status)) return null;
+    return /temporar/i.test(status) ? 'Temporarily Closed' : 'Permanently Closed';
+  }
+
+  function slugFromLink(link) {
+    const match = link.pathname && link.pathname.match(/^\/restaurants\/([^/?#]+)/);
+    return match ? match[1] : null;
+  }
+
+  function slugOf(item) {
+    const match = (item.page || '').match(/\/restaurants\/([^/?#]+)/);
+    return match ? match[1] : (item.id || '').replace(/^place:/, '');
+  }
+
+  // Loose name comparison: "Taro's Ramen" matches "Taro’s Ramen South Brisbane".
+  function simplify(text) {
+    return clean(text).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[’'`]/g, '').replace(/&/g, ' and ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  }
+  function namesMatch(a, b) {
+    const x = simplify(a), y = simplify(b);
+    return x.length > 2 && y.length > 2 && (x.includes(y) || y.includes(x));
+  }
+
+  // Adds a badge after each link to a closed restaurant in your guide text, and
+  // on the heading of that restaurant's section. Heading badges are drawn with
+  // CSS (not added as text), so tables of contents and map labels that read the
+  // heading text aren't affected.
   function addClosedBadges() {
     if (!closed.size) return;
-    document.querySelectorAll('.w-richtext a[href*="/restaurants/"], [data-vt-badges] a[href*="/restaurants/"]').forEach((link) => {
-      if (link.closest(IGNORE)) return;
-      const match = link.pathname.match(/^\/restaurants\/([^/?#]+)/);
-      const status = match && closed.get(match[1]);
-      if (!status || (link.nextElementSibling && link.nextElementSibling.classList.contains('vt-closed'))) return;
-      link.insertAdjacentElement('afterend', el('span', {
-        class: 'vt-ui vt-closed' + (/temporar/i.test(status) ? ' vt-closed-temp' : ''),
-        text: /temporar/i.test(status) ? 'Temporarily closed' : 'Closed',
-      }));
+    const roots = [...document.querySelectorAll('.w-richtext, [data-vt-badges]')].filter((root) => !root.closest(IGNORE));
+    roots.forEach((root) => {
+      let heading = null;
+      root.querySelectorAll('h1, h2, h3, h4, a[href*="/restaurants/"]').forEach((node) => {
+        if (/^H[1-4]$/.test(node.tagName)) { heading = node; return; }
+        const slug = slugFromLink(node);
+        const label = closedLabel(slug && closed.get(slug));
+        if (!label) return;
+
+        const inHeading = node.closest('h1, h2, h3, h4');
+        const target = inHeading || heading;
+        const name = closedNames.get(slug) || node.textContent;
+        if (target && target.tagName !== 'H1' && !target.hasAttribute('data-vt-closed-label')
+            && (inHeading || namesMatch(target.textContent, name))) {
+          target.setAttribute('data-vt-closed-label', label);
+        }
+
+        if (inHeading || (node.nextElementSibling && node.nextElementSibling.classList.contains('vt-closed'))) return;
+        node.insertAdjacentElement('afterend', el('span', {
+          class: 'vt-ui vt-closed' + (/temporar/i.test(label) ? ' vt-closed-temp' : ''),
+          text: label,
+        }));
+      });
     });
   }
 
@@ -948,17 +1057,22 @@
 .vt-empty-title{font-size:17px;font-weight:700;margin:0 0 6px}
 .vt-sign{position:fixed;inset:0;z-index:2147483001;display:flex;flex-direction:column;overflow:auto;background:var(--vt-sun);color:var(--vt-ink);padding:calc(14px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px))}
 .vt-sign-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.vt-sign-brand{display:flex;align-items:center;gap:10px;min-width:0}
+.vt-sign-logo{display:inline-grid;place-items:center;flex:none;width:42px;height:42px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.vt-sign-logo img{display:block;width:28px;height:28px;object-fit:contain}
+.vt-sign-name{font-size:15px;font-weight:700;line-height:1.2}
+.vt-sign-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
 .vt-sign-lang{padding:8px 10px;border:2px solid var(--vt-ink);border-radius:999px;background:transparent;color:var(--vt-ink);font:inherit;font-size:14px;font-weight:600}
 .vt-sign-hint{font-size:13px;opacity:.7;text-align:center}
 .vt-sign-done{padding:9px 18px;border:0;border-radius:999px;background:var(--vt-ink);color:var(--vt-sun);font:inherit;font-weight:700;cursor:pointer}
 .vt-sign-body{flex:1;display:flex;flex-direction:column;justify-content:center;width:100%;max-width:900px;margin:0 auto;padding:24px 0}
 .vt-sign-text{margin:0 0 22px;font-size:clamp(28px,7.2vw,64px);line-height:1.4;font-weight:800;white-space:pre-line}
 .vt-sign-en{margin:0;max-width:60ch;font-size:clamp(15px,3.6vw,20px);line-height:1.5;opacity:.75}
-.vt-sign-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.vt-sign-tab{padding:10px 16px;border:2px solid var(--vt-ink);border-radius:999px;background:transparent;color:var(--vt-ink);font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.vt-sign-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;max-width:720px;margin:0 auto}
+.vt-sign-tab{padding:10px 8px;border:2px solid var(--vt-ink);border-radius:999px;background:transparent;color:var(--vt-ink);font:inherit;font-size:14px;font-weight:600;line-height:1.2;cursor:pointer}
 .vt-sign-tab[aria-selected="true"]{background:var(--vt-ink);color:var(--vt-sun)}
 .vt-sign-note{max-width:60ch;margin:14px auto 0;font-size:13px;line-height:1.45;text-align:center;opacity:.8}
-@media (max-width:520px){.vt-sign-hint{display:none}}
+@media (max-width:520px){.vt-sign-hint{display:none}.vt-sign-name{font-size:13px}.vt-sign-tab{font-size:13px;padding:9px 6px}}
 .vt-price{display:inline;margin:0 .2em;padding:1px 8px;border:0;border-radius:999px;background:var(--vt-green-soft);color:var(--vt-green);font:inherit;font-size:.85em;font-weight:600;white-space:nowrap;cursor:pointer;vertical-align:baseline}
 .vt-price[hidden]{display:none}
 .vt-pop{position:absolute;z-index:2147483001;width:260px;padding:14px;border-radius:14px;background:var(--vt-paper);color:var(--vt-ink);box-shadow:0 12px 36px rgba(20,40,28,.22);font-size:14px}
@@ -968,6 +1082,9 @@
 .vt-pop-note a{color:inherit}
 .vt-closed{display:inline-block;margin:0 .35em;padding:1px 8px;border-radius:999px;background:#fcebeb;color:#7a1616;font-size:.8em;font-weight:600;line-height:1.5;vertical-align:baseline;white-space:nowrap}
 .vt-closed-temp{background:#faeeda;color:#633806}
+.vt-item .vt-closed{margin-left:8px;font-size:11px}
+[data-vt-closed-label]::after{content:attr(data-vt-closed-label);display:inline-block;margin-left:.5em;padding:3px 10px;border-radius:999px;background:#fcebeb;color:#7a1616;font-size:14px;font-weight:600;letter-spacing:0;line-height:1.4;text-transform:none;vertical-align:middle;white-space:nowrap}
+[data-vt-closed-label^="Temporarily"]::after{background:#faeeda;color:#633806}
 .vt-toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:2147483002;max-width:calc(100% - 32px);padding:10px 18px;border-radius:999px;background:var(--vt-ink);color:#fff;font-size:14px;opacity:0;transform:translate(-50%,12px);transition:opacity .2s,transform .2s;pointer-events:none}
 .vt-toast.vt-show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){.vt-ui,.vt-ui *,.vt-toast{transition:none!important}}
@@ -992,8 +1109,10 @@
     maps,
     vegColor,
     mapsLink,
+    mapsLabel,
     saved,
     statusOf,
+    closedLabel,
     phraseCard,
     ui: { el, toast, overlay, icons: ICON, dock },
     debug: DEBUG,
