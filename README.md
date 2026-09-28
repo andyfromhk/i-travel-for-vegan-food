@@ -16,7 +16,7 @@ Test checklists live in `docs/`.
 Each script is loaded with a line like this in Webflow's custom code:
 
 ```html
-<script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.1.0/core.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.1.1/core.min.js"></script>
 ```
 
 - `andyfromhk/i-travel-for-vegan-food` is this repository.
@@ -52,6 +52,12 @@ open the browser's developer tools (F12), and any error from these scripts appea
 Without that flag, the scripts stay silent.
 
 ## Changelog
+
+### core.js v1.1.1
+- Heading badges use the same font as the paragraph text (matching the badges next to links).
+- Restaurant pages refresh a reader's saved copy of that place, so places saved earlier pick up new details
+  such as the Google Map Share Link.
+- Webflow: the Restaurants template's `data-vt-maps` attribute is bound to the new **Google Map Share Link** field.
 
 ### core.js v1.1.0
 - Saved places open their actual Google Maps listing (searched by name and address) instead of a coordinate pin.

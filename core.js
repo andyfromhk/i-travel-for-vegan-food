@@ -10,7 +10,7 @@
  *      so those scripts don't each carry their own copy of the same code.
  *
  * Load it in Webflow: Site settings > Custom code > Footer code
- *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.1.0/core.min.js"></script>
+ *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.1.1/core.min.js"></script>
  *
  * Debugging: add ?vtdebug=1 to any page URL and errors are printed to the
  * browser console. Without it, the script stays silent.
@@ -27,7 +27,7 @@
   // ======================================================================
 
   const CONFIG = {
-    version: '1.1.0',
+    version: '1.1.1',
     siteUrl: 'https://www.itravelforveganfood.com',
     mapsKey: 'AIzaSyCUbR04ahKoF2uAcAEhAr7gkTAOkbgVUPE',
     mapId: '7ffd42eb279d407c',
@@ -468,6 +468,17 @@
       saved.changed();
     },
     clear() { storage.set('saved', []); saved.changed(); },
+
+    // Updates a saved place with the latest details (e.g. a newly added Google
+    // Maps link) without changing anything the reader did. Empty values are skipped.
+    refresh(item) {
+      const items = saved.list();
+      const index = items.findIndex((x) => x.id === item.id);
+      if (index === -1) return;
+      const fresh = Object.fromEntries(Object.entries(item).filter(([, value]) => value != null));
+      items[index] = Object.assign({}, items[index], fresh, { savedAt: items[index].savedAt });
+      storage.set('saved', items);
+    },
     onChange(fn) { listeners.add(fn); return () => listeners.delete(fn); },
 
     // Called after every change, here or in another open tab.
@@ -666,6 +677,7 @@
       chain: isChain,
     };
 
+    saved.refresh(item);
     const button = saved.button(item);
     const slot = document.querySelector('[data-vt-save-slot]');
     if (slot) slot.appendChild(button);
@@ -1083,13 +1095,16 @@
 .vt-closed{display:inline-block;margin:0 .35em;padding:1px 8px;border-radius:999px;background:#fcebeb;color:#7a1616;font-size:.8em;font-weight:600;line-height:1.5;vertical-align:baseline;white-space:nowrap}
 .vt-closed-temp{background:#faeeda;color:#633806}
 .vt-item .vt-closed{margin-left:8px;font-size:11px}
-[data-vt-closed-label]::after{content:attr(data-vt-closed-label);display:inline-block;margin-left:.5em;padding:3px 10px;border-radius:999px;background:#fcebeb;color:#7a1616;font-size:14px;font-weight:600;letter-spacing:0;line-height:1.4;text-transform:none;vertical-align:middle;white-space:nowrap}
+[data-vt-closed-label]::after{content:attr(data-vt-closed-label);font-family:var(--vt-text-font,sans-serif);display:inline-block;margin-left:.5em;padding:3px 10px;border-radius:999px;background:#fcebeb;color:#7a1616;font-size:14px;font-weight:600;letter-spacing:0;line-height:1.4;text-transform:none;vertical-align:middle;white-space:nowrap}
 [data-vt-closed-label^="Temporarily"]::after{background:#faeeda;color:#633806}
 .vt-toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:2147483002;max-width:calc(100% - 32px);padding:10px 18px;border-radius:999px;background:var(--vt-ink);color:#fff;font-size:14px;opacity:0;transform:translate(-50%,12px);transition:opacity .2s,transform .2s;pointer-events:none}
 .vt-toast.vt-show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){.vt-ui,.vt-ui *,.vt-toast{transition:none!important}}
 `;
     document.head.appendChild(el('style', { id: 'vt-core-styles', text: css }));
+    // Heading badges use the same font as your paragraph text, like the badges next to links.
+    const sample = document.querySelector('.w-richtext p') || document.body;
+    document.documentElement.style.setProperty('--vt-text-font', getComputedStyle(sample).fontFamily);
   }
 
   // ======================================================================
