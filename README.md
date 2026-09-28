@@ -7,7 +7,7 @@ Scripts that add traveller features to itravelforveganfood.com. They are served 
 |---|---|---|
 | `core.js` | Every page | Saved places, vegan phrase card, price converter, closed badges, image captions, back button, and the shared toolbox (`window.VT`) the other scripts use |
 | `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, the interactive map guide, Save buttons, "Save this guide", "My location" with Directions, and Google Maps directions for each leg of a route |
-| `destination.js` | Destinations template | The fullscreen restaurant map (markers, tooltips, locate icon, Finsweet filters), Save hearts, the "Saved" filter and "Near me" sorting |
+| `destination.js` | Destinations template | The fullscreen restaurant map (markers, tooltips that open the restaurant page, locate icon, Finsweet filters), Save hearts on the map list and the page's restaurant grid, your "Saved" tag and your "Distance from Me" sort option |
 
 Test checklists live in `docs/`, along with `writing-guide.md`, which explains the tip box and divider shortcuts.
 
@@ -36,7 +36,7 @@ tag, and each file has its own version number written at the top of the file.
 |---|---|---|
 | Site settings > Footer | `@v1.3.0/core.min.js` | core.js 1.2.0 |
 | Articles and Map Guides templates | `@v1.5.0/guide.min.js` | guide.js 1.2.1 |
-| Destinations template | `@v1.5.0/destination.min.js` | destination.js 1.0.0 |
+| Destinations template | `@v1.6.0/destination.min.js` | destination.js 1.1.0 |
 
 You only change a script line when that script changes. For example, v1.2.0 contained core.js 1.1.1 unchanged, so
 the core line stayed at `@v1.1.1` until core itself changed in v1.3.0.
@@ -66,6 +66,14 @@ open the browser's developer tools (F12), and any error from these scripts appea
 Without that flag, the scripts stay silent.
 
 ## Changelog
+
+### destination.js v1.1.0 (release v1.6.0)
+- Uses your own elements instead of adding buttons: the "Distance from Me" sort option (optional
+  `data-vt-sort="distance"`) and the "Saved" tag (`.destination-saved-toggle`, gets a heart, a count and `is-active`).
+- "Distance from Me" updates the Sort label, re-sorts from your current position when chosen again, hands back to
+  Finsweet when another option is chosen, and restores the label if location isn't available.
+- Save hearts on the restaurant grid under "Open map" (beside each card link, over the photo's top-right corner).
+- Tapping a map tooltip opens the restaurant page in a new tab (the tooltip's heart still just saves).
 
 ### destination.js v1.0.0 and guide.js v1.2.1 (release v1.5.0)
 - destination.js replaces the old destination map script and its Google Maps line. Same behaviour: fullscreen
