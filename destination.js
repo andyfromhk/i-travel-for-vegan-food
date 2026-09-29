@@ -17,7 +17,7 @@
  *   5. Tapping a marker's tooltip opens that restaurant's page in a new tab.
  *
  * Load it on the Destinations template: Page settings > Custom code > Before </body> tag
- *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.6.0/destination.min.js"></script>
+ *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.6.1/destination.min.js"></script>
  *
  * Debugging: add ?vtdebug=1 to the page address to see errors in the console.
  */
@@ -25,7 +25,7 @@
   'use strict';
 
   if (window.VTDestination) return;
-  window.VTDestination = { version: '1.1.0' };
+  window.VTDestination = { version: '1.1.1' };
 
   const DEBUG = /[?&]vtdebug=1/.test(location.search);
   function guard(name, fn) {
@@ -304,7 +304,7 @@
 
     function activateCard(p, scroll) {
       p.card.classList.add('active');
-      p.card.style.border = '2px solid ' + p.color;
+      p.card.style.border = '1.5px solid ' + p.color;
       p.card.style.borderRadius = '4px';
       if (scroll) p.card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -605,6 +605,8 @@
 .vt-toggle-heart{display:inline-flex;line-height:0}
 .vt-toggle-heart svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .vt-toggle-count[hidden]{display:none!important}
+.destination-saved-toggle .vt-toggle-count,[data-vt-saved-toggle] .vt-toggle-count{background:#333;color:#fff}
+.destination-saved-toggle.is-active .vt-toggle-count,[data-vt-saved-toggle].is-active .vt-toggle-count{background:#fff;color:#5a8707}
 :where(.destination-saved-toggle.is-active,[data-vt-saved-toggle].is-active){background-color:#fbe9ef;border-color:#b83a5b;color:#b83a5b}
 .is-active > .vt-toggle-heart svg{fill:currentColor}
 [aria-current="true"].vt-busy{opacity:.6}
@@ -615,7 +617,7 @@
 .restaurant-list.vt-saved-only > :not(.vt-is-saved){display:none!important}
 .vt-card-distance{color:#1a73e8;font-size:.8rem;font-weight:600;white-space:nowrap}
 #map-wrapper .map-marker{position:relative}
-#map-wrapper .map-marker.vt-saved::after{content:"";position:absolute;top:-5px;right:-5px;width:10px;height:10px;border:2px solid #fff;border-radius:50%;background:#b83a5b}
+#map-wrapper .map-marker.vt-saved::after{content:"";position:absolute;top:-9px;right:-10px;width:15px;height:15px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z' fill='%23b83a5b' stroke='%23fff' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 1px 1px rgba(0,0,0,.3));pointer-events:none}
 #map-wrapper .vt-tip-title{display:flex;align-items:center;justify-content:center;gap:8px}
 #map-wrapper .vt-tip-save{width:28px;height:28px;box-shadow:none;border:1px solid #e3e3e3}
 #map-wrapper .vt-tip-save svg{width:15px;height:15px}

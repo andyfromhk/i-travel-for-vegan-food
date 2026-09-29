@@ -9,7 +9,11 @@ Scripts that add traveller features to itravelforveganfood.com. They are served 
 | `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, the interactive map guide, Save buttons, "Save this guide", "My location" with Directions, and Google Maps directions for each leg of a route |
 | `destination.js` | Destinations template | The fullscreen restaurant map (markers, tooltips that open the restaurant page, locate icon, Finsweet filters), Save hearts on the map list and the page's restaurant grid, your "Saved" tag and your "Distance from Me" sort option |
 
-Test checklists live in `docs/`, along with `writing-guide.md`, which explains the tip box and divider shortcuts.
+Test checklists live in `docs/`, along with:
+
+- `writing-guide.md`: the tip box and divider shortcuts
+- `email-my-list-setup.md`: the accounts and keys to set up before the "Email me my list" feature is built
+- `astro-migration-brief.md`: the brief for Claude Code for moving the site to Astro and Cloudflare Pages
 
 ## How the website loads a script
 
@@ -36,7 +40,7 @@ tag, and each file has its own version number written at the top of the file.
 |---|---|---|
 | Site settings > Footer | `@v1.3.0/core.min.js` | core.js 1.2.0 |
 | Articles and Map Guides templates | `@v1.5.0/guide.min.js` | guide.js 1.2.1 |
-| Destinations template | `@v1.6.0/destination.min.js` | destination.js 1.1.0 |
+| Destinations template | `@v1.6.1/destination.min.js` | destination.js 1.1.1 |
 
 You only change a script line when that script changes. For example, v1.2.0 contained core.js 1.1.1 unchanged, so
 the core line stayed at `@v1.1.1` until core itself changed in v1.3.0.
@@ -66,6 +70,11 @@ open the browser's developer tools (F12), and any error from these scripts appea
 Without that flag, the scripts stay silent.
 
 ## Changelog
+
+### destination.js v1.1.1 (release v1.6.1)
+- Saved places show a red heart on their map marker instead of a dot.
+- The Saved tag's count is white on #333 when off, green on white when on.
+- The active card border is 1.5px (was 2px).
 
 ### destination.js v1.1.0 (release v1.6.0)
 - Uses your own elements instead of adding buttons: the "Distance from Me" sort option (optional
