@@ -34,7 +34,7 @@
     // Kit tag given to everyone who ticks "Also send me new guides".
     "KIT_OPTIN_TAG_ID": "24152685",
     // Logo at the top of the email. A PNG works in every email program (WebP doesn't show in desktop Outlook).
-    "LOGO_URL": "https://cdn.prod.website-files.com/60cbefb367e06dd6b12c5204/683d12c3ba958d15096befc9_i-travel-for-vegan-food-square-logo.webp"
+    "LOGO_URL": "https://cdn.prod.website-files.com/60cbefb367e06dd6b12c5204/6abe1f24f3c6b7459ce4d6fc_itfvf-logo.png"
   },
 
   "observability": { "enabled": true }
