@@ -5,14 +5,16 @@ Scripts that add traveller features to itravelforveganfood.com. They are served 
 
 | File | Loaded on | What it does |
 |---|---|---|
-| `core.js` | Every page | Saved places, vegan phrase card, price converter, closed badges, image captions, back button, and the shared toolbox (`window.VT`) the other scripts use |
+| `core.js` | Every page | Saved places (with "Email me my list"), vegan phrase card, price converter, closed badges, image captions, back button, and the shared toolbox (`window.VT`) the other scripts use |
 | `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, the interactive map guide, Save buttons, "Save this guide", "My location" with Directions, and Google Maps directions for each leg of a route |
 | `destination.js` | Destinations template | The fullscreen restaurant map (markers, tooltips that open the restaurant page, locate icon, Finsweet filters), Save hearts on the map list and the page's restaurant grid, your "Saved" tag and your "Distance from Me" sort option |
+| `worker/` | Cloudflare (not the website) | The "Email me my list" Worker at `api.itravelforveganfood.com`: checks each request, sends the list with Cloudflare Email Sending, and adds opt-ins to Kit. Deployed from GitHub automatically |
 
 Test checklists live in `docs/`, along with:
 
 - `writing-guide.md`: the tip box and divider shortcuts
-- `email-my-list-setup.md`: the accounts and keys to set up before the "Email me my list" feature is built
+- `email-my-list-setup.md`: the accounts and keys set up for the "Email me my list" feature
+- `email-checklist.md`: deploying and testing the Worker and the email form
 - `astro-migration-brief.md`: the brief for Claude Code for moving the site to Astro and Cloudflare Pages
 
 ## How the website loads a script
@@ -38,7 +40,7 @@ tag, and each file has its own version number written at the top of the file.
 
 | Where in Webflow | Script line uses | File version inside |
 |---|---|---|
-| Site settings > Footer | `@v1.3.0/core.min.js` | core.js 1.2.0 |
+| Site settings > Footer | `@v1.7.0/core.min.js` | core.js 1.3.0 |
 | Articles and Map Guides templates | `@v1.5.0/guide.min.js` | guide.js 1.2.1 |
 | Destinations template | `@v1.6.1/destination.min.js` | destination.js 1.1.1 |
 
@@ -70,6 +72,16 @@ open the browser's developer tools (F12), and any error from these scripts appea
 Without that flag, the scripts stay silent.
 
 ## Changelog
+
+### core.js v1.3.0 and the email Worker v1.0.0 (release v1.7.0)
+- "Email me my list" in the Saved drawer: email field, an unticked newsletter box, an invisible Turnstile bot check,
+  and friendly messages for every outcome. The address is remembered on the reader's device only.
+- New `worker/`: accepts requests only from your site, cleans everything it's sent (only your own pages and Google
+  Maps links can appear in emails), rate limits, verifies Turnstile, sends with Cloudflare Email Sending (locked to
+  `hello@`, which also receives replies), and adds opt-ins to Kit with `Saved list` and per-city tags.
+- The email: saved guides first, then a book block for Japan, Hong Kong, Taiwan or Thailand (linking to Gumroad),
+  then places grouped by city with pill-button links to Google Maps and restaurant pages, closed badges, and a
+  plain-text version.
 
 ### destination.js v1.1.1 (release v1.6.1)
 - Saved places show a red heart on their map marker instead of a dot.

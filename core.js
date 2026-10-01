@@ -10,7 +10,7 @@
  *      so those scripts don't each carry their own copy of the same code.
  *
  * Load it in Webflow: Site settings > Custom code > Footer code
- *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.3.0/core.min.js"></script>
+ *   <script defer src="https://cdn.jsdelivr.net/gh/andyfromhk/i-travel-for-vegan-food@v1.7.0/core.min.js"></script>
  *
  * Debugging: add ?vtdebug=1 to any page URL and errors are printed to the
  * browser console. Without it, the script stays silent.
@@ -27,7 +27,7 @@
   // ======================================================================
 
   const CONFIG = {
-    version: '1.2.0',
+    version: '1.3.0',
     siteUrl: 'https://www.itravelforveganfood.com',
     mapsKey: 'AIzaSyCUbR04ahKoF2uAcAEhAr7gkTAOkbgVUPE',
     mapId: '7ffd42eb279d407c',
@@ -35,12 +35,18 @@
       name: 'I Travel For Vegan Food',
       logo: 'https://cdn.prod.website-files.com/60cbefb367e06dd6b12c5204/683d12c3ba958d15096befc9_i-travel-for-vegan-food-square-logo.webp',
     },
+    // "Email me my list": the Worker's address and the Turnstile (bot check) site key.
+    emailList: {
+      endpoint: 'https://api.itravelforveganfood.com/email-list',
+      turnstileSiteKey: '0x4AAAAAAFKLtViiyoSQMH3g',
+    },
     ratesUrl: 'https://open.er-api.com/v6/latest/USD',
     ratesMaxAgeHours: 12,
     storagePrefix: 'itfvf:',
     // Turn any feature off by setting it to false.
     features: {
       savedPlaces: true,
+      emailList: true,
       phraseCard: true,
       prices: true,
       closedBadges: true,
@@ -189,6 +195,7 @@
     pin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
     page: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>',
     back: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
   };
 
   // ======================================================================
@@ -531,7 +538,10 @@
     const closeButton = el('button', { type: 'button', class: 'vt-link', text: 'Close', onclick: () => overlay.close() });
     const list = el('div', { class: 'vt-drawer-list' });
     const footer = el('div', { class: 'vt-drawer-foot' });
-    if (navigator.share) footer.appendChild(el('button', { type: 'button', class: 'vt-btn', text: 'Share list', onclick: shareList }));
+    if (CONFIG.features.emailList) {
+      footer.appendChild(el('button', { type: 'button', class: 'vt-btn', html: ICON.mail + '<span>Email me my list</span>', onclick: () => showEmailForm(drawer) }));
+    }
+    if (navigator.share) footer.appendChild(el('button', { type: 'button', class: 'vt-btn' + (CONFIG.features.emailList ? ' vt-btn-ghost' : ''), text: 'Share list', onclick: shareList }));
     footer.appendChild(el('button', { type: 'button', class: 'vt-btn vt-btn-ghost', text: 'Copy list', onclick: () => copyText(listAsText()) }));
     footer.appendChild(el('button', {
       type: 'button', class: 'vt-link vt-push', text: 'Clear all',
@@ -639,6 +649,136 @@
     };
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
     else fallback();
+  }
+
+  // "Email me my list": a small form inside the Saved drawer. It sends the list to your
+  // Worker (api.itravelforveganfood.com), which emails it to the reader. A Cloudflare Turnstile
+  // check (usually invisible) proves it's a person, not a spam robot.
+  const EMAIL_MESSAGES = {
+    invalid_email: "That email address doesn't look quite right.",
+    address: "We couldn't send to that address. Please check it and try again.",
+    bot_check: "We couldn't confirm you're not a robot. Please try again.",
+    rate_limited: 'You just sent a list. Please wait a minute before sending another.',
+    busy: "We're sending a lot of lists right now. Please try again a little later.",
+    empty: 'Your list is empty. Save some places first.',
+    network: "Couldn't reach our server. Please check your connection and try again.",
+    server: 'Something went wrong on our side. Please try again in a moment.',
+  };
+
+  let turnstileLoading = null;
+  function loadTurnstile() {
+    if (window.turnstile) return Promise.resolve(window.turnstile);
+    if (!turnstileLoading) {
+      turnstileLoading = new Promise((resolve, reject) => {
+        const script = el('script', { src: 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit', async: true });
+        script.onload = () => resolve(window.turnstile);
+        script.onerror = () => { turnstileLoading = null; reject(new Error('Turnstile could not load')); };
+        document.head.appendChild(script);
+      });
+    }
+    return turnstileLoading;
+  }
+
+  // Only what the email needs. The Worker checks and cleans all of it again.
+  function emailItems() {
+    return saved.list().map((item) => ({
+      kind: item.kind === 'guide' ? 'guide' : 'place',
+      name: item.name,
+      destination: item.destination || null,
+      area: item.area || null,
+      address: item.address || null,
+      mapsUrl: item.mapsUrl || null,
+      page: item.page || null,
+      from: item.from || null,
+      chain: !!item.chain,
+      status: item.kind === 'guide' ? null : closedLabel(statusOf(slugOf(item))),
+    }));
+  }
+
+  function showEmailForm(drawer) {
+    const list = drawer.querySelector('.vt-drawer-list');
+    const footer = drawer.querySelector('.vt-drawer-foot');
+    const panel = el('div', { class: 'vt-email' });
+    list.hidden = true;
+    footer.hidden = true;
+    drawer.querySelector('.vt-drawer-head').insertAdjacentElement('afterend', panel);
+
+    const close = () => {
+      if (window.turnstile && widgetId != null) { try { window.turnstile.remove(widgetId); } catch (e) { /* gone */ } }
+      panel.remove();
+      list.hidden = false;
+      footer.hidden = !saved.list().length;
+    };
+
+    const input = el('input', { type: 'email', id: 'vt-email-address', class: 'vt-input', autocomplete: 'email', inputmode: 'email', placeholder: 'you@example.com' });
+    input.value = storage.get('email', '') || '';
+    const optIn = el('input', { type: 'checkbox', id: 'vt-email-optin' });
+    const widget = el('div', { class: 'vt-turnstile' });
+    const status = el('p', { class: 'vt-email-status', role: 'status', 'aria-live': 'polite' });
+    const send = el('button', { type: 'submit', class: 'vt-btn', html: ICON.mail + '<span>Send my list</span>' });
+    const back = el('button', { type: 'button', class: 'vt-link', text: 'Back to my list', onclick: close });
+    const form = el('form', { class: 'vt-email-form', novalidate: true }, [
+      el('div', { class: 'vt-email-title', text: 'Email me my list' }),
+      el('p', { class: 'vt-email-intro', text: "Get your saved places and guides in your inbox, with Google Maps links, so they're handy on your trip." }),
+      el('label', { class: 'vt-email-label', for: 'vt-email-address', text: 'Your email address' }),
+      input,
+      el('label', { class: 'vt-email-check', for: 'vt-email-optin' }, [optIn, el('span', { text: 'Also send me new vegan guides for these places (occasional emails, unsubscribe any time)' })]),
+      widget,
+      el('div', { class: 'vt-email-actions' }, [send, back]),
+      status,
+      el('p', { class: 'vt-email-small', text: 'We only use your email to send this list, and our newsletter if you tick the box.' }),
+    ]);
+    panel.appendChild(form);
+    input.focus();
+
+    const setStatus = (text, isError) => { status.textContent = text; status.classList.toggle('vt-error', !!isError); };
+    const busy = (on) => { send.disabled = on; send.querySelector('span').textContent = on ? 'Sending…' : 'Send my list'; };
+
+    // The bot check runs quietly in the background and only asks for a click if it's unsure.
+    let token = '';
+    let widgetId = null;
+    let waiting = null;
+    loadTurnstile().then((turnstile) => {
+      if (!panel.isConnected) return;
+      widgetId = turnstile.render(widget, {
+        sitekey: CONFIG.emailList.turnstileSiteKey,
+        appearance: 'interaction-only',
+        callback: (t) => { token = t; if (waiting) { const done = waiting; waiting = null; done(); } },
+        'expired-callback': () => { token = ''; },
+        'error-callback': () => { token = ''; },
+      });
+    }).catch(() => setStatus(EMAIL_MESSAGES.network, true));
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = input.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setStatus(EMAIL_MESSAGES.invalid_email, true); input.focus(); return; }
+      busy(true);
+      setStatus('');
+      if (!token) await new Promise((resolve) => { waiting = resolve; setTimeout(resolve, 10000); });
+      if (!token) { busy(false); setStatus(EMAIL_MESSAGES.bot_check, true); return; }
+      let result = {};
+      try {
+        const response = await fetch(CONFIG.emailList.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, optIn: optIn.checked, token, items: emailItems() }),
+        });
+        result = await response.json().catch(() => ({ ok: false, code: 'server' }));
+      } catch (e) {
+        result = { ok: false, code: 'network' };
+      }
+      token = ''; // each check can only be used once
+      if (window.turnstile && widgetId != null) { try { window.turnstile.reset(widgetId); } catch (e) { /* ignore */ } }
+      busy(false);
+      if (!result.ok) { setStatus(EMAIL_MESSAGES[result.code] || EMAIL_MESSAGES.server, true); return; }
+      storage.set('email', email); // remembered on this device only, to fill in the form next time
+      form.replaceWith(el('div', { class: 'vt-email-sent' }, [
+        el('div', { class: 'vt-email-sent-title', text: 'Sent!' }),
+        el('p', { text: 'Your list is on its way to ' + email + '. If you can\'t see it in a few minutes, check your spam folder.' }),
+        el('button', { type: 'button', class: 'vt-btn vt-btn-ghost', text: 'Back to my list', onclick: close }),
+      ]));
+    });
   }
 
   // Save button on restaurant pages. It reads the attributes you add to the
@@ -1067,6 +1207,25 @@
 .vt-drawer-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:14px 20px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--vt-line)}
 .vt-empty{padding:40px 8px;text-align:center;font-size:15px;line-height:1.5;opacity:.85}
 .vt-empty-title{font-size:17px;font-weight:700;margin:0 0 6px}
+.vt-drawer-list[hidden]{display:none}
+.vt-email{flex:1;overflow:auto;padding:18px 20px 24px}
+.vt-email-title{font-size:17px;font-weight:700;margin-bottom:6px}
+.vt-email-intro{margin:0 0 16px;font-size:14px;line-height:1.5;opacity:.85}
+.vt-email-label{display:block;margin-bottom:6px;font-size:13px;font-weight:600}
+.vt-input{width:100%;padding:11px 12px;border:1.5px solid var(--vt-line);border-radius:10px;background:#fff;color:var(--vt-ink);font:inherit;font-size:16px}
+.vt-input:focus{outline:none;border-color:var(--vt-green)}
+.vt-email-check{display:flex;align-items:flex-start;gap:10px;margin:14px 0;font-size:13px;line-height:1.45;cursor:pointer}
+.vt-email-check input{flex:none;width:18px;height:18px;margin:1px 0 0;accent-color:var(--vt-green)}
+.vt-turnstile{margin:4px 0 12px}
+.vt-turnstile:empty{margin:0}
+.vt-email-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.vt-btn[disabled]{opacity:.6;cursor:wait}
+.vt-email-status{margin:12px 0 0;font-size:14px;line-height:1.45}
+.vt-email-status:empty{display:none}
+.vt-email-status.vt-error{color:#7a1616}
+.vt-email-small{margin:14px 0 0;font-size:12px;line-height:1.45;opacity:.65}
+.vt-email-sent{padding:30px 6px;text-align:center;font-size:15px;line-height:1.5}
+.vt-email-sent-title{margin-bottom:6px;font-size:20px;font-weight:700;color:var(--vt-green)}
 .vt-sign{position:fixed;inset:0;z-index:2147483001;display:flex;flex-direction:column;overflow:auto;background:var(--vt-sun);color:var(--vt-ink);padding:calc(14px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px))}
 .vt-sign-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .vt-sign-brand{display:flex;align-items:center;gap:10px;min-width:0}

@@ -1,0 +1,41 @@
+// Settings for the "Email me my list" Worker.
+// Edit the values under "vars" here (not in the Cloudflare dashboard): each push to GitHub redeploys
+// the Worker with exactly these settings. Secrets (KIT_API_KEY, TURNSTILE_SECRET) are added once in the
+// dashboard and are kept between deploys.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "itfvf-email-list",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-15",
+
+  // The Worker's address. Deploying creates the DNS record and certificate automatically.
+  "routes": [{ "pattern": "api.itravelforveganfood.com", "custom_domain": true }],
+
+  // Cloudflare Email Sending. This binding may only send FROM the address listed here.
+  // If you change FROM_EMAIL below, change it here too.
+  "send_email": [
+    { "name": "EMAIL", "allowed_sender_addresses": ["hello@itravelforveganfood.com"] }
+  ],
+
+  // Rate limits: 5 sends a minute per visitor, 2 a minute per email address.
+  "ratelimits": [
+    { "name": "LIMIT_BY_VISITOR", "namespace_id": "4101", "simple": { "limit": 5, "period": 60 } },
+    { "name": "LIMIT_BY_RECIPIENT", "namespace_id": "4102", "simple": { "limit": 2, "period": 60 } }
+  ],
+
+  "vars": {
+    "FROM_EMAIL": "hello@itravelforveganfood.com",
+    "FROM_NAME": "I Travel For Vegan Food",
+    // Where replies go. Same as the "from" address; change it if you ever want replies to go elsewhere.
+    "REPLY_TO": "hello@itravelforveganfood.com",
+    "SITE_URL": "https://www.itravelforveganfood.com",
+    // Websites allowed to use this Worker (comma-separated). Add the new Astro site's addresses here later.
+    "ALLOWED_ORIGINS": "https://www.itravelforveganfood.com,https://itravelforveganfood.com,https://itravelforveganfood.webflow.io",
+    // Kit tag given to everyone who ticks "Also send me new guides".
+    "KIT_OPTIN_TAG_ID": "24152685",
+    // Logo at the top of the email. A PNG works in every email program (WebP doesn't show in desktop Outlook).
+    "LOGO_URL": "https://cdn.prod.website-files.com/60cbefb367e06dd6b12c5204/683d12c3ba958d15096befc9_i-travel-for-vegan-food-square-logo.webp"
+  },
+
+  "observability": { "enabled": true }
+}
