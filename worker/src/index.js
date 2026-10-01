@@ -4,11 +4,13 @@
 //   { email, optIn, token, items: [...] }   (sent by core.js from the Saved drawer)
 //
 // Steps: only your website may call it -> check and clean the request -> rate limits ->
-// Turnstile bot check -> send the email -> (if they ticked the box) add them to Kit.
+// Turnstile bot check -> fill in each restaurant's links from your CMS -> send the email ->
+// (if they ticked the box) add them to Kit.
 // Replies are always { ok: true } or { ok: false, code } so the website can show a friendly message.
 
 import { readRequest } from './validate.js';
-import { renderEmail, groupItems } from './email.js';
+import { renderEmail, citiesIn } from './email.js';
+import { addCmsLinks } from './lookup.js';
 import { optIn } from './kit.js';
 
 const allowedOrigins = (env) => String(env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
@@ -87,7 +89,9 @@ export default {
     const allowedHosts = allowed.map((o) => { try { return new URL(o).hostname; } catch (e) { return ''; } });
     if (!(await isHuman(input.token, ip, env, allowedHosts))) return reply({ ok: false, code: 'bot_check' }, 400, headers);
 
-    const email = renderEmail(input.items, { siteUrl: env.SITE_URL, logoUrl: env.LOGO_URL, optedIn: input.optIn, truncated: input.truncated });
+    // Each restaurant's Google Map Share Link (and a chain's store locator) from its page on your site.
+    const items = await addCmsLinks(input.items, env);
+    const email = renderEmail(items, { siteUrl: env.SITE_URL, logoUrl: env.LOGO_URL, optedIn: input.optIn, truncated: input.truncated });
     try {
       await env.EMAIL.send({
         to: input.email,
@@ -104,7 +108,7 @@ export default {
     }
 
     if (input.optIn) {
-      const cities = groupItems(input.items).places.map(([city]) => city).filter((c) => c !== 'Other places');
+      const cities = citiesIn(items); // cities of saved places and guides, e.g. "Saved: Tokyo"
       // Runs after the reply, so the reader isn't kept waiting for Kit.
       ctx.waitUntil(optIn(env, input.email, cities).catch((e) => console.error('Kit opt-in failed:', e.message)));
     }

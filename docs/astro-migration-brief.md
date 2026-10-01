@@ -127,6 +127,11 @@ reproduce Webflow's markup just to keep them running (unless Andy chooses the fa
   `LOGO_URL` at the logo on the new site (it currently uses Webflow's CDN). Keep the Saved drawer's
   "Email me my list" form working: it POSTs `{ email, optIn, token, items }` to
   `https://api.itravelforveganfood.com/email-list` with a Turnstile token (site key in `core.js`).
+  **The Worker reads each restaurant's page** (`/restaurants/{slug}`) to get its Google Map Share Link and, for
+  chains, its Store Locator link. On the new site, keep these attributes on each restaurant page (or switch the
+  Worker to another source, such as a small JSON file the build generates, and tell Andy):
+  `data-vt-maps` (Google Map Share Link), `data-vt-locator` (Store Locator), and an element with `data-vt-chain`
+  that's present only for chains.
 
 ### Rich text conventions you'll meet during conversion
 

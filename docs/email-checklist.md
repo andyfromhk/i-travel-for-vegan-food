@@ -1,5 +1,39 @@
 # "Email me my list": deploy and test checklist
 
+## Updating the Worker to v1.1.0 (you are here)
+
+What's new:
+- **Google Maps** now always uses each restaurant's **Google Map Share Link** from your CMS. The Worker reads it from
+  the restaurant's page on your site (the `data-vt-maps` attribute you added), so it works no matter where the
+  reader saved the place. Chains' **Find a location** opens their **Store Locator** link the same way.
+- The email is arranged **by place**: each country's book first, then each city with its guides before its
+  restaurants. Guides without a city come at the end.
+- **Book covers** in the book blocks, and a plain **white** layout with a wider text area.
+
+Steps:
+1. [ ] Download the new `i-travel-for-vegan-food.zip` and unzip it. On GitHub, **Add file > Upload files**, drag in
+       the `worker` folder (it now has a new file, `src/lookup.js`), `README.md` and the `docs` folder, then commit.
+2. [ ] That's all for the Worker: pushing to GitHub redeploys it automatically. (Optionally, create a release tagged
+       `v1.8.0` to keep your history tidy. Your website's script lines don't change.)
+3. [ ] **Logo:** once you have the PNG logo's link, put it in `LOGO_URL` in `worker/wrangler.jsonc` (or send it to me).
+4. [ ] Test by emailing yourself a list with places and guides from two countries, for example Tokyo and Bangkok:
+   - [ ] The order is: Japan book, Tokyo guides, Tokyo places, then the next city, then the Thailand book, and so on.
+   - [ ] **Google Maps** on a restaurant opens its Google Map Share Link, even for a place saved from a destination
+         page or an article.
+   - [ ] A chain's **Find a location** opens its store locator.
+   - [ ] The book blocks show the covers.
+   - [ ] The email is white throughout, with no green background.
+
+Good to know:
+- The first email with a lot of restaurants can take a second or two longer while their pages are looked up.
+  Each restaurant's links are then remembered for a day.
+- A restaurant with no Google Map Share Link in the CMS still gets a Google Maps search for its name and address.
+- If you change a restaurant's share link, emails pick it up within a day.
+
+---
+
+# First-time setup (done)
+
 This release adds the **Worker** (in the `worker/` folder) and **core.js v1.3.0**, which adds "Email me my list" to
 the Saved drawer. Nothing changes on your live site until Part E.
 

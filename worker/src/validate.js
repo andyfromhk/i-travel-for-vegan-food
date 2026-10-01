@@ -58,7 +58,9 @@ function cleanItem(raw) {
   if (raw.kind === 'guide') {
     const page = matchPath(raw.page, GUIDE_PAGE);
     const name = cleanText(raw.name, 140);
-    return page && name ? { kind: 'guide', name, page } : null;
+    // The guide's city places it with that city's restaurants in the email.
+    const destination = DESTINATIONS[raw.destination] ? raw.destination : null;
+    return page && name ? { kind: 'guide', name, page, destination } : null;
   }
   const name = cleanText(raw.name, 100);
   if (!name) return null;

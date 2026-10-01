@@ -8,7 +8,7 @@ Scripts that add traveller features to itravelforveganfood.com. They are served 
 | `core.js` | Every page | Saved places (with "Email me my list"), vegan phrase card, price converter, closed badges, image captions, back button, and the shared toolbox (`window.VT`) the other scripts use |
 | `guide.js` | Articles and Map Guides templates | Tip boxes and dividers (old codes and new shortcuts), table of contents, image pairs, the interactive map guide, Save buttons, "Save this guide", "My location" with Directions, and Google Maps directions for each leg of a route |
 | `destination.js` | Destinations template | The fullscreen restaurant map (markers, tooltips that open the restaurant page, locate icon, Finsweet filters), Save hearts on the map list and the page's restaurant grid, your "Saved" tag and your "Distance from Me" sort option |
-| `worker/` | Cloudflare (not the website) | The "Email me my list" Worker at `api.itravelforveganfood.com`: checks each request, sends the list with Cloudflare Email Sending, and adds opt-ins to Kit. Deployed from GitHub automatically |
+| `worker/` | Cloudflare (not the website) | The "Email me my list" Worker at `api.itravelforveganfood.com`: checks each request, looks up each restaurant's CMS links from its page, sends the list with Cloudflare Email Sending, and adds opt-ins to Kit. Deployed from GitHub automatically |
 
 Test checklists live in `docs/`, along with:
 
@@ -72,6 +72,15 @@ open the browser's developer tools (F12), and any error from these scripts appea
 Without that flag, the scripts stay silent.
 
 ## Changelog
+
+### Email Worker v1.1.0 (release v1.8.0)
+- Google Maps buttons use each restaurant's Google Map Share Link from the CMS, read from the restaurant's own page
+  (`data-vt-maps`), whatever page the reader saved it from. Chains use the Store Locator link (`data-vt-locator`,
+  with the `data-vt-chain` marker). Looked-up links are remembered for a day; a slow or missing page never stops
+  the email.
+- The email is arranged by place: each country's book block (now with its cover), then each city with its guides
+  before its places. Guides without a city come last as "More guides".
+- White layout with a wider text area (no light green background). Kit city tags now include saved guides' cities.
 
 ### core.js v1.3.0 and the email Worker v1.0.0 (release v1.7.0)
 - "Email me my list" in the Saved drawer: email field, an unticked newsletter box, an invisible Turnstile bot check,
