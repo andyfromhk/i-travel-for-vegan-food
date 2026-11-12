@@ -34,8 +34,6 @@ const size = mediaSize(data.image?.src);
     >
       <div class="place-card_visual">
         {data.image && <img class="place-card_image" src={data.image.src} alt={data.image.alt ?? ""} loading={loading} decoding="async" {...size} />}
-        {/* The save (heart) button is added here by the saved-places script. */}
-        <span class="place-card_save" data-save-slot />
       </div>
       <div class="place-card_content">
         <div class="place-card_meta">
@@ -106,13 +104,6 @@ const size = mediaSize(data.image?.src);
       width: 100%;
       height: 100%;
       transition: scale calc(var(--hover-duration) * 2) var(--hover-ease);
-    }
-
-    .place-card_save {
-      position: absolute;
-      top: var(--space-1);
-      right: var(--space-1);
-      z-index: 2;
     }
 
     .place-card_content {
