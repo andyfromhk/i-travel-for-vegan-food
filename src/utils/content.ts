@@ -99,7 +99,11 @@ export const guideUrl = (guide: Guide) => `/${guide.id}`;
 
 /** The small label above a guide's title: its category, or the map guide's focus. */
 export function guideLabel(guide: Guide): string {
-  if (isMapGuide(guide)) return mapGuideFocus.get(guide.data.focus ?? "")?.name ?? "Map Guide";
+  if (isMapGuide(guide)) {
+    const name = mapGuideFocus.get(guide.data.focus ?? "")?.name ?? "Map Guide";
+    // "Itinerary for First-Timers" and its siblings are all shown simply as "Itinerary".
+    return /itinerary/i.test(name) ? "Itinerary" : name;
+  }
   return articleCategories.get(guide.data.category ?? "")?.name ?? "";
 }
 

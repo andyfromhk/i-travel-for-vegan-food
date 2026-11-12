@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/wrapper/Section.astro";
+import Heading from "@/components/typography/Heading.astro";
+import Paragraph from "@/components/typography/Paragraph.astro";
+import GuideListing from "@/components/section/GuideListing.astro";
+import { getSite } from "@/utils/content.ts";
+import { breadcrumbs } from "@/utils/schema.ts";
+
+const { guides } = await getSite();
+const schema = breadcrumbs([
+  { name: "Home", path: "/" },
+  { name: "Vegan Foodie Guides", path: "/articles" },
+]);
+---
+
+<BaseLayout
+  title="Vegan Food Travel Guides & Articles - I Travel For Vegan Food"
+  description="Browse our travel guides and articles to find the best vegan food - I Travel For Vegan Food"
+  schema={schema}
+>
+  {/* Title */}
+  <Section paddingTop="small" paddingBottom="small" gap="3" containerClass="max-width-small">
+    <Heading tag="h1" class="heading-accent"><strong>Vegan Travel Guides</strong> For Vegan Foodies</Heading>
+    <Paragraph>
+      We help you discover, plan and find inspiration for your next vegan foodie trip. Read through our vegan food
+      guides, map guides and itineraries to find out more.
+    </Paragraph>
+  </Section>
+
+  {/* Filters and guides */}
+  <Section paddingTop="none">
+    <GuideListing guides={guides} />
+  </Section>
+</BaseLayout>

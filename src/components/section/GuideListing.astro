@@ -1,0 +1,354 @@
+---
+import GuideCard from "@/components/item/GuideCard.astro";
+import { type Guide, articleCategories, destinationGroups, guideDestinations, isMapGuide, mapGuideFocus } from "@/utils/content.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** Every guide to list, newest first. */
+  guides: Guide[];
+}
+
+const { render = true, guides } = Astro.props;
+
+/* Only offer the categories and destinations that have at least one guide. */
+const usedCategories = new Set(guides.filter((g) => !isMapGuide(g)).map((g) => g.data.category));
+const usedFocus = new Set(guides.filter(isMapGuide).map((g) => g.data.focus));
+const categories = [
+  ...[...articleCategories.values()].filter((c) => usedCategories.has(c.slug)).map((c) => ({ ...c, type: "foodie-guide" })),
+  ...[...mapGuideFocus.values()].filter((c) => usedFocus.has(c.slug)).map((c) => ({ ...c, type: "map-guide" })),
+];
+const usedDestinations = new Set(guides.flatMap(guideDestinations));
+const groups = (await destinationGroups())
+  .map((group) => ({
+    title: group.slug === "more" ? "Other destinations" : group.title,
+    destinations: group.destinations.filter((d) => usedDestinations.has(d.id)),
+  }))
+  .filter((group) => group.destinations.length);
+---
+
+{/*
+  The guide listing: filters on the left, cards on the right.
+  The filtering itself is the short script below; the cards carry what it needs in data-* attributes.
+*/}
+{
+  render && (
+    <div class="guide-listing_wrap" data-guide-listing>
+      <button class="guide-listing_toggle" type="button" aria-expanded="false" aria-controls="guide-filters">
+        Filter guides
+      </button>
+
+      <form class="guide-listing_filters" id="guide-filters" role="search" aria-label="Filter guides">
+        <label class="guide-listing_group">
+          <span class="guide-listing_title">Search</span>
+          <input class="guide-listing_search" type="search" name="q" placeholder="search articles..." autocomplete="off" />
+        </label>
+
+        <fieldset class="guide-listing_group">
+          <legend class="guide-listing_title">Guide Type</legend>
+          <label class="guide-listing_option">
+            <input type="radio" name="type" value="" checked />
+            <span>All guides</span>
+          </label>
+          <label class="guide-listing_option">
+            <input type="radio" name="type" value="foodie-guide" />
+            <span>Foodie guide</span>
+          </label>
+          <label class="guide-listing_option">
+            <input type="radio" name="type" value="map-guide" />
+            <span>Map guide</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="guide-listing_group">
+          <legend class="guide-listing_title">Category</legend>
+          {categories.map((category) => (
+            <label class="guide-listing_option">
+              <input type="checkbox" name="category" value={category.slug} data-type={category.type} />
+              <span>{category.name}</span>
+            </label>
+          ))}
+        </fieldset>
+
+        <fieldset class="guide-listing_group">
+          <legend class="guide-listing_title">Destination</legend>
+          {groups.map((group) => (
+            <div class="guide-listing_subgroup">
+              <p class="guide-listing_subtitle">{group.title}</p>
+              <div class="guide-listing_columns">
+                {group.destinations.map((destination) => (
+                  <label class="guide-listing_option">
+                    <input type="checkbox" name="destination" value={destination.id} />
+                    <span>{destination.data.name}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          ))}
+        </fieldset>
+
+        <button class="guide-listing_clear" type="reset">
+          Clear all filters
+        </button>
+      </form>
+
+      <div class="guide-listing_results">
+        <p class="guide-listing_count text-style-small" aria-live="polite">
+          Showing <span data-shown>{guides.length}</span> out of {guides.length} guides
+        </p>
+        <ul class="guide-listing_list">
+          {guides.map((guide, index) => (
+            <li>
+              <GuideCard guide={guide} headingTag="h2" loading={index < 3 ? "eager" : "lazy"} />
+            </li>
+          ))}
+        </ul>
+        <p class="guide-listing_empty" hidden>
+          No results found :( Try clearing the filters to show more results.
+        </p>
+      </div>
+    </div>
+  )
+}
+
+<script>
+  const root = document.querySelector<HTMLElement>("[data-guide-listing]");
+  const form = root?.querySelector<HTMLFormElement>(".guide-listing_filters");
+
+  if (root && form) {
+    const cards = [...root.querySelectorAll<HTMLElement>("[data-guide]")];
+    const texts = new Map(cards.map((card) => [card, (card.textContent ?? "").toLowerCase()]));
+    const shown = root.querySelector<HTMLElement>("[data-shown]")!;
+    const empty = root.querySelector<HTMLElement>(".guide-listing_empty")!;
+    const toggle = root.querySelector<HTMLButtonElement>(".guide-listing_toggle")!;
+    const search = form.elements.namedItem("q") as HTMLInputElement;
+    const boxes = (name: string) => [...form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`)];
+    const ticked = (name: string) => boxes(name).filter((box) => box.checked && !box.disabled).map((box) => box.value);
+    const type = () => boxes("type").find((box) => box.checked)?.value ?? "";
+
+    // Choosing "Foodie guide" or "Map guide" greys out the categories that belong to the other kind.
+    const syncCategories = () => {
+      const current = type();
+      for (const box of boxes("category")) {
+        box.disabled = !!current && box.dataset.type !== current;
+        if (box.disabled) box.checked = false;
+      }
+    };
+
+    const apply = () => {
+      syncCategories();
+      const words = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      const current = type();
+      const categories = ticked("category");
+      const destinations = ticked("destination");
+      let count = 0;
+      for (const card of cards) {
+        const places = (card.dataset.destinations ?? "").split(" ");
+        const match =
+          words.every((word) => texts.get(card)!.includes(word)) &&
+          (!current || card.dataset.type === current) &&
+          (!categories.length || categories.includes(card.dataset.category ?? "")) &&
+          (!destinations.length || destinations.some((d) => places.includes(d)));
+        (card.parentElement as HTMLElement).hidden = !match;
+        if (match) count++;
+      }
+      shown.textContent = String(count);
+      empty.hidden = count > 0;
+
+      // The address carries the filters, so a filtered view can be linked to and shared.
+      const params = new URLSearchParams();
+      if (search.value.trim()) params.set("q", search.value.trim());
+      if (current) params.set("type", current);
+      if (categories.length) params.set("category", categories.join(","));
+      if (destinations.length) params.set("destination", destinations.join(","));
+      const query = params.toString();
+      history.replaceState(null, "", location.pathname + (query ? `?${query}` : ""));
+    };
+
+    // Start from the filters in the address, e.g. /articles?destination=tokyo
+    const params = new URLSearchParams(location.search);
+    search.value = params.get("q") ?? "";
+    const list = (key: string) => (params.get(key) ?? "").split(",").filter(Boolean);
+    for (const box of boxes("type")) box.checked = box.value === (params.get("type") ?? "");
+    for (const box of boxes("category")) box.checked = list("category").includes(box.value);
+    for (const box of boxes("destination")) box.checked = list("destination").includes(box.value);
+    apply();
+
+    form.addEventListener("input", apply);
+    form.addEventListener("submit", (event) => event.preventDefault());
+    form.addEventListener("reset", () => setTimeout(apply));
+    toggle.addEventListener("click", () => {
+      const open = toggle.getAttribute("aria-expanded") !== "true";
+      toggle.setAttribute("aria-expanded", String(open));
+      root.classList.toggle("filters-open", open);
+    });
+  }
+</script>
+
+<style is:global>
+  @layer components {
+    .guide-listing_wrap {
+      display: grid;
+      gap: var(--space-4);
+      width: 100%;
+
+      @media (width >= 48rem) {
+        grid-template-columns: 13.5rem minmax(0, 1fr);
+        align-items: start;
+        gap: var(--space-5);
+      }
+    }
+
+    .guide-listing_toggle {
+      justify-self: start;
+      padding: 0.4em 1.4em;
+      border: var(--border-width) solid var(--brand-500);
+      border-radius: var(--radius-round);
+      color: var(--brand-500);
+      font-size: 0.85rem;
+      font-weight: var(--primary-medium);
+
+      @media (width >= 48rem) {
+        display: none;
+      }
+    }
+
+    .guide-listing_filters {
+      display: none;
+      flex-direction: column;
+      gap: var(--space-4);
+
+      .filters-open > & {
+        display: flex;
+      }
+
+      @media (width >= 48rem) {
+        position: sticky;
+        top: calc(var(--nav-height) + var(--space-3));
+        display: flex;
+        max-height: calc(100svh - var(--nav-height) - var(--space-5));
+        padding-right: var(--space-1);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+    }
+
+    .guide-listing_group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .guide-listing_title {
+      margin-bottom: 0.15rem;
+      padding: 0;
+      font-size: 0.8rem;
+      font-weight: var(--primary-bold);
+    }
+
+    .guide-listing_search {
+      width: 100%;
+      padding: 0.45em 1em;
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius-round);
+      font-size: 0.8rem;
+
+      &::placeholder {
+        font-style: italic;
+      }
+    }
+
+    .guide-listing_subgroup {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+
+      & + & {
+        margin-top: 0.4rem;
+      }
+    }
+
+    .guide-listing_subtitle {
+      color: var(--brand-500);
+      font-size: 0.65rem;
+      font-style: italic;
+      font-weight: var(--primary-bold);
+      letter-spacing: 0.1ch;
+      text-transform: uppercase;
+      text-box: none;
+    }
+
+    .guide-listing_columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.35rem var(--space-2);
+    }
+
+    .guide-listing_option {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 0.75rem;
+      cursor: pointer;
+
+      & input {
+        flex: none;
+        width: 1.05em;
+        height: 1.05em;
+        margin: 0;
+        accent-color: var(--brand-500);
+      }
+
+      /* A category that doesn't apply to the chosen guide type */
+      &:has(input:disabled) {
+        color: var(--light-300);
+        cursor: not-allowed;
+      }
+    }
+
+    .guide-listing_clear {
+      align-self: flex-start;
+      color: var(--dark-500);
+      font-size: 0.75rem;
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    .guide-listing_results {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      min-width: 0;
+    }
+
+    .guide-listing_count {
+      align-self: flex-end;
+    }
+
+    .guide-listing_list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+
+      & > li[hidden] {
+        display: none;
+      }
+
+      @media (width >= 64rem) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .guide-listing_empty {
+      padding: var(--space-6) 0;
+      text-align: center;
+
+      &[hidden] {
+        display: none;
+      }
+    }
+  }
+</style>
