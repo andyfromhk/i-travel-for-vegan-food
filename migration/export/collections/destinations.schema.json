@@ -1,0 +1,179 @@
+{
+  "id": "63cca2133f5ddf6edd876842",
+  "displayName": "Destinations",
+  "singularName": "Destination",
+  "slug": "destinations",
+  "createdOn": "2021-06-18T00:59:25.445Z",
+  "lastUpdated": "2026-10-15T03:57:50.029Z",
+  "fields": [
+    {
+      "id": "c3b480143debd71558969e1fc2ed8893",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "where-to-stay-tip",
+      "displayName": "Where to Stay Tip",
+      "helpText": "Travel box: 1-2 sentences on the best area to stay for vegan food and sightseeing. Name areas only, never specific restaurants."
+    },
+    {
+      "id": "b339f19d8b58cff30da450719a8daa99",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "hotels-link",
+      "displayName": "Hotels Link",
+      "helpText": "Travel box: Travelpayouts deep link to a Booking.com or Trip.com hotel search for the area in the Where to Stay Tip."
+    },
+    {
+      "id": "208a36cf0b5d0e68beb35ddfcbc3636c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "esim-link",
+      "displayName": "eSIM Link",
+      "helpText": "Travel box: Travelpayouts deep link to the Airalo eSIM page for this destination's country."
+    },
+    {
+      "id": "deb9a6ab68c31ae876f3fd8f4ac08a6b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "getting-around-label",
+      "displayName": "Getting Around Label",
+      "helpText": "Travel box: short label for the transport pick, e.g. 'Kansai Airport to Namba: Nankai Rapi:t'."
+    },
+    {
+      "id": "8de6451e18fad2fcbac5fcc245b54aac",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "getting-around-link",
+      "displayName": "Getting Around Link",
+      "helpText": "Travel box: Travelpayouts deep link (usually Klook) for the transport pick above."
+    },
+    {
+      "id": "141999ebfc4dbb0f3184db01044e8c2e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "experience-label",
+      "displayName": "Experience Label",
+      "helpText": "Travel box: short label for one recommended experience, e.g. 'Osaka Amazing Pass'."
+    },
+    {
+      "id": "d034b5d6186c380d981c7090bfe55cc3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "experience-link",
+      "displayName": "Experience Link",
+      "helpText": "Travel box: Travelpayouts deep link (usually Klook) for the experience above."
+    },
+    {
+      "id": "bae4e30a7c4c84c25e9d76ad0f159d5e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "meta-description",
+      "displayName": "Meta Description",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "a68564c05b02519dfe918126dd3b161d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "destination-country",
+      "displayName": "Destination Country",
+      "validations": {
+        "collectionId": "66a6f90161cdac0a20c3a035"
+      }
+    },
+    {
+      "id": "8cd9bc456d6a05bfb80fc3ed2b7e713a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-photo",
+      "displayName": "Featured Image"
+    },
+    {
+      "id": "8e3301accf3053fdd61cc7787a5fc888",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "destination-gallery",
+      "displayName": "Destination Gallery"
+    },
+    {
+      "id": "b2b931c466d5a1539638bcf6ad5c2d37",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "city-description",
+      "displayName": "City Description"
+    },
+    {
+      "id": "3ec88790d25629a917f7bd5bc7670757",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "featured-2",
+      "displayName": "Featured"
+    },
+    {
+      "id": "1fe1af2d69303c9561adba02ec6ec14e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "restaurants",
+      "displayName": "Restaurants?"
+    },
+    {
+      "id": "a17021f7ca97f394568925d85b4d2141",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "itinerary",
+      "displayName": "Itinerary?"
+    },
+    {
+      "id": "7aeb3d9c7ddd975e2d625bcb4e2e25c6",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "map-graphic",
+      "displayName": "Map Graphic"
+    },
+    {
+      "id": "9c5530b9ccf67bfa37d85bd5d5aee90d",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "41bb37e037114364ed7cc41df74c51fc",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

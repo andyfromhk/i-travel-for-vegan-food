@@ -1,0 +1,62 @@
+{
+ "collection": "veg-types",
+ "count": 4,
+ "items": [
+  {
+   "id": "67df6a0bd88e614e5d4df42e",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-23T03:02:47.003Z",
+   "lastUpdated": "2025-03-23T03:02:41.660Z",
+   "createdOn": "2025-03-23T01:55:23.522Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "colour": "#7a1616",
+    "name": "Limited Vegan Options",
+    "slug": "limited-vegan-options"
+   }
+  },
+  {
+   "id": "63cca2133f5ddfd16887688d",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-23T03:02:47.003Z",
+   "lastUpdated": "2025-03-23T03:02:33.368Z",
+   "createdOn": "2021-06-18T01:06:27.403Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "colour": "#e9942d",
+    "name": "Good Vegan Options",
+    "slug": "good-vegan-options"
+   }
+  },
+  {
+   "id": "63cca2133f5ddf3a2c876879",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-23T02:59:38.485Z",
+   "lastUpdated": "2025-03-23T02:58:20.790Z",
+   "createdOn": "2021-06-18T01:06:14.396Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "colour": "#6c57ac",
+    "name": "Vegetarian",
+    "slug": "vegetarian"
+   }
+  },
+  {
+   "id": "63cca2133f5ddf02fd876866",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2024-07-30T04:30:36.698Z",
+   "lastUpdated": "2021-06-18T01:06:03.747Z",
+   "createdOn": "2021-06-18T01:05:38.357Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "colour": "#5a8707",
+    "name": "Vegan",
+    "slug": "vegan"
+   }
+  }
+ ]
+}

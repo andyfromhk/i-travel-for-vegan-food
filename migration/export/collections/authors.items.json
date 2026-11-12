@@ -1,0 +1,54 @@
+{
+ "collection": "authors",
+ "count": 2,
+ "items": [
+  {
+   "id": "6822de176fb33f1d8eaf99f1",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-05-14T05:21:16.018Z",
+   "lastUpdated": "2025-05-14T05:04:32.840Z",
+   "createdOn": "2025-05-13T05:52:23.650Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "profile-picture": {
+     "fileId": "6822dde3dac2a98b842dbfb5",
+     "url": "https://cdn.prod.website-files.com/60cbefeceef92c04e1cf295d/6822dde3dac2a98b842dbfb5_anita-dollar-author-profile-picture.webp",
+     "alt": null
+    },
+    "title": "Guest Author",
+    "short-bio": "<p id=\"\">Anita Dollar wants to bridge the communication gap between businesses and vegan travelers in Japan through curated guides, personalized planning, and unique community events. Grab her free Vegan Osaka Expo 2025 guide and discover more at <a href=\"https://linktr.ee/anita.dollar\" target=\"_blank\"><em id=\"\">https://linktr.ee/anita.dollar</em></a></p>",
+    "website-link": "https://linktr.ee/anita.dollar",
+    "instagram-link": "https://www.instagram.com/veg.anita.dollar",
+    "facebook-link": null,
+    "pinterest-link": null,
+    "name": "Anita Dollar",
+    "slug": "anita-dollar"
+   }
+  },
+  {
+   "id": "6822dd8417f18b453d3f4ecc",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-05-14T05:24:43.426Z",
+   "lastUpdated": "2025-05-14T05:22:59.296Z",
+   "createdOn": "2025-05-13T05:49:56.354Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "profile-picture": {
+     "fileId": "6822db0cdac2a98b842b8f2f",
+     "url": "https://cdn.prod.website-files.com/60cbefeceef92c04e1cf295d/6822db0cdac2a98b842b8f2f_Logo%20Square%20with%20space.png",
+     "alt": null
+    },
+    "title": "Founder, Author & Traveller",
+    "short-bio": "<p>I Travel For Vegan Food was created by Andy (<a href=\"https://www.instagram.com/andyfromhk/\" target=\"_blank\">@andyfromhk</a>) to share his passion for vegan travel. He shares his top restaurant finds and foodie tips to help you explore the world, one amazing plant-based meal at a time.</p>",
+    "website-link": "https://www.itravelforveganfood.com/",
+    "instagram-link": "https://www.instagram.com/itravelforveganfood/",
+    "facebook-link": null,
+    "pinterest-link": "https://www.pinterest.com/itravelforveganfood/",
+    "name": "I Travel For Vegan Food",
+    "slug": "i-travel-for-vegan-food"
+   }
+  }
+ ]
+}

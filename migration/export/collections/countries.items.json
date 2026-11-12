@@ -1,0 +1,167 @@
+{
+ "collection": "countries",
+ "count": 7,
+ "items": [
+  {
+   "id": "69362d4fb5c43e3aa0363107",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-12-21T01:42:25.742Z",
+   "lastUpdated": "2025-12-21T01:37:44.756Z",
+   "createdOn": "2025-12-08T01:43:43.095Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "destinations": [
+     "69362d6134b219bd2dc41ce3",
+     "693813b3a2875f59ce2ea68e",
+     "6938173f44be3643a00ec410"
+    ],
+    "flag": null,
+    "name": "Thailand",
+    "slug": "thailand"
+   }
+  },
+  {
+   "id": "67c1571d35d3756fdc342dc3",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-27T12:34:30.743Z",
+   "lastUpdated": "2025-03-27T12:13:06.588Z",
+   "createdOn": "2025-02-28T06:26:37.379Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "destinations": [
+     "67c157145a3dd5cefd2e2023"
+    ],
+    "flag": {
+     "fileId": "67e287ca30f6d652361d4cec",
+     "url": "https://cdn.prod.website-files.com/60cbefeceef92c04e1cf295d/67e287ca30f6d652361d4cec_Flag_of_Hong_Kong-128x85.png",
+     "alt": null
+    },
+    "name": "Hong Kong",
+    "slug": "hong-kong"
+   }
+  },
+  {
+   "id": "66a6f94f6f3bdb0490458836",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-25T13:43:14.007Z",
+   "lastUpdated": "2025-03-25T10:39:25.654Z",
+   "createdOn": "2024-07-29T02:07:11.177Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "destinations": [
+     "63cca2133f5ddf1b018768bb"
+    ],
+    "flag": {
+     "fileId": "67e287c418f18bf2fd1ec791",
+     "url": "https://cdn.prod.website-files.com/60cbefeceef92c04e1cf295d/67e287c418f18bf2fd1ec791_Flag_of_Singapore-128x85.png",
+     "alt": null
+    },
+    "name": "Singapore",
+    "slug": "singapore"
+   }
+  },
+  {
+   "id": "66a6f94842ed17e5316acb87",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-25T13:43:14.007Z",
+   "lastUpdated": "2025-03-25T10:39:25.658Z",
+   "createdOn": "2024-07-29T02:07:04.204Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "destinations": [
+     "63cca2133f5ddfb82e8768ba"
+    ],
+    "flag": {
+     "fileId": "67e287bd95daa5b3b002183a",
+     "url": "https://cdn.prod.website-files.com/60cbefeceef92c04e1cf295d/67e287bd95daa5b3b002183a_Flag_of_South_Korea-128x85.png",
+     "alt": null
+    },
+    "name": "South Korea",
+    "slug": "south-korea"
+   }
+  },
+  {
+   "id": "66a6f925bbdc99c57f832475",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-25T13:43:14.007Z",
+   "lastUpdated": "2025-03-25T10:39:25.662Z",
+   "createdOn": "2024-07-29T02:06:29.782Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "destinations": [
+     "63cca2133f5ddf18d28768c3",
+     "63cca2133f5ddf66668768bc"
+    ],
+    "flag": {
+     "fileId": "67e287ac065c1d6b48520618",
+     "url": "https://cdn.prod.website-files.com/60cbefeceef92c04e1cf295d/67e287ac065c1d6b48520618_Flag_of_Taiwan_Republic_of_China-128x85.png",
+     "alt": null
+    },
+    "name": "Taiwan",
+    "slug": "taiwan"
+   }
+  },
+  {
+   "id": "66a6f91861b51207bfaf8850",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2026-10-03T08:55:14.095Z",
+   "lastUpdated": "2026-10-03T08:53:49.353Z",
+   "createdOn": "2024-07-29T02:06:16.208Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "destinations": [
+     "63feab1bdc32cb7a0836be59",
+     "63cca2133f5ddf6bc28768be",
+     "63cca2133f5ddf60b88768dc",
+     "63cca2133f5ddff65987691c",
+     "63cca2133f5ddfc8be8768fe",
+     "6476e00ac8f16ba1443c09c6",
+     "6ac0a11b34e4dc73eca0d0af"
+    ],
+    "flag": {
+     "fileId": "67e2872eb2f43c7380dae8d8",
+     "url": "https://cdn.prod.website-files.com/60cbefeceef92c04e1cf295d/67e2872eb2f43c7380dae8d8_Flag_of_Australia-128x64.png",
+     "alt": null
+    },
+    "name": "Australia",
+    "slug": "australia"
+   }
+  },
+  {
+   "id": "66a6f908644a6ab3a83636e9",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-25T13:43:14.007Z",
+   "lastUpdated": "2025-03-25T10:39:25.664Z",
+   "createdOn": "2024-07-29T02:06:00.731Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "destinations": [
+     "63cca2133f5ddf0ac18768c0",
+     "63cca2133f5ddfaba38768c4",
+     "63cca2133f5ddf4b888768bf",
+     "63cca2133f5ddfd5038768c5",
+     "63cca2133f5ddfedde8768c1",
+     "6648161179d1fbcdd1fdebf9",
+     "63cca2133f5ddf046e8768bd",
+     "66da99273bb8f3786af6f03c",
+     "66da99313bb8f3786af6f5d3",
+     "66da991b9039c364120e0877"
+    ],
+    "flag": {
+     "fileId": "67e287995051aa2ed60092e6",
+     "url": "https://cdn.prod.website-files.com/60cbefeceef92c04e1cf295d/67e287995051aa2ed60092e6_Flag_of_Japan-128x85.png",
+     "alt": null
+    },
+    "name": "Japan",
+    "slug": "japan"
+   }
+  }
+ ]
+}

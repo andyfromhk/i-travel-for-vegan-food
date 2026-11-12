@@ -1,0 +1,98 @@
+{
+  "id": "67deac1f050dd1d08856a1ad",
+  "displayName": "Cuisines",
+  "singularName": "Cuisine",
+  "slug": "cuisine",
+  "createdOn": "2025-03-22T12:25:03.578Z",
+  "lastUpdated": "2025-06-07T08:39:39.714Z",
+  "fields": [
+    {
+      "id": "e9fc255c7f4c22a37895a9a855660be7",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "keywords-tags",
+      "displayName": "Keywords/Tags",
+      "helpText": "for search",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "dbcd52c7ac2caeb22fdcacc4311180e3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Option",
+      "slug": "category",
+      "displayName": "Category",
+      "validations": {
+        "options": [
+          {
+            "name": "Asian",
+            "id": "ee00b7bd7802406640c5fc507b802771"
+          },
+          {
+            "name": "European",
+            "id": "055779dd9994f335d867d529f4d6535f"
+          },
+          {
+            "name": "North American",
+            "id": "f07b7ca12116a2c6a5e2de526dfa2348"
+          },
+          {
+            "name": "South American",
+            "id": "20576f4c30707a64bb3b01c01e82f0f5"
+          },
+          {
+            "name": "Oceania",
+            "id": "5be969098d4f52e7956ae18744ea749f"
+          },
+          {
+            "name": "African",
+            "id": "0c59e100b78516a4885beca690579c64"
+          },
+          {
+            "name": "Meal Type",
+            "id": "18d3b3446a5334322995a8c7d48c69c4"
+          },
+          {
+            "name": "Cuisine Style",
+            "id": "339a8ac0fbc00cab08952e277587a86c"
+          },
+          {
+            "name": "Broad Category",
+            "id": "1e615a90236883d031a9542c928f8bd4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d23e6fcba147316ea9dd27755204f95f",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "2c0048fb78e0d327874cc19c7aa1a745",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

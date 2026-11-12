@@ -1,0 +1,46 @@
+{
+  "id": "63cca2133f5ddf0aca876845",
+  "displayName": "Veg Types",
+  "singularName": "Veg Type",
+  "slug": "veg-types",
+  "createdOn": "2021-06-18T01:00:04.451Z",
+  "lastUpdated": "2025-06-07T08:39:39.722Z",
+  "fields": [
+    {
+      "id": "3168d10855e163a7816ee1519e20a2b1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Color",
+      "slug": "colour",
+      "displayName": "Colour"
+    },
+    {
+      "id": "e21a32e98d4d596223669d0a808cfc7d",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "6d07c65aec04e7452958325ea3036197",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

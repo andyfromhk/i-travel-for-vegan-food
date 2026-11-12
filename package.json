@@ -23,9 +23,18 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
+    "hast-util-to-string": "^3.0.1",
+    "image-size": "^2.1.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
-    "wrangler": "^4.123.0"
+    "rehype-parse": "^9.0.1",
+    "rehype-remark": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-stringify": "^11.0.0",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.2.0",
+    "wrangler": "^4.123.0",
+    "yaml": "^2.9.1"
   },
   "lumos": {
     "version": "1.0.0",

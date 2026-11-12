@@ -1,0 +1,360 @@
+{
+  "vegTypes": [
+    {
+      "slug": "limited-vegan-options",
+      "name": "Limited Vegan Options",
+      "colour": "#7a1616"
+    },
+    {
+      "slug": "good-vegan-options",
+      "name": "Good Vegan Options",
+      "colour": "#e9942d"
+    },
+    {
+      "slug": "vegetarian",
+      "name": "Vegetarian",
+      "colour": "#6c57ac"
+    },
+    {
+      "slug": "vegan",
+      "name": "Vegan",
+      "colour": "#5a8707"
+    }
+  ],
+  "priceRanges": [
+    {
+      "slug": "fine-dining",
+      "name": "Fine-Dining",
+      "symbols": "$$$"
+    },
+    {
+      "slug": "mid-range",
+      "name": "Mid-Range",
+      "symbols": "$$"
+    },
+    {
+      "slug": "budget-friendly",
+      "name": "Budget-Friendly",
+      "symbols": "$"
+    }
+  ],
+  "venueTypes": [
+    {
+      "slug": "shop-cafe",
+      "name": "Shop+Cafe",
+      "schemaType": "Store"
+    },
+    {
+      "slug": "quick-bites",
+      "name": "Quick Bites",
+      "schemaType": "FastFoodRestaurant"
+    },
+    {
+      "slug": "vegan-b-and-b",
+      "name": "Vegan B&B",
+      "schemaType": "BedAndBreakfast"
+    },
+    {
+      "slug": "retail-specialty-shop",
+      "name": "Retail/Specialty Shop",
+      "schemaType": "Store"
+    },
+    {
+      "slug": "takeaway-only",
+      "name": "Takeaway Only",
+      "schemaType": "Restaurant"
+    },
+    {
+      "slug": "juice-smoothie-bar",
+      "name": "Juice/Smoothie Bar",
+      "schemaType": "CafeOrCoffeeShop"
+    },
+    {
+      "slug": "tea-house",
+      "name": "Tea House",
+      "schemaType": "CafeOrCoffeeShop"
+    },
+    {
+      "slug": "coffee-shop",
+      "name": "Coffee Shop",
+      "schemaType": "CafeOrCoffeeShop"
+    },
+    {
+      "slug": "food-truck-market-stall",
+      "name": "Food Truck/Market Stall",
+      "schemaType": "FoodEstablishment"
+    },
+    {
+      "slug": "market",
+      "name": "Market",
+      "schemaType": "Store"
+    },
+    {
+      "slug": "bakery",
+      "name": "Bakery",
+      "schemaType": "Bakery"
+    },
+    {
+      "slug": "bar-pub",
+      "name": "Bar/Pub",
+      "schemaType": "BarOrPub"
+    },
+    {
+      "slug": "cafe",
+      "name": "Cafe",
+      "schemaType": "CafeOrCoffeeShop"
+    },
+    {
+      "slug": "restaurant",
+      "name": "Restaurant",
+      "schemaType": "Restaurant"
+    }
+  ],
+  "cuisines": [
+    {
+      "slug": "nepalese",
+      "name": "Nepalese",
+      "group": "Asian"
+    },
+    {
+      "slug": "bubble-tea",
+      "name": "Bubble Tea"
+    },
+    {
+      "slug": "ice-cream",
+      "name": "Ice Cream"
+    },
+    {
+      "slug": "bread-pastries",
+      "name": "Bread & Pastries",
+      "group": "Meal Type"
+    },
+    {
+      "slug": "western",
+      "name": "Western",
+      "group": "Broad Category"
+    },
+    {
+      "slug": "international",
+      "name": "International",
+      "group": "Broad Category"
+    },
+    {
+      "slug": "street-food",
+      "name": "Street Food",
+      "group": "Meal Type"
+    },
+    {
+      "slug": "traditional",
+      "name": "Traditional",
+      "group": "Cuisine Style"
+    },
+    {
+      "slug": "fusion",
+      "name": "Fusion",
+      "group": "Broad Category"
+    },
+    {
+      "slug": "contemporary",
+      "name": "Contemporary",
+      "group": "Cuisine Style"
+    },
+    {
+      "slug": "desserts",
+      "name": "Desserts",
+      "group": "Meal Type"
+    },
+    {
+      "slug": "healthy",
+      "name": "Healthy",
+      "group": "Cuisine Style"
+    },
+    {
+      "slug": "fast-food",
+      "name": "Fast Food",
+      "group": "Meal Type"
+    },
+    {
+      "slug": "caribbean",
+      "name": "Caribbean",
+      "group": "Broad Category"
+    },
+    {
+      "slug": "new-zealand",
+      "name": "New Zealand",
+      "group": "Oceania"
+    },
+    {
+      "slug": "australian",
+      "name": "Australian",
+      "group": "Oceania"
+    },
+    {
+      "slug": "african",
+      "name": "African",
+      "group": "African"
+    },
+    {
+      "slug": "latin-american",
+      "name": "Latin American",
+      "group": "South American"
+    },
+    {
+      "slug": "british",
+      "name": "British",
+      "group": "European"
+    },
+    {
+      "slug": "mexican",
+      "name": "Mexican",
+      "group": "North American"
+    },
+    {
+      "slug": "moroccan",
+      "name": "Moroccan",
+      "group": "European"
+    },
+    {
+      "slug": "turkish",
+      "name": "Turkish",
+      "group": "European"
+    },
+    {
+      "slug": "spanish",
+      "name": "Spanish",
+      "group": "European"
+    },
+    {
+      "slug": "greek",
+      "name": "Greek",
+      "group": "European"
+    },
+    {
+      "slug": "middle-eastern",
+      "name": "Middle Eastern",
+      "group": "Broad Category"
+    },
+    {
+      "slug": "mediterranean",
+      "name": "Mediterranean",
+      "group": "Broad Category"
+    },
+    {
+      "slug": "taiwanese",
+      "name": "Taiwanese",
+      "group": "Asian"
+    },
+    {
+      "slug": "italian",
+      "name": "Italian",
+      "group": "European"
+    },
+    {
+      "slug": "french",
+      "name": "French",
+      "group": "European"
+    },
+    {
+      "slug": "southeast-asian",
+      "name": "Southeast Asian",
+      "group": "Broad Category"
+    },
+    {
+      "slug": "indian",
+      "name": "Indian",
+      "group": "Asian"
+    },
+    {
+      "slug": "indonesian",
+      "name": "Indonesian",
+      "group": "Asian"
+    },
+    {
+      "slug": "malaysian",
+      "name": "Malaysian",
+      "group": "Asian"
+    },
+    {
+      "slug": "vietnamese",
+      "name": "Vietnamese",
+      "group": "Asian"
+    },
+    {
+      "slug": "thai",
+      "name": "Thai",
+      "group": "Asian"
+    },
+    {
+      "slug": "korean",
+      "name": "Korean",
+      "group": "Asian"
+    },
+    {
+      "slug": "american",
+      "name": "American",
+      "group": "North American"
+    },
+    {
+      "slug": "japanese",
+      "name": "Japanese",
+      "group": "Asian"
+    },
+    {
+      "slug": "hot-pot",
+      "name": "Hot pot",
+      "group": "Asian"
+    },
+    {
+      "slug": "chinese",
+      "name": "Chinese",
+      "group": "Asian"
+    },
+    {
+      "slug": "yum-cha",
+      "name": "Yum cha",
+      "group": "Asian"
+    },
+    {
+      "slug": "hong-kong",
+      "name": "Hong Kong",
+      "group": "Asian",
+      "keywords": "Yum cha, dim sum, Cantonese"
+    }
+  ],
+  "articleCategories": [
+    {
+      "slug": "food-guide",
+      "name": "Food Guide"
+    },
+    {
+      "slug": "restaurant-feature",
+      "name": "Restaurant Feature"
+    },
+    {
+      "slug": "travel-tips",
+      "name": "Travel Tips"
+    },
+    {
+      "slug": "accomodation",
+      "name": "Accomodation"
+    },
+    {
+      "slug": "markets-and-festivals",
+      "name": "Markets & Festivals"
+    },
+    {
+      "slug": "products-and-shopping",
+      "name": "Products & Shopping"
+    }
+  ],
+  "mapGuideFocus": [
+    {
+      "slug": "itinerary",
+      "name": "Itinerary"
+    },
+    {
+      "slug": "foodie-city-map",
+      "name": "Foodie City Map"
+    }
+  ]
+}

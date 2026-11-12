@@ -25,3 +25,7 @@ pnpm-debug.log*
 
 # local agent settings
 .claude/settings.local.json
+
+# migration working files (raw HTML of the old site, downloaded originals)
+migration/crawl/html/
+migration/tmp/

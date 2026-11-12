@@ -1,0 +1,57 @@
+{
+  "id": "66a6f90161cdac0a20c3a035",
+  "displayName": "Countries",
+  "singularName": "Country",
+  "slug": "countries",
+  "createdOn": "2024-07-29T02:05:53.605Z",
+  "lastUpdated": "2025-06-07T08:39:39.723Z",
+  "fields": [
+    {
+      "id": "5724c10de01f1faa4ed0cf47eb2a8e7f",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "destinations",
+      "displayName": "Destinations",
+      "validations": {
+        "collectionId": "63cca2133f5ddf6edd876842"
+      }
+    },
+    {
+      "id": "dd97ded6038b178cf86dd31caae00003",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "flag",
+      "displayName": "Flag"
+    },
+    {
+      "id": "c86cd22626b254cf331ee37a52f61c32",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "deea19dc90dacdf559f2454afad32d23",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

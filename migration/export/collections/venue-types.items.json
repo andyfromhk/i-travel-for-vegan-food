@@ -1,0 +1,202 @@
+{
+ "collection": "venue-types",
+ "count": 14,
+ "items": [
+  {
+   "id": "67df73a5c472746740adaec4",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.713Z",
+   "lastUpdated": "2025-06-02T07:46:24.713Z",
+   "createdOn": "2025-03-23T02:36:21.243Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "Store",
+    "name": "Shop+Cafe",
+    "slug": "shop-cafe"
+   }
+  },
+  {
+   "id": "67df6eaa70a2fe38355e38a6",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.710Z",
+   "lastUpdated": "2025-06-02T07:46:24.710Z",
+   "createdOn": "2025-03-23T02:15:06.850Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "FastFoodRestaurant",
+    "name": "Quick Bites",
+    "slug": "quick-bites"
+   }
+  },
+  {
+   "id": "67df640bf04087548af49a80",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.705Z",
+   "lastUpdated": "2025-06-02T07:46:24.705Z",
+   "createdOn": "2025-03-23T01:29:47.143Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "BedAndBreakfast",
+    "name": "Vegan B&B",
+    "slug": "vegan-b-and-b"
+   }
+  },
+  {
+   "id": "67df63fc64f391f6e6a95282",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.718Z",
+   "lastUpdated": "2025-06-02T07:46:24.718Z",
+   "createdOn": "2025-03-23T01:29:32.350Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "Store",
+    "name": "Retail/Specialty Shop",
+    "slug": "retail-specialty-shop"
+   }
+  },
+  {
+   "id": "67df63e9d88e614e5d4b090f",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.696Z",
+   "lastUpdated": "2025-06-02T07:46:24.696Z",
+   "createdOn": "2025-03-23T01:29:13.234Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "Restaurant",
+    "name": "Takeaway Only",
+    "slug": "takeaway-only"
+   }
+  },
+  {
+   "id": "67df63bf686d118721a26cd9",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.708Z",
+   "lastUpdated": "2025-06-02T07:46:24.708Z",
+   "createdOn": "2025-03-23T01:28:31.898Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "CafeOrCoffeeShop",
+    "name": "Juice/Smoothie Bar",
+    "slug": "juice-smoothie-bar"
+   }
+  },
+  {
+   "id": "67df63ac623b0b1d66a960d8",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.698Z",
+   "lastUpdated": "2025-06-02T07:46:24.698Z",
+   "createdOn": "2025-03-23T01:28:12.891Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "CafeOrCoffeeShop",
+    "name": "Tea House",
+    "slug": "tea-house"
+   }
+  },
+  {
+   "id": "67df63a2623b0b1d66a95c6b",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.702Z",
+   "lastUpdated": "2025-06-02T07:46:24.702Z",
+   "createdOn": "2025-03-23T01:28:02.120Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "CafeOrCoffeeShop",
+    "name": "Coffee Shop",
+    "slug": "coffee-shop"
+   }
+  },
+  {
+   "id": "67df63917ce5370798637173",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.719Z",
+   "lastUpdated": "2025-06-02T07:46:24.719Z",
+   "createdOn": "2025-03-23T01:27:45.688Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "FoodEstablishment",
+    "name": "Food Truck/Market Stall",
+    "slug": "food-truck-market-stall"
+   }
+  },
+  {
+   "id": "67df637f6053f45e917295c8",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.694Z",
+   "lastUpdated": "2025-06-02T07:46:24.694Z",
+   "createdOn": "2025-03-23T01:27:27.666Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "Store",
+    "name": "Market",
+    "slug": "market"
+   }
+  },
+  {
+   "id": "67df63748190f3391382ae34",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.690Z",
+   "lastUpdated": "2025-06-02T07:46:24.690Z",
+   "createdOn": "2025-03-23T01:27:16.247Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "Bakery",
+    "name": "Bakery",
+    "slug": "bakery"
+   }
+  },
+  {
+   "id": "67df636c495059a21b2fc68d",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.715Z",
+   "lastUpdated": "2025-06-02T07:46:24.715Z",
+   "createdOn": "2025-03-23T01:27:08.755Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "BarOrPub",
+    "name": "Bar/Pub",
+    "slug": "bar-pub"
+   }
+  },
+  {
+   "id": "67df6269675c714ef86b2c00",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.692Z",
+   "lastUpdated": "2025-06-02T07:46:24.692Z",
+   "createdOn": "2025-03-23T01:22:49.415Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "CafeOrCoffeeShop",
+    "name": "Cafe",
+    "slug": "cafe"
+   }
+  },
+  {
+   "id": "67df625f0490a55a5fe4ea63",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-06-02T07:46:24.687Z",
+   "lastUpdated": "2025-06-02T07:46:24.687Z",
+   "createdOn": "2025-03-23T01:22:39.995Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "schema-type": "Restaurant",
+    "name": "Restaurant",
+    "slug": "restaurant"
+   }
+  }
+ ]
+}
