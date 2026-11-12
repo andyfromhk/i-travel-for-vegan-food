@@ -1,6 +1,7 @@
 ---
 name: Osaka
 country: japan
+order: 9
 featured: true
 hasRestaurants: true
 hasItinerary: true

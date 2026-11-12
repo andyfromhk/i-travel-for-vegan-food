@@ -1,41 +1,59 @@
 ---
-import Layout from "@/layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/wrapper/Section.astro";
+import Grid from "@/components/wrapper/Grid.astro";
 import Heading from "@/components/typography/Heading.astro";
-import Eyebrow from "@/components/typography/Eyebrow.astro";
-import Img from "@/components/media/Img.astro";
-import lumos_background from "@/assets/graphics/lumos-background.svg";
-import Icon from "@/components/media/Icon.astro";
-import logo_icon from "@/assets/logo/logo-icon.svg";
-import ContentWrapper from "@/components/wrapper/ContentWrapper.astro";
+import Paragraph from "@/components/typography/Paragraph.astro";
+import ButtonWrapper from "@/components/wrapper/ButtonWrapper.astro";
+import Button from "@/components/Button.astro";
+import DestinationCard from "@/components/item/DestinationCard.astro";
+import GuideCard from "@/components/item/GuideCard.astro";
+import { getSite } from "@/utils/content.ts";
+import { SITE_NAME, SITE_URL } from "@/consts.ts";
+
+const site = await getSite();
+const destinations = site.destinations
+  .filter((d) => d.data.homeOrder !== undefined)
+  .sort((a, b) => a.data.homeOrder! - b.data.homeOrder!);
+const guides = site.guides.slice(0, 8);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_NAME,
+  url: SITE_URL,
+};
 ---
 
-<Layout theme="dark">
-  <Section
-    paddingBottom="even"
-    containerClass="flex-grow"
-    paddingTop="even"
-    class="flex-grow"
-    style="min-height: calc(100svh - var(--nav-height));"
-  >
-    <ContentWrapper
-      class="flex-grow theme-brand"
-      variant="card"
-      mediaOpacity={100}
-    >
-      <Icon src={logo_icon} variant="large" />
-      <Heading variant="display" tag="h1" class="margin-block-8"
-        >Style Guide</Heading
-      >
-      <Eyebrow variant="tag">v1.0.0</Eyebrow>
-      <Img
-        slot="column2"
-        src={lumos_background}
-        width={1920}
-        height={1080}
-        loading="eager"
-        fetchPriority="high"
-      />
-    </ContentWrapper>
+<BaseLayout title="I Travel For Vegan Food - Vegan Food Guide, Restaurant Reviews & Itineraries" schema={schema}>
+  {/* Hero */}
+  <Section paddingTop="small" paddingBottom="small" gap="3" containerClass="max-width-small">
+    <Heading tag="h1" class="heading-accent">Explore The World Through <strong>Vegan Food</strong></Heading>
+    <Paragraph>
+      If you are like me, food is what motivates you to travel around the world. I Travel For Vegan Food helps you find
+      the best food in the world one bite at a time.
+    </Paragraph>
   </Section>
-</Layout>
+
+  {/* Destinations */}
+  <Section paddingTop="small" paddingBottom="small" gap="4">
+    <Heading tag="h2" variant="h3" class="align-self-center">Where Are You Going Next?</Heading>
+    <Grid xsmall={2} medium={4} class="gap-3">
+      {destinations.map((destination, index) => <DestinationCard destination={destination} loading={index < 4 ? "eager" : "lazy"} />)}
+    </Grid>
+    <ButtonWrapper marginTop="0" class="align-self-end">
+      <Button element="link" variant="link" href="/destinations">All vegan food destinations →</Button>
+    </ButtonWrapper>
+  </Section>
+
+  {/* Guides */}
+  <Section paddingTop="small" gap="4">
+    <Heading tag="h2" variant="h3" class="align-self-center">Latest Vegan Foodie Guides</Heading>
+    <Grid xsmall={2} medium={4} class="gap-3">
+      {guides.map((guide) => <GuideCard guide={guide} />)}
+    </Grid>
+    <ButtonWrapper marginTop="0" class="align-self-end">
+      <Button element="link" variant="link" href="/articles">See all vegan foodie guides →</Button>
+    </ButtonWrapper>
+  </Section>
+</BaseLayout>

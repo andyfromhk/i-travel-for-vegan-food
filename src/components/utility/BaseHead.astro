@@ -1,6 +1,6 @@
 ---
 import { Font } from "astro:assets";
-import { SITE_NAME, SITE_DESCRIPTION } from "@/consts.ts";
+import { SITE_NAME, SITE_DESCRIPTION, GA_MEASUREMENT_ID } from "@/consts.ts";
 import { isNoindexRoute } from "@/utils/seo.ts";
 import type { SeoProps } from "@/types.ts";
 
@@ -9,16 +9,19 @@ type Props = SeoProps;
 const {
   title,
   description = SITE_DESCRIPTION,
-  image = "/og-image.jpg",
+  image = "/site/brand/logo-square.png",
   type = "website",
   noindex,
+  schema,
 } = Astro.props;
 
 const isNoindex = noindex ?? isNoindexRoute(Astro.url.pathname);
 
-const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const pageTitle = title || SITE_NAME;
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const canonical = new URL(path, Astro.site);
 const socialImage = new URL(image, Astro.site);
+const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 ---
 
 <meta charset="utf-8" />
@@ -26,7 +29,7 @@ const socialImage = new URL(image, Astro.site);
   @layer base, patterns, components, utilities;
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<Font cssVariable="--font-inter" preload />
+<Font cssVariable="--font-montserrat" preload />
 <title>{pageTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
@@ -44,6 +47,21 @@ const socialImage = new URL(image, Astro.site);
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={socialImage} />
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" href="/site/brand/favicon.png" />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="apple-touch-icon" href="/site/brand/webclip.png" />
+<meta name="google-site-verification" content="K4rHmqLexYmpduJsdK62yPFrJQ6c4InYB5jUd71INtI" />
 <meta name="generator" content={Astro.generator} />
+
+{schemas.map((item) => <script type="application/ld+json" is:inline set:html={JSON.stringify(item)} />)}
+
+{
+  GA_MEASUREMENT_ID && import.meta.env.PROD && (
+    <Fragment>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+      <script is:inline define:vars={{ id: GA_MEASUREMENT_ID }}>
+        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", id);
+      </script>
+    </Fragment>
+  )
+}

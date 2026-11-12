@@ -1,6 +1,7 @@
 ---
 name: Kaohsiung
 country: taiwan
+order: 22
 book: true
 image:
   src: /media/destinations/kaohsiung/kaohsiung.jpg

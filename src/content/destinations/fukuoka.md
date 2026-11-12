@@ -1,6 +1,7 @@
 ---
 name: Fukuoka
 country: japan
+order: 15
 book: true
 image:
   src: /media/destinations/fukuoka/fukuoka.jpg

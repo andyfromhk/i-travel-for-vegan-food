@@ -1,6 +1,7 @@
 ---
 name: Singapore
 country: singapore
+order: 24
 image:
   src: /media/destinations/singapore/singapore.jpg
 mapGraphic:

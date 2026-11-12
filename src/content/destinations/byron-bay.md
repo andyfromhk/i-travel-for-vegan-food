@@ -1,6 +1,7 @@
 ---
 name: Byron Bay
 country: australia
+order: 5
 featured: true
 hasRestaurants: true
 image:

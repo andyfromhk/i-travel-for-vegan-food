@@ -1,6 +1,7 @@
 ---
 name: Adelaide
 country: australia
+order: 6
 image:
   src: /media/destinations/adelaide/adelaide.jpg
 mapGraphic:

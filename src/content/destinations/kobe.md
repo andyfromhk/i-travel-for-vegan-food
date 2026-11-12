@@ -1,6 +1,7 @@
 ---
 name: Kobe
 country: japan
+order: 12
 featured: true
 hasRestaurants: true
 book: true

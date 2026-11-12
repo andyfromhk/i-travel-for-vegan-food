@@ -1,6 +1,8 @@
 ---
 name: Sydney
 country: australia
+order: 1
+homeOrder: 3
 featured: true
 hasRestaurants: true
 image:

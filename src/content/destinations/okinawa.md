@@ -1,6 +1,7 @@
 ---
 name: Okinawa
 country: japan
+order: 14
 image:
   src: /media/destinations/okinawa/okinawa.jpg
 mapGraphic:

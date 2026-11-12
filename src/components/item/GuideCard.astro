@@ -1,0 +1,151 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import Icon from "@/components/media/Icon.astro";
+import map from "@/assets/icons/map.svg";
+import { type Guide, getSite, guideDestinations, guideLabel, guideUrl, isMapGuide, mediaSize } from "@/utils/content.ts";
+
+interface Props extends HTMLAttributes<"a"> {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The foodie guide or map guide to show. */
+  guide: Guide;
+  /** Heading level. */
+  headingTag?: "h2" | "h3" | "h4";
+  /** Loading behavior. */
+  loading?: "lazy" | "eager";
+}
+
+const { render = true, guide, headingTag: Tag = "h3", loading = "lazy", class: className, ...rest } = Astro.props;
+const { data } = guide;
+const site = await getSite();
+const mapGuide = isMapGuide(guide);
+const destinations = guideDestinations(guide);
+const size = mediaSize(data.image?.src);
+const text = data.summary || data.description;
+---
+
+{
+  render && (
+    <a
+      class:list={["guide-card_wrap", className]}
+      href={guideUrl(guide)}
+      data-guide
+      data-type={mapGuide ? "map-guide" : "foodie-guide"}
+      data-category={(mapGuide ? data.focus : data.category) || undefined}
+      data-destinations={destinations.join(" ")}
+      {...rest}
+    >
+      <span class="guide-card_visual">
+        {data.image && <img class="guide-card_image" src={data.image.src} alt={data.image.alt ?? ""} loading={loading} decoding="async" {...size} />}
+        {mapGuide && (
+          <span class="guide-card_badge">
+            <Icon src={map} variant="small" />
+            Map Guide
+          </span>
+        )}
+      </span>
+      <span class="guide-card_content">
+        <span class="guide-card_meta">
+          <span class="guide-card_label">{guideLabel(guide)}</span>
+          {mapGuide && destinations[0] && <span class="guide-card_place">{site.destinationBySlug.get(destinations[0])?.data.name}</span>}
+        </span>
+        <Tag class="guide-card_title text-style-h4">{data.title}</Tag>
+        {text && <span class="guide-card_text text-style-small">{text}</span>}
+      </span>
+    </a>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .guide-card_wrap {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: clip;
+      background-color: var(--background);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius-main);
+      color: var(--text);
+      transition: border-color var(--hover-duration) var(--hover-ease);
+
+      &[hidden] {
+        display: none;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          border-color: var(--brand-500);
+
+          .guide-card_title {
+            text-decoration: underline;
+          }
+
+          .guide-card_image {
+            scale: 1.04;
+          }
+        }
+      }
+    }
+
+    .guide-card_visual {
+      position: relative;
+      display: block;
+      aspect-ratio: 4 / 5;
+      overflow: clip;
+      background-color: var(--background-skeleton);
+    }
+
+    .guide-card_image {
+      width: 100%;
+      height: 100%;
+      transition: scale calc(var(--hover-duration) * 2) var(--hover-ease);
+    }
+
+    .guide-card_badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      padding: 0.2em 0.8em;
+      background-color: color-mix(in srgb, var(--brand-500) 80%, transparent);
+      border-radius: 0 0 0 var(--radius-main);
+      color: var(--brand-text);
+      font-size: 0.65rem;
+      letter-spacing: 0.05ch;
+    }
+
+    .guide-card_content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25em;
+      padding: var(--space-1) var(--space-1) var(--space-2);
+    }
+
+    .guide-card_meta {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-2);
+    }
+
+    .guide-card_label {
+      color: var(--brand-500);
+      font-size: 0.65rem;
+      font-style: italic;
+      font-weight: var(--primary-bold);
+      letter-spacing: 0.1ch;
+      text-transform: uppercase;
+    }
+
+    .guide-card_place {
+      color: var(--dark-500);
+      font-size: 0.65rem;
+    }
+
+    .guide-card_text {
+      line-height: var(--line-height-large);
+    }
+  }
+</style>

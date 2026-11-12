@@ -1,6 +1,8 @@
 ---
 name: Hong Kong
 country: hong-kong
+order: 20
+homeOrder: 7
 featured: true
 hasRestaurants: true
 hasItinerary: true

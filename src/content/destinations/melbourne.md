@@ -1,6 +1,8 @@
 ---
 name: Melbourne
 country: australia
+order: 2
+homeOrder: 4
 featured: true
 hasRestaurants: true
 image:

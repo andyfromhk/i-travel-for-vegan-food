@@ -1,0 +1,116 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import Icon from "@/components/media/Icon.astro";
+import check from "@/assets/icons/check-circle.svg";
+import { type Destination, countryBySlug, destinationCounts, mediaSize } from "@/utils/content.ts";
+
+interface Props extends HTMLAttributes<"a"> {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The destination to show. */
+  destination: Destination;
+  /** Heading level. */
+  headingTag?: "h2" | "h3" | "h4";
+  /** Loading behavior. */
+  loading?: "lazy" | "eager";
+}
+
+const { render = true, destination, headingTag: Tag = "h3", loading = "lazy", class: className, ...rest } = Astro.props;
+const { data } = destination;
+const counts = await destinationCounts(destination);
+const size = mediaSize(data.image?.src);
+---
+
+{
+  render && (
+    <a class:list={["destination-card_wrap", className]} href={`/destinations/${destination.id}`} {...rest}>
+      {data.image && (
+        <img class="destination-card_image" src={data.image.src} alt="" loading={loading} decoding="async" {...size} />
+      )}
+      {data.book && (
+        <span class="destination-card_badge">
+          <Icon src={check} variant="small" />
+          Vegan Travel Book
+        </span>
+      )}
+      <span class="destination-card_info">
+        <span class="destination-card_country">{countryBySlug.get(data.country)?.name}</span>
+        <Tag class="destination-card_name text-style-h4">{data.name}</Tag>
+        {counts.text && <span class="destination-card_count">{counts.text}</span>}
+      </span>
+    </a>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .destination-card_wrap {
+      position: relative;
+      display: block;
+      aspect-ratio: 1;
+      overflow: clip;
+      background-color: var(--background-skeleton);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius-main);
+      color: var(--light-100);
+      transition: border-color var(--hover-duration) var(--hover-ease);
+
+      @media (hover: hover) {
+        &:hover {
+          border-color: var(--brand-500);
+
+          .destination-card_image {
+            scale: 1.04;
+          }
+
+          .destination-card_name {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .destination-card_image {
+      width: 100%;
+      height: 100%;
+      transition: scale calc(var(--hover-duration) * 2) var(--hover-ease);
+    }
+
+    .destination-card_badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      padding: 0.2em 0.8em;
+      background-color: color-mix(in srgb, var(--brand-500) 80%, transparent);
+      border-radius: 0 0 0 var(--radius-main);
+      font-size: 0.65rem;
+      letter-spacing: 0.05ch;
+    }
+
+    .destination-card_info {
+      position: absolute;
+      inset: auto 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-5) var(--space-2) var(--space-2);
+      background-image: linear-gradient(transparent, color-mix(in srgb, black 80%, transparent) 85%);
+      text-align: center;
+    }
+
+    .destination-card_country {
+      font-size: 0.65rem;
+      font-weight: var(--primary-medium);
+      letter-spacing: 0.2ch;
+      text-transform: uppercase;
+    }
+
+    .destination-card_count {
+      margin-top: 0.3em;
+      font-size: 0.75rem;
+    }
+  }
+</style>

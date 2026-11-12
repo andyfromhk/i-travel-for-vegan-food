@@ -1,6 +1,7 @@
 ---
 name: Nara
 country: japan
+order: 10
 featured: true
 hasRestaurants: true
 hasItinerary: true

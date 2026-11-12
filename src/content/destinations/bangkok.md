@@ -1,6 +1,8 @@
 ---
 name: Bangkok
 country: thailand
+order: 17
+homeOrder: 5
 featured: true
 book: true
 image:

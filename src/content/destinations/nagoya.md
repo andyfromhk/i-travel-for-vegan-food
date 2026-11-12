@@ -1,6 +1,7 @@
 ---
 name: Nagoya
 country: japan
+order: 16
 book: true
 image:
   src: /media/destinations/nagoya/nagoya.jpg

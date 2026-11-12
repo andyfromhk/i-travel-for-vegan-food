@@ -1,6 +1,7 @@
 ---
 name: Brisbane
 country: australia
+order: 3
 featured: true
 hasRestaurants: true
 hasItinerary: true

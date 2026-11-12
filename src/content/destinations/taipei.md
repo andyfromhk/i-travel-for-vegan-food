@@ -1,6 +1,8 @@
 ---
 name: Taipei
 country: taiwan
+order: 21
+homeOrder: 8
 featured: true
 book: true
 image:

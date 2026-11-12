@@ -1,6 +1,7 @@
 ---
 name: Chiang Mai
 country: thailand
+order: 18
 featured: true
 book: true
 image:

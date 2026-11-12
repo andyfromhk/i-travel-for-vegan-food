@@ -1,6 +1,8 @@
 ---
 name: Tokyo
 country: japan
+order: 7
+homeOrder: 1
 featured: true
 hasRestaurants: true
 hasItinerary: true

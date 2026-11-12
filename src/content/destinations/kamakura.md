@@ -1,6 +1,7 @@
 ---
 name: Kamakura
 country: japan
+order: 11
 featured: true
 hasRestaurants: true
 book: true

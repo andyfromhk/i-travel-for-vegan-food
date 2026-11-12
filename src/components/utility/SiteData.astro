@@ -1,0 +1,33 @@
+---
+import { getSite, countries, STATUS_LABEL } from "@/utils/content.ts";
+import { GOOGLE_MAPS, EMAIL_LIST, SITE_URL, SITE_NAME, SITE_LOGO } from "@/consts.ts";
+
+interface Props {
+  /** Destinations the current page is about. */
+  destinations?: string[];
+}
+
+const { destinations = [] } = Astro.props;
+const site = await getSite();
+
+/* What the traveller tools (saved places, phrase card, prices, maps) need to know about the site.
+   It is written from the content at build time, so adding a destination or country needs no code change. */
+const data = {
+  siteUrl: SITE_URL,
+  brand: { name: SITE_NAME, logo: new URL(SITE_LOGO, SITE_URL).href },
+  maps: GOOGLE_MAPS,
+  emailList: EMAIL_LIST,
+  countries: Object.fromEntries(countries.map((c) => [c.slug, { name: c.name, currency: c.currency, phrases: c.phrases }])),
+  destinations: Object.fromEntries(site.destinations.map((d) => [d.id, [d.data.name, d.data.country]])),
+  pageDestinations: destinations,
+  // Restaurants that are closed, so guides can show a badge beside them: { slug: [status, name] }
+  closed: Object.fromEntries(
+    site.places.filter((p) => p.data.status !== "open").map((p) => [p.id, [STATUS_LABEL[p.data.status], p.data.name]]),
+  ),
+};
+---
+
+<script is:inline type="application/json" id="vt-site" set:html={JSON.stringify(data)} />
+<script>
+  import "@/scripts/core.js";
+</script>

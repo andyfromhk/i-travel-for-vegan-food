@@ -1,6 +1,7 @@
 ---
 name: Seoul
 country: south-korea
+order: 23
 image:
   src: /media/destinations/seoul/seoul.jpg
 mapGraphic:

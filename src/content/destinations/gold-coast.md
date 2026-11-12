@@ -1,6 +1,7 @@
 ---
 name: Gold Coast
 country: australia
+order: 4
 featured: true
 hasRestaurants: true
 image:

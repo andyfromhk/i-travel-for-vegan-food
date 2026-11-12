@@ -1,6 +1,8 @@
 ---
 name: Kyoto
 country: japan
+order: 8
+homeOrder: 2
 featured: true
 hasRestaurants: true
 book: true

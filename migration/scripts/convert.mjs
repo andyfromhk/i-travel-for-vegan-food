@@ -286,6 +286,12 @@ for (const card of destinationsHtml.matchAll(/<a href="\/destinations\/([^"]+)" 
   if (/destination-card-top-right-info-div(?! w-condition-invisible)/.test(card[2])) hasBookBadge.add(card[1]);
 }
 
+// The order destinations appear in (Destinations page and the home page) is also set in the Designer.
+const pageOrder = [...destinationsHtml.matchAll(/<a href="\/destinations\/([^"]+)" class="card/g)].map((m) => m[1]);
+const homeHtml = await readFile(`${CRAWL_HTML}/index.html`, "utf8").catch(() => "");
+const homeOrder = [...homeHtml.matchAll(/<a href="\/destinations\/([^"]+)" class="card/g)].map((m) => m[1]);
+const position = (list, slug) => (list.includes(slug) ? list.indexOf(slug) + 1 : undefined);
+
 for (const item of destinations) {
   const f = item.fieldData;
   const slug = f.slug;
@@ -293,6 +299,8 @@ for (const item of destinations) {
   const data = {
     name: text(f.name),
     country: countrySlug.get(f["destination-country"]),
+    order: position(pageOrder, slug),
+    homeOrder: position(homeOrder, slug),
     featured: f["featured-2"] || undefined,
     hasRestaurants: f.restaurants || undefined,
     hasItinerary: f.itinerary || undefined,

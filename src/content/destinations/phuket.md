@@ -1,6 +1,8 @@
 ---
 name: Phuket
 country: thailand
+order: 19
+homeOrder: 6
 featured: true
 book: true
 image:
