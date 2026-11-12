@@ -1,0 +1,127 @@
+---
+import books from "@/data/books.json";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** Which book to promote: a key of src/data/books.json. */
+  book?: keyof typeof books;
+}
+
+const { render = true, book: key = "japan" } = Astro.props;
+const book = books[key] as { title: string; edition?: string; blurb?: string; cover: string; url: string };
+---
+
+{
+  render && book && (
+    <aside class="book-popup_wrap" data-vt-ignore hidden>
+      {book.edition && <span class="book-popup_badge">{book.edition}</span>}
+      <a class="book-popup_link" href={book.url}>
+        <span class="book-popup_text">
+          <span class="book-popup_title text-style-h6">{book.title}</span>
+          {book.blurb && <span class="book-popup_blurb">{book.blurb}</span>}
+        </span>
+        <img class="book-popup_cover" src={book.cover} alt="" width="60" height="80" loading="lazy" />
+      </a>
+      <button class="book-popup_close" type="button" aria-label="Close">
+        ×
+      </button>
+    </aside>
+  )
+}
+
+<script>
+  /* Shows after a little scrolling; closing it keeps it away for the rest of the visit. */
+  const popup = document.querySelector<HTMLElement>(".book-popup_wrap");
+  const KEY = "itfvf:book-popup-closed";
+  let closed = false;
+  try {
+    closed = sessionStorage.getItem(KEY) === "1";
+  } catch {}
+  if (popup && !closed) {
+    const show = () => {
+      if (window.scrollY < 400) return;
+      popup.hidden = false;
+      window.removeEventListener("scroll", show);
+    };
+    window.addEventListener("scroll", show, { passive: true });
+    show();
+    popup.querySelector(".book-popup_close")?.addEventListener("click", () => {
+      popup.hidden = true;
+      try {
+        sessionStorage.setItem(KEY, "1");
+      } catch {}
+    });
+  }
+</script>
+
+<style is:global>
+  @layer components {
+    .book-popup_wrap {
+      position: fixed;
+      bottom: var(--space-3);
+      left: var(--space-3);
+      z-index: 90;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      width: min(25rem, calc(100vw - var(--space-3) * 2));
+      padding: var(--space-3) var(--space-3) var(--space-2);
+      background-color: var(--background);
+      border: var(--border-width) solid var(--brand-500);
+      border-radius: var(--radius-main);
+      box-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--text) 15%, transparent);
+
+      &[hidden] {
+        display: none;
+      }
+    }
+
+    .book-popup_badge {
+      position: absolute;
+      top: 0;
+      left: var(--space-3);
+      translate: 0 -50%;
+      padding: 0.1em 1em;
+      background-color: var(--brand-500);
+      border-radius: var(--radius-round);
+      color: var(--brand-text);
+      font-size: 0.65rem;
+      font-weight: var(--primary-medium);
+    }
+
+    .book-popup_link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex: 1;
+      color: var(--brand-500);
+    }
+
+    .book-popup_text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .book-popup_blurb {
+      font-size: 0.75rem;
+      line-height: var(--line-height-large);
+    }
+
+    .book-popup_cover {
+      flex: none;
+      width: 3.25rem;
+      height: auto;
+      rotate: 6deg;
+    }
+
+    .book-popup_close {
+      flex: none;
+      padding: 0 0.3em;
+      color: var(--brand-500);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+  }
+</style>

@@ -157,8 +157,8 @@
   --text-large-line-height: var(--line-height-large);
   --text-large-letter-spacing: var(--letter-spacing-normal);
   --text-large-text-transform: none;
-  --text-large-margin-top: var(--space-3);
-  --text-large-margin-bottom: var(--space-3);
+  --text-large-margin-top: var(--space-4);
+  --text-large-margin-bottom: var(--space-4);
   --text-large-font-family: var(--primary-family);
   --text-large-font-weight: var(--primary-regular);
   --text-large-text-wrap: pretty;
@@ -169,8 +169,8 @@
   --text-main-line-height: var(--line-height-huge);
   --text-main-letter-spacing: var(--letter-spacing-normal);
   --text-main-text-transform: none;
-  --text-main-margin-top: var(--space-3);
-  --text-main-margin-bottom: var(--space-3);
+  --text-main-margin-top: var(--space-4);
+  --text-main-margin-bottom: var(--space-4);
   --text-main-font-family: var(--primary-family);
   --text-main-font-weight: var(--primary-regular);
   --text-main-text-wrap: pretty;

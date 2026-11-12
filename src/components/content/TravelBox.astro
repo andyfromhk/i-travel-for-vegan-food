@@ -1,0 +1,126 @@
+---
+import type { Destination } from "@/utils/content.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The destination whose travel recommendations are shown. */
+  destination?: Destination;
+}
+
+const { render = true, destination } = Astro.props;
+const name = destination?.data.name;
+const travel = destination?.data.travel ?? {};
+
+const items = [
+  travel.hotelsLink && { icon: "hotel", href: travel.hotelsLink, title: `Which Area to Stay in ${name} for the Best Food`, text: travel.whereToStay, wide: true },
+  travel.gettingAroundLink && { icon: "ticket", href: travel.gettingAroundLink, title: `Getting Around ${name}`, text: travel.gettingAroundLabel, wide: true },
+  travel.esimLink && { icon: "phone-heart", href: travel.esimLink, title: "Get eSim", text: `Get cheap eSim for ${name}` },
+  travel.experienceLink && { icon: "beach", href: travel.experienceLink, title: "Experiences", text: travel.experienceLabel },
+].filter(Boolean) as { icon: string; href: string; title: string; text?: string; wide?: boolean }[];
+---
+
+{
+  render && destination && items.length > 0 && (
+    <aside class="travel-box_wrap" data-vt-ignore>
+      <h2 class="travel-box_title text-style-h3">Recommendations for Your {name} Trip</h2>
+      <p class="travel-box_note text-style-small">
+        This recommended hotels &amp; activities may contain affiliate links. When you decide to purchase through them,
+        you support me and my mission of documenting the best vegan food around the world at no extra cost to you. Thank
+        you!
+      </p>
+      <ul class="travel-box_list">
+        {items.map((item) => (
+          <li class:list={["travel-box_item", item.wide && "wide"]}>
+            <a class="travel-box_link" href={item.href} target="_blank" rel="noopener">
+              <img class="travel-box_icon" src={`/site/icons/icon-${item.icon}.png`} alt="" width="40" height="40" loading="lazy" />
+              <span class="travel-box_text">
+                <strong>{item.title}</strong>
+                {item.text && <span class="travel-box_detail">{item.text} →</span>}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .travel-box_wrap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-3) var(--space-3);
+      border: var(--border-width) solid var(--brand-500);
+      border-radius: var(--radius-main);
+    }
+
+    .travel-box_title {
+      color: var(--brand-500);
+    }
+
+    .travel-box_note {
+      color: var(--dark-500);
+      font-style: italic;
+      line-height: var(--line-height-large);
+    }
+
+    .travel-box_list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+
+    .travel-box_item.wide {
+      grid-column: 1 / -1;
+    }
+
+    .travel-box_link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      height: 100%;
+      padding: 0.5rem var(--space-3);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius-round);
+      transition: border-color var(--hover-duration) var(--hover-ease);
+
+      @media (hover: hover) {
+        &:hover {
+          border-color: var(--brand-500);
+        }
+      }
+    }
+
+    .travel-box_icon {
+      flex: none;
+      width: 2.25rem;
+      height: 2.25rem;
+      object-fit: contain;
+    }
+
+    .travel-box_text {
+      display: flex;
+      flex-direction: column;
+      line-height: var(--line-height-large);
+    }
+
+    .travel-box_detail {
+      font-size: 0.8rem;
+      font-style: italic;
+    }
+
+    @media (width < 30rem) {
+      .travel-box_list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .travel-box_link {
+        border-radius: var(--radius-main);
+      }
+    }
+  }
+</style>

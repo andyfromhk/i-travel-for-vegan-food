@@ -1,0 +1,98 @@
+---
+import Eyebrow from "@/components/typography/Eyebrow.astro";
+import { type Author, type Guide, guideLabel, mediaSize, shortDate } from "@/utils/content.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The guide the page is about. */
+  guide: Guide;
+  /** The guide's author. */
+  author?: Author;
+}
+
+const { render = true, guide, author } = Astro.props;
+const { data } = guide;
+---
+
+{
+  render && (
+    <header class="guide-hero_wrap">
+      {data.image && (
+        <img class="guide-hero_image" src={data.image.src} alt={data.image.alt ?? ""} fetchpriority="high" {...mediaSize(data.image.src)} />
+      )}
+      <div class="guide-hero_content">
+        <div class="guide-hero_text">
+          <Eyebrow>{guideLabel(guide)}</Eyebrow>
+          <h1 class="text-style-h1">{data.title}</h1>
+          {data.description && <p class="guide-hero-description">{data.description}</p>}
+          {/* "Save this guide" is added here by the saved-places script. */}
+          <div data-vt-save-guide-slot />
+        </div>
+        <div class="guide-hero_meta">
+          {author && (
+            <p class="guide-hero_author">
+              Written by <a href={`/authors/${author.id}`}>{author.data.name}</a>
+            </p>
+          )}
+          {data.updated && <p>Updated on {shortDate(data.updated)}</p>}
+        </div>
+      </div>
+    </header>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .guide-hero_wrap {
+      display: grid;
+      gap: var(--space-4);
+      width: 100%;
+
+      @media (width >= 48rem) {
+        grid-template-columns: 1fr 1.5fr;
+        gap: var(--space-7);
+      }
+    }
+
+    .guide-hero_image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+    }
+
+    .guide-hero_content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-5);
+
+      @media (width >= 48rem) {
+        padding-top: var(--space-7);
+      }
+    }
+
+    .guide-hero_text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+
+    .guide-hero_meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      font-size: 0.85rem;
+    }
+
+    .guide-hero_author {
+      font-style: italic;
+      font-weight: 500;
+
+      & a {
+        color: var(--link-text);
+        text-decoration: underline;
+      }
+    }
+  }
+</style>

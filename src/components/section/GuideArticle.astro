@@ -1,0 +1,60 @@
+---
+import type { ComponentProps } from "astro/types";
+import Section from "@/components/wrapper/Section.astro";
+
+type Props = Pick<ComponentProps<typeof Section>, "render" | "theme" | "paddingTop" | "paddingBottom">;
+
+const { render = true, ...rest } = Astro.props;
+---
+
+{/* A guide's body: the sidebar (table of contents, map, share) stays in view while the text scrolls. */}
+<Section render={render} {...rest}>
+  <div class="guide-article_wrap">
+    <aside class="guide-article_sidebar">
+      <slot name="sidebar" />
+    </aside>
+    <div class="guide-article_content">
+      <slot />
+    </div>
+  </div>
+</Section>
+
+<style is:global>
+  @layer components {
+    .guide-article_wrap {
+      display: grid;
+      gap: var(--space-6);
+      width: 100%;
+
+      @media (width >= 48rem) {
+        grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
+        align-items: start;
+        gap: var(--space-7);
+      }
+    }
+
+    .guide-article_sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      background-color: var(--yellow-100);
+      border-radius: var(--radius-main);
+
+      @media (width >= 48rem) {
+        position: sticky;
+        top: calc(var(--nav-height) + var(--space-2));
+        max-height: calc(100svh - var(--nav-height) - var(--space-4));
+        padding: 0;
+        background-color: transparent;
+      }
+    }
+
+    .guide-article_content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      min-width: 0;
+    }
+  }
+</style>

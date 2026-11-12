@@ -1,0 +1,69 @@
+---
+import { render as renderEntry } from "astro:content";
+import Button from "@/components/Button.astro";
+import type { Author } from "@/utils/content.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The author of the guide. */
+  author?: Author;
+}
+
+const { render = true, author } = Astro.props;
+const { Content } = author ? await renderEntry(author) : { Content: null };
+const image = author?.data.image?.src ?? "/site/brand/logo-square.png";
+---
+
+{
+  render && author && Content && (
+    <aside class="author-box_wrap" data-vt-ignore>
+      <img class="author-box_image" src={image} alt="" width="120" height="120" loading="lazy" />
+      <div class="author-box_content">
+        <h2 class="text-style-h6">Written by {author.data.name}</h2>
+        <div class="author-box_bio">
+          <Content />
+        </div>
+        <Button element="link" href={`/authors/${author.id}`}>
+          View Author Page
+        </Button>
+      </div>
+    </aside>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .author-box_wrap {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      align-items: start;
+      gap: var(--space-4);
+      padding: var(--space-3);
+      background-color: var(--yellow-100);
+      border-radius: var(--radius-main);
+    }
+
+    .author-box_image {
+      border-radius: 50%;
+      aspect-ratio: 1;
+    }
+
+    .author-box_content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+
+    .author-box_bio {
+      color: var(--dark-700);
+      font-size: 0.85rem;
+
+      & a {
+        color: var(--link-text);
+        text-decoration: underline;
+      }
+    }
+  }
+</style>

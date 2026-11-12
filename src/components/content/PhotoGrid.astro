@@ -1,0 +1,68 @@
+---
+import { type Picture, mediaSize } from "@/utils/content.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** Photos to show. Each one's alt text doubles as its caption. */
+  photos: Picture[];
+}
+
+const { render = true, photos } = Astro.props;
+---
+
+{
+  render && photos.length > 0 && (
+    <ul class="photo-grid_wrap">
+      {photos.map((photo) => (
+        <li class="photo-grid_item">
+          <a class="photo-grid_link" href={photo.src} target="_blank" rel="noopener">
+            <img class="photo-grid_image" src={photo.src} alt={photo.alt ?? ""} loading="lazy" decoding="async" {...mediaSize(photo.src)} />
+            {photo.alt && <span class="photo-grid_caption">{photo.alt}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .photo-grid_wrap {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: var(--space-3);
+      width: 100%;
+
+      @media (width >= 48rem) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .photo-grid_link {
+      position: relative;
+      display: block;
+      overflow: clip;
+      border-radius: var(--radius-main);
+    }
+
+    .photo-grid_image {
+      width: 100%;
+      height: auto;
+    }
+
+    .photo-grid_caption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      max-width: 100%;
+      padding: 0.15em 0.8em;
+      background-color: color-mix(in srgb, black 55%, transparent);
+      border-radius: var(--radius-main) 0 0 0;
+      color: var(--light-100);
+      font-size: 0.7rem;
+      font-style: italic;
+    }
+  }
+</style>

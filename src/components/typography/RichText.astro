@@ -66,32 +66,55 @@ const content = await slotContent(Astro.slots);
       }
 
       & > :first-child,
-      & :is(blockquote, li) > :first-child:not(:is(ul, ol)) {
+      & :is(blockquote, li, .tip_body) > :first-child:not(:is(ul, ol)) {
         margin-top: 0;
       }
+
       & > :last-child,
-      & :is(blockquote, li) > :last-child {
+      & :is(blockquote, li, .tip_body) > :last-child {
         margin-bottom: 0;
+      }
+
+      & :is(h1, h2, h3, h4) {
+        scroll-margin-top: calc(var(--nav-height) + var(--space-4));
+      }
+
+      & a {
+        color: var(--link-text);
+        text-decoration: underline;
+        transition: color var(--hover-duration) var(--hover-ease);
+
+        @media (hover: hover) {
+          &:hover {
+            color: var(--link-text-hover);
+          }
+        }
       }
 
       & :is(ul, ol) {
         padding-left: 1.5em;
       }
+
       & ul {
         list-style-type: disc;
       }
+
       & ul ul {
         list-style-type: circle;
       }
+
       & ul ul ul {
         list-style-type: square;
       }
+
       & ol {
         list-style-type: decimal;
       }
+
       & li::marker {
-        color: color-mix(in lab, currentcolor 60%, transparent);
+        color: var(--brand-500);
       }
+
       & li + li {
         margin-top: var(--space-2);
       }
@@ -104,6 +127,103 @@ const content = await slotContent(Astro.slots);
         padding-left: var(--space-4);
         border-left: var(--border-width) solid var(--border);
       }
+
+      /* Divider: a line of --- in the text */
+      & hr {
+        height: var(--border-width);
+        margin-block: var(--space-8);
+        background-color: var(--brand-500);
+        border: 0;
+      }
+
+      /* Photos and captions */
+      & .figure {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+        margin-inline: 0;
+
+        & img {
+          width: 100%;
+          height: auto;
+        }
+
+        & figcaption {
+          color: var(--dark-700);
+          font-size: 0.8rem;
+          font-style: italic;
+          line-height: var(--line-height-huge);
+          text-align: center;
+        }
+      }
+
+      /* Two portrait photos in a row */
+      & .image-pair {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-1);
+        margin-block: var(--_margin-top);
+
+        & > .figure {
+          flex: 1 1 0;
+          min-width: 0;
+          margin: 0;
+        }
+      }
+
+      /* Tip box: a block quote in the text */
+      & .tip {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        margin-block: var(--_margin-top);
+        padding: var(--space-3);
+        background-color: var(--yellow-100);
+        border-radius: var(--radius-main);
+      }
+
+      & .tip_icon {
+        flex: none;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: center / contain no-repeat;
+      }
+
+      & .tip_body {
+        min-width: 0;
+      }
+
+      /* Embedded maps and widgets */
+      & .embed-frame {
+        margin-block: var(--_margin-top);
+
+        & iframe {
+          display: block;
+          width: 100%;
+          aspect-ratio: 16 / 10;
+          border: 0;
+          border-radius: var(--radius-main);
+        }
+      }
+
+      & .embed-widget {
+        margin-block: var(--_margin-top);
+      }
     }
+
+    /* One background image per tip icon. The files live in public/site/icons. */
+    .tip[data-icon="idea"] .tip_icon { background-image: url("/site/icons/icon-idea.png"); }
+    .tip[data-icon="camera"] .tip_icon { background-image: url("/site/icons/icon-camera.png"); }
+    .tip[data-icon="ticket"] .tip_icon { background-image: url("/site/icons/icon-ticket.png"); }
+    .tip[data-icon="compass"] .tip_icon { background-image: url("/site/icons/icon-compass.png"); }
+    .tip[data-icon="food"] .tip_icon { background-image: url("/site/icons/icon-food.png"); }
+    .tip[data-icon="website"] .tip_icon { background-image: url("/site/icons/icon-website.png"); }
+    .tip[data-icon="location"] .tip_icon { background-image: url("/site/icons/icon-location.png"); }
+    .tip[data-icon="hotel"] .tip_icon { background-image: url("/site/icons/icon-hotel.png"); }
+    .tip[data-icon="cutlery"] .tip_icon { background-image: url("/site/icons/icon-cutlery.png"); }
+    .tip[data-icon="book"] .tip_icon { background-image: url("/site/icons/icon-book.png"); }
+    .tip[data-icon="money"] .tip_icon { background-image: url("/site/icons/icon-money.png"); }
+    .tip[data-icon="discount"] .tip_icon { background-image: url("/site/icons/icon-discount.png"); }
+    .tip[data-icon="phone-heart"] .tip_icon { background-image: url("/site/icons/icon-phone-heart.png"); }
   }
 </style>

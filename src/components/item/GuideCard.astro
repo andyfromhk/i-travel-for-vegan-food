@@ -91,12 +91,15 @@ const text = data.summary || data.description;
     .guide-card_visual {
       position: relative;
       display: block;
+      flex: none;
       aspect-ratio: 4 / 5;
       overflow: clip;
       background-color: var(--background-skeleton);
     }
 
     .guide-card_image {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       transition: scale calc(var(--hover-duration) * 2) var(--hover-ease);
@@ -120,8 +123,13 @@ const text = data.summary || data.description;
     .guide-card_content {
       display: flex;
       flex-direction: column;
-      gap: 0.25em;
-      padding: var(--space-1) var(--space-1) var(--space-2);
+      /* Headings and text are trimmed to their letters, so the gap is measured from baseline to cap height. */
+      gap: 0.6rem;
+      padding: var(--space-1) var(--space-2) var(--space-3) var(--space-1);
+    }
+
+    .guide-card_title {
+      text-wrap: pretty;
     }
 
     .guide-card_meta {

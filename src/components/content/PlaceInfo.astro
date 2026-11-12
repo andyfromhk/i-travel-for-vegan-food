@@ -1,0 +1,107 @@
+---
+import Icon from "@/components/media/Icon.astro";
+import pin from "@/assets/icons/pin.svg";
+import globe from "@/assets/icons/globe.svg";
+import instagram from "@/assets/icons/instagram.svg";
+import facebook from "@/assets/icons/facebook.svg";
+import phone from "@/assets/icons/phone.svg";
+import type { Place } from "@/utils/content.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The restaurant the page is about. */
+  place: Place;
+}
+
+const { render = true, place } = Astro.props;
+const { data } = place;
+const mapsHref = data.chain ? data.storeLocator : (data.mapsUrl ?? (data.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${data.name}, ${data.address}`)}` : undefined));
+const links = [
+  data.website && { href: data.website, icon: globe, label: "Website" },
+  data.instagram && { href: data.instagram, icon: instagram, label: "Instagram" },
+  data.facebook && { href: data.facebook, icon: facebook, label: "Facebook" },
+].filter(Boolean) as { href: string; icon: typeof globe; label: string }[];
+---
+
+{
+  render && (
+    <aside class="place-info_wrap">
+      <h2 class="text-style-h4">Location &amp; Details</h2>
+      {(data.address || data.chain) && (
+        <p class="place-info_row">
+          <Icon src={pin} variant="small" />
+          {mapsHref ? (
+            <a href={mapsHref} target="_blank" rel="noopener">
+              {data.chain ? "Multiple locations: find one near you" : data.address}
+            </a>
+          ) : (
+            <span>{data.address}</span>
+          )}
+        </p>
+      )}
+      {data.phone && (
+        <p class="place-info_row">
+          <Icon src={phone} variant="small" />
+          <a href={`tel:${data.phone.replace(/[^+\d]/g, "")}`}>{data.phone}</a>
+        </p>
+      )}
+      {links.length > 0 && (
+        <ul class="place-info_links">
+          {links.map((link) => (
+            <li>
+              <a class="place-info_link" href={link.href} target="_blank" rel="noopener" aria-label={link.label}>
+                <Icon src={link.icon} variant="medium" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </aside>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .place-info_wrap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .place-info_row {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: 0.85rem;
+      line-height: var(--line-height-large);
+      text-box: none;
+
+      & a {
+        color: var(--link-text);
+        text-decoration: underline;
+      }
+
+      & svg {
+        flex: none;
+        margin-top: 0.15em;
+      }
+    }
+
+    .place-info_links {
+      display: flex;
+      gap: var(--space-4);
+    }
+
+    .place-info_link {
+      display: flex;
+      transition: color var(--hover-duration) var(--hover-ease);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--brand-500);
+        }
+      }
+    }
+  }
+</style>
