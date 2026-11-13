@@ -30,6 +30,11 @@ Three services only answer websites they know. Add the preview address to each:
 
 Until the Maps key is updated, maps show "Oops! Something went wrong" on the preview. Everything else works.
 
+**The map on restaurant pages** uses Google's Maps Embed API, which is free with no usage limit but has to be
+switched on once: Google Cloud console → APIs & Services → Library → **Maps Embed API** → Enable (in the same
+project as the Maps key). If the key has an "API restrictions" list, add Maps Embed API to it too. Until then
+that map shows a grey box.
+
 ## 3. What to test
 
 The checklists in this folder are the tests: `core-checklist.md`, `guide-checklist.md`,

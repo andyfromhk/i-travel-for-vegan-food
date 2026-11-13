@@ -1,5 +1,6 @@
 ---
 name: Sunshine Coast
+slug: sunshine-coast
 country: australia
 image:
   src: /media/destinations/sunshine-coast/sunshine-coast.jpg

@@ -79,7 +79,7 @@ A highlight of the West Gate, PASONA’s concept kitchen focuses on sustainable 
 
 ![](/media/guides/vegan-food-osaka-world-expo-2025/ad-4nxfym4viynhw247lboijq9go7klm2vp17kvio5m-6injhzaxcdix8rm5wx4t-efvvdqmssrppckd.jpeg)
 
-Minimalist yet hearty: the Dutch pavilion had a nice vegan message on the inside, and offer&#x73;**&#x20;two vegan-friendly onigiri** that are labeled as vegetarian: the one I tried is called bitterbal, which is a Dutch kind of meatball, made with **vegan meat from Dutch company “The Vegetarian Butcher”**. I liked the concept of this snack a lot, and the taste left nothing to be desired either!
+Minimalist yet hearty: the Dutch pavilion had a nice vegan message on the inside, and offers **two vegan-friendly onigiri** that are labeled as vegetarian: the one I tried is called bitterbal, which is a Dutch kind of meatball, made with **vegan meat from Dutch company “The Vegetarian Butcher”**. I liked the concept of this snack a lot, and the taste left nothing to be desired either!
 
 ### Top Tip: Italian pavilion’s Illy Gelato & Pinsa
 
@@ -89,7 +89,7 @@ Minimalist yet hearty: the Dutch pavilion had a nice vegan message on the inside
 
 ![](/media/guides/vegan-food-osaka-world-expo-2025/ad-4nxeoofk-gdfhdibjh-9fgqtbpvvdvuxidyxihhiun0-vzecpldgytsndhzcumxtf5lblsevrazrz.jpeg)
 
-A hidden gem offering creamy **vegan gelato in very unique olive oil with sea salt, and tomato with arnica flavours&#x20;**- which you can also get as an affogato version. Their neighboring truck also offers thin-crust Roman-style **pinsa** (just double-check ingredients of the espresso cookie put on top of the ice cream).
+A hidden gem offering creamy **vegan gelato in very unique olive oil with sea salt, and tomato with arnica flavours** - which you can also get as an affogato version. Their neighboring truck also offers thin-crust Roman-style **pinsa** (just double-check ingredients of the espresso cookie put on top of the ice cream).
 
 ## Navigating the Expo (& Finding All the Vegan Spots!)
 
@@ -107,10 +107,10 @@ The Expo can be… well, *a lot*. So here’s the simplified way to get in and m
 ### Pro Tips for Your Osaka World Expo Visit
 
 - **Avoid weekends** and **Japanese public holidays** to skip the worst crowds.
-- Pavilion reservations are competitive—pic&#x6B;**&#x20;two max to fight for,** and spend the rest of the day exploring, rather than trying to wrangle with the app. Some pavilions might let you queue on the spot too, especially in the later hours of the day.
-- Th&#x65;**&#x20;Commons Halls** pack lots of experiences together, I especially recommend visiting Ukrainian and Croatian stalls!
+- Pavilion reservations are competitive—pick **two max to fight for,** and spend the rest of the day exploring, rather than trying to wrangle with the app. Some pavilions might let you queue on the spot too, especially in the later hours of the day.
+- The **Commons Halls** pack lots of experiences together, I especially recommend visiting Ukrainian and Croatian stalls!
 - If you’re only going to choose one pavilion, make it **PASONA's NATUREVERSE**, both for its food and circularity-focused exhibits. They are a great company for the vegan scene and connected to Awajishima - the island famous for its big onion statue and vegan Hello Kitty Showbox experience.
 
-Want **photos of menus, maps,&#x20;**&#x61;nd an overview over **ALL vegan options** at the Expo?
+Want **photos of menus, maps,** and an overview over **ALL vegan options** at the Expo?
 
 👉 Download Anita's [FREE vegan World Expo 2025 guide](https://payhip.com/b/Wuwjv)!

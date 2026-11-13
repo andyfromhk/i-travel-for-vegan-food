@@ -43,7 +43,7 @@ This is arguably the undisputed king of Thai desserts and an absolute must-try f
 
 It is usually topped with crunchy yellow mung beans for texture and extra coconut cream on top. You can also find a variation made with durian instead of mango.
 
-**Is Mango Sticky Rice Vegan?&#x2028;**
+**Is Mango Sticky Rice Vegan?**
 
 Yes. Traditional versions are naturally vegan as they rely on coconut milk for that creaminess rather than dairy.
 
@@ -55,7 +55,7 @@ Yes. Traditional versions are naturally vegan as they rely on coconut milk for t
 
 These are small, bite-sized coconut puddings with a crispy shell and a creamy coconut cream centre. They usually have two distinct layers: a crispy outer shell and a soft, creamy coconut cream centre that melts in your mouth. I tried a delicious mixed box at Jing Jai Market [in Chiang Mai](/articles/vegan-chiang-mai-guide) which came with various toppings pressed into the centre, such as sweet corn and purple taro.
 
-**Is Khanom Krok Vegan?&#x2028;**
+**Is Khanom Krok Vegan?**
 
 Usually yes. The batter is traditionally made from rice flour and coconut milk. However, do be careful of savoury toppings at non-vegetarian stalls, as some modern variations might use non-vegan ingredients for toppings.
 
@@ -67,7 +67,7 @@ Usually yes. The batter is traditionally made from rice flour and coconut milk. 
 
 If you are out exploring in the morning, you will likely see vendors frying these up in huge woks. Pa Tong Go is a Thai breakfast staple consisting of X-shaped or ball-shaped dough deep-fried until golden and crispy on the outside, while light and airy on the inside. A very traditional breakfast item.
 
-**Is Pa Tong Go Vegan?&#x2028;**
+**Is Pa Tong Go Vegan?**
 
 The dough itself is usually safe and vegan. However, locals often dip these in sweetened condensed milk. To keep it vegan, simply eat the dough without the dip unless they specifically say that the dip is 'jay' friendly and not made with dairy.
 
@@ -79,7 +79,7 @@ The dough itself is usually safe and vegan. However, locals often dip these in s
 
 One of the most Instagrammable sweets you can find in Thailand. They look like beautiful, glossy miniature fruits and vegetables - think tiny chillies, mangos, and mangosteens. Despite looking like candies, they are actually made from sweetened mung bean paste that is moulded into shapes and coated in a shiny agar jelly glaze.
 
-**Is Luk Chup Vegan?&#x2028;**
+**Is Luk Chup Vegan?**
 
 Yes, almost always. The ingredients are mung beans, sugar, coconut milk, and agar agar.
 
@@ -91,7 +91,7 @@ Yes, almost always. The ingredients are mung beans, sugar, coconut milk, and aga
 
 For a savoury snack, look for these chewy, translucent dumplings filled with garlic chives. You can find them either steamed or fried. I tried the fried version at the Vegetarian Society in Chatuchak. It is crispy on the outside, and hearty and chewy on the inside. They are often served with a dark soy dipping sauce.
 
-**Is Gui Chai Vegan?&#x2028;**
+**Is Gui Chai Vegan?**
 
 Almost always vegan. The dough is tapioca and rice flour, with chives and seasonings.
 
@@ -115,7 +115,7 @@ You can spot these by their packaging: they are usually served in little rounded
 
 This is a unique street food that's made of glutinous rice stuffed inside a hallow bamboo tube. The rice is often mixed with black beans, sugar, and coconut milk, and then stuffed inside bamboo and roasted over charcoal.
 
-**Is Khao Lam Vegan?&#x2028;**
+**Is Khao Lam Vegan?**
 
 Depending on the filling. The base glutinous rice would likely be vegan-friendly.
 
@@ -139,7 +139,7 @@ These are boiled rice flour dumplings stuffed with a caramelised coconut filling
 
 A long, thin treat made of sticky rice, palm sugar, various fillings, and wrapped in a palm leaf and roasted over charcoal.
 
-**Is Khanom Jak Vegan?&#x2028;**
+**Is Khanom Jak Vegan?**
 
 Usually yes, but it can depend on the specific filling or recipe used by the vendor. Usually the filling is simple with banana, taro, corn, etc,, but it's worth asking if you are at a standard street stall.
 
@@ -151,7 +151,7 @@ Usually yes, but it can depend on the specific filling or recipe used by the ven
 
 These are deep-fried balls made from mashed sweet potato, sugar, and tapioca starch. You will often see them in two colours: orange (from sweet potato) and purple (from purple sweet potato). They are crispy on the outside but have a chewy airy texture on the inside.
 
-**Is Khanom Kai Nok Krata Vegan?&#x2028;**
+**Is Khanom Kai Nok Krata Vegan?**
 
 Always vegan. It is a simple mixture of potato and flour fried in oil.
 

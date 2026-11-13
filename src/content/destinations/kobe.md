@@ -1,5 +1,6 @@
 ---
 name: Kobe
+slug: kobe
 country: japan
 order: 12
 featured: true

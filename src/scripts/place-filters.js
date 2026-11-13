@@ -77,10 +77,12 @@
       tag.type = 'button';
       tag.className = 'dest-map_tag';
       tag.setAttribute('aria-label', 'Remove filter: ' + label);
-      tag.append(label, ' ');
+      tag.append(label);
       const cross = document.createElement('span');
+      cross.className = 'dest-map_tag_remove';
       cross.setAttribute('aria-hidden', 'true');
-      cross.textContent = '×';
+      // A drawn cross, as tall as the text (the × character draws smaller than letters).
+      cross.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>';
       tag.appendChild(cross);
       tag.addEventListener('click', () => { remove(); apply(); });
       tags.appendChild(tag);

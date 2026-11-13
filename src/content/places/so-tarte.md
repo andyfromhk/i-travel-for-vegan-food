@@ -46,4 +46,4 @@ So Tarte is a cute, cozy, fully vegan and gluten-free cafe in Omotesando and Yoy
 
 Other than their signature tarts, they may also offer other seasonal desserts like fruit parfait, as well as drinks like oat latte. The price is relatively high but I think the high quality tarts justify the price. Keep in mind that you're required to order a drink if you want to dine in.
 
-So Tarte has a sister cafe called [Fruits & Season ](/restaurants/fruits-and-season)that's known for its vegan whipped cream fruit sandwiches, which is also located in Tokyo.
+So Tarte has a sister cafe called [Fruits & Season](/restaurants/fruits-and-season) that's known for its vegan whipped cream fruit sandwiches, which is also located in Tokyo.

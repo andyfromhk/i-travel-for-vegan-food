@@ -54,8 +54,8 @@ Multiple location. Check the links for the latest locations.
 
 ## Links
 
-[Website](https://qldveganmarkets.com.au/whats-on/)[\
-Facebook](https://www.facebook.com/QLDVeganMarkets/)\
+[Website](https://qldveganmarkets.com.au/whats-on/)\
+[Facebook](https://www.facebook.com/QLDVeganMarkets/)\
 [Instagram](https://www.instagram.com/qldveganmarkets/)
 
 ## What to get from Gold Coast Vegan Market?

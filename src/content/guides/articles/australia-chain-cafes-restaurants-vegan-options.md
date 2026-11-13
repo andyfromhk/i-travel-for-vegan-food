@@ -23,7 +23,7 @@ published: 2026-09-27T12:49:47.847Z
 Zeus Street Greek has a falalfel wrap that is vegan. Previously they had vegan chicken and vegan lamb, but those have been discoutinued.
 
 **Vegan-option** | *Multiple locations*\
-[Website ](https://zeusstreetgreek.com.au/)| [Instagram ](https://www.instagram.com/zeusstreetgreek/)| [Facebook](https://www.facebook.com/ZeusStreetGreek/)
+[Website](https://zeusstreetgreek.com.au/) | [Instagram](https://www.instagram.com/zeusstreetgreek/) | [Facebook](https://www.facebook.com/ZeusStreetGreek/)
 
 ---
 
@@ -36,7 +36,7 @@ Zeus Street Greek has a falalfel wrap that is vegan. Previously they had vegan c
 P'Nut Street Noodles is a restaurant chain specialised in South-east Asian cuisine. They have clearly marked vegan dishes like Singapore noodles, satay sauce with rice, spring rolls and dumplings. The dishes I've tried are flavourful and tasty.
 
 **Vegan-option** | *Multiple locations*\
-[Website ](https://www.pnut.com.au/)| [Instagram ](https://www.instagram.com/pnutstreetnoodles/)| [Facebook](https://www.facebook.com/PnutStreetNoodles)
+[Website](https://www.pnut.com.au/) | [Instagram](https://www.instagram.com/pnutstreetnoodles/) | [Facebook](https://www.facebook.com/PnutStreetNoodles)
 
 ---
 
@@ -47,7 +47,7 @@ P'Nut Street Noodles is a restaurant chain specialised in South-east Asian cuisi
 [Motto Motto](/restaurants/motto-motto) has a few surprisingly delicious vegan Japanese dishes. My favourite is the tofu teriyaki donburi. Donburi is Japanese rice bowl. The deep fried tofu is smooth and melty. The rice bowl pairs well with the sweet teriyaki sauce. Other dishes include the vegan miso ramen and vegan gyoza.
 
 **Vegan-option** | *Multiple locations*\
-[Website ](https://www.mottomotto.com.au/)| [Instagram ](https://www.instagram.com/mottomotto_japanese/)| [Facebook](https://www.facebook.com/MottoMottoJapanese)
+[Website](https://www.mottomotto.com.au/) | [Instagram](https://www.instagram.com/mottomotto_japanese/) | [Facebook](https://www.facebook.com/MottoMottoJapanese)
 
 ---
 
@@ -57,7 +57,8 @@ P'Nut Street Noodles is a restaurant chain specialised in South-east Asian cuisi
 
 [Fish bowl](/restaurants/fishbowl) is a healthy fast food chain with a few vegan options like a miso eggplant bowl, and the tofu box.
 
-**Vegan-Options** | *Multiple locations\\&#xA;*[Website ](https://fishbowl.com.au/)| [Instagram ](https://www.instagram.com/fishbowl_fuel)| [Facebook](https://www.facebook.com/fishbowlfuel/)
+**Vegan-Options** | *Multiple locations*\
+[Website](https://fishbowl.com.au/) | [Instagram](https://www.instagram.com/fishbowl_fuel) | [Facebook](https://www.facebook.com/fishbowlfuel/)
 
 ---
 
@@ -70,7 +71,7 @@ P'Nut Street Noodles is a restaurant chain specialised in South-east Asian cuisi
 Other than dairy-free milk, Starbucks now offer rice-based vegan whipped cream for drinks, but availability is not consistent from shop to shop. They also carry options like muffins, sandwiches and sausage roll.
 
 **Vegan-option** | *Multiple locations*\
-[Website ](https://www.starbucks.com.au/Home.php)| [Instagram ](https://www.instagram.com/starbucksau)| [Facebook](http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.starbucks.com.au%2FHome.php\&t=Home)
+[Website](https://www.starbucks.com.au/Home.php) | [Instagram](https://www.instagram.com/starbucksau) | [Facebook](http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.starbucks.com.au%2FHome.php\&t=Home)
 
 ![](/media/guides/australia-chain-cafes-restaurants-vegan-options/starbucks-au-vegan-options.jpeg)
 
@@ -86,8 +87,8 @@ Other than dairy-free milk, Starbucks now offer rice-based vegan whipped cream f
 
 A takeaway salad bar with some decent vegan options including tonkatsu schnitzel salad and buffalo falafel slaw. The labelling could be a bit confusing as they use a V leaf label, which usually indicates vegan, to mean vegetarian.
 
-**Vegan-option&#x20;**| *Multiple locations*\
-[Website ](https://www.soulorigin.com.au/)| [Instagram ](https://www.instagram.com/soulorigin/)| [Facebook](https://www.facebook.com/soulorigin)
+**Vegan-option** | *Multiple locations*\
+[Website](https://www.soulorigin.com.au/) | [Instagram](https://www.instagram.com/soulorigin/) | [Facebook](https://www.facebook.com/soulorigin)
 
 ---
 
@@ -97,8 +98,8 @@ A takeaway salad bar with some decent vegan options including tonkatsu schnitzel
 
 Domino's Pizza has a vegan menu including vegan cheese pizza and cheesy garlic bread. In general it's pretty good nostalgic choice, even though they have drastically reduced the vegan range in recent years.
 
-**Vegan-option&#x20;**| *Multiple locations*\
-[Website ](https://www.dominos.com.au/)| [Instagram ](https://www.instagram.com/dominos_au)| [Facebook](https://www.facebook.com/DominosAustralia)
+**Vegan-option** | *Multiple locations*\
+[Website](https://www.dominos.com.au/) | [Instagram](https://www.instagram.com/dominos_au) | [Facebook](https://www.facebook.com/DominosAustralia)
 
 ---
 
@@ -109,7 +110,7 @@ Domino's Pizza has a vegan menu including vegan cheese pizza and cheesy garlic b
 Grill'd offers a few vegan burgers using Fable mushroom patty and Impossible Meat.
 
 **Vegan-option** | *Multiple locations*\
-[Website ](https://www.grilld.com.au/)| [Instagram ](https://www.instagram.com/grilldburgers/)| [Facebook](https://www.facebook.com/GrilldBurgers/)
+[Website](https://www.grilld.com.au/) | [Instagram](https://www.instagram.com/grilldburgers/) | [Facebook](https://www.facebook.com/GrilldBurgers/)
 
 ---
 
@@ -119,8 +120,8 @@ Grill'd offers a few vegan burgers using Fable mushroom patty and Impossible Mea
 
 An acai bar with build-your-own bowls and smoothies. Prices are a bit higher but delicious acai bowls. Go for the combination of peanut butter, strawberry and granola if it's your first time here.
 
-**Vegan-option** | *Multiple locations*[\
-Website ](https://www.oakberry.com/)| [Instagram ](https://www.instagram.com/oakberryau)| [Facebook](https://www.facebook.com/oakberryacai/)
+**Vegan-option** | *Multiple locations*\
+[Website](https://www.oakberry.com/) | [Instagram](https://www.instagram.com/oakberryau) | [Facebook](https://www.facebook.com/oakberryacai/)
 
 ---
 
@@ -133,4 +134,4 @@ Website ](https://www.oakberry.com/)| [Instagram ](https://www.instagram.com/oak
 This dessert chain offers a variety of vegan desserts including churros, ice cream, shakes and more. Taste is overall good, but sometimes the quality is not consistent from shop to shop.
 
 **Vegan-option** | *Multiple locations*\
-[Website ](https://www.sanchurro.com/)| [Instagram ](https://www.instagram.com/sanchurro_au/)| [Facebook](https://www.facebook.com/sanchurro)
+[Website](https://www.sanchurro.com/) | [Instagram](https://www.instagram.com/sanchurro_au/) | [Facebook](https://www.facebook.com/sanchurro)

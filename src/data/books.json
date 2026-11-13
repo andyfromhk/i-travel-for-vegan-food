@@ -1,5 +1,6 @@
-{
-  "japan": {
+[
+  {
+    "slug": "japan",
     "title": "Japan Vegan Foodie Guide",
     "edition": "Updated for 2026/27",
     "blurb": "Helps you find the best vegan food in Tokyo, Kyoto, Osaka & more, even if it's your first time there.",
@@ -9,7 +10,8 @@
     "promoImage": "/site/books/japan-square.webp",
     "url": "/shop"
   },
-  "taiwan": {
+  {
+    "slug": "taiwan",
     "title": "The Vegan Foodie Guide To Taiwan",
     "promoEyebrow": "Get the full guide",
     "promoTitle": "The Vegan Foodie Guide To Taiwan",
@@ -17,7 +19,8 @@
     "promoImage": "/site/books/taiwan.webp",
     "url": "/shop"
   },
-  "hong-kong": {
+  {
+    "slug": "hong-kong",
     "title": "The Vegan Foodie Guide To Hong Kong",
     "promoEyebrow": "Get the full guide",
     "promoTitle": "The Vegan Foodie Guide To Hong Kong",
@@ -25,7 +28,8 @@
     "promoImage": "/site/books/hong-kong.webp",
     "url": "/shop"
   },
-  "thailand": {
+  {
+    "slug": "thailand",
     "title": "The Vegan Foodie Guide To Thailand",
     "promoEyebrow": "Get the full guide",
     "promoTitle": "The Vegan Foodie Guide To Thailand",
@@ -33,4 +37,4 @@
     "promoImage": "/site/books/thailand.webp",
     "url": "/shop"
   }
-}
+]

@@ -165,6 +165,7 @@ export function richTextToMarkdown(html, ctx) {
       },
     })
     .runSync(tree);
+  hoistEdges(mdast);
 
   return unified()
     .use(remarkGfm)
@@ -178,6 +179,56 @@ export function richTextToMarkdown(html, ctx) {
     .stringify(mdast)
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+// Webflow often puts a space or a line break just inside bold, italic or link text ("<em>Hours:<br></em>").
+// Markdown can't write that cleanly, so the converter would escape it as "*Hours:\\&#xA;*&#x4C;unch".
+// This moves those spaces and breaks just outside, and drops any bold, italic or link left empty.
+function hoistEdges(node) {
+  if (!node.children) return;
+  node.children.forEach(hoistEdges);
+  const out = [];
+  for (const child of node.children) {
+    if (!["emphasis", "strong", "delete", "link"].includes(child.type)) {
+      out.push(child);
+      continue;
+    }
+    const before = [];
+    const after = [];
+    const kids = child.children;
+    while (kids.length && kids[0].type === "break") before.push(kids.shift());
+    while (kids.length && kids.at(-1).type === "break")
+      after.unshift(kids.pop());
+    const first = kids[0];
+    const last = kids.at(-1);
+    if (
+      first &&
+      first.type === "text" &&
+      /^[\s\u2028\u2029]/.test(first.value)
+    ) {
+      first.value = first.value.replace(/^[\s\u2028\u2029]+/, "");
+      before.push({ type: "text", value: " " });
+    }
+    if (last && last.type === "text" && /[\s\u2028\u2029]$/.test(last.value)) {
+      last.value = last.value.replace(/[\s\u2028\u2029]+$/, "");
+      after.unshift({ type: "text", value: " " });
+    }
+    child.children = kids.filter((kid) => kid.type !== "text" || kid.value);
+    const empty = !child.children.length;
+    out.push(...before, ...(empty ? [] : [child]), ...after);
+  }
+  // A space next to a line break, or at either end of a paragraph or heading, is invisible, so drop it.
+  const block = ["paragraph", "heading", "tableCell"].includes(node.type);
+  node.children = out.filter(
+    (kid, i) =>
+      !(
+        kid.type === "text" &&
+        kid.value === " " &&
+        (out[i - 1]?.type === "break" ||
+          out[i + 1]?.type === "break" ||
+          (block && (i === 0 || i === out.length - 1)))
+      ),
+  );
 }
 
 // Tidies text and links everywhere.

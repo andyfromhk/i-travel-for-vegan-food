@@ -1,5 +1,6 @@
 ---
 name: Himeji
+slug: himeji
 country: japan
 order: 13
 hasRestaurants: true

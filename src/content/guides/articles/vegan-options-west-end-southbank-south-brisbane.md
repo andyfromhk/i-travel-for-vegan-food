@@ -116,7 +116,7 @@ They have a few vegan options here like vegetable gyoza and the raindrop cake I 
 
 [Vegeme](/restaurants/vegeme) is a Taiwanese vegetarian restaurant with many vegan items. Reasonable prices with generous portions. Two dishes here that I love are rice with bean sauce and beancurd wallet & veggies.
 
-**Vegetarian&#x20;**| [*Address and Hours*](https://goo.gl/maps/kWYNLJR1Gp9vW7haA)
+**Vegetarian** | [*Address and Hours*](https://goo.gl/maps/kWYNLJR1Gp9vW7haA)
 
 ![](/media/guides/vegan-options-west-end-southbank-south-brisbane/img-7332.webp)
 
@@ -124,7 +124,7 @@ They have a few vegan options here like vegetable gyoza and the raindrop cake I 
 
 Although not a veg restaurant, [Okuman](/restaurants/okuman-karaage-ramen-bar) has a relatively big vegan menu. Vegan bento boxes, tempura and ramen are great classic options.
 
-**Vegan-option&#x20;**| [*Address and Hours*](https://goo.gl/maps/iV9HaWGE9fMZv88j8)
+**Vegan-option** | [*Address and Hours*](https://goo.gl/maps/iV9HaWGE9fMZv88j8)
 
 ![Tempura platter, vegetable croquette curry rice, teriyaki tofu and yakisoba](/media/restaurants/okuman-karaage-ramen-bar/20230401-122147.jpg)
 
@@ -142,7 +142,7 @@ Although not a veg restaurant, [Okuman](/restaurants/okuman-karaage-ramen-bar) h
 
 This Indian restaurant has a section of 8 vegan options. The two curries that I tried (pumpkin masala, and Baigan bharta which was a smoky roasted eggplant curry) were great. Unfortunately, I checked with the staff and they said none of the naan, kulcha or papadums can be made vegan. So I went with roti and rice to go with the curries.
 
-**Vegan-option&#x20;**| [*Address and Hours*](https://maps.app.goo.gl/hEBfjCLgULvpVQg57)
+**Vegan-option** | [*Address and Hours*](https://maps.app.goo.gl/hEBfjCLgULvpVQg57)
 
 ![](/media/guides/vegan-options-west-end-southbank-south-brisbane/img-5950.webp)
 
@@ -152,7 +152,7 @@ This Indian restaurant has a section of 8 vegan options. The two curries that I 
 
 The vegan menu at [Taro's Ramen](/restaurants/taros-ramen-south-brisbane) include vegan ramen, gyoza and curry rice. The ramen is tasty with a deep-flavoured broth, but they could be a bit more generous with the amount of toppings.
 
-**Vegan-option&#x20;**| [*Address and Hours*](https://goo.gl/maps/Bub8wSfbxKkcATb28)
+**Vegan-option** | [*Address and Hours*](https://goo.gl/maps/Bub8wSfbxKkcATb28)
 
 ![](/media/guides/vegan-options-west-end-southbank-south-brisbane/img-3807.jpeg)
 
@@ -194,7 +194,7 @@ An Indian restaurant with vegan options. Vegetarian options that are marked dair
 
 [Vegan Restaurant West End](/restaurants/vegan-restaurant-west-end) serves a wide variety of Asian dishes like honey chicken and salty fish fried rice. Food is consistently delicious with reasonable prices.
 
-**Vegan&#x20;**| [*Address and Hours*](https://goo.gl/maps/orh59ZdQXhp8LLZ17)
+**Vegan** | [*Address and Hours*](https://goo.gl/maps/orh59ZdQXhp8LLZ17)
 
 ![](/media/guides/vegan-options-west-end-southbank-south-brisbane/img-3187.jpeg)
 
@@ -230,7 +230,7 @@ An acai bar with build-your-own bowls and smoothies. Prices are a bit higher but
 
 [Wrapture](/restaurants/wrapture) in West End specialises in wraps. The satay tofu wrap and falafel wrap are great. Keep in mind that you would need to specify vegan when ordering and the vegan wrap is $1 extra.
 
-**Vegan-option&#x20;**| [*Address and Hours*](https://goo.gl/maps/1mYvJUseE7SPegtV8)
+**Vegan-option** | [*Address and Hours*](https://goo.gl/maps/1mYvJUseE7SPegtV8)
 
 ![](/media/guides/vegan-options-west-end-southbank-south-brisbane/img-2931.jpeg)
 
@@ -274,7 +274,7 @@ A froyo (frozen yoghurt) chain with vegan options. For the yoghurt, you'll find 
 
 Mu'ooz is a not-for-profit social enterprise and restaurant located in West End. It provides a great way to try some authentic Eritrean cuisine, including enjera, stews and curries. The vegan options are clearly marked. Food is tasty, but some may find the texture lacking a bit with many options being stews.
 
-**Vegan-option&#x20;**| [*Address and Hours*](https://goo.gl/maps/WhoV4WNr2c8FMJdz8)
+**Vegan-option** | [*Address and Hours*](https://goo.gl/maps/WhoV4WNr2c8FMJdz8)
 
 ![](/media/guides/vegan-options-west-end-southbank-south-brisbane/muooz.jpg)
 

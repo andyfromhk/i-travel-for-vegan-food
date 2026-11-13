@@ -16,7 +16,7 @@ But for vegans, finding a vegan bakery could be difficult, even in a big city li
 
 To help you satisfy your cravings, I've put together a big list of vegan-friendly bakeries in Tokyo. From traditional Japanese mochi to soy cream filled croissants, you'll be spoiled for choice if you know where to look.
 
-*This guide focuses on bakeries only. For cakes and desserts, check out this guide to find the&#x20;*[*best vegan desserts in Tokyo*](/articles/best-vegan-desserts-in-tokyo)*&#x20;or check out our&#x20;*[*main Tokyo Vegan Guide*](/articles/vegan-tokyo-guide)*.*
+*This guide focuses on bakeries only. For cakes and desserts, check out this guide to find the* [*best vegan desserts in Tokyo*](/articles/best-vegan-desserts-in-tokyo) *or check out our* [*main Tokyo Vegan Guide*](/articles/vegan-tokyo-guide)*.*
 
 ---
 

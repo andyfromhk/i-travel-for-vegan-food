@@ -1,7 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import Icon from "@/components/media/Icon.astro";
-import map from "@/assets/icons/map.svg";
+import MapIcon from "@/assets/icons/map.svg";
 import {
   type Guide,
   getSite,
@@ -11,6 +10,7 @@ import {
   isMapGuide,
   mediaSize,
 } from "@/utils/content.ts";
+import { CARD_SIZES, responsive } from "@/utils/thumbs.ts";
 
 interface Props extends HTMLAttributes<"a"> {
   /** Set to `false` to omit the component. */
@@ -59,11 +59,12 @@ const text = data.summary || data.description;
             loading={loading}
             decoding="async"
             {...size}
+            {...responsive(data.image.src, CARD_SIZES)}
           />
         )}
         {mapGuide && (
           <span class="guide-card_badge">
-            <Icon src={map} variant="small" />
+            <MapIcon class="guide-card_badge_icon" aria-hidden="true" />
             Map Guide
           </span>
         )}
@@ -144,8 +145,14 @@ const text = data.summary || data.description;
       background-color: color-mix(in srgb, var(--brand-500) 80%, transparent);
       border-radius: 0 0 0 var(--radius-main);
       color: var(--brand-text);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       letter-spacing: 0.05ch;
+    }
+
+    .guide-card_badge_icon {
+      flex: none;
+      width: 1.25em;
+      height: 1.25em;
     }
 
     .guide-card_content {

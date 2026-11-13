@@ -1,0 +1,17 @@
+# Response headers, read by Cloudflare: https://developers.cloudflare.com/workers/static-assets/headers/
+# A request gets the headers of every rule it matches, and a header set twice is joined with a comma,
+# so each Cache-Control below covers its own folder only.
+
+# Scripts, styles and fonts: their names change whenever their contents do, so browsers can keep them.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Photos and site images: kept for a week, then checked again.
+/media/*
+  Cache-Control: public, max-age=604800
+/site/*
+  Cache-Control: public, max-age=604800
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

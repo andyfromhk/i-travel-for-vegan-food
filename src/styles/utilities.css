@@ -230,6 +230,10 @@
   padding-top: var(--section-space-nav-overlap);
 }
 
+.padding-top-pagetop {
+  padding-top: var(--section-space-page-top);
+}
+
 /* Padding — bottom */
 .padding-bottom-0 {
   padding-bottom: 0;
@@ -785,6 +789,10 @@
 
 .max-width-small {
   max-width: var(--max-width-small);
+}
+
+.max-width-medium {
+  max-width: var(--max-width-medium);
 }
 
 .max-width-full {

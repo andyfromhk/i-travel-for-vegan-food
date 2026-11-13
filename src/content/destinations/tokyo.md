@@ -1,5 +1,6 @@
 ---
 name: Tokyo
+slug: tokyo
 country: japan
 order: 7
 homeOrder: 1

@@ -570,14 +570,15 @@
 
   function injectStyles() {
     const css = `
-[data-map-card-image] .vt-card-save{position:absolute;top:.5rem;right:.5rem;z-index:2}
+[data-map-card-image] .vt-card-save{position:absolute;top:.25rem;right:.25rem;z-index:2;width:1.875rem;height:1.875rem}
+[data-map-card-image] .vt-card-save svg{width:1rem;height:1rem}
 .vt-heart-host{position:relative}
 .vt-heart-host > .vt-page-card-save{position:absolute;top:.5rem;right:.5rem;z-index:2}
 [data-vt-saved-toggle]{display:inline-flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
 .vt-toggle-heart{display:inline-flex;line-height:0}
 .vt-toggle-heart svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .vt-toggle-count[hidden]{display:none!important}
-[data-vt-saved-toggle] .vt-toggle-count{background:#333;color:#fff}
+[data-vt-saved-toggle] .vt-toggle-count{min-width:1.1em;height:1.1em;padding:0 .3em;border-radius:.55em;background:#333;color:#fff;font-size:.75em;line-height:1}
 [data-vt-saved-toggle].is-active .vt-toggle-count{background:#fff;color:#5a8707}
 :where([data-vt-saved-toggle].is-active){background-color:#fbe9ef;border-color:#b83a5b;color:#b83a5b}
 .is-active > .vt-toggle-heart svg{fill:currentColor}
@@ -591,8 +592,8 @@
 #map-wrapper .map-marker{position:relative}
 #map-wrapper .map-marker.vt-saved::after{content:"";position:absolute;top:-9px;right:-10px;width:15px;height:15px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z' fill='%23b83a5b' stroke='%23fff' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 1px 1px rgba(0,0,0,.3));pointer-events:none}
 #map-wrapper .vt-tip-title{display:flex;align-items:center;justify-content:center;gap:8px}
-#map-wrapper .vt-tip-save{width:28px;height:28px;box-shadow:none;border:1px solid #e3e3e3}
-#map-wrapper .vt-tip-save svg{width:15px;height:15px}
+#map-wrapper .vt-tip-save{flex:none;width:1.25rem;height:1.25rem;box-shadow:none;border:1px solid #e3e3e3}
+#map-wrapper .vt-tip-save svg{width:.625rem;height:.625rem}
 #map-wrapper .vt-me{width:18px;height:18px;border:3px solid #fff;border-radius:50%;background:#1a73e8;box-shadow:0 0 0 6px rgba(26,115,232,.22),0 1px 3px rgba(0,0,0,.35);transform:translate(0,50%)}
 `;
     const style = document.createElement('style');

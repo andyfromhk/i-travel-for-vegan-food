@@ -4,6 +4,7 @@ import { unified } from "@astrojs/markdown-remark";
 import { SITE_URL } from "./src/consts.ts";
 import { remarkShortcodes } from "./src/markdown/shortcodes.ts";
 import { rehypeEnhance } from "./src/markdown/enhance.ts";
+import thumbnails from "./src/integrations/thumbnails.mjs";
 
 export default defineConfig({
   site: SITE_URL,
@@ -12,6 +13,8 @@ export default defineConfig({
   // /about directly instead of redirecting to /about/.
   trailingSlash: "never",
   build: { format: "file" },
+  // Makes the smaller photo copies that cards and photo grids use (src/utils/thumbs.ts).
+  integrations: [thumbnails()],
   markdown: {
     // The Unified processor runs the two plugins in src/markdown (shortcodes, photos, tips, heading ids).
     processor: unified({

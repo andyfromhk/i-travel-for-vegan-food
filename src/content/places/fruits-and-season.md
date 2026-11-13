@@ -46,4 +46,4 @@ This chic cafe specialises in vegan whipped cream fruit sandwiches. It offers a 
 
 Dine-in customers are required to order a drink in addition to their food items. During busy hours, there is also a 60-minute time limit for dining in.
 
-Fruits & Season has a sister cafe called [So Tarte ](/restaurants/so-tarte)that specialises in seasonal fruit tarts, with branches in Omotesando and Yoyogi-Uehara.
+Fruits & Season has a sister cafe called [So Tarte](/restaurants/so-tarte) that specialises in seasonal fruit tarts, with branches in Omotesando and Yoyogi-Uehara.

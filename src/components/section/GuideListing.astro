@@ -126,10 +126,6 @@ const groups = (await destinationGroups())
             </div>
           ))}
         </fieldset>
-
-        <button class="guide-listing_clear" type="reset">
-          Clear all filters
-        </button>
       </form>
 
       <div class="guide-listing_results">
@@ -149,7 +145,11 @@ const groups = (await destinationGroups())
           ))}
         </ul>
         <p class="guide-listing_empty" hidden>
-          No results found :( Try clearing the filters to show more results.
+          No results found :( Try
+          <button class="guide-listing_clear" type="button">
+            clearing the filters
+          </button>
+          to show more results.
         </p>
       </div>
     </div>
@@ -246,6 +246,9 @@ const groups = (await destinationGroups())
     form.addEventListener("input", apply);
     form.addEventListener("submit", (event) => event.preventDefault());
     form.addEventListener("reset", () => setTimeout(apply));
+    root
+      .querySelector(".guide-listing_clear")
+      ?.addEventListener("click", () => form.reset());
     toggle.addEventListener("click", () => {
       const open = toggle.getAttribute("aria-expanded") !== "true";
       toggle.setAttribute("aria-expanded", String(open));
@@ -285,7 +288,7 @@ const groups = (await destinationGroups())
     .guide-listing_filters {
       display: none;
       flex-direction: column;
-      gap: var(--space-4);
+      gap: var(--space-2);
 
       .filters-open > & {
         display: flex;
@@ -293,7 +296,7 @@ const groups = (await destinationGroups())
 
       @media (width >= 48rem) {
         position: sticky;
-        top: calc(var(--nav-height) + var(--space-3));
+        top: calc(var(--nav-height) + var(--space-1));
         display: flex;
         max-height: calc(100svh - var(--nav-height) - var(--space-5));
         padding-right: var(--space-1);
@@ -305,7 +308,7 @@ const groups = (await destinationGroups())
     .guide-listing_group {
       display: flex;
       flex-direction: column;
-      gap: 0.45rem;
+      gap: 0.2rem;
       min-width: 0;
       padding: 0;
       border: 0;
@@ -314,6 +317,7 @@ const groups = (await destinationGroups())
     .guide-listing_title {
       margin-bottom: 0.15rem;
       padding: 0;
+      color: var(--brand-500);
       font-size: 0.8rem;
       font-weight: var(--primary-bold);
     }
@@ -333,7 +337,7 @@ const groups = (await destinationGroups())
     .guide-listing_subgroup {
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.2rem;
 
       & + & {
         margin-top: 0.4rem;
@@ -341,7 +345,7 @@ const groups = (await destinationGroups())
     }
 
     .guide-listing_subtitle {
-      color: var(--brand-500);
+      color: var(--text);
       font-size: 0.65rem;
       font-style: italic;
       font-weight: var(--primary-bold);
@@ -353,7 +357,7 @@ const groups = (await destinationGroups())
     .guide-listing_columns {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.35rem var(--space-2);
+      gap: 0.2rem var(--space-2);
     }
 
     .guide-listing_option {
@@ -378,12 +382,17 @@ const groups = (await destinationGroups())
       }
     }
 
+    /* "clearing the filters" in the no-results message */
     .guide-listing_clear {
-      align-self: flex-start;
-      color: var(--dark-500);
-      font-size: 0.75rem;
-      font-style: italic;
+      color: var(--link-text);
       text-decoration: underline;
+      transition: color var(--hover-duration) var(--hover-ease);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--link-text-hover);
+        }
+      }
     }
 
     .guide-listing_results {

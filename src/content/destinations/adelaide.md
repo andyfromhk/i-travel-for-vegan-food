@@ -1,5 +1,6 @@
 ---
 name: Adelaide
+slug: adelaide
 country: australia
 order: 6
 image:

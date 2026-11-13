@@ -30,6 +30,12 @@ npm run dev
 
 More in `docs/preview-setup.md`. Conventions for building pages are in `LUMOS.md`.
 
+| Guide | For |
+|---|---|
+| `docs/editing-guide.md` | Updating restaurants, guides and destinations in Pages CMS (`.pages.yml`) |
+| `docs/writing-guide.md` | Formatting guides: tip boxes, captions, map guide stops and routes |
+| `docs/launch-checklist.md` | Moving the domain from Webflow to the new site, and rolling back |
+
 ---
 
 # Site scripts (Webflow)

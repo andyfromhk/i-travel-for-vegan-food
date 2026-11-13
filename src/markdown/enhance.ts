@@ -6,14 +6,9 @@
 //   - headings get the same ids the old site used, so links people shared (…#where-to-stay) still work
 //   - links to other websites open in a new tab
 
-import { readFileSync } from "node:fs";
-import path from "node:path";
 import type { Element, ElementContent, Root, RootContent } from "hast";
 import type { VFile } from "vfile";
-
-const sizes: Record<string, [number, number]> = JSON.parse(
-  readFileSync(path.join(process.cwd(), "src/data/media.json"), "utf8"),
-);
+import { sizeOf } from "../utils/media-size.ts";
 
 // Emoji that choose a tip's icon. No emoji means the light bulb.
 const TIP_ICONS: [string, string][] = [
@@ -106,7 +101,7 @@ const slugify = (value: string) =>
 
 function figureFrom(img: Element, link?: Element): Element {
   const src = String(img.properties.src ?? "");
-  const size = sizes[src];
+  const size = sizeOf(src);
   img.properties.loading = "lazy";
   img.properties.decoding = "async";
   img.properties.alt = img.properties.alt ?? "";

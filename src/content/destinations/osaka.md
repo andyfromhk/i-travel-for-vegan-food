@@ -1,5 +1,6 @@
 ---
 name: Osaka
+slug: osaka
 country: japan
 order: 9
 featured: true

@@ -1,6 +1,9 @@
 ---
-import books from "@/data/books.json";
-import { type Destination, countryBySlug } from "@/utils/content.ts";
+import {
+  type Destination,
+  bookBySlug,
+  countryBySlug,
+} from "@/utils/content.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -9,23 +12,12 @@ interface Props {
   destination?: Destination;
 }
 
-type Book = {
-  /** Small line above the title. */
-  promoEyebrow?: string;
-  /** Promo headline. */
-  promoTitle?: string;
-  /** Book image. */
-  promoImage?: string;
-  /** Where the promo leads. */
-  url: string;
-};
-
 const { render = true, destination } = Astro.props;
 const country = destination
   ? countryBySlug.get(destination.data.country)
   : undefined;
 const key = country && "book" in country ? country.book : undefined;
-const book = key ? (books as Record<string, Book>)[key] : undefined;
+const book = key ? bookBySlug.get(key) : undefined;
 ---
 
 {

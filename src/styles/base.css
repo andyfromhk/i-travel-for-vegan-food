@@ -4,7 +4,7 @@
   --light-100: #ffffff;
   --light-200: #f5f5f5;
   --light-300: #e3e3e3;
-  --dark-500: #8f8f8f;
+  --dark-500: #6b6b6b;
   --dark-700: #4e4e4e;
   --dark-800: #3d3d3d;
   --dark-900: #333333;
@@ -60,6 +60,7 @@
 
   /* Max width */
   --max-width-small: 53.125rem;
+  --max-width-medium: 64rem;
   --max-width-main: 75rem;
   --max-width-full: 100%;
 
@@ -234,6 +235,7 @@
   --section-space-large-min: 88;
   --section-space-large-max: 160;
   --section-space-nav-overlap: clamp(var(--section-space-nav-overlap-min) / 16 * 1rem, ((var(--section-space-nav-overlap-min) - ((var(--section-space-nav-overlap-max) - var(--section-space-nav-overlap-min)) / (var(--viewport-max) - var(--viewport-min)) * var(--viewport-min))) / 16 * 1rem + ((var(--section-space-nav-overlap-max) - var(--section-space-nav-overlap-min)) / (var(--viewport-max) - var(--viewport-min))) * 100vw), var(--section-space-nav-overlap-max) / 16 * 1rem);
+  --section-space-page-top: 2rem;
   --section-space-nav-overlap-min: 160;
   --section-space-nav-overlap-max: 224;
 }

@@ -1,8 +1,7 @@
 ---
-import Icon from "@/components/media/Icon.astro";
-import facebook from "@/assets/icons/facebook.svg";
-import pinterest from "@/assets/icons/pinterest.svg";
-import whatsapp from "@/assets/icons/whatsapp.svg";
+import Facebook from "@/assets/icons/facebook.svg";
+import Pinterest from "@/assets/icons/pinterest.svg";
+import WhatsApp from "@/assets/icons/whatsapp.svg";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -31,19 +30,19 @@ const q = encodeURIComponent;
 const links = [
   {
     name: "Facebook",
-    icon: facebook,
+    icon: Facebook,
     kind: "facebook",
     href: `https://www.facebook.com/sharer/sharer.php?u=${q(url)}`,
   },
   {
     name: "Pinterest",
-    icon: pinterest,
+    icon: Pinterest,
     kind: "pinterest",
     href: `https://pinterest.com/pin/create/button/?url=${q(url)}&media=${q(media)}&description=${q(title)}`,
   },
   {
     name: "WhatsApp",
-    icon: whatsapp,
+    icon: WhatsApp,
     kind: "whatsapp",
     href: `https://wa.me/?text=${q(`${title} ${url}`)}`,
   },
@@ -64,7 +63,7 @@ const links = [
               rel="noopener"
               aria-label={`Share on ${link.name}`}
             >
-              <Icon src={link.icon} variant="small" />
+              <link.icon class="share-links_icon" aria-hidden="true" />
             </a>
           </li>
         ))}
@@ -94,6 +93,11 @@ const links = [
     .share-links_list {
       display: flex;
       gap: var(--space-2);
+    }
+
+    .share-links_icon {
+      width: 1.25em;
+      height: 1.25em;
     }
 
     .share-links_link {

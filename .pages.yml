@@ -1,0 +1,903 @@
+# Pages CMS: the editing screens at https://app.pagescms.org for this site.
+# Docs: https://pagescms.org/docs/  ·  How to use it: docs/editing-guide.md
+#
+# Each entry under `content` is one section of the CMS sidebar. The fields match the front matter that
+# src/content.config.ts expects, so anything saved here builds. Keys the CMS doesn't show (such as
+# `published` or `redirectTo`) are kept as they are when an entry is saved (settings.content.merge).
+#
+# The drop-down lists under `components` mirror src/data/taxonomies.json and src/data/countries.json.
+# When you add a cuisine, venue type or country there, add it here too, with the same slug.
+
+settings:
+  content:
+    merge: true
+
+media:
+  - name: media
+    label: Photos
+    input: public/media
+    output: /media
+    categories: [image]
+    rename: safe
+  - name: site
+    label: Site images
+    input: public/site
+    output: /site
+    categories: [image]
+    rename: safe
+
+components:
+  vegType:
+    label: Veg type
+    type: select
+    options:
+      values:
+        - name: limited-vegan-options
+          label: "Limited Vegan Options"
+        - name: good-vegan-options
+          label: "Good Vegan Options"
+        - name: vegetarian
+          label: "Vegetarian"
+        - name: vegan
+          label: "Vegan"
+  priceRange:
+    label: Price range
+    type: select
+    options:
+      values:
+        - name: fine-dining
+          label: "$$$ Fine-Dining"
+        - name: mid-range
+          label: "$$ Mid-Range"
+        - name: budget-friendly
+          label: "$ Budget-Friendly"
+  venueType:
+    label: Venue type
+    type: select
+    options:
+      values:
+        - name: shop-cafe
+          label: "Shop+Cafe"
+        - name: quick-bites
+          label: "Quick Bites"
+        - name: vegan-b-and-b
+          label: "Vegan B&B"
+        - name: retail-specialty-shop
+          label: "Retail/Specialty Shop"
+        - name: takeaway-only
+          label: "Takeaway Only"
+        - name: juice-smoothie-bar
+          label: "Juice/Smoothie Bar"
+        - name: tea-house
+          label: "Tea House"
+        - name: coffee-shop
+          label: "Coffee Shop"
+        - name: food-truck-market-stall
+          label: "Food Truck/Market Stall"
+        - name: market
+          label: "Market"
+        - name: bakery
+          label: "Bakery"
+        - name: bar-pub
+          label: "Bar/Pub"
+        - name: cafe
+          label: "Cafe"
+        - name: restaurant
+          label: "Restaurant"
+  cuisine:
+    label: Cuisine
+    type: select
+    options:
+      values:
+        - name: nepalese
+          label: "Nepalese"
+        - name: bubble-tea
+          label: "Bubble Tea"
+        - name: ice-cream
+          label: "Ice Cream"
+        - name: bread-pastries
+          label: "Bread & Pastries"
+        - name: western
+          label: "Western"
+        - name: international
+          label: "International"
+        - name: street-food
+          label: "Street Food"
+        - name: traditional
+          label: "Traditional"
+        - name: fusion
+          label: "Fusion"
+        - name: contemporary
+          label: "Contemporary"
+        - name: desserts
+          label: "Desserts"
+        - name: healthy
+          label: "Healthy"
+        - name: fast-food
+          label: "Fast Food"
+        - name: caribbean
+          label: "Caribbean"
+        - name: new-zealand
+          label: "New Zealand"
+        - name: australian
+          label: "Australian"
+        - name: african
+          label: "African"
+        - name: latin-american
+          label: "Latin American"
+        - name: british
+          label: "British"
+        - name: mexican
+          label: "Mexican"
+        - name: moroccan
+          label: "Moroccan"
+        - name: turkish
+          label: "Turkish"
+        - name: spanish
+          label: "Spanish"
+        - name: greek
+          label: "Greek"
+        - name: middle-eastern
+          label: "Middle Eastern"
+        - name: mediterranean
+          label: "Mediterranean"
+        - name: taiwanese
+          label: "Taiwanese"
+        - name: italian
+          label: "Italian"
+        - name: french
+          label: "French"
+        - name: southeast-asian
+          label: "Southeast Asian"
+        - name: indian
+          label: "Indian"
+        - name: indonesian
+          label: "Indonesian"
+        - name: malaysian
+          label: "Malaysian"
+        - name: vietnamese
+          label: "Vietnamese"
+        - name: thai
+          label: "Thai"
+        - name: korean
+          label: "Korean"
+        - name: american
+          label: "American"
+        - name: japanese
+          label: "Japanese"
+        - name: hot-pot
+          label: "Hot pot"
+        - name: chinese
+          label: "Chinese"
+        - name: yum-cha
+          label: "Yum cha"
+        - name: hong-kong
+          label: "Hong Kong"
+  category:
+    label: Category
+    type: select
+    options:
+      values:
+        - name: food-guide
+          label: "Food Guide"
+        - name: restaurant-feature
+          label: "Restaurant Feature"
+        - name: travel-tips
+          label: "Travel Tips"
+        - name: accomodation
+          label: "Accomodation"
+        - name: markets-and-festivals
+          label: "Markets & Festivals"
+        - name: products-and-shopping
+          label: "Products & Shopping"
+  focus:
+    label: Focus
+    type: select
+    options:
+      values:
+        - name: itinerary
+          label: "Itinerary"
+        - name: foodie-city-map
+          label: "Foodie City Map"
+  country:
+    label: Country
+    type: select
+    options:
+      values:
+        - name: australia
+          label: "Australia"
+        - name: japan
+          label: "Japan"
+        - name: thailand
+          label: "Thailand"
+        - name: hong-kong
+          label: "Hong Kong"
+        - name: taiwan
+          label: "Taiwan"
+        - name: south-korea
+          label: "South Korea"
+        - name: singapore
+          label: "Singapore"
+
+  destination:
+    label: Destination
+    type: reference
+    options:
+      collection: destinations
+      value: "{fields.slug}"
+      label: "{fields.name}"
+      search: fields.name
+
+  photo:
+    label: Photo
+    type: object
+    fields:
+      - name: src
+        label: Image
+        type: image
+        options:
+          media: media
+      - name: alt
+        label: Description
+        type: string
+        description: What the photo shows, for people who can't see it (and for Google).
+
+  photos:
+    label: Photos
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{index}. {fields.alt}"
+    fields:
+      - name: src
+        label: Image
+        type: image
+        options:
+          media: media
+      - name: alt
+        label: Description
+        type: string
+
+  created:
+    label: Date added
+    type: date
+    options:
+      time: true
+      format: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+
+  updated:
+    label: Last updated
+    type: date
+    description: Change this when you update the content. Pages show it, and lists put the most recently updated first.
+    options:
+      time: true
+      format: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+
+  draft:
+    label: Draft
+    type: boolean
+    description: Drafts stay off the site until you switch this off.
+
+content:
+  # ---------------------------------------------------------------------------
+  - name: places
+    label: Restaurants
+    type: collection
+    path: src/content/places
+    # Renaming would change the page address, so it's switched off. Mark a place closed or draft instead of deleting it.
+    operations:
+      rename: false
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      primary: name
+      fields: [name, destination, status, updated]
+      sort: [updated, name, created]
+      search: [name, nameOriginal, district]
+      default:
+        sort: updated
+        order: desc
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+        description: "The file name (set once, when you create the entry) becomes the page address: /restaurants/file-name."
+      - name: nameOriginal
+        label: Name in the local language
+        type: string
+      - name: destination
+        component: destination
+      - name: status
+        label: Status
+        type: select
+        default: open
+        options:
+          values:
+            - name: open
+              label: Open
+            - name: temporarily-closed
+              label: Temporarily closed
+            - name: permanently-closed
+              label: Permanently closed
+        description: Permanently closed places drop off the destination's list and map, and their page says so.
+      - name: summary
+        label: Summary
+        type: text
+        description: One or two sentences. Shown on cards, at the top of the review and in Google results.
+      - name: vegType
+        component: vegType
+      - name: priceRange
+        component: priceRange
+      - name: venueType
+        component: venueType
+      - name: cuisine
+        component: cuisine
+      - name: district
+        label: Area
+        type: string
+        description: Neighbourhood shown on the map's pop-up, e.g. Shibuya. Leave empty to use the destination's name.
+      - name: address
+        label: Address
+        type: string
+      - name: location
+        label: Map pin
+        type: object
+        description: "In Google Maps, right-click the place: the first line of the menu is its latitude, longitude. Click it to copy."
+        fields:
+          - name: lat
+            label: Latitude
+            type: number
+          - name: lng
+            label: Longitude
+            type: number
+      - name: mapsUrl
+        label: Google Maps link
+        type: string
+      - name: phone
+        label: Phone
+        type: string
+      - name: website
+        label: Website
+        type: string
+      - name: instagram
+        label: Instagram
+        type: string
+      - name: facebook
+        label: Facebook
+        type: string
+      - name: chain
+        label: Chain with several branches
+        type: boolean
+        description: Chains show "Multiple locations" instead of one map pin.
+      - name: storeLocator
+        label: Store locator link
+        type: string
+        description: For chains, the page that lists every branch.
+      - name: image
+        component: photo
+        label: Main photo
+        fields:
+          - name: src
+            label: Image
+            type: image
+            options:
+              media: media
+              path: public/media/restaurants
+          - name: alt
+            label: Description
+            type: string
+      - name: gallery
+        component: photos
+        label: Food & drink photos
+      - name: menu
+        component: photos
+        label: Menu & vibe photos
+      - name: likes
+        label: Likes
+        type: number
+        description: Orders the "Most Popular" sort. New places can start at 0.
+      - name: page
+        label: Has a review page
+        type: boolean
+        default: true
+        description: Switch off for places that are only stops in a map guide.
+      - name: draft
+        component: draft
+      - name: created
+        component: created
+      - name: updated
+        component: updated
+      - name: body
+        label: Review
+        type: rich-text
+        options:
+          media: media
+          path: public/media/restaurants
+          rename: safe
+
+  # ---------------------------------------------------------------------------
+  - name: guides
+    label: Vegan Foodie Guides
+    type: collection
+    path: src/content/guides/articles
+    operations:
+      rename: false
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      primary: title
+      fields: [title, category, destination, updated]
+      sort: [updated, title, created]
+      search: [title, description]
+      default:
+        sort: updated
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+        description: "The file name (set once, when you create the entry) becomes the page address: /articles/file-name."
+      - name: description
+        label: Description
+        type: text
+        description: Shown under the title and in Google results. Aim for about 150 characters.
+      - name: summary
+        label: Card text
+        type: text
+        description: Shown on the guide's card in lists. Leave empty to use the description.
+      - name: category
+        component: category
+      - name: destination
+        component: destination
+        label: Main destination
+      - name: destinations
+        component: destination
+        label: Also show it on
+        description: Every destination page this guide should appear on, including the main one.
+        options:
+          collection: destinations
+          value: "{fields.slug}"
+          label: "{fields.name}"
+          search: fields.name
+          multiple: true
+      - name: mainGuide
+        label: Main guide for its destination
+        type: boolean
+        description: Puts this guide first on its destination's page.
+      - name: linkToMap
+        label: Show the restaurant map banner
+        type: boolean
+        description: Adds a banner linking to the main destination's restaurant map.
+      - name: author
+        label: Guest author
+        type: reference
+        description: Only for guest posts. Leave empty for your own guides.
+        options:
+          collection: authors
+          value: "{fields.slug}"
+          label: "{fields.name}"
+          search: fields.name
+      - name: image
+        component: photo
+        label: Main photo
+        fields:
+          - name: src
+            label: Image
+            type: image
+            options:
+              media: media
+              path: public/media/guides
+          - name: alt
+            label: Description
+            type: string
+      - name: tocLevels
+        label: Table of contents
+        type: select
+        options:
+          placeholder: Main headings and subheadings
+          values:
+            - name: h2,h3
+              label: Main headings and subheadings
+            - name: h2
+              label: Main headings only
+      - name: recommendations
+        label: Recommendations
+        type: rich-text
+        description: Optional box after the guide.
+        options:
+          media: false
+      - name: gallery
+        component: photos
+        label: Photo gallery
+      - name: draft
+        component: draft
+      - name: created
+        component: created
+      - name: updated
+        component: updated
+      - name: body
+        label: Guide
+        type: rich-text
+        options:
+          media: media
+          path: public/media/guides
+          rename: safe
+
+  # ---------------------------------------------------------------------------
+  - name: map-guides
+    label: Map Guides & Itineraries
+    type: collection
+    path: src/content/guides/map-guides
+    operations:
+      rename: false
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      primary: title
+      fields: [title, focus, destination, updated]
+      sort: [updated, title, created]
+      search: [title, description]
+      default:
+        sort: updated
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+        description: "The file name (set once, when you create the entry) becomes the page address: /map-guides/file-name."
+      - name: description
+        label: Description
+        type: text
+        description: Shown under the title and in Google results. Aim for about 150 characters.
+      - name: focus
+        component: focus
+      - name: destination
+        component: destination
+      - name: displayRoutes
+        label: Draw routes between stops
+        type: boolean
+        description: "For itineraries. Uses the {{route: …}} lines in the guide."
+      - name: image
+        component: photo
+        label: Main photo
+        fields:
+          - name: src
+            label: Image
+            type: image
+            options:
+              media: media
+              path: public/media/guides
+          - name: alt
+            label: Description
+            type: string
+      - name: draft
+        component: draft
+      - name: created
+        component: created
+      - name: updated
+        component: updated
+      - name: body
+        label: Guide
+        type: rich-text
+        description: "Mark each stop with a {{place: …}} line. See docs/writing-guide.md."
+        options:
+          media: media
+          path: public/media/guides
+          rename: safe
+
+  # ---------------------------------------------------------------------------
+  - name: destinations
+    label: Destinations
+    type: collection
+    path: src/content/destinations
+    # Restaurants and guides point at destinations by slug, so these stay put.
+    operations:
+      rename: false
+      delete: false
+    filename: "{fields.slug}.md"
+    view:
+      primary: name
+      fields: [name, country, order, homeOrder]
+      sort: [order, name]
+      search: [name]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          message: "Lowercase letters, numbers and hyphens, e.g. hong-kong"
+        description: "The page address: /destinations/slug. Set it once, when you create the destination, and don't change it."
+      - name: country
+        component: country
+      - name: order
+        label: Position in the menu
+        type: number
+        description: Lowest first, on the Destinations page and in the menu.
+      - name: homeOrder
+        label: Position on the home page
+        type: number
+        description: Leave empty to keep this destination off the home page.
+      - name: book
+        label: Has a Vegan Travel Book
+        type: boolean
+        description: Shows the book badge on the destination's card.
+      - name: image
+        component: photo
+        label: Card photo
+        fields:
+          - name: src
+            label: Image
+            type: image
+            options:
+              media: media
+              path: public/media/destinations
+          - name: alt
+            label: Description
+            type: string
+      - name: mapGraphic
+        component: photo
+        label: Map banner graphic
+        fields:
+          - name: src
+            label: Image
+            type: image
+            options:
+              media: media
+              path: public/media/destinations
+          - name: alt
+            label: Description
+            type: string
+      - name: gallery
+        component: photos
+        label: Photo gallery
+      - name: travel
+        label: Recommendations for your trip
+        type: object
+        fields:
+          - name: whereToStay
+            label: Where to stay
+            type: text
+          - name: hotelsLink
+            label: Hotels link
+            type: string
+          - name: esimLink
+            label: eSIM link
+            type: string
+          - name: gettingAroundLabel
+            label: Getting around (text)
+            type: string
+          - name: gettingAroundLink
+            label: Getting around (link)
+            type: string
+          - name: experienceLabel
+            label: Experience (text)
+            type: string
+          - name: experienceLink
+            label: Experience (link)
+            type: string
+      - name: created
+        component: created
+      - name: updated
+        component: updated
+      - name: body
+        label: Introduction
+        type: rich-text
+        options:
+          media: false
+
+  # ---------------------------------------------------------------------------
+  - name: authors
+    label: Authors
+    type: collection
+    path: src/content/authors
+    operations:
+      rename: false
+      delete: false
+    filename: "{fields.slug}.md"
+    view:
+      primary: name
+      fields: [name, title]
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          message: "Lowercase letters, numbers and hyphens, e.g. anita-dollar"
+        description: "The page address: /authors/slug. Set it once and don't change it."
+      - name: title
+        label: Title
+        type: string
+        description: e.g. Guest Author
+      - name: image
+        component: photo
+        label: Photo
+        fields:
+          - name: src
+            label: Image
+            type: image
+            options:
+              media: media
+              path: public/media/authors
+          - name: alt
+            label: Description
+            type: string
+      - name: website
+        label: Website
+        type: string
+      - name: instagram
+        label: Instagram
+        type: string
+      - name: facebook
+        label: Facebook
+        type: string
+      - name: pinterest
+        label: Pinterest
+        type: string
+      - name: body
+        label: Bio
+        type: rich-text
+        options:
+          media: false
+
+  # ---------------------------------------------------------------------------
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    operations:
+      create: false
+      rename: false
+      delete: false
+    view:
+      primary: title
+      fields: [title]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        description: Shown in Google results.
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          media: media
+          path: public/media/pages
+
+  # ---------------------------------------------------------------------------
+  - name: books
+    label: Book promos
+    type: file
+    path: src/data/books.json
+    format: json
+    list: true
+    operations:
+      delete: false
+    fields:
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        description: A country's `book` setting in src/data/countries.json names its book by this slug.
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: edition
+        label: Edition badge
+        type: string
+        description: e.g. Updated for 2026/27
+      - name: blurb
+        label: Pop-up text
+        type: text
+      - name: promoEyebrow
+        label: Promo eyebrow
+        type: string
+      - name: promoTitle
+        label: Promo title
+        type: string
+      - name: cover
+        label: Cover
+        type: image
+        options:
+          media: site
+          path: public/site/books
+      - name: promoImage
+        label: Promo image
+        type: image
+        options:
+          media: site
+          path: public/site/books
+      - name: url
+        label: Link
+        type: string
+
+  - name: shop
+    label: Shop page
+    type: file
+    path: src/data/shop.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: reviews
+        label: Reader reviews
+        type: text
+        list: true
+        description: Wrap words in **double asterisks** to make them bold.
+      - name: books
+        label: Books
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: badge
+            label: Badge
+            type: string
+          - name: price
+            label: Price
+            type: string
+          - name: wasPrice
+            label: Was price
+            type: string
+            description: Shown crossed out next to the price.
+          - name: image
+            label: Cover
+            type: image
+            options:
+              media: site
+              path: public/site/books
+          - name: imageAlt
+            label: Cover description
+            type: string
+          - name: url
+            label: Link
+            type: string
+          - name: text
+            label: Text
+            type: text
+          - name: points
+            label: Bullet points
+            type: string
+            list: true
+          - name: button
+            label: Button text
+            type: string
+          - name: edition
+            label: Edition line
+            type: string
+          - name: wide
+            label: Full-width bundle
+            type: boolean
+            description: Shows the book across the whole row, below the others.

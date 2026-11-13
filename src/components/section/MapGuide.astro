@@ -28,30 +28,33 @@ const { render = true } = Astro.props;
         <slot name="footer" />
       </div>
       <div class="map-guide_map">
-        <div class="map-guide_days">
-          <button
-            class="map-guide_day previous-day-button"
-            type="button"
-            aria-label="Previous day"
-          >
-            <Icon
-              class="map-guide_day_icon back"
-              src={chevron}
-              variant="small"
-            />
-          </button>
-          <div class="day-counter-div">
-            Day <span id="day-counter">1</span>
+        {/* The map itself can't be the sticky element: Google Maps sets position: relative on it. */}
+        <div class="map-guide_sticky">
+          <div class="map-guide_days">
+            <button
+              class="map-guide_day previous-day-button"
+              type="button"
+              aria-label="Previous day"
+            >
+              <Icon
+                class="map-guide_day_icon back"
+                src={chevron}
+                variant="small"
+              />
+            </button>
+            <div class="day-counter-div">
+              Day <span id="day-counter">1</span>
+            </div>
+            <button
+              class="map-guide_day next-day-button"
+              type="button"
+              aria-label="Next day"
+            >
+              <Icon class="map-guide_day_icon" src={chevron} variant="small" />
+            </button>
           </div>
-          <button
-            class="map-guide_day next-day-button"
-            type="button"
-            aria-label="Next day"
-          >
-            <Icon class="map-guide_day_icon" src={chevron} variant="small" />
-          </button>
+          <div class="map-guide_canvas" id="map" />
         </div>
-        <div class="map-guide_canvas" id="map" />
       </div>
     </div>
   )
@@ -93,30 +96,43 @@ const { render = true } = Astro.props;
       min-width: 0;
     }
 
-    .map-guide_canvas {
+    /* Stays in view under the bar while the guide scrolls past. */
+    .map-guide_sticky {
       position: sticky;
       top: var(--nav-height);
-      width: 100%;
       height: calc(100dvh - var(--nav-height));
-      background-color: var(--background-2);
       border-left: var(--border-width) solid var(--brand-500);
     }
 
+    .map-guide_canvas {
+      width: 100%;
+      height: 100%;
+      background-color: var(--background-2);
+    }
+
     .map-guide_days {
-      position: fixed;
+      position: absolute;
+      top: 0;
+      left: 0;
       z-index: 5;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: var(--space-2);
-      width: 10rem;
+      min-width: 10rem;
       padding: 0.5rem 1rem;
       background-color: var(--background);
       border: var(--border-width) solid var(--brand-500);
       border-top: 0;
+      border-left: 0;
       border-radius: 0 0 var(--radius-main) 0;
       color: var(--brand-500);
-      font-size: 1.25rem;
+      font-size: 1.125rem;
+      font-weight: var(--primary-medium);
+    }
+
+    .day-counter-div {
+      white-space: nowrap;
     }
 
     .map-guide_day {
@@ -164,7 +180,7 @@ const { render = true } = Astro.props;
         height: calc(35dvh - var(--nav-height));
       }
 
-      .map-guide_canvas {
+      .map-guide_sticky {
         position: static;
         height: 100%;
         border-left: 0;
@@ -172,9 +188,8 @@ const { render = true } = Astro.props;
       }
 
       .map-guide_days {
-        position: absolute;
         inset: auto auto 0 0;
-        width: 8rem;
+        min-width: 8rem;
         padding: 0.25rem 0.75rem;
         border: var(--border-width) solid var(--brand-500);
         border-left: 0;

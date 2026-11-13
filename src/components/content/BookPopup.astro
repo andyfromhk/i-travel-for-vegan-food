@@ -1,21 +1,15 @@
 ---
-import books from "@/data/books.json";
+import { bookBySlug } from "@/utils/content.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
   render?: boolean;
-  /** Which book to promote: a key of src/data/books.json. */
-  book?: keyof typeof books;
+  /** Which book to promote: a slug from src/data/books.json. */
+  book?: string;
 }
 
 const { render = true, book: key = "japan" } = Astro.props;
-const book = books[key] as {
-  title: string;
-  edition?: string;
-  blurb?: string;
-  cover: string;
-  url: string;
-};
+const book = bookBySlug.get(key);
 ---
 
 {

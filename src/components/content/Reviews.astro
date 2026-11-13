@@ -35,15 +35,18 @@ const html = (value: string) =>
   @layer components {
     .reviews_wrap {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+      grid-template-columns: minmax(0, 1fr);
       gap: var(--space-3);
       width: 100%;
+
+      @media (width >= 48rem) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     .reviews_item {
       display: flex;
       flex-direction: column;
-      gap: var(--space-1);
       padding: var(--space-3);
       background-color: var(--yellow-100);
       border-radius: var(--radius-main);
@@ -51,7 +54,9 @@ const html = (value: string) =>
 
     .reviews_stars {
       color: #f5a623;
-      letter-spacing: 0.15em;
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      line-height: 1.2;
     }
 
     .reviews_quote {

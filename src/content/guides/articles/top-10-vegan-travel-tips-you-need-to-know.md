@@ -184,7 +184,7 @@ Just like veganism in general, vegan market is slowly gaining popularity in many
 
 Example of vegan markets in Asia:
 
-[Japan Vegan Gourmet Festival ](https://vegefes.com/)in Tokyo, Nagoya and Kyoto
+[Japan Vegan Gourmet Festival](https://vegefes.com/) in Tokyo, Nagoya and Kyoto
 
 [Taiwan Vegan Frenzy](https://www.facebook.com/taiwanveganfrenzy/) in Taipei, Tanchung, Kaohsiung
 
@@ -210,12 +210,12 @@ Many cities nowadays are becoming more and more vegan-friendly. In Asia, cities 
 
 ## Download Useful Apps
 
-**Happy Cow&#x20;**([download here](https://www.happycow.net/mobile))
+**Happy Cow** ([download here](https://www.happycow.net/mobile))
 
 **Google Translate** ([Google](https://play.google.com/store/apps/details?id=com.google.android.apps.translate\&hl=en) | [Apple](https://apps.apple.com/us/app/google-translate/id414706506))\
 Tip: download the language of the country you are traveling to, so that you can translate even without internet.
 
-**Google Map** ([Google ](https://play.google.com/store/apps/details?id=com.google.android.apps.maps\&hl=en)| [Apple](https://apps.apple.com/us/app/google-maps-transit-food/id585027354))
+**Google Map** ([Google](https://play.google.com/store/apps/details?id=com.google.android.apps.maps\&hl=en) | [Apple](https://apps.apple.com/us/app/google-maps-transit-food/id585027354))
 
 **Vegan Cards** (only on [ios](https://apps.apple.com/us/app/v-cards-vegan-abroad/id726594283), or download the [pdf here](https://vegan.cards/))
 

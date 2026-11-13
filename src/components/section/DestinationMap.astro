@@ -4,6 +4,7 @@ import Button from "@/components/Button.astro";
 import chevron from "@/assets/icons/chevron.svg";
 import closeIcon from "@/assets/icons/close.svg";
 import pin from "@/assets/icons/pin-outline.svg";
+import FiltersIcon from "@/assets/icons/filters.svg";
 import {
   type Destination,
   type Place,
@@ -14,6 +15,7 @@ import {
   taxonomies,
   vegTypes,
 } from "@/utils/content.ts";
+import { responsive } from "@/utils/thumbs.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -54,6 +56,7 @@ const priceRank = (slug?: string) =>
           <p class="text-style-h4">Vegan-Friendly Restaurants in {name}</p>
           <div class="dest-map_tools">
             <button class="dest-map_tool" type="button" data-filter-open>
+              <FiltersIcon class="dest-map_tool_icon" aria-hidden="true" />
               Filters
             </button>
             <details class="dest-map_sort" data-sort-menu>
@@ -106,7 +109,7 @@ const priceRank = (slug?: string) =>
               </div>
             </details>
             <span class="dest-map_tool" data-vt-saved-toggle>
-              Saved
+              Show saved
             </span>
           </div>
           <div class="dest-map_tags" data-filter-tags hidden />
@@ -158,6 +161,7 @@ const priceRank = (slug?: string) =>
                       loading="lazy"
                       decoding="async"
                       {...mediaSize(data.image.src)}
+                      {...responsive(data.image.src, "6.5rem")}
                     />
                   )}
                 </div>
@@ -251,7 +255,7 @@ const priceRank = (slug?: string) =>
                   value={option.slug}
                   data-label={option.name}
                 />
-                <span style={`color: ${option.colour}`}>{option.name}</span>
+                <span>{option.name}</span>
               </label>
             ))}
           </fieldset>
@@ -353,6 +357,13 @@ const priceRank = (slug?: string) =>
       }
     }
 
+    /* Same size as the heart on "Show saved" */
+    .dest-map_tool_icon {
+      flex: none;
+      width: 1.15em;
+      height: 1.15em;
+    }
+
     .dest-map_sort {
       position: relative;
     }
@@ -401,10 +412,26 @@ const priceRank = (slug?: string) =>
     }
 
     .dest-map_tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
       padding: 0.2em 0.9em;
       background-color: var(--brand-100);
+      border: 0.0625rem solid
+        color-mix(in srgb, var(--brand-500) 50%, transparent);
       border-radius: var(--radius-round);
       font-size: 0.75rem;
+      line-height: 1.3;
+    }
+
+    /* The × that removes a filter, as big as the text beside it */
+    .dest-map_tag_remove {
+      display: inline-flex;
+
+      & svg {
+        width: 1em;
+        height: 1em;
+      }
     }
 
     .dest-map_count {
@@ -655,7 +682,6 @@ const priceRank = (slug?: string) =>
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.3rem;
       width: max-content;
       max-width: 14rem;
       padding: 0.5rem 0.9rem;
@@ -677,7 +703,7 @@ const priceRank = (slug?: string) =>
         padding: 0.15rem 0.4rem;
         border-radius: 0.25rem;
         color: var(--light-100);
-        font-size: 0.6rem;
+        font-size: 0.5rem;
         font-style: italic;
         font-weight: var(--primary-medium);
         letter-spacing: 0.15ch;
@@ -688,11 +714,11 @@ const priceRank = (slug?: string) =>
 
       & .listing-info {
         color: var(--dark-500);
-        font-size: 0.8rem;
+        font-size: 0.6rem;
       }
 
       & .listing-title {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         font-weight: var(--primary-medium);
       }
     }

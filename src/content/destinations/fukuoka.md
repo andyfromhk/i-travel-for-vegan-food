@@ -1,5 +1,6 @@
 ---
 name: Fukuoka
+slug: fukuoka
 country: japan
 order: 15
 book: true

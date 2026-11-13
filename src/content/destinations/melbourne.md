@@ -1,5 +1,6 @@
 ---
 name: Melbourne
+slug: melbourne
 country: australia
 order: 2
 homeOrder: 4

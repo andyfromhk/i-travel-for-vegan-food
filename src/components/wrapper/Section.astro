@@ -3,7 +3,13 @@ import type { HTMLAttributes } from "astro/types";
 import { slotContent } from "@/utils/slots.ts";
 
 type SectionSpace =
-  "none" | "even" | "small" | "medium" | "large" | "navoverlap";
+  | "none"
+  | "even"
+  | "pagetop"
+  | "small"
+  | "medium"
+  | "large"
+  | "navoverlap";
 
 type ContainerGap =
   | "0"

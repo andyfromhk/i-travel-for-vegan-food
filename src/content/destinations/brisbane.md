@@ -1,5 +1,6 @@
 ---
 name: Brisbane
+slug: brisbane
 country: australia
 order: 3
 featured: true

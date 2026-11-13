@@ -1,5 +1,6 @@
 ---
 name: Bangkok
+slug: bangkok
 country: thailand
 order: 17
 homeOrder: 5

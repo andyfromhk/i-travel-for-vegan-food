@@ -70,8 +70,8 @@ Check their Instagram page for the latest location. I've visited them in the Ent
 
 ## Links
 
-[Website\
-](https://www.sydneyveganmarket.com/)[Facebook](https://www.facebook.com/sydveganmarket/)\
+[Website](https://www.sydneyveganmarket.com/)\
+[Facebook](https://www.facebook.com/sydveganmarket/)\
 [Instagram](http://instagram.com/sydneyveganmarket)
 
 ![](/media/guides/sydney-vegan-market-guide/img-9791-2.jpg)

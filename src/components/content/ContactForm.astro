@@ -1,0 +1,95 @@
+---
+import Form from "@/components/form/Form.astro";
+import Input from "@/components/form/Input.astro";
+import Select from "@/components/form/Select.astro";
+import Textarea from "@/components/form/Textarea.astro";
+import ButtonWrapper from "@/components/wrapper/ButtonWrapper.astro";
+import Button from "@/components/Button.astro";
+import { WEB3FORMS_KEY } from "@/consts.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+}
+
+const { render = true } = Astro.props;
+
+const reasons = [
+  "General Enquiry",
+  "Suggest a New Vegan Place",
+  "Report Outdated/Incorrect Info",
+  "Advertising Opportunities",
+  "Invite & Collaboration",
+  "Guest Post Enquiry",
+];
+---
+
+{/* The contact form. Messages are sent through Web3Forms to Andy's inbox. */}
+{
+  render && (
+    <div class="contact-form_wrap">
+      <Form
+        name="contact"
+        action="https://api.web3forms.com/submit"
+        successMessage="Thank you! Your submission has been received!"
+        errorMessage="Oops! Something went wrong while submitting the form."
+      >
+        <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+        <input
+          type="hidden"
+          name="subject"
+          value="New message from itravelforveganfood.com"
+        />
+        <input
+          type="hidden"
+          name="from_name"
+          value="I Travel For Vegan Food website"
+        />
+        {/* Web3Forms' own bot trap: real visitors never tick this hidden box. */}
+        <input
+          type="checkbox"
+          name="botcheck"
+          tabindex="-1"
+          autocomplete="off"
+          style="display: none"
+        />
+        <Input label="Name" name="name" placeholder="" autocomplete="name" />
+        <Input
+          label="Email Address"
+          variant="email"
+          name="email"
+          placeholder=""
+          required
+        />
+        <Select
+          label="Reason for Contacting"
+          name="reason"
+          placeholder="Select one..."
+          options={reasons}
+          required
+        />
+        <Textarea
+          label="Your Message"
+          name="message"
+          placeholder=""
+          maxlength={5000}
+          required
+        />
+        <ButtonWrapper marginTop="0">
+          <Button type="submit">Submit</Button>
+        </ButtonWrapper>
+      </Form>
+    </div>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .contact-form_wrap {
+      width: 100%;
+      padding: 2rem;
+      border: var(--border-width) solid var(--brand-500);
+      border-radius: 1.25rem;
+    }
+  }
+</style>

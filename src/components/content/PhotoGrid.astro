@@ -1,34 +1,52 @@
 ---
 import { type Picture, mediaSize } from "@/utils/content.ts";
+import { GRID_SIZES, responsive } from "@/utils/thumbs.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
   render?: boolean;
   /** Photos to show. Each one's alt text doubles as its caption. */
   photos: Picture[];
+  /** Name of the set, read out when the lightbox opens, e.g. "Food & Drink Photos". */
+  label?: string;
 }
 
-const { render = true, photos } = Astro.props;
+const { render = true, photos, label = "Photos" } = Astro.props;
 ---
 
 {
+  /*
+  A grid of photos. Clicking one opens it large in a lightbox, where the arrows (or the arrow keys,
+  or a swipe) step through the rest of this grid. Without JavaScript the link simply opens the photo.
+*/
+}
+{
   render && photos.length > 0 && (
-    <ul class="photo-grid_wrap">
-      {photos.map((photo) => (
+    <ul class="photo-grid_wrap" data-lightbox={label}>
+      {photos.map((photo, index) => (
         <li class="photo-grid_item">
+          {/* The caption names the link, so the photo itself has empty alt text (no name read twice).
+              A photo without a caption is named by its place in the grid. */}
           <a
             class="photo-grid_link"
             href={photo.src}
             target="_blank"
             rel="noopener"
+            data-caption={photo.alt}
+            aria-label={
+              photo.alt
+                ? undefined
+                : `${label}: photo ${index + 1} of ${photos.length}`
+            }
           >
             <img
               class="photo-grid_image"
               src={photo.src}
-              alt={photo.alt ?? ""}
+              alt=""
               loading="lazy"
               decoding="async"
               {...mediaSize(photo.src)}
+              {...responsive(photo.src, GRID_SIZES)}
             />
             {photo.alt && <span class="photo-grid_caption">{photo.alt}</span>}
           </a>
@@ -37,6 +55,124 @@ const { render = true, photos } = Astro.props;
     </ul>
   )
 }
+
+<script>
+  import arrowIcon from "@/assets/icons/arrow-right.svg?raw";
+  import closeIcon from "@/assets/icons/cross.svg?raw";
+
+  type Photo = { src: string; caption: string };
+  let dialog: HTMLDialogElement | null = null;
+  let photos: Photo[] = [];
+  let index = 0;
+
+  // The lightbox is built the first time a photo is opened, once per page.
+  function build() {
+    if (dialog) return dialog;
+    dialog = document.createElement("dialog");
+    dialog.className = "lightbox_wrap";
+    dialog.innerHTML = `
+      <button class="lightbox_button lightbox_close" type="button" aria-label="Close">${closeIcon}</button>
+      <figure class="lightbox_figure">
+        <img class="lightbox_image" alt="" />
+        <figcaption class="lightbox_caption"></figcaption>
+      </figure>
+      <div class="lightbox_controls">
+        <button class="lightbox_button lightbox_prev" type="button" aria-label="Previous photo">${arrowIcon}</button>
+        <p class="lightbox_count" aria-live="polite"></p>
+        <button class="lightbox_button lightbox_next" type="button" aria-label="Next photo">${arrowIcon}</button>
+      </div>`;
+    document.body.appendChild(dialog);
+
+    dialog
+      .querySelector(".lightbox_close")!
+      .addEventListener("click", () => dialog!.close());
+    dialog
+      .querySelector(".lightbox_prev")!
+      .addEventListener("click", () => show(index - 1));
+    dialog
+      .querySelector(".lightbox_next")!
+      .addEventListener("click", () => show(index + 1));
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") show(index - 1);
+      if (event.key === "ArrowRight") show(index + 1);
+    });
+    // Clicking the dark area around the photo closes the lightbox.
+    dialog.addEventListener("click", (event) => {
+      if (
+        event.target === dialog ||
+        event.target === dialog!.querySelector(".lightbox_figure")
+      )
+        dialog!.close();
+    });
+    dialog.addEventListener("close", () =>
+      document.documentElement.classList.remove("lightbox-open"),
+    );
+
+    // Swipe left or right on a phone.
+    let startX = 0;
+    dialog.addEventListener(
+      "touchstart",
+      (event) => (startX = event.touches[0].clientX),
+      { passive: true },
+    );
+    dialog.addEventListener(
+      "touchend",
+      (event) => {
+        const distance = event.changedTouches[0].clientX - startX;
+        if (Math.abs(distance) > 40) show(index + (distance < 0 ? 1 : -1));
+      },
+      { passive: true },
+    );
+    return dialog;
+  }
+
+  function show(next: number) {
+    if (!dialog || !photos.length) return;
+    index = (next + photos.length) % photos.length; // past either end wraps round
+    const photo = photos[index];
+    const image = dialog.querySelector<HTMLImageElement>(".lightbox_image")!;
+    image.src = photo.src;
+    image.alt = photo.caption;
+    dialog.querySelector(".lightbox_caption")!.textContent = photo.caption;
+    dialog.querySelector(".lightbox_count")!.textContent =
+      `${index + 1} / ${photos.length}`;
+    const single = photos.length < 2;
+    dialog
+      .querySelectorAll<HTMLElement>(".lightbox_prev, .lightbox_next")
+      .forEach((button) => (button.hidden = single));
+    // Fetch the photos either side, so stepping through is instant.
+    [index - 1, index + 1].forEach((i) => {
+      const neighbour = photos[(i + photos.length) % photos.length];
+      if (neighbour) new Image().src = neighbour.src;
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    const link = (event.target as Element).closest<HTMLAnchorElement>(
+      "[data-lightbox] a",
+    );
+    if (!link || event.metaKey || event.ctrlKey || event.shiftKey) return; // a modified click still opens a new tab
+    event.preventDefault();
+    const links = [
+      ...link
+        .closest("[data-lightbox]")!
+        .querySelectorAll<HTMLAnchorElement>("a"),
+    ];
+    photos = links.map((a) => ({
+      src: a.getAttribute("href")!,
+      caption: a.dataset.caption ?? "",
+    }));
+    const box = build();
+    box.setAttribute(
+      "aria-label",
+      link.closest<HTMLElement>("[data-lightbox]")!.dataset.lightbox ??
+        "Photos",
+    );
+    show(links.indexOf(link));
+    document.documentElement.classList.add("lightbox-open");
+    box.showModal();
+  });
+</script>
 
 <style is:global>
   @layer components {
@@ -57,11 +193,19 @@ const { render = true, photos } = Astro.props;
       display: block;
       overflow: clip;
       border-radius: var(--radius-main);
+      cursor: zoom-in;
     }
 
     .photo-grid_image {
       width: 100%;
       height: auto;
+      transition: scale calc(var(--hover-duration) * 2) var(--hover-ease);
+
+      @media (hover: hover) {
+        .photo-grid_link:hover > & {
+          scale: 1.04;
+        }
+      }
     }
 
     .photo-grid_caption {
@@ -75,6 +219,117 @@ const { render = true, photos } = Astro.props;
       color: var(--light-100);
       font-size: 0.7rem;
       font-style: italic;
+    }
+
+    /* Lightbox */
+    .lightbox-open {
+      overflow: hidden;
+    }
+
+    .lightbox_wrap {
+      width: 100vw;
+      max-width: none;
+      height: 100dvh;
+      max-height: none;
+      margin: 0;
+      padding: var(--space-4) var(--site-margin) var(--space-3);
+      background-color: #243034;
+      border: 0;
+      color: var(--light-100);
+
+      &[open] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-3);
+      }
+
+      &::backdrop {
+        background-color: #243034;
+      }
+    }
+
+    .lightbox_figure {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 0;
+      width: 100%;
+      margin: 0;
+    }
+
+    .lightbox_image {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+      min-height: 0;
+      object-fit: contain;
+      user-select: none;
+    }
+
+    .lightbox_caption {
+      font-size: 0.85rem;
+      font-style: italic;
+      text-align: center;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    .lightbox_controls {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .lightbox_count {
+      min-width: 4ch;
+      font-size: 1.1rem;
+      text-align: center;
+      text-box: none;
+    }
+
+    .lightbox_button {
+      display: grid;
+      place-items: center;
+      width: 3.5rem;
+      height: 3.5rem;
+      background-color: var(--light-100);
+      border: 0.125rem solid var(--brand-500);
+      border-radius: 50%;
+      color: var(--dark-900);
+      transition: background-color var(--hover-duration) var(--hover-ease);
+
+      & svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &[hidden] {
+        display: none;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--brand-100);
+        }
+      }
+    }
+
+    .lightbox_prev svg {
+      rotate: 180deg;
+    }
+
+    .lightbox_close {
+      position: absolute;
+      top: var(--space-3);
+      right: var(--space-3);
+      z-index: 1;
     }
   }
 </style>
