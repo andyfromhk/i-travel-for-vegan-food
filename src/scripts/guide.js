@@ -139,6 +139,7 @@
     scrollOffsetDesktop: 72,
     scrollOffsetMobileRatio: 0.1,
     scrollOffsetMobileFallback: 60,
+    routePaddingMobile: { top: 64, right: 28, bottom: 44, left: 28 }, // room for the names above markers and the day box below
     curveColor: '#558005',
     curveWeight: 4,
     curveOpacity: 0.7,
@@ -150,8 +151,8 @@
     routeClearDelayMs: 100,
     introText: 'Scroll the guide to explore the map',
     endOfDayText: 'End of Day',
-    restaurantIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M16 6v6c0 1.1.9 2 2 2h1v7c0 .55.45 1 1 1s1-.45 1-1V3.13c0-.65-.61-1.13-1.24-.98C17.6 2.68 16 4.51 16 6m-5 3H9V3c0-.55-.45-1-1-1s-1 .45-1 1v6H5V3c0-.55-.45-1-1-1s-1 .45-1 1v6c0 2.21 1.79 4 4 4v8c0 .55.45 1 1 1s1-.45 1-1v-8c2.21 0 4-1.79 4-4V3c0-.55-.45-1-1-1s-1 .45-1 1z"></path></svg>',
-    sightIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="white" d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5"></path></svg>',
+    restaurantIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M16 6v6c0 1.1.9 2 2 2h1v7c0 .55.45 1 1 1s1-.45 1-1V3.13c0-.65-.61-1.13-1.24-.98C17.6 2.68 16 4.51 16 6m-5 3H9V3c0-.55-.45-1-1-1s-1 .45-1 1v6H5V3c0-.55-.45-1-1-1s-1 .45-1 1v6c0 2.21 1.79 4 4 4v8c0 .55.45 1 1 1s1-.45 1-1v-8c2.21 0 4-1.79 4-4V3c0-.55-.45-1-1-1s-1 .45-1 1z"></path></svg>',
+    sightIcon: '<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24"><path fill="white" d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5"></path></svg>',
   };
 
   const reduceMotion = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -427,10 +428,12 @@
       }, done);
     }
 
+    // padding: pixels kept clear at the map's edges, one number for all sides or { top, right, bottom, left }.
     function fitBounds(points, padding) {
       const bounds = new google.maps.LatLngBounds();
       points.forEach((p) => bounds.extend(p));
-      if (!bounds.isEmpty()) state.map.fitBounds(bounds, { top: padding, bottom: padding, left: padding, right: padding });
+      const edges = typeof padding === 'number' ? { top: padding, bottom: padding, left: padding, right: padding } : padding;
+      if (!bounds.isEmpty()) state.map.fitBounds(bounds, edges);
     }
 
     // ---------- routes and end of day ----------
@@ -480,7 +483,9 @@
       const middle = path[Math.floor(path.length / 2)];
       if (middle) state.routeLabel = overlayMarker(middle, from.route.text, 'route-tooltip-marker-content', 1000, MAP.routeLabelDelayMs);
       showRouteTooltips([index, index + 1]);
-      fitBounds([a, b], state.isMobile ? 50 : 120);
+      // Each marker's name sits above it, so phones keep more room at the top than at the sides. Tighter
+      // edges spread the two stops further apart, so their names and the route label overlap less.
+      fitBounds([a, b], state.isMobile ? MAP.routePaddingMobile : 120);
     }
 
     function showEndOfDay(text) {
@@ -985,14 +990,14 @@
     const css = `
 #map .map-marker{position:relative;width:25px;height:25px;border:2px solid #fff;border-radius:50%;cursor:pointer;transform:translate(0,50%);transition:transform .2s ease-in-out,box-shadow .2s ease-in-out;box-shadow:0 1px 3px rgba(0,0,0,.3)}
 #map .map-marker.active{box-shadow:0 3px 6px rgba(0,0,0,.5)}
-#map .marker-tooltip{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;width:max-content;max-width:none;margin-bottom:3px;padding:.5rem 1rem;background:#fff;border:1.5px solid #e3e3e3;border-radius:10px;text-align:center;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}
+#map .marker-tooltip{font-family:var(--primary-family,sans-serif);position:absolute;bottom:100%;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;width:max-content;max-width:none;margin-bottom:3px;padding:.5rem 1rem;background:#fff;border:1.5px solid #e3e3e3;border-radius:10px;text-align:center;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}
 #map .map-marker:hover .marker-tooltip,#map .map-marker.active .marker-tooltip,#map .map-marker.show-route-tooltip .marker-tooltip{opacity:1;visibility:visible;pointer-events:auto}
 #map .marker-tooltip .horizontal-flex{display:flex;flex-wrap:nowrap;gap:.5rem;justify-content:center;align-items:center;margin:0 0 .25rem}
 #map .marker-tooltip .veg-type-pill{flex:none;white-space:nowrap;padding:.1rem .4rem;border-radius:4px;color:#fff;font-size:.575rem;line-height:1.2;letter-spacing:.1ch}
 #map .marker-tooltip .listing-info{flex:none;white-space:nowrap;margin:0;color:#555;font-size:.8rem}
-#map .marker-tooltip .listing-title{max-width:190px;color:#000;font-family:'Montserrat',sans-serif;font-size:.875rem;font-weight:600;letter-spacing:.05ch}
-#map .route-tooltip-marker-content{position:absolute;z-index:1000;width:180px;padding:.375rem .75rem;transform:translate(-50%,calc(-100% - 8px));background:#fff;border:2px solid #558005;border-radius:6px;color:#000;font-family:'Montserrat',sans-serif;font-size:.875rem;font-weight:600;letter-spacing:.05ch;text-align:center;white-space:normal;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
-#map .end-of-day-overlay-content{position:absolute;z-index:1000;padding:.75rem 1.25rem;transform:translate(-50%,-50%);background:#fff;border:2px solid #558005;border-radius:8px;color:#000;font-family:'Montserrat',sans-serif;font-size:.875rem;font-weight:600;text-align:center;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s ease}
+#map .marker-tooltip .listing-title{max-width:190px;color:#000;font-family:var(--primary-family,sans-serif);font-size:.875rem;font-weight:600;letter-spacing:.05ch}
+#map .route-tooltip-marker-content{position:absolute;z-index:1000;width:180px;padding:.375rem .75rem;transform:translate(-50%,calc(-100% - 8px));background:#fff;border:2px solid #558005;border-radius:6px;color:#000;font-family:var(--primary-family,sans-serif);font-size:.875rem;font-weight:600;letter-spacing:.05ch;text-align:center;white-space:normal;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
+#map .end-of-day-overlay-content{position:absolute;z-index:1000;padding:.75rem 1.25rem;transform:translate(-50%,-50%);background:#fff;border:2px solid #558005;border-radius:8px;color:#000;font-family:var(--primary-family,sans-serif);font-size:.875rem;font-weight:600;text-align:center;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s ease}
 #map .route-tooltip-marker-content.visible,#map .end-of-day-overlay-content.visible{opacity:1;visibility:visible}
 @media screen and (max-width:767px){
 #map .marker-tooltip{padding:.25rem .5rem}
@@ -1006,7 +1011,7 @@
 .guide-rich-text .location-info-line span:not(:last-child)::after{content:"|";display:inline-block;margin-left:.5rem;color:#555;font-weight:400;font-style:normal}
 .day-button-disabled{background-color:#e0e0e0;color:#a0a0a0;cursor:not-allowed;opacity:.7}
 #map .end-of-day-overlay-content.vt-chain-note{width:max-content;max-width:min(260px,80vw);white-space:normal}
-#map .vt-locate{display:inline-flex;align-items:center;gap:6px;margin:10px;padding:8px 12px;border:0;border-radius:999px;background:#fff;color:#1f2a1c;font:600 13px/1 'Montserrat',sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer}
+#map .vt-locate{display:inline-flex;align-items:center;gap:6px;margin:10px;padding:8px 12px;border:0;border-radius:999px;background:#fff;color:#1f2a1c;font:600 13px/1 var(--primary-family,sans-serif);box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer}
 #map .vt-locate svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 #map .vt-locate[aria-pressed="true"]{background:#1a73e8;color:#fff}
 #map .vt-locate.vt-busy svg{animation:vt-spin 1s linear infinite}
@@ -1017,7 +1022,7 @@
 .guide-rich-text .vt-place-row{margin:-.25rem 0 1rem}
 .guide-rich-text .vt-go{border-color:#1a73e8!important;color:#1a73e8!important}
 .guide-rich-text .vt-go[hidden]{display:none!important}
-.guide-rich-text .route-info .vt-leg{display:inline-flex;align-items:center;gap:6px;margin-top:-1.5rem;padding:8px 14px;border:1.5px solid #558005;border-radius:999px;background:#fff;color:#558005!important;font:600 13px/1.2 'Montserrat',sans-serif;letter-spacing:.02em;text-decoration:none!important}
+.guide-rich-text .route-info .vt-leg{display:inline-flex;align-items:center;gap:6px;margin-top:-1.5rem;padding:8px 14px;border:1.5px solid #558005;border-radius:999px;background:#fff;color:#558005!important;font:600 13px/1.2 var(--primary-family,sans-serif);letter-spacing:.02em;text-decoration:none!important}
 .guide-rich-text .route-info .vt-leg:hover{background:#558005;color:#fff!important}
 .guide-rich-text .route-info .vt-leg svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media (prefers-reduced-motion:reduce){#map .vt-locate.vt-busy svg{animation:none}}

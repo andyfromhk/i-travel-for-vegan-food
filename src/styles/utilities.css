@@ -609,6 +609,13 @@
   --_gap-size: var(--space-8);
 }
 
+/* Cards and photos in a grid (see --grid-gap in base.css). */
+.gap-grid {
+  grid-column-gap: var(--_gap-size);
+  grid-row-gap: var(--_gap-size);
+  --_gap-size: var(--grid-gap);
+}
+
 .gap-gutter {
   grid-column-gap: var(--_gap-size);
   grid-row-gap: var(--_gap-size);

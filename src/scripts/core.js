@@ -57,7 +57,7 @@
     vegColors: {
       'vegan': '#558005',
       'vegetarian': '#6c57ac',
-      'good vegan options': '#e9942d',
+      'good vegan options': '#b66000',
       'limited vegan options': '#7a1616',
       'default': '#333333',
     },
@@ -1152,7 +1152,7 @@
 .vt-ui,.vt-ui *{box-sizing:border-box}
 .vt-ui{font-family:inherit;-webkit-font-smoothing:antialiased}
 .vt-ui svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.vt-locked,.vt-locked body{overflow:hidden!important}
+.vt-locked{overflow:hidden!important}
 .vt-offscreen{position:fixed;left:-9999px;top:0}
 .vt-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
 .vt-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border:1px solid var(--vt-line);border-radius:999px;background:var(--vt-paper);color:var(--vt-ink)!important;font:inherit;font-size:13px;font-weight:500;line-height:1.2;cursor:pointer;text-decoration:none!important;transition:background-color .15s,border-color .15s}

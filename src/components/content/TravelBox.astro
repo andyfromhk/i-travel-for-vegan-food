@@ -119,15 +119,21 @@ const items = [
       margin-top: var(--space-2);
     }
 
-    .travel-box_item.wide {
-      grid-column: 1 / -1;
+    /* Each card fills its row with flexbox. A percentage height here made Safari draw the cards taller
+       than their rows, so the last one spilled out of the box. */
+    .travel-box_item {
+      display: flex;
+
+      &.wide {
+        grid-column: 1 / -1;
+      }
     }
 
     .travel-box_link {
       display: flex;
+      flex: 1;
       align-items: center;
       gap: var(--space-2);
-      height: 100%;
       padding: 0.5rem var(--space-3);
       border: var(--border-width) solid var(--border);
       border-radius: var(--radius-round);

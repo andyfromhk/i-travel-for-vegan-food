@@ -22,7 +22,8 @@ const site = await getSite();
    It is written from the content at build time, so adding a destination or country needs no code change. */
 const data = {
   siteUrl: SITE_URL,
-  brand: { name: SITE_NAME, logo: new URL(SITE_LOGO, SITE_URL).href },
+  // Same-site address, so the logo also shows on the preview address (not only on the live domain).
+  brand: { name: SITE_NAME, logo: SITE_LOGO },
   maps: GOOGLE_MAPS,
   emailList: EMAIL_LIST,
   countries: Object.fromEntries(

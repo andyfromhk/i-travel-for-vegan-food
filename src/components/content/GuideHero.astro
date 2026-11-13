@@ -73,6 +73,14 @@ const { data } = guide;
     .guide-hero_image {
       width: 100%;
       aspect-ratio: 4 / 5;
+
+      /* Edge to edge on phones, like the photos in the guide. */
+      @media (width < 48rem) {
+        width: calc(100% + var(--site-margin) * 2);
+        max-width: none;
+        margin-inline: calc(var(--site-margin) * -1);
+        border-radius: 0;
+      }
     }
 
     .guide-hero_content {

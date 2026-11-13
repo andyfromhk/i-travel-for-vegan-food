@@ -82,6 +82,20 @@ const { render = true, ...rest } = Astro.props;
         display: none;
       }
 
+      /* On phones the line shrinks with the screen so it stays on one line (from 360 pixels wide up). */
+      @media (width < 30rem) {
+        & .button_wrap {
+          font-size: clamp(0.7rem, calc((100vw - 2.5rem) / 26.5), 0.875rem);
+          letter-spacing: 0;
+        }
+      }
+
+      @media (22.5rem <= width < 30rem) {
+        & .button_wrap {
+          white-space: nowrap;
+        }
+      }
+
       @media (width >= 64rem) {
         position: absolute;
         top: 100%;

@@ -65,6 +65,12 @@ const content = await slotContent(Astro.slots);
         margin-bottom: var(--_margin-bottom);
       }
 
+      /* Paragraphs get a blank line's worth of room after them, as the old site's spacer lines gave.
+         (The gap collapses with the next element's own top margin, so headings keep theirs.) */
+      & > p {
+        margin-bottom: 2.5em;
+      }
+
       & > :first-child,
       & :is(blockquote, li, .tip_body) > :first-child:not(:is(ul, ol)) {
         margin-top: 0;

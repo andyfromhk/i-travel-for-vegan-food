@@ -187,7 +187,7 @@ const schema = [
     <Heading tag="h2" variant="h3" class="align-self-center"
       >Popular Vegan-Friendly Restaurants in {city}</Heading
     >
-    <Grid xsmall={2} medium={4} class="gap-3">
+    <Grid xsmall={2} medium={4} class="gap-grid">
       {popular.map((item) => <PlaceCard place={item} />)}
     </Grid>
   </Section>
@@ -200,7 +200,7 @@ const schema = [
     containerClass="max-width-small"
   >
     <Heading tag="h2" variant="h3">More Vegan Foodie Guides for {city}</Heading>
-    <Grid xsmall={2} class="gap-4">
+    <Grid xsmall={2} class="gap-grid">
       {guides.map((guide) => <GuideCard guide={guide} />)}
     </Grid>
     <ButtonWrapper marginTop="0" class="align-self-end">

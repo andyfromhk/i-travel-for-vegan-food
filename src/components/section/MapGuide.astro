@@ -168,7 +168,8 @@ const { render = true, days = true } = Astro.props;
       }
     }
 
-    /* Phones: the map is pinned to the top third and the text scrolls in the space below it. */
+    /* Phones: the map takes the top third of the screen under the menu, as on the old site, and the
+       text scrolls in the space below it. */
     @media (width < 30rem) {
       .map-guide_wrap {
         height: calc(100dvh - var(--nav-height));
@@ -177,7 +178,7 @@ const { render = true, days = true } = Astro.props;
       .map-guide_text {
         position: fixed;
         inset: auto 0 0;
-        height: 65dvh;
+        height: calc(65dvh - var(--nav-height));
         overflow: auto;
         background-color: var(--background);
       }
@@ -185,7 +186,7 @@ const { render = true, days = true } = Astro.props;
       .map-guide_map {
         position: fixed;
         inset: var(--nav-height) 0 auto;
-        height: calc(35dvh - var(--nav-height));
+        height: 35dvh;
       }
 
       .map-guide_sticky {
@@ -196,7 +197,8 @@ const { render = true, days = true } = Astro.props;
       }
 
       .map-guide_days {
-        inset: auto auto 0 0;
+        /* Sits just above the map's green bottom line, so the line runs underneath it. */
+        inset: auto auto var(--border-width) 0;
         min-width: 8rem;
         padding: 0.25rem 0.75rem;
         border: var(--border-width) solid var(--brand-500);
