@@ -71,13 +71,14 @@ const schema = breadcrumbs([
     paddingBottom="small"
     containerClass="max-width-small"
   >
-    <ContentWrapper variant="columns" column1Class="align-self-start">
-      <div class="flex-vertical-nowrap gap-5">
-        <RichText data-vt-richtext>
-          <Content />
-        </RichText>
-        <BookPromo destination={destination} />
-      </div>
+    {
+      /* The text starts level with the top of the photos, and the book promo ends level with their bottom. */
+    }
+    <ContentWrapper variant="columns" column1Class="align-self-stretch gap-5">
+      <RichText data-vt-richtext>
+        <Content />
+      </RichText>
+      <BookPromo class="margin-top-auto" destination={destination} />
       <DestinationGallery slot="column2" photos={data.gallery} />
     </ContentWrapper>
   </Section>

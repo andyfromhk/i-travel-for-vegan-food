@@ -243,9 +243,55 @@ const groups = (await destinationGroups())
       box.checked = list("destination").includes(box.value);
     apply();
 
+    // After a filter is chosen, bring the top of the list back into view if the reader had scrolled past it.
+    // A short, quick scroll (about a quarter of a second) rather than the browser's slower smooth scroll.
+    const results = root.querySelector<HTMLElement>(".guide-listing_results")!;
+    let scrolling = 0;
+    const toListTop = () => {
+      const nav = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue(
+          "--nav-height",
+        ),
+      );
+      const rem = parseFloat(
+        getComputedStyle(document.documentElement).fontSize,
+      );
+      const offset = (nav || 3.5) * rem + rem; // below the sticky menu, with a little room
+      const target = Math.max(
+        0,
+        results.getBoundingClientRect().top + scrollY - offset,
+      );
+      if (target >= scrollY) return; // the top of the list is already on screen
+      cancelAnimationFrame(scrolling);
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        scrollTo({ top: target, behavior: "instant" });
+        return;
+      }
+      const start = scrollY;
+      const distance = target - start;
+      const duration = Math.min(400, 200 + Math.abs(distance) / 20);
+      const began = performance.now();
+      const step = (now: number) => {
+        const t = Math.min(1, (now - began) / duration);
+        const eased = 1 - Math.pow(1 - t, 3); // fast at first, settling at the end
+        scrollTo({ top: start + distance * eased, behavior: "instant" });
+        if (t < 1) scrolling = requestAnimationFrame(step);
+      };
+      scrolling = requestAnimationFrame(step);
+    };
+
     form.addEventListener("input", apply);
+    form.addEventListener("change", (event) => {
+      const target = event.target as HTMLInputElement;
+      if (target.type === "checkbox" || target.type === "radio") toListTop();
+    });
     form.addEventListener("submit", (event) => event.preventDefault());
-    form.addEventListener("reset", () => setTimeout(apply));
+    form.addEventListener("reset", () =>
+      setTimeout(() => {
+        apply();
+        toListTop();
+      }),
+    );
     root
       .querySelector(".guide-listing_clear")
       ?.addEventListener("click", () => form.reset());

@@ -1,0 +1,103 @@
+---
+import type { ComponentProps } from "astro/types";
+import Section from "@/components/wrapper/Section.astro";
+
+type Props = Pick<
+  ComponentProps<typeof Section>,
+  "render" | "theme" | "paddingTop" | "paddingBottom"
+>;
+
+const { render = true, ...rest } = Astro.props;
+---
+
+{
+  /*
+  A restaurant's review beside its details. On wide screens the promo under the review ends level with the
+  bottom of the details (the map), and the "footer" line hangs just under the map without counting towards
+  that alignment. On phones everything stacks: review, details, footer line, promo.
+*/
+}
+<Section render={render} {...rest}>
+  <div class="place-review_wrap">
+    <div class="place-review_review">
+      <slot />
+    </div>
+    <div class="place-review_info">
+      <slot name="info" />
+      <div class="place-review_footer">
+        <slot name="footer" />
+      </div>
+    </div>
+    <div class="place-review_promo">
+      <slot name="promo" />
+    </div>
+  </div>
+</Section>
+
+<style is:global>
+  @layer components {
+    .place-review_wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: "review" "info" "promo";
+      width: 100%;
+
+      @media (width >= 64rem) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+          "review info"
+          "promo info";
+        column-gap: var(--section-space-small);
+        /* Room for the footer line, which hangs below the details. */
+        padding-bottom: calc(1rem + 1.6em);
+      }
+    }
+
+    .place-review_review {
+      grid-area: review;
+
+      & > :first-child {
+        margin-top: 0;
+      }
+    }
+
+    .place-review_info {
+      grid-area: info;
+      margin-top: var(--space-8);
+
+      @media (width >= 64rem) {
+        position: relative;
+        /* As tall as the details themselves, so "below" means below the map. */
+        align-self: start;
+        margin-top: 0;
+      }
+    }
+
+    .place-review_footer {
+      margin-top: 1rem;
+      text-align: right;
+
+      &:empty {
+        display: none;
+      }
+
+      @media (width >= 64rem) {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+      }
+    }
+
+    .place-review_promo {
+      grid-area: promo;
+      align-self: end;
+      margin-top: var(--space-6);
+
+      &:empty {
+        display: none;
+      }
+    }
+  }
+</style>

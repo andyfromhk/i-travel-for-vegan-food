@@ -9,7 +9,7 @@
 
 import { DESTINATIONS, COUNTRY_NAMES, BOOKS, BOOK_LINK_TRACKING } from './data.js';
 
-const COLOURS = { ink: '#1f2a1c', muted: '#5f6b62', faint: '#8a948c', green: '#5a8707', line: '#e3e8df', pill: '#d3d9cf', sun: '#fff6cf', sunInk: '#3d3406' };
+const COLOURS = { ink: '#1f2a1c', muted: '#5f6b62', faint: '#8a948c', green: '#558005', line: '#e3e8df', pill: '#d3d9cf', sun: '#fff6cf', sunInk: '#3d3406' };
 const FONT = "Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 export function escapeHtml(text) {

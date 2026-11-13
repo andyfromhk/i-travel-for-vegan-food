@@ -83,7 +83,10 @@ const schema = [
   destinations={destination ? [destination.id] : []}
   footer={false}
 >
-  <MapGuide>
+  {
+    /* Days only mean something on itineraries that draw their routes; Foodie City Maps have none. */
+  }
+  <MapGuide days={data.displayRoutes && data.focus !== "foodie-city-map"}>
     <header class="flex-vertical-nowrap gap-3">
       <p>
         <strong style="color: var(--brand-500)">{focus}</strong>

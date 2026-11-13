@@ -2,7 +2,6 @@
 import { render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/wrapper/Section.astro";
-import ContentWrapper from "@/components/wrapper/ContentWrapper.astro";
 import Grid from "@/components/wrapper/Grid.astro";
 import Heading from "@/components/typography/Heading.astro";
 import RichText from "@/components/typography/RichText.astro";
@@ -13,6 +12,7 @@ import PlaceInfo from "@/components/content/PlaceInfo.astro";
 import BookPromo from "@/components/content/BookPromo.astro";
 import TravelBox from "@/components/content/TravelBox.astro";
 import PhotoGrid from "@/components/content/PhotoGrid.astro";
+import PlaceReview from "@/components/section/PlaceReview.astro";
 import PlaceCard from "@/components/item/PlaceCard.astro";
 import GuideCard from "@/components/item/GuideCard.astro";
 import {
@@ -128,22 +128,18 @@ const schema = [
   </Section>
 
   {/* Review and location */}
-  <Section paddingTop="small" paddingBottom="small" gap="6">
-    <ContentWrapper variant="columns" column1Class="align-self-start">
-      <RichText data-vt-richtext>
-        <Content />
-      </RichText>
-      <PlaceInfo slot="column2" place={place} />
-    </ContentWrapper>
-    <ContentWrapper variant="columns" class="align-items-end">
-      <BookPromo destination={destination} />
-      <ButtonWrapper slot="column2" marginTop="0" class="justify-content-end">
-        <Button element="link" variant="link" href="/about#contact"
-          >Suggest a place or correct outdated information →</Button
-        >
-      </ButtonWrapper>
-    </ContentWrapper>
-  </Section>
+  <PlaceReview paddingTop="small" paddingBottom="small">
+    <RichText data-vt-richtext>
+      <Content />
+    </RichText>
+    <PlaceInfo slot="info" place={place} />
+    <ButtonWrapper slot="footer" marginTop="0" class="justify-content-end">
+      <Button element="link" variant="link" href="/about#contact"
+        >Suggest a place or correct outdated information →</Button
+      >
+    </ButtonWrapper>
+    <BookPromo slot="promo" destination={destination} />
+  </PlaceReview>
 
   {/* Travel recommendations */}
   <Section

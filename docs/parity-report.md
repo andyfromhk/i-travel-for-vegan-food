@@ -8,7 +8,7 @@ Written by `migration/scripts/check-parity.mjs`. Re-run it after a build to refr
 - Same address, same title and description (or the same redirect) on the new site: **348**
 - Redirected on purpose: **2**
 - Missing: **0**
-- Title differs: **0**, description differs: **0**
+- Title differs: **0**, description differs: **0**, canonical address wrong: **0**
 
 ### Redirected on purpose
 
@@ -17,7 +17,7 @@ Written by `migration/scripts/check-parity.mjs`. Re-run it after a build to refr
 
 ## Internal links
 
-- Pages in the new build: **330**, internal links checked: **18640**
+- Pages in the new build: **330**, internal links checked: **18697**
 - Links that lead nowhere: **2**
 
 - `/restaurants/shu` (linked from /articles/30-best-vegan-cafes-restaurants-in-melbourne-guide)

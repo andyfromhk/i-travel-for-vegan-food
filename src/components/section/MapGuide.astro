@@ -5,9 +5,11 @@ import chevron from "@/assets/icons/chevron.svg";
 interface Props {
   /** Set to `false` to omit the component. */
   render?: boolean;
+  /** Set to `false` to leave out the day counter and its buttons on the map, e.g. on a Foodie City Map. */
+  days?: boolean;
 }
 
-const { render = true } = Astro.props;
+const { render = true, days = true } = Astro.props;
 ---
 
 {
@@ -30,29 +32,35 @@ const { render = true } = Astro.props;
       <div class="map-guide_map">
         {/* The map itself can't be the sticky element: Google Maps sets position: relative on it. */}
         <div class="map-guide_sticky">
-          <div class="map-guide_days">
-            <button
-              class="map-guide_day previous-day-button"
-              type="button"
-              aria-label="Previous day"
-            >
-              <Icon
-                class="map-guide_day_icon back"
-                src={chevron}
-                variant="small"
-              />
-            </button>
-            <div class="day-counter-div">
-              Day <span id="day-counter">1</span>
+          {days && (
+            <div class="map-guide_days">
+              <button
+                class="map-guide_day previous-day-button"
+                type="button"
+                aria-label="Previous day"
+              >
+                <Icon
+                  class="map-guide_day_icon back"
+                  src={chevron}
+                  variant="small"
+                />
+              </button>
+              <div class="day-counter-div">
+                Day <span id="day-counter">1</span>
+              </div>
+              <button
+                class="map-guide_day next-day-button"
+                type="button"
+                aria-label="Next day"
+              >
+                <Icon
+                  class="map-guide_day_icon"
+                  src={chevron}
+                  variant="small"
+                />
+              </button>
             </div>
-            <button
-              class="map-guide_day next-day-button"
-              type="button"
-              aria-label="Next day"
-            >
-              <Icon class="map-guide_day_icon" src={chevron} variant="small" />
-            </button>
-          </div>
+          )}
           <div class="map-guide_canvas" id="map" />
         </div>
       </div>

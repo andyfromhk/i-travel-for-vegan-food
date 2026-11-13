@@ -1,18 +1,19 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import {
   type Destination,
   bookBySlug,
   countryBySlug,
 } from "@/utils/content.ts";
 
-interface Props {
+type Props = HTMLAttributes<"aside"> & {
   /** Set to `false` to omit the component. */
   render?: boolean;
   /** The destination the page is about. The promo shows when its country has a book. */
   destination?: Destination;
-}
+};
 
-const { render = true, destination } = Astro.props;
+const { render = true, destination, class: className, ...rest } = Astro.props;
 const country = destination
   ? countryBySlug.get(destination.data.country)
   : undefined;
@@ -22,7 +23,7 @@ const book = key ? bookBySlug.get(key) : undefined;
 
 {
   render && book?.promoTitle && (
-    <aside class="book-promo_wrap" data-vt-ignore>
+    <aside class:list={["book-promo_wrap", className]} data-vt-ignore {...rest}>
       {book.promoImage && (
         <img
           class="book-promo_image"
@@ -73,7 +74,8 @@ const book = key ? bookBySlug.get(key) : undefined;
     }
 
     .book-promo_eyebrow {
-      color: var(--brand-500);
+      /* The darker green: small text on the yellow box needs the extra contrast. */
+      color: var(--brand-600);
       font-size: 0.7rem;
       font-style: italic;
       font-weight: var(--primary-bold);

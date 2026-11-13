@@ -1,0 +1,108 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { render as renderEntry } from "astro:content";
+import Heading from "@/components/typography/Heading.astro";
+import Eyebrow from "@/components/typography/Eyebrow.astro";
+import RichText from "@/components/typography/RichText.astro";
+import ButtonWrapper from "@/components/wrapper/ButtonWrapper.astro";
+import Button from "@/components/Button.astro";
+import type { Author } from "@/utils/content.ts";
+
+type Props = HTMLAttributes<"div"> & {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The author to introduce. */
+  author: Author;
+};
+
+const { render = true, author, class: className, ...rest } = Astro.props;
+const { data } = author;
+const { Content } = await renderEntry(author);
+const links = [
+  data.website && { href: data.website, label: "Website" },
+  data.instagram && { href: data.instagram, label: "Instagram" },
+  data.facebook && { href: data.facebook, label: "Facebook" },
+  data.pinterest && { href: data.pinterest, label: "Pinterest" },
+].filter(Boolean) as { href: string; label: string }[];
+---
+
+{
+  /* The top of an author page: their photo in a narrow column, and who they are beside it. */
+}
+{
+  render && (
+    <div class:list={["author-intro_wrap", className]} {...rest}>
+      <img
+        class="author-intro_image"
+        src={data.image?.src ?? "/site/brand/logo-square.png"}
+        alt=""
+        width="400"
+        height="400"
+      />
+      <div class="author-intro_content">
+        <Eyebrow>{data.title}</Eyebrow>
+        <Heading tag="h1" variant="h2">
+          {data.name}
+        </Heading>
+        <RichText>
+          <Content />
+        </RichText>
+        <ButtonWrapper render={links.length > 0} marginTop="2">
+          {links.map((link, index) => (
+            <Button
+              element="link"
+              emphasis={index === 0 ? "primary" : "secondary"}
+              href={link.href}
+              target="_blank"
+              rel="noopener"
+            >
+              {link.label}
+            </Button>
+          ))}
+        </ButtonWrapper>
+      </div>
+    </div>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .author-intro_wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-6);
+      width: 100%;
+
+      @media (width >= 48rem) {
+        /* The photo column is only as wide as the photo, so the text gets the rest. */
+        grid-template-columns: min-content minmax(0, 1fr);
+        align-items: center;
+        column-gap: var(--space-8);
+      }
+    }
+
+    .author-intro_image {
+      width: min(16rem, 100%);
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 50%;
+
+      @media (width >= 48rem) {
+        /* A fixed width: the column takes its width from the photo, so it can't be a percentage. */
+        width: 16rem;
+        max-width: none;
+      }
+    }
+
+    .author-intro_content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+
+      & > :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+</style>
