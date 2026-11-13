@@ -1,0 +1,39 @@
+---
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** Destination name, e.g. Sydney. */
+  name: string;
+}
+
+const { render = true, name } = Astro.props;
+---
+
+{
+  render && name && (
+    <h1 class="hero-destination_wrap">
+      <span class="hero-destination_eyebrow text-style-h5">
+        Vegan-Friendly Restaurants &amp; Guides in
+      </span>
+      <span class="hero-destination_name text-style-h1">{name}</span>
+    </h1>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .hero-destination_wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      text-align: center;
+    }
+
+    /* Trimmed at the top only: trimming the bottom too would cut off the tails of letters such as y and g. */
+    .hero-destination_name {
+      color: var(--brand-500);
+      text-box: trim-start cap alphabetic;
+    }
+  }
+</style>

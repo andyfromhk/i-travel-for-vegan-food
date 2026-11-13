@@ -10,6 +10,7 @@ import ButtonWrapper from "@/components/wrapper/ButtonWrapper.astro";
 import Button from "@/components/Button.astro";
 import DestinationMap from "@/components/section/DestinationMap.astro";
 import DestinationGallery from "@/components/content/DestinationGallery.astro";
+import HeroDestination from "@/components/content/HeroDestination.astro";
 import BookPromo from "@/components/content/BookPromo.astro";
 import MapBanner from "@/components/content/MapBanner.astro";
 import TravelBox from "@/components/content/TravelBox.astro";
@@ -60,12 +61,7 @@ const schema = breadcrumbs([
 >
   {/* Title */}
   <Section paddingTop="pagetop" paddingBottom="none" gap="3" align="center">
-    <h1 class="flex-vertical-nowrap gap-3 alignment-center">
-      <span class="text-style-h5"
-        >Vegan-Friendly Restaurants &amp; Guides in</span
-      >
-      <span class="text-style-h1" style="color: var(--brand-500)">{name}</span>
-    </h1>
+    <HeroDestination name={name} />
   </Section>
 
   {/* About the city */}
@@ -75,7 +71,7 @@ const schema = breadcrumbs([
     paddingBottom="small"
     containerClass="max-width-small"
   >
-    <ContentWrapper variant="columns">
+    <ContentWrapper variant="columns" column1Class="align-self-start">
       <div class="flex-vertical-nowrap gap-5">
         <RichText data-vt-richtext>
           <Content />
@@ -113,6 +109,15 @@ const schema = breadcrumbs([
     </ButtonWrapper>
   </Section>
 
+  {/* Travel recommendations */}
+  <Section
+    paddingTop="small"
+    paddingBottom={guides.length > 0 ? "none" : "medium"}
+    containerClass="max-width-small"
+  >
+    <TravelBox destination={destination} />
+  </Section>
+
   {/* Guides */}
   <Section
     render={guides.length > 0}
@@ -131,11 +136,6 @@ const schema = breadcrumbs([
         >See all vegan foodie guides →</Button
       >
     </ButtonWrapper>
-  </Section>
-
-  {/* Travel recommendations */}
-  <Section paddingTop="small" containerClass="max-width-small">
-    <TravelBox destination={destination} />
   </Section>
 
   <DestinationMap destination={destination} places={places} />
