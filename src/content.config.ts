@@ -17,7 +17,9 @@ const places = defineCollection({
     /** Set when the old URL already redirects somewhere else: no page is built. */
     redirectTo: z.string().optional(),
     draft: z.boolean().default(false),
-    status: z.enum(["open", "temporarily-closed", "permanently-closed"]).default("open"),
+    status: z
+      .enum(["open", "temporarily-closed", "permanently-closed"])
+      .default("open"),
     chain: z.boolean().default(false),
     storeLocator: z.string().optional(),
     vegType: z.string().optional(),
@@ -84,7 +86,10 @@ const destinations = defineCollection({
  * guides/articles/x.md -> /articles/x, guides/map-guides/x.md -> /map-guides/x.
  */
 const guides = defineCollection({
-  loader: glob({ pattern: "{articles,map-guides}/*.md", base: "./src/content/guides" }),
+  loader: glob({
+    pattern: "{articles,map-guides}/*.md",
+    base: "./src/content/guides",
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),

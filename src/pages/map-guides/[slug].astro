@@ -6,12 +6,28 @@ import MapGuide from "@/components/section/MapGuide.astro";
 import TravelBox from "@/components/content/TravelBox.astro";
 import AuthorBox from "@/components/content/AuthorBox.astro";
 import Footer from "@/components/global/Footer.astro";
-import { getSite, guideSlug, isMapGuide, mapGuideFocus, shortDate, type Guide } from "@/utils/content.ts";
-import { absolute, author as andy, breadcrumbs, imageObject, publisher, tidy } from "@/utils/schema.ts";
+import {
+  getSite,
+  guideSlug,
+  isMapGuide,
+  mapGuideFocus,
+  shortDate,
+  type Guide,
+} from "@/utils/content.ts";
+import {
+  absolute,
+  author as andy,
+  breadcrumbs,
+  imageObject,
+  publisher,
+  tidy,
+} from "@/utils/schema.ts";
 
 export async function getStaticPaths() {
   const { guides } = await getSite();
-  return guides.filter(isMapGuide).map((guide) => ({ params: { slug: guideSlug(guide) }, props: { guide } }));
+  return guides
+    .filter(isMapGuide)
+    .map((guide) => ({ params: { slug: guideSlug(guide) }, props: { guide } }));
 }
 
 interface Props {
@@ -23,7 +39,9 @@ const { data } = guide;
 const site = await getSite();
 const url = `/map-guides/${guideSlug(guide)}`;
 const destination = site.destinationBySlug.get(data.destination ?? "");
-const author = site.authors.find((a) => a.id === (data.author ?? "i-travel-for-vegan-food"));
+const author = site.authors.find(
+  (a) => a.id === (data.author ?? "i-travel-for-vegan-food"),
+);
 const focus = mapGuideFocus.get(data.focus ?? "")?.name ?? "Map Guide";
 const { Content } = await render(guide);
 
@@ -41,7 +59,12 @@ const schema = [
     dateModified: data.updated?.toISOString(),
     mainEntityOfPage: { "@type": "WebPage", "@id": absolute(url) },
     articleSection: "Travel Guide",
-    keywords: ["vegan restaurants", "plant-based dining", "vegan travel", "food travel guide"],
+    keywords: [
+      "vegan restaurants",
+      "plant-based dining",
+      "vegan travel",
+      "food travel guide",
+    ],
   }),
   breadcrumbs([
     { name: "Home", path: "/" },
@@ -51,23 +74,54 @@ const schema = [
 ];
 ---
 
-<BaseLayout title={data.title} description={description} image={data.image?.src} type="article" schema={schema} destinations={destination ? [destination.id] : []} footer={false}>
+<BaseLayout
+  title={data.title}
+  description={description}
+  image={data.image?.src}
+  type="article"
+  schema={schema}
+  destinations={destination ? [destination.id] : []}
+  footer={false}
+>
   <MapGuide>
     <header class="flex-vertical-nowrap gap-3">
       <p>
         <strong style="color: var(--brand-500)">{focus}</strong>
-        {destination && <Fragment> | <em>for {destination.data.name}</em></Fragment>}
+        {
+          destination && (
+            <Fragment>
+              {" "}
+              | <em>for {destination.data.name}</em>
+            </Fragment>
+          )
+        }
       </p>
       <h1 class="text-style-h1">{data.title}</h1>
       <div data-vt-save-guide-slot></div>
       <div class="flex-vertical-nowrap gap-2 margin-top-4 text-style-small">
-        {author && <p><em>Written by <a href={`/authors/${author.id}`}>{author.data.name}</a></em></p>}
+        {
+          author && (
+            <p>
+              <em>
+                Written by{" "}
+                <a href={`/authors/${author.id}`}>{author.data.name}</a>
+              </em>
+            </p>
+          )
+        }
         {data.updated && <p>Updated on {shortDate(data.updated)}</p>}
       </div>
     </header>
     <TravelBox destination={destination} />
-    {/* The map script reads this block: every h2/h3 is a stop, followed by its {{place}}, {{route}} and {{end-of-day}} lines. */}
-    <RichText class="guide-rich-text" data-vt-richtext data-vt-destination={destination?.id} data-enable-routing={String(data.displayRoutes)}>
+    {
+      /* The map script reads this block: every h2/h3 is a stop, followed by its {{place}}, {{route}} and {{end-of-day}} lines. */
+    }
+    <RichText
+      class="guide-rich-text"
+      data-vt-richtext
+      data-vt-destination={destination?.id}
+      data-enable-routing={String(data.displayRoutes)}
+    >
       <Content />
     </RichText>
     <AuthorBox author={author} />

@@ -41,28 +41,59 @@ function load() {
     if (!file.endsWith(".md")) continue;
     const source = readFileSync(path.join(dir, file), "utf8");
     const end = source.indexOf("\n---", 3);
-    places.set(file.slice(0, -3), YAML.parse(source.slice(3, end)) as PlaceInfo);
+    places.set(
+      file.slice(0, -3),
+      YAML.parse(source.slice(3, end)) as PlaceInfo,
+    );
   }
-  const taxonomies = JSON.parse(readFileSync(path.join(ROOT, "src/data/taxonomies.json"), "utf8"));
-  vegNames = new Map(taxonomies.vegTypes.map((v: { slug: string; name: string }) => [v.slug, v.name]));
-  priceSymbols = new Map(taxonomies.priceRanges.map((p: { slug: string; symbols: string }) => [p.slug, p.symbols]));
+  const taxonomies = JSON.parse(
+    readFileSync(path.join(ROOT, "src/data/taxonomies.json"), "utf8"),
+  );
+  vegNames = new Map(
+    taxonomies.vegTypes.map((v: { slug: string; name: string }) => [
+      v.slug,
+      v.name,
+    ]),
+  );
+  priceSymbols = new Map(
+    taxonomies.priceRanges.map((p: { slug: string; symbols: string }) => [
+      p.slug,
+      p.symbols,
+    ]),
+  );
 }
 
 type Props = Record<string, string | number | boolean | string[] | undefined>;
 // A node that becomes the given HTML element. `children` are ordinary Markdown nodes.
 const element = (tag: string, properties: Props, children: unknown[] = []) =>
-  ({ type: "vtElement", data: { hName: tag, hProperties: properties }, children }) as unknown as RootContent;
-const embed = (...children: unknown[]) => element("div", { className: ["vt-embed"] }, children);
+  ({
+    type: "vtElement",
+    data: { hName: tag, hProperties: properties },
+    children,
+  }) as unknown as RootContent;
+const embed = (...children: unknown[]) =>
+  element("div", { className: ["vt-embed"] }, children);
 
 const COORDS = /^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/;
 const plain = (nodes: PhrasingContent[]): string =>
-  nodes.map((n) => ("value" in n ? n.value : "children" in n ? plain(n.children as PhrasingContent[]) : "")).join("");
+  nodes
+    .map((n) =>
+      "value" in n
+        ? n.value
+        : "children" in n
+          ? plain(n.children as PhrasingContent[])
+          : "",
+    )
+    .join("");
 // Editors sometimes add a backslash before characters like _ or [; inside a code those aren't wanted.
-const unescape = (value: string) => value.replace(/\\([\\_*[\]()#+\-.!|{}])/g, "$1");
+const unescape = (value: string) =>
+  value.replace(/\\([\\_*[\]()#+\-.!|{}])/g, "$1");
 
 function placeNode(text: string, file: VFile) {
   load();
-  const parts = unescape(text).split("|").map((p) => p.trim());
+  const parts = unescape(text)
+    .split("|")
+    .map((p) => p.trim());
   let lat: number | undefined;
   let lng: number | undefined;
   let district = "";
@@ -70,7 +101,10 @@ function placeNode(text: string, file: VFile) {
   let priceRange = "";
   let slug = "";
 
-  const first = parts[0].replace(/^https?:\/\/[^/]+/, "").replace(/^\/restaurants\//, "").replace(/\/$/, "");
+  const first = parts[0]
+    .replace(/^https?:\/\/[^/]+/, "")
+    .replace(/^\/restaurants\//, "")
+    .replace(/\/$/, "");
   const coords = parts[0].match(COORDS);
   if (coords || parts[0] === "") {
     if (coords) [lat, lng] = [Number(coords[1]), Number(coords[2])];
@@ -79,7 +113,9 @@ function placeNode(text: string, file: VFile) {
     slug = first;
     const place = places!.get(slug);
     if (!place) {
-      const close = [...places!.keys()].filter((key) => key.includes(slug) || slug.includes(key)).slice(0, 5);
+      const close = [...places!.keys()]
+        .filter((key) => key.includes(slug) || slug.includes(key))
+        .slice(0, 5);
       throw new Error(
         `Unknown place "${slug}" in {{place: …}} (${file.path}). Use the last part of the restaurant's URL, e.g. /restaurants/vega-cafe -> vega-cafe.` +
           (close.length ? ` Did you mean: ${close.join(", ")}?` : ""),
@@ -89,7 +125,8 @@ function placeNode(text: string, file: VFile) {
     if (override) [lat, lng] = [Number(override[1]), Number(override[2])];
     else if (place.location && !place.chain) ({ lat, lng } = place.location);
     district = (override ? parts[2] : parts[1]) || place.district || "";
-    if (!district && place.chain && lat === undefined) district = "Multiple locations";
+    if (!district && place.chain && lat === undefined)
+      district = "Multiple locations";
     vegType = vegNames.get(place.vegType ?? "") ?? "";
     priceRange = priceSymbols.get(place.priceRange ?? "") ?? "";
   }
@@ -121,8 +158,12 @@ export function remarkShortcodes() {
       if (!open || !/\}\}\s*$/.test(last.value)) return node;
 
       // The paragraph's content without the {{name: and }} around it.
-      const inner = children.map((child) => ({ ...child })) as PhrasingContent[];
-      (inner[0] as { value: string }).value = (inner[0] as { value: string }).value.slice(open[0].length);
+      const inner = children.map((child) => ({
+        ...child,
+      })) as PhrasingContent[];
+      (inner[0] as { value: string }).value = (
+        inner[0] as { value: string }
+      ).value.slice(open[0].length);
       const tail = inner[inner.length - 1] as { value: string };
       tail.value = tail.value.replace(/\}\}\s*$/, "");
       const text = plain(inner).trim();
@@ -133,14 +174,23 @@ export function remarkShortcodes() {
         case "route": {
           const head = inner[0] as { value: string };
           const bar = head.value.indexOf("|");
-          let label = (bar === -1 ? head.value : head.value.slice(0, bar)).trim();
-          head.value = bar === -1 ? "" : head.value.slice(bar + 1).replace(/^\s+/, "");
+          let label = (
+            bar === -1 ? head.value : head.value.slice(0, bar)
+          ).trim();
+          head.value =
+            bar === -1 ? "" : head.value.slice(bar + 1).replace(/^\s+/, "");
           const mode = label.match(/\[([\w-]+)\]\s*$/);
           if (mode) label = label.slice(0, mode.index).trim();
           return embed(
-            element("div", { className: ["route-info"], dataTravelInfo: unescape(label), dataTravelMode: mode?.[1] }, [
-              element("span", { className: ["route-info-text"] }, inner),
-            ]),
+            element(
+              "div",
+              {
+                className: ["route-info"],
+                dataTravelInfo: unescape(label),
+                dataTravelMode: mode?.[1],
+              },
+              [element("span", { className: ["route-info-text"] }, inner)],
+            ),
           );
         }
         case "end-of-day":
@@ -148,7 +198,13 @@ export function remarkShortcodes() {
         case "map":
         case "embed":
           return element("div", { className: ["embed-frame"] }, [
-            element("iframe", { src: unescape(text), loading: "lazy", allowFullScreen: true, referrerPolicy: "no-referrer-when-downgrade", title: "Map" }),
+            element("iframe", {
+              src: unescape(text),
+              loading: "lazy",
+              allowFullScreen: true,
+              referrerPolicy: "no-referrer-when-downgrade",
+              title: "Map",
+            }),
           ]);
         case "hotels": {
           const params = new URLSearchParams({
@@ -164,7 +220,11 @@ export function remarkShortcodes() {
             campaign_id: "84",
           });
           return element("div", { className: ["embed-widget"] }, [
-            element("script", { async: true, src: `https://tp.media/content?${params}`, charSet: "utf-8" }),
+            element("script", {
+              async: true,
+              src: `https://tp.media/content?${params}`,
+              charSet: "utf-8",
+            }),
           ]);
         }
         default:

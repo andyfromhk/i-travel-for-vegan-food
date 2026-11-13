@@ -1,6 +1,14 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { type Place, mediaSize, placeKind, placeUrl, priceRanges, vegTypes, STATUS_LABEL } from "@/utils/content.ts";
+import {
+  type Place,
+  mediaSize,
+  placeKind,
+  placeUrl,
+  priceRanges,
+  vegTypes,
+  STATUS_LABEL,
+} from "@/utils/content.ts";
 
 interface Props extends HTMLAttributes<"article"> {
   /** Set to `false` to omit the component. */
@@ -13,7 +21,14 @@ interface Props extends HTMLAttributes<"article"> {
   loading?: "lazy" | "eager";
 }
 
-const { render = true, place, headingTag: Tag = "h3", loading = "lazy", class: className, ...rest } = Astro.props;
+const {
+  render = true,
+  place,
+  headingTag: Tag = "h3",
+  loading = "lazy",
+  class: className,
+  ...rest
+} = Astro.props;
 const { data } = place;
 const veg = vegTypes.get(data.vegType ?? "");
 const price = priceRanges.get(data.priceRange ?? "");
@@ -33,7 +48,16 @@ const size = mediaSize(data.image?.src);
       {...rest}
     >
       <div class="place-card_visual">
-        {data.image && <img class="place-card_image" src={data.image.src} alt={data.image.alt ?? ""} loading={loading} decoding="async" {...size} />}
+        {data.image && (
+          <img
+            class="place-card_image"
+            src={data.image.src}
+            alt={data.image.alt ?? ""}
+            loading={loading}
+            decoding="async"
+            {...size}
+          />
+        )}
       </div>
       <div class="place-card_content">
         <div class="place-card_meta">
@@ -42,7 +66,9 @@ const size = mediaSize(data.image?.src);
               {veg.name}
             </span>
           )}
-          {data.status === "temporarily-closed" && <span class="place-card_status">{STATUS_LABEL[data.status]}</span>}
+          {data.status === "temporarily-closed" && (
+            <span class="place-card_status">{STATUS_LABEL[data.status]}</span>
+          )}
           {price && <span class="place-card_price">{price.symbols}</span>}
         </div>
         <Tag class="place-card_name text-style-h4">
@@ -50,9 +76,13 @@ const size = mediaSize(data.image?.src);
             {data.name}
           </a>
         </Tag>
-        {data.nameOriginal && <span class="place-card_original">{data.nameOriginal}</span>}
+        {data.nameOriginal && (
+          <span class="place-card_original">{data.nameOriginal}</span>
+        )}
         <span class="place-card_kind">{placeKind(place)}</span>
-        {data.summary && <p class="place-card_text text-style-small">{data.summary}</p>}
+        {data.summary && (
+          <p class="place-card_text text-style-small">{data.summary}</p>
+        )}
       </div>
     </article>
   )

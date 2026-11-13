@@ -15,12 +15,20 @@ import MapBanner from "@/components/content/MapBanner.astro";
 import TravelBox from "@/components/content/TravelBox.astro";
 import PlaceCard from "@/components/item/PlaceCard.astro";
 import GuideCard from "@/components/item/GuideCard.astro";
-import { getSite, guidesFor, placesIn, type Destination } from "@/utils/content.ts";
+import {
+  getSite,
+  guidesFor,
+  placesIn,
+  type Destination,
+} from "@/utils/content.ts";
 import { breadcrumbs } from "@/utils/schema.ts";
 
 export async function getStaticPaths() {
   const { destinations } = await getSite();
-  return destinations.map((destination) => ({ params: { slug: destination.id }, props: { destination } }));
+  return destinations.map((destination) => ({
+    params: { slug: destination.id },
+    props: { destination },
+  }));
 }
 
 interface Props {
@@ -53,13 +61,20 @@ const schema = breadcrumbs([
   {/* Title */}
   <Section paddingTop="small" paddingBottom="none" gap="3" align="center">
     <h1 class="flex-vertical-nowrap gap-3 alignment-center">
-      <span class="text-style-h5">Vegan-Friendly Restaurants &amp; Guides in</span>
+      <span class="text-style-h5"
+        >Vegan-Friendly Restaurants &amp; Guides in</span
+      >
       <span class="text-style-h1" style="color: var(--brand-500)">{name}</span>
     </h1>
   </Section>
 
   {/* About the city */}
-  <Section render={hasDescription || data.gallery.length > 0} paddingTop="small" paddingBottom="small" containerClass="max-width-small">
+  <Section
+    render={hasDescription || data.gallery.length > 0}
+    paddingTop="small"
+    paddingBottom="small"
+    containerClass="max-width-small"
+  >
     <ContentWrapper variant="columns">
       <div class="flex-vertical-nowrap gap-5">
         <RichText data-vt-richtext>
@@ -72,24 +87,49 @@ const schema = breadcrumbs([
   </Section>
 
   {/* Restaurant map and the most popular places */}
-  <Section render={places.length > 0} paddingTop="none" paddingBottom="small" gap="3" id="restaurants">
+  <Section
+    render={places.length > 0}
+    paddingTop="none"
+    paddingBottom="small"
+    gap="3"
+    id="restaurants"
+  >
     <MapBanner render={hasMap} destination={destination} />
     <Grid xsmall={2} medium={4} class="gap-3">
-      {places.slice(0, 8).map((place) => <PlaceCard place={place} data-vt-heart />)}
+      {
+        places
+          .slice(0, 8)
+          .map((place) => <PlaceCard place={place} data-vt-heart />)
+      }
     </Grid>
-    <ButtonWrapper render={hasMap && places.length > 8} marginTop="0" class="align-self-end">
-      <Button variant="link" data-map-open>See all {places.length} places on the map →</Button>
+    <ButtonWrapper
+      render={hasMap && places.length > 8}
+      marginTop="0"
+      class="align-self-end"
+    >
+      <Button variant="link" data-map-open
+        >See all {places.length} places on the map →</Button
+      >
     </ButtonWrapper>
   </Section>
 
   {/* Guides */}
-  <Section render={guides.length > 0} paddingTop="small" paddingBottom="small" gap="4" containerClass="max-width-small" id="guides">
+  <Section
+    render={guides.length > 0}
+    paddingTop="small"
+    paddingBottom="small"
+    gap="4"
+    containerClass="max-width-small"
+    id="guides"
+  >
     <Heading tag="h2" variant="h3">Vegan Foodie Guides for {name}</Heading>
     <Grid xsmall={2} class="gap-4">
       {guides.map((guide) => <GuideCard guide={guide} />)}
     </Grid>
     <ButtonWrapper marginTop="0" class="align-self-end">
-      <Button element="link" variant="link" href="/articles">See all vegan foodie guides →</Button>
+      <Button element="link" variant="link" href="/articles"
+        >See all vegan foodie guides →</Button
+      >
     </ButtonWrapper>
   </Section>
 

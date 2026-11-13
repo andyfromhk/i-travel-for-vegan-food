@@ -15,7 +15,10 @@ const { render = true, headings } = Astro.props;
       <p class="text-style-h4">Table Of Content</p>
       <div class="toc_list" id="toc">
         {headings.map((heading) => (
-          <a class:list={["tocitem", `toc-h${heading.depth}`]} href={`#${heading.slug}`}>
+          <a
+            class:list={["tocitem", `toc-h${heading.depth}`]}
+            href={`#${heading.slug}`}
+          >
             {heading.text}
           </a>
         ))}

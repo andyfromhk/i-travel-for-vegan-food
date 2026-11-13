@@ -13,7 +13,8 @@ export type Picture = { src: string; alt?: string };
 export const countries: Country[] = countriesData;
 export { taxonomies };
 
-const named = <T extends { slug: string }>(list: T[]) => new Map(list.map((item) => [item.slug, item]));
+const named = <T extends { slug: string }>(list: T[]) =>
+  new Map(list.map((item) => [item.slug, item]));
 export const vegTypes = named(taxonomies.vegTypes);
 export const priceRanges = named(taxonomies.priceRanges);
 export const venueTypes = named(taxonomies.venueTypes);
@@ -50,7 +51,10 @@ async function loadSite(): Promise<Site> {
     getCollection("guides", ({ data }) => !data.draft),
     getCollection("authors"),
   ]);
-  destinations.sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
+  destinations.sort(
+    (a, b) =>
+      a.data.order - b.data.order || a.data.name.localeCompare(b.data.name),
+  );
   // Newest first: the guide that was updated most recently leads every list.
   guides.sort((a, b) => time(b.data.updated) - time(a.data.updated));
   return {
@@ -66,9 +70,11 @@ async function loadSite(): Promise<Site> {
 /* ---------- Places ---------- */
 
 /** A place has a public review page when it isn't a page-less stop and its URL doesn't redirect away. */
-export const hasPage = (place: Place) => place.data.page && !place.data.redirectTo;
+export const hasPage = (place: Place) =>
+  place.data.page && !place.data.redirectTo;
 export const placeUrl = (place: Place) => `/restaurants/${place.id}`;
-export const isClosed = (place: Place) => place.data.status === "permanently-closed";
+export const isClosed = (place: Place) =>
+  place.data.status === "permanently-closed";
 
 export const STATUS_LABEL = {
   open: "Open",
@@ -80,13 +86,22 @@ export const STATUS_LABEL = {
 export async function placesIn(destination: string): Promise<Place[]> {
   const { places } = await getSite();
   return places
-    .filter((p) => p.data.destination === destination && hasPage(p) && !isClosed(p))
-    .sort((a, b) => (b.data.likes ?? 0) - (a.data.likes ?? 0) || time(b.data.created) - time(a.data.created));
+    .filter(
+      (p) => p.data.destination === destination && hasPage(p) && !isClosed(p),
+    )
+    .sort(
+      (a, b) =>
+        (b.data.likes ?? 0) - (a.data.likes ?? 0) ||
+        time(b.data.created) - time(a.data.created),
+    );
 }
 
 /** "Cafe, Desserts": the venue type and cuisine line on cards and review pages. */
 export function placeKind(place: Place, separator = ", "): string {
-  return [venueTypes.get(place.data.venueType ?? "")?.name, cuisines.get(place.data.cuisine ?? "")?.name]
+  return [
+    venueTypes.get(place.data.venueType ?? "")?.name,
+    cuisines.get(place.data.cuisine ?? "")?.name,
+  ]
     .filter(Boolean)
     .join(separator);
 }
@@ -109,7 +124,13 @@ export function guideLabel(guide: Guide): string {
 
 /** Every destination a guide belongs to: its main one first, then the others it covers. */
 export function guideDestinations(guide: Guide): string[] {
-  return [...new Set([guide.data.destination, ...guide.data.destinations].filter(Boolean) as string[])];
+  return [
+    ...new Set(
+      [guide.data.destination, ...guide.data.destinations].filter(
+        Boolean,
+      ) as string[],
+    ),
+  ];
 }
 
 /** Guides for a destination: its main guide first, then the rest, newest first. */
@@ -117,37 +138,73 @@ export async function guidesFor(destination: string): Promise<Guide[]> {
   const { guides } = await getSite();
   return guides
     .filter((g) => guideDestinations(g).includes(destination))
-    .sort((a, b) => Number(b.data.mainGuide && b.data.destination === destination) - Number(a.data.mainGuide && a.data.destination === destination));
+    .sort(
+      (a, b) =>
+        Number(b.data.mainGuide && b.data.destination === destination) -
+        Number(a.data.mainGuide && a.data.destination === destination),
+    );
 }
 
 /* ---------- Destinations ---------- */
 
 /** "Australia", "Japan", "Thailand", then everything else under "More Destinations". */
-export async function destinationGroups(): Promise<{ title: string; slug: string; destinations: Destination[] }[]> {
+export async function destinationGroups(): Promise<
+  { title: string; slug: string; destinations: Destination[] }[]
+> {
   const { destinations } = await getSite();
   const groups = countries
     .filter((c) => "navGroup" in c && c.navGroup)
-    .map((c) => ({ title: c.name, slug: c.slug, destinations: destinations.filter((d) => d.data.country === c.slug) }));
+    .map((c) => ({
+      title: c.name,
+      slug: c.slug,
+      destinations: destinations.filter((d) => d.data.country === c.slug),
+    }));
   const grouped = new Set(groups.map((g) => g.slug));
   const rest = destinations.filter((d) => !grouped.has(d.data.country));
-  return [...groups, { title: "More Destinations", slug: "more", destinations: rest }].filter((g) => g.destinations.length);
+  return [
+    ...groups,
+    { title: "More Destinations", slug: "more", destinations: rest },
+  ].filter((g) => g.destinations.length);
 }
 
 /** The line under a destination's name on its card: "4 Guides · 38 Places · Restaurant Map". */
 export async function destinationCounts(destination: Destination) {
-  const [guides, places] = await Promise.all([guidesFor(destination.id), placesIn(destination.id)]);
+  const [guides, places] = await Promise.all([
+    guidesFor(destination.id),
+    placesIn(destination.id),
+  ]);
   const hasMap = places.some((p) => p.data.location);
   const parts = [
-    guides.length && `${guides.length} ${guides.length === 1 ? "Guide" : "Guides"}`,
-    places.length && `${places.length} ${places.length === 1 ? "Place" : "Places"}`,
+    guides.length &&
+      `${guides.length} ${guides.length === 1 ? "Guide" : "Guides"}`,
+    places.length &&
+      `${places.length} ${places.length === 1 ? "Place" : "Places"}`,
     hasMap && "Restaurant Map",
   ].filter(Boolean) as string[];
-  return { guides: guides.length, places: places.length, hasMap, text: parts.join(" · ") };
+  return {
+    guides: guides.length,
+    places: places.length,
+    hasMap,
+    text: parts.join(" · "),
+  };
 }
 
 /* ---------- Dates ---------- */
 
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 /** "Oct 15, 2026", the format the site has always shown. */
 export function shortDate(date?: Date): string {
   if (!date) return "";

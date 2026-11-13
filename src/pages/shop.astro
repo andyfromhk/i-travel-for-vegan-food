@@ -23,18 +23,29 @@ const schema = breadcrumbs([
   schema={schema}
 >
   {/* Title */}
-  <Section paddingTop="small" paddingBottom="small" gap="3" containerClass="max-width-small">
-    <Heading tag="h1" class="heading-accent">Shop <strong>Vegan Travel Books &amp; PDF Guides</strong></Heading>
+  <Section
+    paddingTop="small"
+    paddingBottom="small"
+    gap="3"
+    containerClass="max-width-small"
+  >
+    <Heading tag="h1" class="heading-accent"
+      >Shop <strong>Vegan Travel Books &amp; PDF Guides</strong></Heading
+    >
     <Paragraph>
-      Stop stressing about ingredients lists and hidden fish sauce. Our comprehensive vegan travel books for Japan,
-      Thailand, Hong Kong, and Taiwan are curated manually to help you find the best plant-based food in Asia. Download
-      these PDF itineraries and guidebooks to your phone and travel like a local.
+      Stop stressing about ingredients lists and hidden fish sauce. Our
+      comprehensive vegan travel books for Japan, Thailand, Hong Kong, and
+      Taiwan are curated manually to help you find the best plant-based food in
+      Asia. Download these PDF itineraries and guidebooks to your phone and
+      travel like a local.
     </Paragraph>
   </Section>
 
   {/* Reader reviews */}
   <Section paddingTop="none" paddingBottom="small" gap="4">
-    <Heading tag="h2" variant="h3" class="align-self-center">Trusted by Vegan Travelers</Heading>
+    <Heading tag="h2" variant="h3" class="align-self-center"
+      >Trusted by Vegan Travelers</Heading
+    >
     <Reviews reviews={shop.reviews} />
   </Section>
 

@@ -10,12 +10,14 @@ interface Props {
 const { render = true } = Astro.props;
 ---
 
-{/*
+{
+  /*
   A map guide: the text on one side, the map that follows it on the other.
   On phones the map sits on top and the text scrolls underneath it.
   The class names article-div, day-counter-div, previous-day-button and next-day-button, and the ids map and
   day-counter, are how src/scripts/guide.js finds these parts.
-*/}
+*/
+}
 {
   render && (
     <div class="map-guide_wrap">
@@ -27,13 +29,25 @@ const { render = true } = Astro.props;
       </div>
       <div class="map-guide_map">
         <div class="map-guide_days">
-          <button class="map-guide_day previous-day-button" type="button" aria-label="Previous day">
-            <Icon class="map-guide_day_icon back" src={chevron} variant="small" />
+          <button
+            class="map-guide_day previous-day-button"
+            type="button"
+            aria-label="Previous day"
+          >
+            <Icon
+              class="map-guide_day_icon back"
+              src={chevron}
+              variant="small"
+            />
           </button>
           <div class="day-counter-div">
             Day <span id="day-counter">1</span>
           </div>
-          <button class="map-guide_day next-day-button" type="button" aria-label="Next day">
+          <button
+            class="map-guide_day next-day-button"
+            type="button"
+            aria-label="Next day"
+          >
             <Icon class="map-guide_day_icon" src={chevron} variant="small" />
           </button>
         </div>
@@ -238,7 +252,8 @@ const { render = true } = Astro.props;
         height: 2rem;
         translate: -50% 0;
         background-color: currentcolor;
-        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M11 5v11.17l-4.88-4.88c-.39-.39-1.03-.39-1.42 0a.996.996 0 0 0 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0l6.59-6.59a.996.996 0 1 0-1.41-1.41L13 16.17V5c0-.55-.45-1-1-1s-1 .45-1 1z'/%3E%3C/svg%3E") center / contain no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M11 5v11.17l-4.88-4.88c-.39-.39-1.03-.39-1.42 0a.996.996 0 0 0 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0l6.59-6.59a.996.996 0 1 0-1.41-1.41L13 16.17V5c0-.55-.45-1-1-1s-1 .45-1 1z'/%3E%3C/svg%3E")
+          center / contain no-repeat;
       }
 
       & .route-info::before {

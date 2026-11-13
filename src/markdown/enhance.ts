@@ -43,10 +43,18 @@ const TIP_ICONS: [string, string][] = [
 ];
 
 const isElement = (node: unknown, tag?: string): node is Element =>
-  !!node && (node as Element).type === "element" && (!tag || (node as Element).tagName === tag);
-const isBlank = (node: RootContent | ElementContent) => node.type === "text" && !node.value.trim();
-const meaningful = (node: Element) => node.children.filter((child) => !isBlank(child));
-const h = (tagName: string, properties: Element["properties"], children: ElementContent[] = []): Element => ({
+  !!node &&
+  (node as Element).type === "element" &&
+  (!tag || (node as Element).tagName === tag);
+const isBlank = (node: RootContent | ElementContent) =>
+  node.type === "text" && !node.value.trim();
+const meaningful = (node: Element) =>
+  node.children.filter((child) => !isBlank(child));
+const h = (
+  tagName: string,
+  properties: Element["properties"],
+  children: ElementContent[] = [],
+): Element => ({
   type: "element",
   tagName,
   properties,
@@ -55,14 +63,24 @@ const h = (tagName: string, properties: Element["properties"], children: Element
 
 function textOf(node: ElementContent | Root): string {
   if (node.type === "text") return node.value;
-  return "children" in node ? (node.children as ElementContent[]).map(textOf).join("") : "";
+  return "children" in node
+    ? (node.children as ElementContent[]).map(textOf).join("")
+    : "";
 }
 
 // The heading's HTML as a browser reports it (innerHTML). The old table-of-contents recipe built ids from this.
 function innerHtml(node: ElementContent): string {
-  if (node.type === "text") return node.value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/ /g, "&nbsp;");
+  if (node.type === "text")
+    return node.value
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/ /g, "&nbsp;");
   if (node.type !== "element") return "";
-  const attrs = node.tagName === "a" && node.properties.href ? ` href="${node.properties.href}"` : "";
+  const attrs =
+    node.tagName === "a" && node.properties.href
+      ? ` href="${node.properties.href}"`
+      : "";
   return `<${node.tagName}${attrs}>${node.children.map(innerHtml).join("")}</${node.tagName}>`;
 }
 const tocId = (heading: Element) =>
@@ -99,7 +117,9 @@ function figureFrom(img: Element, link?: Element): Element {
     if (size[1] > size[0] * 1.05) orientation = "portrait";
     else if (size[1] >= size[0] * 0.95) orientation = "square";
   }
-  return h("figure", { className: ["figure"], dataOrientation: orientation }, [link ?? img]);
+  return h("figure", { className: ["figure"], dataOrientation: orientation }, [
+    link ?? img,
+  ]);
 }
 
 // A paragraph holding only photos (each may be wrapped in a link) gives back those photos; anything else gives nothing.
@@ -108,7 +128,12 @@ function photosIn(node: Element): { img: Element; link?: Element }[] {
   const out: { img: Element; link?: Element }[] = [];
   for (const child of meaningful(node)) {
     if (isElement(child, "img")) out.push({ img: child });
-    else if (isElement(child, "a") && meaningful(child).length === 1 && isElement(meaningful(child)[0], "img")) out.push({ img: meaningful(child)[0] as Element, link: child });
+    else if (
+      isElement(child, "a") &&
+      meaningful(child).length === 1 &&
+      isElement(meaningful(child)[0], "img")
+    )
+      out.push({ img: meaningful(child)[0] as Element, link: child });
     else if (isElement(child, "br")) continue;
     else return [];
   }
@@ -116,7 +141,9 @@ function photosIn(node: Element): { img: Element; link?: Element }[] {
 }
 
 const isCaption = (node: RootContent | undefined): node is Element =>
-  isElement(node, "p") && meaningful(node).length === 1 && isElement(meaningful(node)[0], "em");
+  isElement(node, "p") &&
+  meaningful(node).length === 1 &&
+  isElement(meaningful(node)[0], "em");
 
 function tipFrom(quote: Element): Element {
   let icon = "idea";
@@ -126,10 +153,16 @@ function tipFrom(quote: Element): Element {
     const match = TIP_ICONS.find(([emoji]) => value.startsWith(emoji));
     if (match) {
       icon = match[1];
-      first.value = value.slice(match[0].length).replace(/^️/, "").replace(/^\s+/, "");
+      first.value = value
+        .slice(match[0].length)
+        .replace(/^️/, "")
+        .replace(/^\s+/, "");
     }
   }
-  return h("div", { className: ["tip"], dataIcon: icon }, [h("span", { className: ["tip_icon"], ariaHidden: "true" }), h("div", { className: ["tip_body"] }, quote.children)]);
+  return h("div", { className: ["tip"], dataIcon: icon }, [
+    h("span", { className: ["tip_icon"], ariaHidden: "true" }),
+    h("div", { className: ["tip_body"] }, quote.children),
+  ]);
 }
 
 function firstText(node: Element): { type: "text"; value: string } | undefined {
@@ -155,7 +188,11 @@ function eachElement(node: Root | Element, fn: (el: Element) => void) {
 export function rehypeEnhance() {
   return (tree: Root, file: VFile) => {
     const filePath = String(file.path ?? "").replace(/\\/g, "/");
-    const kind = filePath.includes("/guides/articles/") ? "article" : filePath.includes("/guides/map-guides/") ? "map-guide" : "other";
+    const kind = filePath.includes("/guides/articles/")
+      ? "article"
+      : filePath.includes("/guides/map-guides/")
+        ? "map-guide"
+        : "other";
 
     // 1. Photos, captions and tips
     const blocks: RootContent[] = [];
@@ -171,10 +208,13 @@ export function rehypeEnhance() {
         const figures = photos.map(({ img, link }) => figureFrom(img, link));
         if (isCaption(source[i + 1])) {
           const em = meaningful(source[i + 1] as Element)[0] as Element;
-          figures[figures.length - 1].children.push(h("figcaption", {}, em.children));
+          figures[figures.length - 1].children.push(
+            h("figcaption", {}, em.children),
+          );
           i++;
         }
-        if (figures.length > 1) blocks.push(h("div", { className: ["image-pair"] }, figures));
+        if (figures.length > 1)
+          blocks.push(h("div", { className: ["image-pair"] }, figures));
         else blocks.push(figures[0]);
         continue;
       }
@@ -188,7 +228,8 @@ export function rehypeEnhance() {
     // 2. Two portrait photos in a row sit side by side
     const paired: RootContent[] = [];
     const portrait = (node: RootContent | undefined): node is Element =>
-      isElement(node, "figure") && node.properties.dataOrientation === "portrait";
+      isElement(node, "figure") &&
+      node.properties.dataOrientation === "portrait";
     for (let i = 0; i < blocks.length; i++) {
       const [a, b] = [blocks[i], blocks[i + 1]];
       if (portrait(a) && portrait(b)) {
@@ -214,10 +255,13 @@ export function rehypeEnhance() {
       });
       // Articles: h2 and h3 feed the table of contents and keep its recipe. Those are claimed first, as the old script did.
       if (kind === "article") {
-        for (const heading of headings) if (/^h[23]$/.test(heading.tagName)) heading.properties.id = claim(tocId(heading));
+        for (const heading of headings)
+          if (/^h[23]$/.test(heading.tagName))
+            heading.properties.id = claim(tocId(heading));
       }
       for (const heading of headings) {
-        if (!heading.properties.id) heading.properties.id = claim(slugify(textOf(heading)));
+        if (!heading.properties.id)
+          heading.properties.id = claim(slugify(textOf(heading)));
       }
     }
 
@@ -225,7 +269,10 @@ export function rehypeEnhance() {
     eachElement(tree, (el) => {
       if (el.tagName !== "a") return;
       const href = String(el.properties.href ?? "");
-      if (/^https?:\/\//i.test(href) && !/^https?:\/\/(www\.)?itravelforveganfood\.com/i.test(href)) {
+      if (
+        /^https?:\/\//i.test(href) &&
+        !/^https?:\/\/(www\.)?itravelforveganfood\.com/i.test(href)
+      ) {
         el.properties.target = "_blank";
         el.properties.rel = ["noopener"];
       }

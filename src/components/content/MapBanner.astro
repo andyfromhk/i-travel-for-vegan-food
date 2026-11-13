@@ -17,13 +17,28 @@ interface Props {
 const { render = true, destination, variant = "banner", href } = Astro.props;
 const graphic = destination?.data.mapGraphic;
 const Tag = href ? "a" : "button";
-const attrs = href ? { href } : { type: "button" as const, "data-map-open": "" };
+const attrs = href
+  ? { href }
+  : { type: "button" as const, "data-map-open": "" };
 ---
 
 {
   render && destination && (
-    <Tag class:list={["map-banner_wrap", variant !== "banner" && variant]} data-vt-destination={destination.id} {...attrs}>
-      {graphic && <img class="map-banner_image" src={graphic.src} alt="" loading="lazy" decoding="async" {...mediaSize(graphic.src)} />}
+    <Tag
+      class:list={["map-banner_wrap", variant !== "banner" && variant]}
+      data-vt-destination={destination.id}
+      {...attrs}
+    >
+      {graphic && (
+        <img
+          class="map-banner_image"
+          src={graphic.src}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          {...mediaSize(graphic.src)}
+        />
+      )}
       <span class="map-banner_label">
         <Icon src={pin} variant="small" />
         Open {destination.data.name} Restaurant Map

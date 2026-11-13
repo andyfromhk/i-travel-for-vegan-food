@@ -7,8 +7,10 @@ interface Props {
 }
 
 const { render = true, reviews } = Astro.props;
-const escape = (value: string) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-const html = (value: string) => escape(value).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+const escape = (value: string) =>
+  value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const html = (value: string) =>
+  escape(value).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 ---
 
 {
@@ -19,7 +21,10 @@ const html = (value: string) => escape(value).replace(/\*\*(.+?)\*\*/g, "<strong
           <span class="reviews_stars" role="img" aria-label="5 out of 5 stars">
             ★★★★★
           </span>
-          <q class="reviews_quote" set:html={html(review).replace(/^“|”$/g, "")} />
+          <q
+            class="reviews_quote"
+            set:html={html(review).replace(/^“|”$/g, "")}
+          />
         </li>
       ))}
     </ul>

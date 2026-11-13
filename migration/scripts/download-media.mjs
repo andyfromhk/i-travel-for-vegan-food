@@ -11,7 +11,9 @@ import path from "node:path";
 import { imageSize } from "image-size";
 
 const CONCURRENCY = 10;
-const manifest = JSON.parse(await readFile("migration/media-manifest.json", "utf8"));
+const manifest = JSON.parse(
+  await readFile("migration/media-manifest.json", "utf8"),
+);
 
 const exists = async (file) => {
   try {
@@ -23,7 +25,10 @@ const exists = async (file) => {
 
 async function download(url) {
   // Older images may only answer on Webflow's previous CDN host, so both are tried.
-  const candidates = [url, url.replace("cdn.prod.website-files.com", "uploads-ssl.webflow.com")];
+  const candidates = [
+    url,
+    url.replace("cdn.prod.website-files.com", "uploads-ssl.webflow.com"),
+  ];
   let lastError = "";
   for (const candidate of [...new Set(candidates)]) {
     for (let attempt = 1; attempt <= 3; attempt++) {
@@ -61,7 +66,10 @@ async function worker() {
       await writeFile(file, data);
       fetched++;
       bytes += data.length;
-      if (fetched % 250 === 0) console.log(`  ${fetched} downloaded (${Math.round(bytes / 1048576)} MB)`);
+      if (fetched % 250 === 0)
+        console.log(
+          `  ${fetched} downloaded (${Math.round(bytes / 1048576)} MB)`,
+        );
     } catch (error) {
       failures.push({ ...entry, error: error.message });
     }
@@ -79,17 +87,32 @@ for (const entry of manifest) {
     total += data.length;
     const { width, height, orientation } = imageSize(data);
     // Photos marked "rotated" by a camera show with width and height swapped.
-    sizes[entry.path] = orientation && orientation >= 5 ? [height, width] : [width, height];
+    sizes[entry.path] =
+      orientation && orientation >= 5 ? [height, width] : [width, height];
   } catch {
-    if (!failures.some((f) => f.path === entry.path)) failures.push({ ...entry, error: "missing or unreadable" });
+    if (!failures.some((f) => f.path === entry.path))
+      failures.push({ ...entry, error: "missing or unreadable" });
   }
 }
-const sorted = Object.fromEntries(Object.entries(sizes).sort(([a], [b]) => a.localeCompare(b)));
+const sorted = Object.fromEntries(
+  Object.entries(sizes).sort(([a], [b]) => a.localeCompare(b)),
+);
 await mkdir("src/data", { recursive: true });
-await writeFile("src/data/media.json", JSON.stringify(sorted).replace(/\],/g, "],\n") + "\n");
+await writeFile(
+  "src/data/media.json",
+  JSON.stringify(sorted).replace(/\],/g, "],\n") + "\n",
+);
 await mkdir("migration/tmp", { recursive: true });
-await writeFile("migration/tmp/media-failures.json", JSON.stringify(failures, null, 1));
+await writeFile(
+  "migration/tmp/media-failures.json",
+  JSON.stringify(failures, null, 1),
+);
 
-console.log(`Downloaded ${fetched}, already had ${skipped}, failed ${failures.length}.`);
-console.log(`${Object.keys(sizes).length} images on disk, ${Math.round(total / 1048576)} MB in total.`);
-for (const f of failures.slice(0, 20)) console.log(`  FAILED ${f.url} (${f.error})`);
+console.log(
+  `Downloaded ${fetched}, already had ${skipped}, failed ${failures.length}.`,
+);
+console.log(
+  `${Object.keys(sizes).length} images on disk, ${Math.round(total / 1048576)} MB in total.`,
+);
+for (const f of failures.slice(0, 20))
+  console.log(`  FAILED ${f.url} (${f.error})`);

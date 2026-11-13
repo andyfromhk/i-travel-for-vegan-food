@@ -2,12 +2,17 @@
 import type { ComponentProps } from "astro/types";
 import Section from "@/components/wrapper/Section.astro";
 
-type Props = Pick<ComponentProps<typeof Section>, "render" | "theme" | "paddingTop" | "paddingBottom">;
+type Props = Pick<
+  ComponentProps<typeof Section>,
+  "render" | "theme" | "paddingTop" | "paddingBottom"
+>;
 
 const { render = true, ...rest } = Astro.props;
 ---
 
-{/* A guide's body: the sidebar (table of contents, map, share) stays in view while the text scrolls. */}
+{
+  /* A guide's body: the sidebar (table of contents, map, share) stays in view while the text scrolls. */
+}
 <Section render={render} {...rest}>
   <div class="guide-article_wrap">
     <aside class="guide-article_sidebar">

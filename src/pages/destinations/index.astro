@@ -21,21 +21,39 @@ const schema = breadcrumbs([
   schema={schema}
 >
   {/* Title */}
-  <Section paddingTop="small" paddingBottom="small" gap="3" containerClass="max-width-small">
-    <Heading tag="h1" class="heading-accent">Find Your Next <strong>Vegan Food Destination</strong></Heading>
-    <Paragraph>Browse the destinations, find the best vegan restaurants, and plan your next vegan foodie trip!</Paragraph>
+  <Section
+    paddingTop="small"
+    paddingBottom="small"
+    gap="3"
+    containerClass="max-width-small"
+  >
+    <Heading tag="h1" class="heading-accent"
+      >Find Your Next <strong>Vegan Food Destination</strong></Heading
+    >
+    <Paragraph
+      >Browse the destinations, find the best vegan restaurants, and plan your
+      next vegan foodie trip!</Paragraph
+    >
   </Section>
 
   {/* One group per country */}
   {
     groups.map((group, groupIndex) => (
-      <Section paddingTop="small" paddingBottom={groupIndex === groups.length - 1 ? "medium" : "small"} gap="4" id={group.slug}>
+      <Section
+        paddingTop="small"
+        paddingBottom={groupIndex === groups.length - 1 ? "medium" : "small"}
+        gap="4"
+        id={group.slug}
+      >
         <Heading tag="h2" variant="h3" class="align-self-center">
           {group.title}
         </Heading>
         <Grid xsmall={2} medium={3} class="gap-3">
           {group.destinations.map((destination, index) => (
-            <DestinationCard destination={destination} loading={groupIndex === 0 && index < 3 ? "eager" : "lazy"} />
+            <DestinationCard
+              destination={destination}
+              loading={groupIndex === 0 && index < 3 ? "eager" : "lazy"}
+            />
           ))}
         </Grid>
       </Section>

@@ -1,6 +1,12 @@
 ---
 import Eyebrow from "@/components/typography/Eyebrow.astro";
-import { type Author, type Guide, guideLabel, mediaSize, shortDate } from "@/utils/content.ts";
+import {
+  type Author,
+  type Guide,
+  guideLabel,
+  mediaSize,
+  shortDate,
+} from "@/utils/content.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -19,20 +25,29 @@ const { data } = guide;
   render && (
     <header class="guide-hero_wrap">
       {data.image && (
-        <img class="guide-hero_image" src={data.image.src} alt={data.image.alt ?? ""} fetchpriority="high" {...mediaSize(data.image.src)} />
+        <img
+          class="guide-hero_image"
+          src={data.image.src}
+          alt={data.image.alt ?? ""}
+          fetchpriority="high"
+          {...mediaSize(data.image.src)}
+        />
       )}
       <div class="guide-hero_content">
         <div class="guide-hero_text">
           <Eyebrow>{guideLabel(guide)}</Eyebrow>
           <h1 class="text-style-h1">{data.title}</h1>
-          {data.description && <p class="guide-hero-description">{data.description}</p>}
+          {data.description && (
+            <p class="guide-hero-description">{data.description}</p>
+          )}
           {/* "Save this guide" is added here by the saved-places script. */}
           <div data-vt-save-guide-slot />
         </div>
         <div class="guide-hero_meta">
           {author && (
             <p class="guide-hero_author">
-              Written by <a href={`/authors/${author.id}`}>{author.data.name}</a>
+              Written by{" "}
+              <a href={`/authors/${author.id}`}>{author.data.name}</a>
             </p>
           )}
           {data.updated && <p>Updated on {shortDate(data.updated)}</p>}

@@ -2,17 +2,29 @@
 import type { HTMLAttributes } from "astro/types";
 
 interface Book {
+  /** Book title. */
   title: string;
+  /** Small label above the title. */
   badge?: string;
+  /** Current price, as shown. */
   price: string;
+  /** Earlier price, shown struck through. */
   wasPrice?: string;
+  /** Cover image. */
   image: string;
+  /** Cover image alt text. */
   imageAlt?: string;
+  /** Where the book is sold. */
   url: string;
+  /** Short description. */
   text: string;
+  /** Bullet points under the description. */
   points: string[];
+  /** Button label. */
   button: string;
+  /** Small line under the button, e.g. edition and page count. */
   edition?: string;
+  /** Lay the card out as one wide row. */
   wide?: boolean;
 }
 
@@ -28,8 +40,20 @@ const { render = true, book, class: className, ...rest } = Astro.props;
 
 {
   render && (
-    <a class:list={["book-card_wrap", book.wide && "wide", className]} href={book.url} target="_blank" rel="nofollow noopener" {...rest}>
-      <img class="book-card_image" src={book.image} alt={book.imageAlt ?? ""} loading="lazy" decoding="async" />
+    <a
+      class:list={["book-card_wrap", book.wide && "wide", className]}
+      href={book.url}
+      target="_blank"
+      rel="nofollow noopener"
+      {...rest}
+    >
+      <img
+        class="book-card_image"
+        src={book.image}
+        alt={book.imageAlt ?? ""}
+        loading="lazy"
+        decoding="async"
+      />
       <span class="book-card_content">
         {book.badge && <span class="book-card_badge">{book.badge}</span>}
         <span class="book-card_title text-style-h3">{book.title}</span>

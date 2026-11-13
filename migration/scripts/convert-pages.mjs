@@ -6,7 +6,13 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { richTextToMarkdown } from "./lib/richtext.mjs";
 
-const ctx = { media: (url) => url, alt: (url, alt) => alt || "", place: () => "", warn: (m) => console.warn(m), figures: [] };
+const ctx = {
+  media: (url) => url,
+  alt: (url, alt) => alt || "",
+  place: () => "",
+  warn: (m) => console.warn(m),
+  figures: [],
+};
 
 // Returns the inner HTML of the nth <div class="…w-richtext…"> block.
 function richTextBlocks(html) {
@@ -27,12 +33,16 @@ function richTextBlocks(html) {
 
 // Cloudflare hides email addresses in the published HTML; this turns them back into normal mailto links.
 function restoreEmails(markdown) {
-  return markdown.replace(/\[(?:\\.|[^\]\\])*\]\(\/cdn-cgi\/l\/email-protection#([0-9a-f]+)\)/gi, (_, hex) => {
-    const key = parseInt(hex.slice(0, 2), 16);
-    let email = "";
-    for (let i = 2; i < hex.length; i += 2) email += String.fromCharCode(parseInt(hex.slice(i, i + 2), 16) ^ key);
-    return `[${email}](mailto:${email})`;
-  });
+  return markdown.replace(
+    /\[(?:\\.|[^\]\\])*\]\(\/cdn-cgi\/l\/email-protection#([0-9a-f]+)\)/gi,
+    (_, hex) => {
+      const key = parseInt(hex.slice(0, 2), 16);
+      let email = "";
+      for (let i = 2; i < hex.length; i += 2)
+        email += String.fromCharCode(parseInt(hex.slice(i, i + 2), 16) ^ key);
+      return `[${email}](mailto:${email})`;
+    },
+  );
 }
 
 await mkdir("src/content/pages", { recursive: true });
@@ -43,7 +53,10 @@ await writeFile(
   `---\ntitle: About & Contact - I Travel For Vegan Food\ndescription: "I Travel For Vegan Food mission is simple: Make planning your vegan food adventures as easy and exciting as possible."\n---\n\n${richTextToMarkdown(richTextBlocks(about)[0], ctx)}\n`,
 );
 
-const privacy = await readFile("migration/crawl/html/privacy-policy.html", "utf8");
+const privacy = await readFile(
+  "migration/crawl/html/privacy-policy.html",
+  "utf8",
+);
 const body = richTextBlocks(privacy).sort((a, b) => b.length - a.length)[0];
 await writeFile(
   "src/content/pages/privacy-policy.md",

@@ -16,10 +16,19 @@ interface Props {
 
 const { render = true, place } = Astro.props;
 const { data } = place;
-const mapsHref = data.chain ? data.storeLocator : (data.mapsUrl ?? (data.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${data.name}, ${data.address}`)}` : undefined));
+const mapsHref = data.chain
+  ? data.storeLocator
+  : (data.mapsUrl ??
+    (data.address
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${data.name}, ${data.address}`)}`
+      : undefined));
 const links = [
   data.website && { href: data.website, icon: globe, label: "Website" },
-  data.instagram && { href: data.instagram, icon: instagram, label: "Instagram" },
+  data.instagram && {
+    href: data.instagram,
+    icon: instagram,
+    label: "Instagram",
+  },
   data.facebook && { href: data.facebook, icon: facebook, label: "Facebook" },
 ].filter(Boolean) as { href: string; icon: typeof globe; label: string }[];
 ---
@@ -33,7 +42,9 @@ const links = [
           <Icon src={pin} variant="small" />
           {mapsHref ? (
             <a href={mapsHref} target="_blank" rel="noopener">
-              {data.chain ? "Multiple locations: find one near you" : data.address}
+              {data.chain
+                ? "Multiple locations: find one near you"
+                : data.address}
             </a>
           ) : (
             <span>{data.address}</span>
@@ -50,7 +61,13 @@ const links = [
         <ul class="place-info_links">
           {links.map((link) => (
             <li>
-              <a class="place-info_link" href={link.href} target="_blank" rel="noopener" aria-label={link.label}>
+              <a
+                class="place-info_link"
+                href={link.href}
+                target="_blank"
+                rel="noopener"
+                aria-label={link.label}
+              >
                 <Icon src={link.icon} variant="medium" />
               </a>
             </li>

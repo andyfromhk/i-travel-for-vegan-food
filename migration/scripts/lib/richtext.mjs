@@ -36,10 +36,16 @@ export const TIP_EMOJI = {
   "phone-heart": "📱",
 };
 
-const el = (tagName, properties = {}, children = []) => ({ type: "element", tagName, properties, children });
+const el = (tagName, properties = {}, children = []) => ({
+  type: "element",
+  tagName,
+  properties,
+  children,
+});
 const text = (value) => ({ type: "text", value });
 const raw = (value) => el("vt-raw", { value });
-const isEl = (node, tag) => node && node.type === "element" && (!tag || node.tagName === tag);
+const isEl = (node, tag) =>
+  node && node.type === "element" && (!tag || node.tagName === tag);
 const classes = (node) => (node.properties && node.properties.className) || [];
 
 function find(node, test) {
@@ -58,7 +64,12 @@ function walkText(node, fn) {
   }
 }
 
-const cleanText = (node) => hastText(node).replace(INVISIBLE, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+const cleanText = (node) =>
+  hastText(node)
+    .replace(INVISIBLE, "")
+    .replace(/ /g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
 function isEmptyParagraph(node) {
   if (!isEl(node, "p")) return false;
@@ -110,7 +121,11 @@ export function richTextToMarkdown(html, ctx) {
       continue;
     }
 
-    if (isEl(node, "div") && node.properties && "dataRtEmbedType" in node.properties) {
+    if (
+      isEl(node, "div") &&
+      node.properties &&
+      "dataRtEmbedType" in node.properties
+    ) {
       out.push(...embed(node, ctx, lastHeading, linksOf.get(node) || []));
       continue;
     }
@@ -118,7 +133,9 @@ export function richTextToMarkdown(html, ctx) {
     if (isEl(node, "p")) {
       if (isEmptyParagraph(node)) continue;
       const plain = cleanText(node);
-      if (/^(\[\.divider\]\s*\[\.divider\]|-{3,}|\*{3,}|_{3,}|—{2,})$/.test(plain)) {
+      if (
+        /^(\[\.divider\]\s*\[\.divider\]|-{3,}|\*{3,}|_{3,}|—{2,})$/.test(plain)
+      ) {
         out.push(el("hr"));
         continue;
       }
@@ -126,7 +143,8 @@ export function richTextToMarkdown(html, ctx) {
         out.push(oldTip(node, ctx));
         continue;
       }
-      if (/\[[.#$][\w-]+/.test(plain)) ctx.warn(`Unconverted shortcode in: "${plain.slice(0, 80)}"`);
+      if (/\[[.#$][\w-]+/.test(plain))
+        ctx.warn(`Unconverted shortcode in: "${plain.slice(0, 80)}"`);
       out.push(node);
       continue;
     }
@@ -140,14 +158,23 @@ export function richTextToMarkdown(html, ctx) {
   const mdast = unified()
     .use(rehypeRemark, {
       handlers: {
-        "vt-raw": (state, node) => ({ type: "html", value: node.properties.value }),
+        "vt-raw": (state, node) => ({
+          type: "html",
+          value: node.properties.value,
+        }),
       },
     })
     .runSync(tree);
 
   return unified()
     .use(remarkGfm)
-    .use(remarkStringify, { bullet: "-", emphasis: "*", strong: "*", rule: "-", listItemIndent: "one" })
+    .use(remarkStringify, {
+      bullet: "-",
+      emphasis: "*",
+      strong: "*",
+      rule: "-",
+      listItemIndent: "one",
+    })
     .stringify(mdast)
     .replace(/\n{3,}/g, "\n\n")
     .trim();
@@ -159,7 +186,11 @@ function normalise(node) {
     if (child.type === "text") {
       child.value = child.value.replace(INVISIBLE, "").replace(/ /g, " ");
     } else if (isEl(child)) {
-      if (child.tagName === "a" && child.properties && typeof child.properties.href === "string") {
+      if (
+        child.tagName === "a" &&
+        child.properties &&
+        typeof child.properties.href === "string"
+      ) {
         child.properties.href = cleanHref(child.properties.href);
       }
       normalise(child);
@@ -178,7 +209,8 @@ function figure(node, ctx) {
   const img = find(node, (n) => isEl(n, "img"));
   const iframe = find(node, (n) => isEl(n, "iframe"));
   if (!img) {
-    if (iframe) return [el("p", {}, [raw(`{{embed: ${iframe.properties.src}}}`)])];
+    if (iframe)
+      return [el("p", {}, [raw(`{{embed: ${iframe.properties.src}}}`)])];
     ctx.warn("Figure without an image was dropped");
     return [];
   }
@@ -190,21 +222,39 @@ function figure(node, ctx) {
 
   const link = find(node, (n) => isEl(n, "a") && find(n, (m) => m === img));
   const image = el("img", { src: local, alt });
-  const result = [el("p", {}, [link ? el("a", { href: cleanHref(String(link.properties.href || "")) }, [image]) : image])];
+  const result = [
+    el("p", {}, [
+      link
+        ? el("a", { href: cleanHref(String(link.properties.href || "")) }, [
+            image,
+          ])
+        : image,
+    ]),
+  ];
 
   const caption = find(node, (n) => isEl(n, "figcaption"));
   if (caption && cleanText(caption)) {
     // An italic line directly under a photo is its caption. Captions that were already italic stay as they are.
-    const onlyEm = caption.children.filter((c) => !(c.type === "text" && !c.value.replace(INVISIBLE, "").trim()));
+    const onlyEm = caption.children.filter(
+      (c) => !(c.type === "text" && !c.value.replace(INVISIBLE, "").trim()),
+    );
     const alreadyItalic = onlyEm.length === 1 && isEl(onlyEm[0], "em");
-    result.push(el("p", { dataCaption: "" }, alreadyItalic ? onlyEm : [el("em", {}, unwrapEm(caption.children))]));
+    result.push(
+      el(
+        "p",
+        { dataCaption: "" },
+        alreadyItalic ? onlyEm : [el("em", {}, unwrapEm(caption.children))],
+      ),
+    );
   }
   return result;
 }
 
 // Italics inside an italic caption would switch the text back to upright, so they are flattened.
 function unwrapEm(children) {
-  return children.flatMap((child) => (isEl(child, "em") ? unwrapEm(child.children) : [child]));
+  return children.flatMap((child) =>
+    isEl(child, "em") ? unwrapEm(child.children) : [child],
+  );
 }
 
 function oldTip(node, ctx) {
@@ -212,10 +262,14 @@ function oldTip(node, ctx) {
   const icon = (plain.match(/\[\.icon-([\w-]+)\]/) || [])[1] || "idea";
   if (!(icon in TIP_EMOJI)) ctx.warn(`Unknown tip icon "${icon}"`);
   walkText(node, (value) => value.replace(/\[\.(tips|div|icon-[\w-]+)\]/g, ""));
-  if (/\[\./.test(cleanText(node))) ctx.warn(`Tip box with leftover codes: "${cleanText(node).slice(0, 80)}"`);
+  if (/\[\./.test(cleanText(node)))
+    ctx.warn(`Tip box with leftover codes: "${cleanText(node).slice(0, 80)}"`);
   const emoji = TIP_EMOJI[icon];
   if (emoji) {
-    const first = find(node, (n) => n.type === "text" && n.value.replace(INVISIBLE, "").trim());
+    const first = find(
+      node,
+      (n) => n.type === "text" && n.value.replace(INVISIBLE, "").trim(),
+    );
     // The emoji goes right at the start; a space keeps it apart from the text.
     node.children.unshift(text(emoji + " "));
     if (first) first.value = first.value.replace(/^\s+/, "");
@@ -225,14 +279,19 @@ function oldTip(node, ctx) {
 
 function collectRestaurantLinks(node, into) {
   if (isEl(node, "a") && typeof node.properties.href === "string") {
-    const match = cleanHref(node.properties.href).match(/^\/restaurants\/([^/?#]+)/);
+    const match = cleanHref(node.properties.href).match(
+      /^\/restaurants\/([^/?#]+)/,
+    );
     if (match && !into.includes(match[1])) into.push(match[1]);
   }
   for (const child of node.children || []) collectRestaurantLinks(child, into);
 }
 
 function embed(node, ctx, heading, linkedSlugs) {
-  const trigger = find(node, (n) => isEl(n) && classes(n).includes("location-trigger"));
+  const trigger = find(
+    node,
+    (n) => isEl(n) && classes(n).includes("location-trigger"),
+  );
   if (trigger) {
     const p = trigger.properties;
     const data = {
@@ -242,43 +301,81 @@ function embed(node, ctx, heading, linkedSlugs) {
       vegType: p.dataVegType ? String(p.dataVegType).trim() : "",
       priceRange: p.dataPriceRange ? String(p.dataPriceRange).trim() : "",
     };
-    return [el("p", {}, [raw(`{{place: ${ctx.place(data, heading ? cleanText(heading) : "", linkedSlugs)}}}`)])];
+    return [
+      el("p", {}, [
+        raw(
+          `{{place: ${ctx.place(data, heading ? cleanText(heading) : "", linkedSlugs)}}}`,
+        ),
+      ]),
+    ];
   }
 
   const route = find(node, (n) => isEl(n) && classes(n).includes("route-info"));
   if (route) {
     const info = String(route.properties.dataTravelInfo || "").trim();
-    const mode = route.properties.dataTravelMode ? String(route.properties.dataTravelMode).trim() : "";
-    const body = find(route, (n) => isEl(n) && classes(n).includes("route-info-text")) || route;
+    const mode = route.properties.dataTravelMode
+      ? String(route.properties.dataTravelMode).trim()
+      : "";
+    const body =
+      find(route, (n) => isEl(n) && classes(n).includes("route-info-text")) ||
+      route;
     const head = `{{route: ${info}${mode ? ` [${mode}]` : ""} | `;
     return [el("p", {}, [raw(head), ...trimEnds(body.children), raw("}}")])];
   }
 
-  const endOfDay = find(node, (n) => isEl(n) && classes(n).includes("end-of-day"));
-  if (endOfDay) return [el("p", {}, [raw("{{end-of-day: "), ...trimEnds(endOfDay.children), raw("}}")])];
+  const endOfDay = find(
+    node,
+    (n) => isEl(n) && classes(n).includes("end-of-day"),
+  );
+  if (endOfDay)
+    return [
+      el("p", {}, [
+        raw("{{end-of-day: "),
+        ...trimEnds(endOfDay.children),
+        raw("}}"),
+      ]),
+    ];
 
   const iframe = find(node, (n) => isEl(n, "iframe"));
-  if (iframe && /google\.com\/maps\/embed/.test(String(iframe.properties.src))) {
+  if (
+    iframe &&
+    /google\.com\/maps\/embed/.test(String(iframe.properties.src))
+  ) {
     return [el("p", {}, [raw(`{{map: ${iframe.properties.src}}}`)])];
   }
 
   const script = find(node, (n) => isEl(n, "script"));
   if (script && /tp\.media\/content/.test(String(script.properties.src))) {
     const url = new URL(String(script.properties.src));
-    const expected = { trs: "286810", shmarker: "507446", promo_id: "2693", campaign_id: "84" };
+    const expected = {
+      trs: "286810",
+      shmarker: "507446",
+      promo_id: "2693",
+      campaign_id: "84",
+    };
     for (const [key, value] of Object.entries(expected)) {
-      if (url.searchParams.get(key) !== value) ctx.warn(`Hotel widget with unexpected ${key}=${url.searchParams.get(key)}`);
+      if (url.searchParams.get(key) !== value)
+        ctx.warn(
+          `Hotel widget with unexpected ${key}=${url.searchParams.get(key)}`,
+        );
     }
-    return [el("p", {}, [raw(`{{hotels: ${url.searchParams.get("default_direction") || ""}}}`)])];
+    return [
+      el("p", {}, [
+        raw(`{{hotels: ${url.searchParams.get("default_direction") || ""}}}`),
+      ]),
+    ];
   }
 
-  ctx.warn(`Embed kept as raw HTML: ${cleanText(node).slice(0, 60) || node.children.map((c) => c.tagName).join(",")}`);
+  ctx.warn(
+    `Embed kept as raw HTML: ${cleanText(node).slice(0, 60) || node.children.map((c) => c.tagName).join(",")}`,
+  );
   return [node];
 }
 
 function trimEnds(children) {
   const list = children.map((c) => (c.type === "text" ? { ...c } : c));
-  if (list[0] && list[0].type === "text") list[0].value = list[0].value.replace(/^\s+/, "");
+  if (list[0] && list[0].type === "text")
+    list[0].value = list[0].value.replace(/^\s+/, "");
   const last = list[list.length - 1];
   if (last && last.type === "text") last.value = last.value.replace(/\s+$/, "");
   return list;

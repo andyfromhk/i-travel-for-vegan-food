@@ -61,17 +61,26 @@ const lines = [
 ];
 const skipped = [];
 const missing = [];
-for (const [source, firstTarget] of [...rules].sort(([a], [b]) => a.localeCompare(b))) {
+for (const [source, firstTarget] of [...rules].sort(([a], [b]) =>
+  a.localeCompare(b),
+)) {
   const target = resolve(firstTarget);
   if (!source.includes("*") && (await exists(source))) {
     skipped.push(source);
     continue;
   }
-  if (!target.includes(":splat") && !(await exists(target.split("?")[0]))) missing.push(`${source} -> ${target}`);
+  if (!target.includes(":splat") && !(await exists(target.split("?")[0])))
+    missing.push(`${source} -> ${target}`);
   lines.push(`${source} ${target} 301`);
 }
 await writeFile("public/_redirects", lines.join("\n") + "\n");
 
 console.log(`${lines.length - 3} redirects written to public/_redirects`);
-if (skipped.length) console.log(`Left out because the address is a real page now: ${skipped.join(", ")}`);
-if (missing.length) console.log(`WARNING: these point at a page that isn't built:\n  ${missing.join("\n  ")}`);
+if (skipped.length)
+  console.log(
+    `Left out because the address is a real page now: ${skipped.join(", ")}`,
+  );
+if (missing.length)
+  console.log(
+    `WARNING: these point at a page that isn't built:\n  ${missing.join("\n  ")}`,
+  );

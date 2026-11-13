@@ -1,6 +1,13 @@
 ---
 import GuideCard from "@/components/item/GuideCard.astro";
-import { type Guide, articleCategories, destinationGroups, guideDestinations, isMapGuide, mapGuideFocus } from "@/utils/content.ts";
+import {
+  type Guide,
+  articleCategories,
+  destinationGroups,
+  guideDestinations,
+  isMapGuide,
+  mapGuideFocus,
+} from "@/utils/content.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -12,11 +19,17 @@ interface Props {
 const { render = true, guides } = Astro.props;
 
 /* Only offer the categories and destinations that have at least one guide. */
-const usedCategories = new Set(guides.filter((g) => !isMapGuide(g)).map((g) => g.data.category));
+const usedCategories = new Set(
+  guides.filter((g) => !isMapGuide(g)).map((g) => g.data.category),
+);
 const usedFocus = new Set(guides.filter(isMapGuide).map((g) => g.data.focus));
 const categories = [
-  ...[...articleCategories.values()].filter((c) => usedCategories.has(c.slug)).map((c) => ({ ...c, type: "foodie-guide" })),
-  ...[...mapGuideFocus.values()].filter((c) => usedFocus.has(c.slug)).map((c) => ({ ...c, type: "map-guide" })),
+  ...[...articleCategories.values()]
+    .filter((c) => usedCategories.has(c.slug))
+    .map((c) => ({ ...c, type: "foodie-guide" })),
+  ...[...mapGuideFocus.values()]
+    .filter((c) => usedFocus.has(c.slug))
+    .map((c) => ({ ...c, type: "map-guide" })),
 ];
 const usedDestinations = new Set(guides.flatMap(guideDestinations));
 const groups = (await destinationGroups())
@@ -27,21 +40,39 @@ const groups = (await destinationGroups())
   .filter((group) => group.destinations.length);
 ---
 
-{/*
+{
+  /*
   The guide listing: filters on the left, cards on the right.
   The filtering itself is the short script below; the cards carry what it needs in data-* attributes.
-*/}
+*/
+}
 {
   render && (
     <div class="guide-listing_wrap" data-guide-listing>
-      <button class="guide-listing_toggle" type="button" aria-expanded="false" aria-controls="guide-filters">
+      <button
+        class="guide-listing_toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="guide-filters"
+      >
         Filter guides
       </button>
 
-      <form class="guide-listing_filters" id="guide-filters" role="search" aria-label="Filter guides">
+      <form
+        class="guide-listing_filters"
+        id="guide-filters"
+        role="search"
+        aria-label="Filter guides"
+      >
         <label class="guide-listing_group">
           <span class="guide-listing_title">Search</span>
-          <input class="guide-listing_search" type="search" name="q" placeholder="search articles..." autocomplete="off" />
+          <input
+            class="guide-listing_search"
+            type="search"
+            name="q"
+            placeholder="search articles..."
+            autocomplete="off"
+          />
         </label>
 
         <fieldset class="guide-listing_group">
@@ -64,7 +95,12 @@ const groups = (await destinationGroups())
           <legend class="guide-listing_title">Category</legend>
           {categories.map((category) => (
             <label class="guide-listing_option">
-              <input type="checkbox" name="category" value={category.slug} data-type={category.type} />
+              <input
+                type="checkbox"
+                name="category"
+                value={category.slug}
+                data-type={category.type}
+              />
               <span>{category.name}</span>
             </label>
           ))}
@@ -78,7 +114,11 @@ const groups = (await destinationGroups())
               <div class="guide-listing_columns">
                 {group.destinations.map((destination) => (
                   <label class="guide-listing_option">
-                    <input type="checkbox" name="destination" value={destination.id} />
+                    <input
+                      type="checkbox"
+                      name="destination"
+                      value={destination.id}
+                    />
                     <span>{destination.data.name}</span>
                   </label>
                 ))}
@@ -94,12 +134,17 @@ const groups = (await destinationGroups())
 
       <div class="guide-listing_results">
         <p class="guide-listing_count text-style-small" aria-live="polite">
-          Showing <span data-shown>{guides.length}</span> out of {guides.length} guides
+          Showing <span data-shown>{guides.length}</span> out of {guides.length}{" "}
+          guides
         </p>
         <ul class="guide-listing_list">
           {guides.map((guide, index) => (
             <li>
-              <GuideCard guide={guide} headingTag="h2" loading={index < 3 ? "eager" : "lazy"} />
+              <GuideCard
+                guide={guide}
+                headingTag="h2"
+                loading={index < 3 ? "eager" : "lazy"}
+              />
             </li>
           ))}
         </ul>
@@ -117,13 +162,22 @@ const groups = (await destinationGroups())
 
   if (root && form) {
     const cards = [...root.querySelectorAll<HTMLElement>("[data-guide]")];
-    const texts = new Map(cards.map((card) => [card, (card.textContent ?? "").toLowerCase()]));
+    const texts = new Map(
+      cards.map((card) => [card, (card.textContent ?? "").toLowerCase()]),
+    );
     const shown = root.querySelector<HTMLElement>("[data-shown]")!;
     const empty = root.querySelector<HTMLElement>(".guide-listing_empty")!;
-    const toggle = root.querySelector<HTMLButtonElement>(".guide-listing_toggle")!;
+    const toggle = root.querySelector<HTMLButtonElement>(
+      ".guide-listing_toggle",
+    )!;
     const search = form.elements.namedItem("q") as HTMLInputElement;
-    const boxes = (name: string) => [...form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`)];
-    const ticked = (name: string) => boxes(name).filter((box) => box.checked && !box.disabled).map((box) => box.value);
+    const boxes = (name: string) => [
+      ...form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`),
+    ];
+    const ticked = (name: string) =>
+      boxes(name)
+        .filter((box) => box.checked && !box.disabled)
+        .map((box) => box.value);
     const type = () => boxes("type").find((box) => box.checked)?.value ?? "";
 
     // Choosing "Foodie guide" or "Map guide" greys out the categories that belong to the other kind.
@@ -137,7 +191,11 @@ const groups = (await destinationGroups())
 
     const apply = () => {
       syncCategories();
-      const words = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      const words = search.value
+        .toLowerCase()
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
       const current = type();
       const categories = ticked("category");
       const destinations = ticked("destination");
@@ -147,8 +205,10 @@ const groups = (await destinationGroups())
         const match =
           words.every((word) => texts.get(card)!.includes(word)) &&
           (!current || card.dataset.type === current) &&
-          (!categories.length || categories.includes(card.dataset.category ?? "")) &&
-          (!destinations.length || destinations.some((d) => places.includes(d)));
+          (!categories.length ||
+            categories.includes(card.dataset.category ?? "")) &&
+          (!destinations.length ||
+            destinations.some((d) => places.includes(d)));
         (card.parentElement as HTMLElement).hidden = !match;
         if (match) count++;
       }
@@ -160,18 +220,27 @@ const groups = (await destinationGroups())
       if (search.value.trim()) params.set("q", search.value.trim());
       if (current) params.set("type", current);
       if (categories.length) params.set("category", categories.join(","));
-      if (destinations.length) params.set("destination", destinations.join(","));
+      if (destinations.length)
+        params.set("destination", destinations.join(","));
       const query = params.toString();
-      history.replaceState(null, "", location.pathname + (query ? `?${query}` : ""));
+      history.replaceState(
+        null,
+        "",
+        location.pathname + (query ? `?${query}` : ""),
+      );
     };
 
     // Start from the filters in the address, e.g. /articles?destination=tokyo
     const params = new URLSearchParams(location.search);
     search.value = params.get("q") ?? "";
-    const list = (key: string) => (params.get(key) ?? "").split(",").filter(Boolean);
-    for (const box of boxes("type")) box.checked = box.value === (params.get("type") ?? "");
-    for (const box of boxes("category")) box.checked = list("category").includes(box.value);
-    for (const box of boxes("destination")) box.checked = list("destination").includes(box.value);
+    const list = (key: string) =>
+      (params.get(key) ?? "").split(",").filter(Boolean);
+    for (const box of boxes("type"))
+      box.checked = box.value === (params.get("type") ?? "");
+    for (const box of boxes("category"))
+      box.checked = list("category").includes(box.value);
+    for (const box of boxes("destination"))
+      box.checked = list("destination").includes(box.value);
     apply();
 
     form.addEventListener("input", apply);

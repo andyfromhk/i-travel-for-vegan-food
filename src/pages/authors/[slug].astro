@@ -14,7 +14,10 @@ import { getSite, type Author } from "@/utils/content.ts";
 
 export async function getStaticPaths() {
   const { authors } = await getSite();
-  return authors.map((author) => ({ params: { slug: author.id }, props: { author } }));
+  return authors.map((author) => ({
+    params: { slug: author.id },
+    props: { author },
+  }));
 }
 
 interface Props {
@@ -27,7 +30,9 @@ const site = await getSite();
 const { Content } = await render(author);
 const isHouse = author.id === "i-travel-for-vegan-food";
 // Guides without a named guest author are written by the site itself.
-const guides = site.guides.filter((guide) => (guide.data.author ?? "i-travel-for-vegan-food") === author.id);
+const guides = site.guides.filter(
+  (guide) => (guide.data.author ?? "i-travel-for-vegan-food") === author.id,
+);
 const links = [
   data.website && { href: data.website, label: "Website" },
   data.instagram && { href: data.instagram, label: "Instagram" },
@@ -36,11 +41,25 @@ const links = [
 ].filter(Boolean) as { href: string; label: string }[];
 ---
 
-<BaseLayout title="I Travel For Vegan Food" description={`Guides written by ${data.name} on I Travel For Vegan Food.`} image={data.image?.src}>
+<BaseLayout
+  title="I Travel For Vegan Food"
+  description={`Guides written by ${data.name} on I Travel For Vegan Food.`}
+  image={data.image?.src}
+>
   {/* About the author */}
-  <Section paddingTop="small" paddingBottom="small" containerClass="max-width-small">
+  <Section
+    paddingTop="small"
+    paddingBottom="small"
+    containerClass="max-width-small"
+  >
     <ContentWrapper variant="columns">
-      <img src={data.image?.src ?? "/site/brand/logo-square.png"} alt="" width="400" height="400" style="border-radius: 50%; aspect-ratio: 1; max-width: 16rem;" />
+      <img
+        src={data.image?.src ?? "/site/brand/logo-square.png"}
+        alt=""
+        width="400"
+        height="400"
+        style="border-radius: 50%; aspect-ratio: 1; max-width: 16rem;"
+      />
       <div slot="column2" class="flex-vertical-nowrap gap-3">
         <Eyebrow>{data.title}</Eyebrow>
         <Heading tag="h1" variant="h2">{data.name}</Heading>
@@ -48,11 +67,19 @@ const links = [
           <Content />
         </RichText>
         <ButtonWrapper render={links.length > 0} marginTop="2">
-          {links.map((link, index) => (
-            <Button element="link" emphasis={index === 0 ? "primary" : "secondary"} href={link.href} target="_blank" rel="noopener">
-              {link.label}
-            </Button>
-          ))}
+          {
+            links.map((link, index) => (
+              <Button
+                element="link"
+                emphasis={index === 0 ? "primary" : "secondary"}
+                href={link.href}
+                target="_blank"
+                rel="noopener"
+              >
+                {link.label}
+              </Button>
+            ))
+          }
         </ButtonWrapper>
       </div>
     </ContentWrapper>
@@ -60,12 +87,22 @@ const links = [
 
   {/* Their guides */}
   <Section render={guides.length > 0} paddingTop="small" gap="4">
-    <Heading tag="h2" variant="h3" class="align-self-center">{isHouse ? "Latest Vegan Foodie Guides" : `Guides by ${data.name}`}</Heading>
+    <Heading tag="h2" variant="h3" class="align-self-center"
+      >{
+        isHouse ? "Latest Vegan Foodie Guides" : `Guides by ${data.name}`
+      }</Heading
+    >
     <Grid xsmall={2} medium={4} class="gap-3">
-      {guides.slice(0, isHouse ? 8 : 24).map((guide) => <GuideCard guide={guide} />)}
+      {
+        guides
+          .slice(0, isHouse ? 8 : 24)
+          .map((guide) => <GuideCard guide={guide} />)
+      }
     </Grid>
     <ButtonWrapper marginTop="0" class="align-self-end">
-      <Button element="link" variant="link" href="/articles">See all vegan foodie guides →</Button>
+      <Button element="link" variant="link" href="/articles"
+        >See all vegan foodie guides →</Button
+      >
     </ButtonWrapper>
   </Section>
 </BaseLayout>

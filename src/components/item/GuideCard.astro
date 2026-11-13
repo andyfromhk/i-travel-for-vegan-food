@@ -2,7 +2,15 @@
 import type { HTMLAttributes } from "astro/types";
 import Icon from "@/components/media/Icon.astro";
 import map from "@/assets/icons/map.svg";
-import { type Guide, getSite, guideDestinations, guideLabel, guideUrl, isMapGuide, mediaSize } from "@/utils/content.ts";
+import {
+  type Guide,
+  getSite,
+  guideDestinations,
+  guideLabel,
+  guideUrl,
+  isMapGuide,
+  mediaSize,
+} from "@/utils/content.ts";
 
 interface Props extends HTMLAttributes<"a"> {
   /** Set to `false` to omit the component. */
@@ -15,7 +23,14 @@ interface Props extends HTMLAttributes<"a"> {
   loading?: "lazy" | "eager";
 }
 
-const { render = true, guide, headingTag: Tag = "h3", loading = "lazy", class: className, ...rest } = Astro.props;
+const {
+  render = true,
+  guide,
+  headingTag: Tag = "h3",
+  loading = "lazy",
+  class: className,
+  ...rest
+} = Astro.props;
 const { data } = guide;
 const site = await getSite();
 const mapGuide = isMapGuide(guide);
@@ -36,7 +51,16 @@ const text = data.summary || data.description;
       {...rest}
     >
       <span class="guide-card_visual">
-        {data.image && <img class="guide-card_image" src={data.image.src} alt={data.image.alt ?? ""} loading={loading} decoding="async" {...size} />}
+        {data.image && (
+          <img
+            class="guide-card_image"
+            src={data.image.src}
+            alt={data.image.alt ?? ""}
+            loading={loading}
+            decoding="async"
+            {...size}
+          />
+        )}
         {mapGuide && (
           <span class="guide-card_badge">
             <Icon src={map} variant="small" />
@@ -47,7 +71,11 @@ const text = data.summary || data.description;
       <span class="guide-card_content">
         <span class="guide-card_meta">
           <span class="guide-card_label">{guideLabel(guide)}</span>
-          {mapGuide && destinations[0] && <span class="guide-card_place">{site.destinationBySlug.get(destinations[0])?.data.name}</span>}
+          {mapGuide && destinations[0] && (
+            <span class="guide-card_place">
+              {site.destinationBySlug.get(destinations[0])?.data.name}
+            </span>
+          )}
         </span>
         <Tag class="guide-card_title text-style-h4">{data.title}</Tag>
         {text && <span class="guide-card_text text-style-small">{text}</span>}

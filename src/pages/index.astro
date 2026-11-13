@@ -25,35 +25,61 @@ const schema = {
 };
 ---
 
-<BaseLayout title="I Travel For Vegan Food - Vegan Food Guide, Restaurant Reviews & Itineraries" schema={schema}>
+<BaseLayout
+  title="I Travel For Vegan Food - Vegan Food Guide, Restaurant Reviews & Itineraries"
+  schema={schema}
+>
   {/* Hero */}
-  <Section paddingTop="small" paddingBottom="small" gap="3" containerClass="max-width-small">
-    <Heading tag="h1" class="heading-accent">Explore The World Through <strong>Vegan Food</strong></Heading>
+  <Section
+    paddingTop="small"
+    paddingBottom="small"
+    gap="3"
+    containerClass="max-width-small"
+  >
+    <Heading tag="h1" class="heading-accent"
+      >Explore The World Through <strong>Vegan Food</strong></Heading
+    >
     <Paragraph>
-      If you are like me, food is what motivates you to travel around the world. I Travel For Vegan Food helps you find
-      the best food in the world one bite at a time.
+      If you are like me, food is what motivates you to travel around the world.
+      I Travel For Vegan Food helps you find the best food in the world one bite
+      at a time.
     </Paragraph>
   </Section>
 
   {/* Destinations */}
   <Section paddingTop="small" paddingBottom="small" gap="4">
-    <Heading tag="h2" variant="h3" class="align-self-center">Where Are You Going Next?</Heading>
+    <Heading tag="h2" variant="h3" class="align-self-center"
+      >Where Are You Going Next?</Heading
+    >
     <Grid xsmall={2} medium={4} class="gap-3">
-      {destinations.map((destination, index) => <DestinationCard destination={destination} loading={index < 4 ? "eager" : "lazy"} />)}
+      {
+        destinations.map((destination, index) => (
+          <DestinationCard
+            destination={destination}
+            loading={index < 4 ? "eager" : "lazy"}
+          />
+        ))
+      }
     </Grid>
     <ButtonWrapper marginTop="0" class="align-self-end">
-      <Button element="link" variant="link" href="/destinations">All vegan food destinations →</Button>
+      <Button element="link" variant="link" href="/destinations"
+        >All vegan food destinations →</Button
+      >
     </ButtonWrapper>
   </Section>
 
   {/* Guides */}
   <Section paddingTop="small" gap="4">
-    <Heading tag="h2" variant="h3" class="align-self-center">Latest Vegan Foodie Guides</Heading>
+    <Heading tag="h2" variant="h3" class="align-self-center"
+      >Latest Vegan Foodie Guides</Heading
+    >
     <Grid xsmall={2} medium={4} class="gap-3">
       {guides.map((guide) => <GuideCard guide={guide} />)}
     </Grid>
     <ButtonWrapper marginTop="0" class="align-self-end">
-      <Button element="link" variant="link" href="/articles">See all vegan foodie guides →</Button>
+      <Button element="link" variant="link" href="/articles"
+        >See all vegan foodie guides →</Button
+      >
     </ButtonWrapper>
   </Section>
 </BaseLayout>

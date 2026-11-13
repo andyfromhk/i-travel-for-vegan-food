@@ -18,15 +18,30 @@ const { render = true, photos } = Astro.props;
       <ul class="dest-gallery_list" tabindex="0" aria-label="Photos">
         {photos.map((photo, index) => (
           <li class="dest-gallery_slide">
-            <img src={photo.src} alt={photo.alt ?? ""} loading={index === 0 ? "eager" : "lazy"} decoding="async" {...mediaSize(photo.src)} />
+            <img
+              src={photo.src}
+              alt={photo.alt ?? ""}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              {...mediaSize(photo.src)}
+            />
             {photo.alt && <span class="dest-gallery_caption">{photo.alt}</span>}
           </li>
         ))}
       </ul>
       {photos.length > 1 && (
         <Fragment>
-          <Button variant="arrow" direction="back" emphasis="secondary" class="dest-gallery_prev" />
-          <Button variant="arrow" emphasis="secondary" class="dest-gallery_next" />
+          <Button
+            variant="arrow"
+            direction="back"
+            emphasis="secondary"
+            class="dest-gallery_prev"
+          />
+          <Button
+            variant="arrow"
+            emphasis="secondary"
+            class="dest-gallery_next"
+          />
         </Fragment>
       )}
     </div>
@@ -34,19 +49,31 @@ const { render = true, photos } = Astro.props;
 }
 
 <script>
-  for (const gallery of document.querySelectorAll<HTMLElement>(".dest-gallery_wrap")) {
+  for (const gallery of document.querySelectorAll<HTMLElement>(
+    ".dest-gallery_wrap",
+  )) {
     const list = gallery.querySelector<HTMLElement>(".dest-gallery_list");
     if (!list) continue;
     const move = (direction: number) => {
       const atEnd = list.scrollLeft + list.clientWidth >= list.scrollWidth - 4;
       const atStart = list.scrollLeft <= 4;
       // Going past either end wraps round to the other.
-      if (direction > 0 && atEnd) list.scrollTo({ left: 0, behavior: "smooth" });
-      else if (direction < 0 && atStart) list.scrollTo({ left: list.scrollWidth, behavior: "smooth" });
-      else list.scrollBy({ left: direction * list.clientWidth, behavior: "smooth" });
+      if (direction > 0 && atEnd)
+        list.scrollTo({ left: 0, behavior: "smooth" });
+      else if (direction < 0 && atStart)
+        list.scrollTo({ left: list.scrollWidth, behavior: "smooth" });
+      else
+        list.scrollBy({
+          left: direction * list.clientWidth,
+          behavior: "smooth",
+        });
     };
-    gallery.querySelector(".dest-gallery_prev")?.addEventListener("click", () => move(-1));
-    gallery.querySelector(".dest-gallery_next")?.addEventListener("click", () => move(1));
+    gallery
+      .querySelector(".dest-gallery_prev")
+      ?.addEventListener("click", () => move(-1));
+    gallery
+      .querySelector(".dest-gallery_next")
+      ?.addEventListener("click", () => move(1));
   }
 </script>
 

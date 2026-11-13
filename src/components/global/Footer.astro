@@ -31,8 +31,12 @@ const links = [
           data-sitekey={EMAIL_LIST.turnstileSiteKey}
           novalidate
         >
-          <h2 class="footer_form_title text-style-h4">Get the latest vegan foodie guides</h2>
-          <p class="footer_form_text text-style-small">I don't spam cause spam is not vegan</p>
+          <h2 class="footer_form_title text-style-h4">
+            Get the latest vegan foodie guides
+          </h2>
+          <p class="footer_form_text text-style-small">
+            I don't spam cause spam is not vegan
+          </p>
           <div class="footer_form_row">
             <label class="footer_form_label" for="footer-email">
               Email address
@@ -47,11 +51,22 @@ const links = [
               required
             />
             {/* Bots fill every field they find; people never see this one. */}
-            <input class="footer_form_trap" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input
+              class="footer_form_trap"
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
             <Button type="submit">Join The Club</Button>
           </div>
           <div class="footer_form_check" />
-          <p class="footer_form_message text-style-small" role="status" aria-live="polite" />
+          <p
+            class="footer_form_message text-style-small"
+            role="status"
+            aria-live="polite"
+          />
         </form>
 
         <div class="footer_main">
@@ -68,12 +83,24 @@ const links = [
           </nav>
           <ul class="footer_social">
             <li>
-              <a class="footer_social_link" href={SOCIAL.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+              <a
+                class="footer_social_link"
+                href={SOCIAL.instagram}
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
                 <Icon src={instagram} variant="medium" />
               </a>
             </li>
             <li>
-              <a class="footer_social_link" href={SOCIAL.pinterest} target="_blank" rel="noopener" aria-label="Pinterest">
+              <a
+                class="footer_social_link"
+                href={SOCIAL.pinterest}
+                target="_blank"
+                rel="noopener"
+                aria-label="Pinterest"
+              >
                 <Icon src={pinterest} variant="medium" />
               </a>
             </li>
@@ -82,11 +109,16 @@ const links = [
 
         <div class="footer_bottom text-style-small">
           <p>
-            &copy; <span id="year">{new Date().getFullYear()}</span> {SITE_NAME}. All rights reserved.
+            &copy; <span id="year">{new Date().getFullYear()}</span> {SITE_NAME}
+            . All rights reserved.
           </p>
           <p class="footer_credit">
             Website by{" "}
-            <a href="https://www.veganbuzz.com.au/" target="_blank" rel="noopener">
+            <a
+              href="https://www.veganbuzz.com.au/"
+              target="_blank"
+              rel="noopener"
+            >
               VeganBuzz
             </a>
           </p>
@@ -110,7 +142,9 @@ const links = [
   if (form) {
     const input = form.querySelector<HTMLInputElement>(".footer_form_input")!;
     const trap = form.querySelector<HTMLInputElement>(".footer_form_trap")!;
-    const button = form.querySelector<HTMLButtonElement>("button[type=submit], button:not([type])")!;
+    const button = form.querySelector<HTMLButtonElement>(
+      "button[type=submit], button:not([type])",
+    )!;
     const message = form.querySelector<HTMLElement>(".footer_form_message")!;
     const check = form.querySelector<HTMLElement>(".footer_form_check")!;
     let token = "";
@@ -120,9 +154,11 @@ const links = [
     const turnstile = () =>
       (loading ??= new Promise<Turnstile>((resolve, reject) => {
         const script = document.createElement("script");
-        script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+        script.src =
+          "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
         script.async = true;
-        script.onload = () => resolve((window as unknown as { turnstile: Turnstile }).turnstile);
+        script.onload = () =>
+          resolve((window as unknown as { turnstile: Turnstile }).turnstile);
         script.onerror = () => {
           loading = null;
           reject(new Error("Turnstile could not load"));
@@ -177,12 +213,18 @@ const links = [
           say("Thank you! Your email has been received!", "ok");
           input.value = "";
         } else if (result.code === "rate_limited") {
-          say("That's a lot of sign-ups. Please try again in a minute.", "error");
+          say(
+            "That's a lot of sign-ups. Please try again in a minute.",
+            "error",
+          );
         } else {
           say("Oops! Something went wrong. Please try again.", "error");
         }
       } catch {
-        say("Oops! Something went wrong. Please check your connection and try again.", "error");
+        say(
+          "Oops! Something went wrong. Please check your connection and try again.",
+          "error",
+        );
       }
       button.disabled = false;
       token = "";

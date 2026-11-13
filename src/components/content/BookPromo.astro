@@ -9,10 +9,21 @@ interface Props {
   destination?: Destination;
 }
 
-type Book = { promoEyebrow?: string; promoTitle?: string; promoImage?: string; url: string };
+type Book = {
+  /** Small line above the title. */
+  promoEyebrow?: string;
+  /** Promo headline. */
+  promoTitle?: string;
+  /** Book image. */
+  promoImage?: string;
+  /** Where the promo leads. */
+  url: string;
+};
 
 const { render = true, destination } = Astro.props;
-const country = destination ? countryBySlug.get(destination.data.country) : undefined;
+const country = destination
+  ? countryBySlug.get(destination.data.country)
+  : undefined;
 const key = country && "book" in country ? country.book : undefined;
 const book = key ? (books as Record<string, Book>)[key] : undefined;
 ---
@@ -20,7 +31,16 @@ const book = key ? (books as Record<string, Book>)[key] : undefined;
 {
   render && book?.promoTitle && (
     <aside class="book-promo_wrap" data-vt-ignore>
-      {book.promoImage && <img class="book-promo_image" src={book.promoImage} alt="" width="120" height="120" loading="lazy" />}
+      {book.promoImage && (
+        <img
+          class="book-promo_image"
+          src={book.promoImage}
+          alt=""
+          width="120"
+          height="120"
+          loading="lazy"
+        />
+      )}
       <div class="book-promo_content">
         <span class="book-promo_eyebrow">{book.promoEyebrow}</span>
         <a class="book-promo_title text-style-h5" href={book.url}>

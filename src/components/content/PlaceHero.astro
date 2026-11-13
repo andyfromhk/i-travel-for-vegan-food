@@ -1,6 +1,14 @@
 ---
 import ShareLinks from "@/components/content/ShareLinks.astro";
-import { type Place, getSite, mediaSize, placeKind, priceRanges, vegTypes, STATUS_LABEL } from "@/utils/content.ts";
+import {
+  type Place,
+  getSite,
+  mediaSize,
+  placeKind,
+  priceRanges,
+  vegTypes,
+  STATUS_LABEL,
+} from "@/utils/content.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -15,11 +23,26 @@ const site = await getSite();
 const destination = site.destinationBySlug.get(data.destination ?? "");
 const veg = vegTypes.get(data.vegType ?? "");
 const price = priceRanges.get(data.priceRange ?? "");
-const info = [placeKind(place, " | "), price?.symbols].filter(Boolean).join(" | ");
+const info = [placeKind(place, " | "), price?.symbols]
+  .filter(Boolean)
+  .join(" | ");
 const tiles = [
-  data.gallery.length > 0 && { label: "Food & Drink", href: "#food-and-drink", photo: data.gallery.find((p) => p.src !== data.image?.src) ?? data.gallery[0] },
-  data.menu.length > 0 && { label: "Menu & Vibe", href: "#menu-and-vibe", photo: data.menu[0] },
-].filter(Boolean) as { label: string; href: string; photo: { src: string; alt?: string } }[];
+  data.gallery.length > 0 && {
+    label: "Food & Drink",
+    href: "#food-and-drink",
+    photo:
+      data.gallery.find((p) => p.src !== data.image?.src) ?? data.gallery[0],
+  },
+  data.menu.length > 0 && {
+    label: "Menu & Vibe",
+    href: "#menu-and-vibe",
+    photo: data.menu[0],
+  },
+].filter(Boolean) as {
+  label: string;
+  href: string;
+  photo: { src: string; alt?: string };
+}[];
 ---
 
 {
@@ -55,11 +78,16 @@ const tiles = [
           <h1 class="text-style-h1">{data.name}</h1>
           <span class="place-hero_save" data-vt-save-slot="1" />
         </div>
-        {data.nameOriginal && <p class="place-hero_original text-style-large">{data.nameOriginal}</p>}
+        {data.nameOriginal && (
+          <p class="place-hero_original text-style-large">
+            {data.nameOriginal}
+          </p>
+        )}
         {info && <p class="place-hero_info text-style-small">{info}</p>}
         {data.chain && (
           <p class="place-hero_chain text-style-small" data-vt-chain>
-            Multiple locations{data.storeLocator && (
+            Multiple locations
+            {data.storeLocator && (
               <Fragment>
                 {" · "}
                 <a href={data.storeLocator} target="_blank" rel="noopener">
@@ -72,7 +100,9 @@ const tiles = [
         {data.status !== "open" && (
           <p class:list={["place-hero_status", data.status]} role="status">
             {STATUS_LABEL[data.status]}
-            {data.status === "permanently-closed" ? ": this place has closed for good. The review is kept for reference." : ": check their website or social media before you visit."}
+            {data.status === "permanently-closed"
+              ? ": this place has closed for good. The review is kept for reference."
+              : ": check their website or social media before you visit."}
           </p>
         )}
         {data.summary && <p class="place-hero_summary">{data.summary}</p>}
@@ -80,12 +110,24 @@ const tiles = [
 
       {data.image && (
         <div class:list={["place-hero_photos", tiles.length === 0 && "single"]}>
-          <img class="place-hero_main" src={data.image.src} alt={data.image.alt ?? ""} fetchpriority="high" {...mediaSize(data.image.src)} />
+          <img
+            class="place-hero_main"
+            src={data.image.src}
+            alt={data.image.alt ?? ""}
+            fetchpriority="high"
+            {...mediaSize(data.image.src)}
+          />
           {tiles.length > 0 && (
             <div class="place-hero_tiles">
               {tiles.map((tile) => (
                 <a class="place-hero_tile" href={tile.href}>
-                  <img src={tile.photo.src} alt="" loading="lazy" decoding="async" {...mediaSize(tile.photo.src)} />
+                  <img
+                    src={tile.photo.src}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    {...mediaSize(tile.photo.src)}
+                  />
                   <span class="place-hero_tile_label">{tile.label} →</span>
                 </a>
               ))}

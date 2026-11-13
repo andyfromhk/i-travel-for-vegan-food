@@ -17,14 +17,36 @@ interface Props {
   variant?: "plain" | "boxed";
 }
 
-const { render = true, title, image, label = "Share this:", variant = "plain" } = Astro.props;
-const url = new URL(Astro.url.pathname.replace(/\/+$/, "") || "/", Astro.site).href;
+const {
+  render = true,
+  title,
+  image,
+  label = "Share this:",
+  variant = "plain",
+} = Astro.props;
+const url = new URL(Astro.url.pathname.replace(/\/+$/, "") || "/", Astro.site)
+  .href;
 const media = image ? new URL(image, Astro.site).href : "";
 const q = encodeURIComponent;
 const links = [
-  { name: "Facebook", icon: facebook, kind: "facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${q(url)}` },
-  { name: "Pinterest", icon: pinterest, kind: "pinterest", href: `https://pinterest.com/pin/create/button/?url=${q(url)}&media=${q(media)}&description=${q(title)}` },
-  { name: "WhatsApp", icon: whatsapp, kind: "whatsapp", href: `https://wa.me/?text=${q(`${title} ${url}`)}` },
+  {
+    name: "Facebook",
+    icon: facebook,
+    kind: "facebook",
+    href: `https://www.facebook.com/sharer/sharer.php?u=${q(url)}`,
+  },
+  {
+    name: "Pinterest",
+    icon: pinterest,
+    kind: "pinterest",
+    href: `https://pinterest.com/pin/create/button/?url=${q(url)}&media=${q(media)}&description=${q(title)}`,
+  },
+  {
+    name: "WhatsApp",
+    icon: whatsapp,
+    kind: "whatsapp",
+    href: `https://wa.me/?text=${q(`${title} ${url}`)}`,
+  },
 ];
 ---
 
@@ -35,7 +57,13 @@ const links = [
       <ul class="share-links_list">
         {links.map((link) => (
           <li>
-            <a class:list={["share-links_link", link.kind]} href={link.href} target="_blank" rel="noopener" aria-label={`Share on ${link.name}`}>
+            <a
+              class:list={["share-links_link", link.kind]}
+              href={link.href}
+              target="_blank"
+              rel="noopener"
+              aria-label={`Share on ${link.name}`}
+            >
               <Icon src={link.icon} variant="small" />
             </a>
           </li>

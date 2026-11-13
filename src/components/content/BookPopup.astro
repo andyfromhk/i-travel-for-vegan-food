@@ -9,7 +9,13 @@ interface Props {
 }
 
 const { render = true, book: key = "japan" } = Astro.props;
-const book = books[key] as { title: string; edition?: string; blurb?: string; cover: string; url: string };
+const book = books[key] as {
+  title: string;
+  edition?: string;
+  blurb?: string;
+  cover: string;
+  url: string;
+};
 ---
 
 {
@@ -21,7 +27,14 @@ const book = books[key] as { title: string; edition?: string; blurb?: string; co
           <span class="book-popup_title text-style-h6">{book.title}</span>
           {book.blurb && <span class="book-popup_blurb">{book.blurb}</span>}
         </span>
-        <img class="book-popup_cover" src={book.cover} alt="" width="60" height="80" loading="lazy" />
+        <img
+          class="book-popup_cover"
+          src={book.cover}
+          alt=""
+          width="60"
+          height="80"
+          loading="lazy"
+        />
       </a>
       <button class="book-popup_close" type="button" aria-label="Close">
         ×
@@ -70,7 +83,8 @@ const book = books[key] as { title: string; edition?: string; blurb?: string; co
       background-color: var(--background);
       border: var(--border-width) solid var(--brand-500);
       border-radius: var(--radius-main);
-      box-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--text) 15%, transparent);
+      box-shadow: 0 0.5rem 1.5rem
+        color-mix(in srgb, var(--text) 15%, transparent);
 
       &[hidden] {
         display: none;

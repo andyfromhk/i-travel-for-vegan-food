@@ -4,7 +4,16 @@ import Button from "@/components/Button.astro";
 import chevron from "@/assets/icons/chevron.svg";
 import closeIcon from "@/assets/icons/close.svg";
 import pin from "@/assets/icons/pin-outline.svg";
-import { type Destination, type Place, mediaSize, placeKind, placeUrl, priceRanges, taxonomies, vegTypes } from "@/utils/content.ts";
+import {
+  type Destination,
+  type Place,
+  mediaSize,
+  placeKind,
+  placeUrl,
+  priceRanges,
+  taxonomies,
+  vegTypes,
+} from "@/utils/content.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -19,16 +28,24 @@ const { render = true, destination, places } = Astro.props;
 const name = destination.data.name;
 
 /* Only offer the filters this destination can use. */
-const used = (key: "vegType" | "priceRange") => new Set(places.map((p) => p.data[key]));
-const vegOptions = taxonomies.vegTypes.filter((v) => used("vegType").has(v.slug)).reverse();
-const priceOptions = taxonomies.priceRanges.filter((p) => used("priceRange").has(p.slug)).reverse();
-const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length ?? "";
+const used = (key: "vegType" | "priceRange") =>
+  new Set(places.map((p) => p.data[key]));
+const vegOptions = taxonomies.vegTypes
+  .filter((v) => used("vegType").has(v.slug))
+  .reverse();
+const priceOptions = taxonomies.priceRanges
+  .filter((p) => used("priceRange").has(p.slug))
+  .reverse();
+const priceRank = (slug?: string) =>
+  priceRanges.get(slug ?? "")?.symbols.length ?? "";
 ---
 
-{/*
+{
+  /*
   The fullscreen restaurant map. Hidden until "Open … Restaurant Map" is pressed.
   The data-* attributes are how src/scripts/destination.js and src/scripts/place-filters.js find each part.
-*/}
+*/
+}
 {
   render && places.length > 0 && (
     <div class="dest-map_wrap" data-map-overlay data-place-filters hidden>
@@ -45,7 +62,11 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
                 <Icon src={chevron} variant="small" />
               </summary>
               <div class="dest-map_sort_menu">
-                <button type="button" data-sort-field="likes" aria-current="true">
+                <button
+                  type="button"
+                  data-sort-field="likes"
+                  aria-current="true"
+                >
                   Most Popular
                 </button>
                 <button type="button" data-vt-sort="distance">
@@ -54,16 +75,32 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
                 <button type="button" data-sort-field="created">
                   Recently Added
                 </button>
-                <button type="button" data-sort-field="name" data-sort-dir="asc">
+                <button
+                  type="button"
+                  data-sort-field="name"
+                  data-sort-dir="asc"
+                >
                   Name: A to Z
                 </button>
-                <button type="button" data-sort-field="name" data-sort-dir="desc">
+                <button
+                  type="button"
+                  data-sort-field="name"
+                  data-sort-dir="desc"
+                >
                   Name: Z to A
                 </button>
-                <button type="button" data-sort-field="price" data-sort-dir="asc">
+                <button
+                  type="button"
+                  data-sort-field="price"
+                  data-sort-dir="asc"
+                >
                   Price: Low to High
                 </button>
-                <button type="button" data-sort-field="price" data-sort-dir="desc">
+                <button
+                  type="button"
+                  data-sort-field="price"
+                  data-sort-dir="desc"
+                >
                   Price: High to Low
                 </button>
               </div>
@@ -74,7 +111,8 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
           </div>
           <div class="dest-map_tags" data-filter-tags hidden />
           <p class="dest-map_count text-style-small">
-            Showing <span data-filter-shown>{places.length}</span> of {places.length}
+            Showing <span data-filter-shown>{places.length}</span> of{" "}
+            {places.length}
           </p>
         </div>
 
@@ -89,7 +127,15 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
                 id={place.id}
                 data-map-card
                 data-name={data.name}
-                data-search={[data.name, data.nameOriginal, placeKind(place), data.district].filter(Boolean).join(" ").toLowerCase()}
+                data-search={[
+                  data.name,
+                  data.nameOriginal,
+                  placeKind(place),
+                  data.district,
+                ]
+                  .filter(Boolean)
+                  .join(" ")
+                  .toLowerCase()}
                 data-veg={data.vegType}
                 data-veg-name={veg?.name}
                 data-price={data.priceRange}
@@ -105,28 +151,51 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
                 data-locator={data.storeLocator}
               >
                 <div class="dest-map_card_image" data-map-card-image>
-                  {data.image && <img src={data.image.src} alt="" loading="lazy" decoding="async" {...mediaSize(data.image.src)} />}
+                  {data.image && (
+                    <img
+                      src={data.image.src}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      {...mediaSize(data.image.src)}
+                    />
+                  )}
                 </div>
                 <div class="dest-map_card_content">
                   <div class="dest-map_card_meta" data-map-card-meta>
                     {veg && (
-                      <span class="dest-map_card_veg" style={`color: ${veg.colour}`}>
+                      <span
+                        class="dest-map_card_veg"
+                        style={`color: ${veg.colour}`}
+                      >
                         {veg.name}
                       </span>
                     )}
-                    {price && <span class="dest-map_card_price">{price.symbols}</span>}
+                    {price && (
+                      <span class="dest-map_card_price">{price.symbols}</span>
+                    )}
                   </div>
-                  <a class="dest-map_card_name text-style-h5" href={placeUrl(place)}>
+                  <a
+                    class="dest-map_card_name text-style-h5"
+                    href={placeUrl(place)}
+                  >
                     {data.name}
                   </a>
                   <span class="dest-map_card_kind">{placeKind(place)}</span>
-                  {data.summary && <p class="dest-map_card_text">{data.summary}</p>}
+                  {data.summary && (
+                    <p class="dest-map_card_text">{data.summary}</p>
+                  )}
                 </div>
                 {data.chain ? (
                   <span class="dest-map_card_chain">Multiple locations</span>
                 ) : (
                   data.location && (
-                    <button class="dest-map_card_locate" type="button" data-map-locate aria-label={`Show ${data.name} on the map`}>
+                    <button
+                      class="dest-map_card_locate"
+                      type="button"
+                      data-map-locate
+                      aria-label={`Show ${data.name} on the map`}
+                    >
                       <Icon src={pin} variant="small" />
                     </button>
                   )
@@ -142,7 +211,12 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
 
       <div class="dest-map_canvas" id="map-wrapper" />
 
-      <button class="dest-map_close" type="button" data-map-close aria-label="Close the map">
+      <button
+        class="dest-map_close"
+        type="button"
+        data-map-close
+        aria-label="Close the map"
+      >
         <Icon src={closeIcon} variant="small" />
       </button>
 
@@ -150,19 +224,33 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
         <div class="dest-map_filters_inner">
           <div class="dest-map_filters_head">
             <p class="text-style-h4">Filters</p>
-            <button class="dest-map_filters_clear" type="button" data-filter-clear>
+            <button
+              class="dest-map_filters_clear"
+              type="button"
+              data-filter-clear
+            >
               Clear all
             </button>
           </div>
           <label class="dest-map_filters_group">
             <span class="dest-map_filters_title">Search</span>
-            <input class="dest-map_filters_search" type="search" placeholder="Search restaurants…" data-filter-search />
+            <input
+              class="dest-map_filters_search"
+              type="search"
+              placeholder="Search restaurants…"
+              data-filter-search
+            />
           </label>
           <fieldset class="dest-map_filters_group">
             <legend class="dest-map_filters_title">Veg Type</legend>
             {vegOptions.map((option) => (
               <label class="dest-map_filters_option">
-                <input type="checkbox" name="veg" value={option.slug} data-label={option.name} />
+                <input
+                  type="checkbox"
+                  name="veg"
+                  value={option.slug}
+                  data-label={option.name}
+                />
                 <span style={`color: ${option.colour}`}>{option.name}</span>
               </label>
             ))}
@@ -171,7 +259,12 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
             <legend class="dest-map_filters_title">Price Range</legend>
             {priceOptions.map((option) => (
               <label class="dest-map_filters_option">
-                <input type="checkbox" name="price" value={option.slug} data-label={option.symbols} />
+                <input
+                  type="checkbox"
+                  name="price"
+                  value={option.slug}
+                  data-label={option.symbols}
+                />
                 <span>
                   {option.symbols} · {option.name}
                 </span>
@@ -276,7 +369,8 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
       background-color: var(--background);
       border: var(--border-width) solid var(--border);
       border-radius: var(--radius-main);
-      box-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--text) 12%, transparent);
+      box-shadow: 0 0.5rem 1.5rem
+        color-mix(in srgb, var(--text) 12%, transparent);
 
       & button {
         padding: 0.45em 0.8em;
@@ -539,7 +633,8 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
       height: 1.5rem;
       border: 0.125rem solid var(--light-100);
       border-radius: 50%;
-      box-shadow: 0 0.0625rem 0.1875rem color-mix(in srgb, black 30%, transparent);
+      box-shadow: 0 0.0625rem 0.1875rem
+        color-mix(in srgb, black 30%, transparent);
       cursor: pointer;
       translate: 0 50%;
       transition:
@@ -548,7 +643,8 @@ const priceRank = (slug?: string) => priceRanges.get(slug ?? "")?.symbols.length
 
       &.active {
         scale: 1.25;
-        box-shadow: 0 0.1875rem 0.375rem color-mix(in srgb, black 50%, transparent);
+        box-shadow: 0 0.1875rem 0.375rem
+          color-mix(in srgb, black 50%, transparent);
       }
     }
 

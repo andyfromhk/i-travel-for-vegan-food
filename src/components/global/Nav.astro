@@ -31,7 +31,11 @@ const groups = await destinationGroups();
                 <details class="nav_dropdown">
                   <summary class="nav_link nav_dropdown_toggle">
                     <span>Destinations</span>
-                    <Icon class="nav_dropdown_icon" src={chevron} variant="small" />
+                    <Icon
+                      class="nav_dropdown_icon"
+                      src={chevron}
+                      variant="small"
+                    />
                   </summary>
                   <div class="nav_dropdown_panel">
                     <div class="nav_dropdown_groups">
@@ -41,7 +45,10 @@ const groups = await destinationGroups();
                           <ul class="nav_dropdown_list">
                             {group.destinations.map((destination) => (
                               <li>
-                                <a class="nav_dropdown_link" href={`/destinations/${destination.id}`}>
+                                <a
+                                  class="nav_dropdown_link"
+                                  href={`/destinations/${destination.id}`}
+                                >
                                   {destination.data.name}
                                 </a>
                               </li>
@@ -62,10 +69,21 @@ const groups = await destinationGroups();
           </div>
         </nav>
         <div class="nav_actions">
-          <Button element="link" href={SHOP_URL}>
-            Shop Vegan Travel Books
+          <Button
+            element="link"
+            href={SHOP_URL}
+            aria-label="Shop Vegan Travel Books"
+          >
+            <span class="nav_shop_short">Shop Books</span>
+            <span class="nav_shop_full">Shop Vegan Travel Books</span>
           </Button>
-          <button class="nav_toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+          <button
+            class="nav_toggle"
+            type="button"
+            aria-label="Menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
             <span class="nav_toggle_icon" />
           </button>
         </div>
@@ -127,8 +145,10 @@ const groups = await destinationGroups();
     document.addEventListener("click", (event) => {
       const target = event.target;
       if (!(target instanceof Node)) return;
-      if (dropdown?.open && wide.matches && !dropdown.contains(target)) dropdown.open = false;
-      if (nav.classList.contains("open") && !nav.contains(target)) setOpen(false);
+      if (dropdown?.open && wide.matches && !dropdown.contains(target))
+        dropdown.open = false;
+      if (nav.classList.contains("open") && !nav.contains(target))
+        setOpen(false);
     });
 
     wide.addEventListener("change", (event) => {
@@ -185,6 +205,21 @@ const groups = await destinationGroups();
       align-items: center;
       gap: var(--space-2);
       margin-left: auto;
+    }
+
+    /* The shop button uses a shorter label where the bar is narrow. */
+    .nav_shop_full {
+      display: none;
+    }
+
+    @media (width >= 30rem) {
+      .nav_shop_short {
+        display: none;
+      }
+
+      .nav_shop_full {
+        display: inline;
+      }
     }
 
     .nav_toggle {
@@ -421,7 +456,8 @@ const groups = await destinationGroups();
         border: var(--border-width) solid var(--border);
         border-top: 0;
         border-radius: 0 0 var(--radius-main) var(--radius-main);
-        box-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--text) 12%, transparent);
+        box-shadow: 0 0.5rem 1.5rem
+          color-mix(in srgb, var(--text) 12%, transparent);
       }
 
       .nav_dropdown_groups {

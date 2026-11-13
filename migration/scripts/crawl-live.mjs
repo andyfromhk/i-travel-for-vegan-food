@@ -21,9 +21,16 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function get(url) {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const res = await fetch(url, { redirect: "manual", headers: { "user-agent": "itfvf-migration-crawl/1.0" } });
+      const res = await fetch(url, {
+        redirect: "manual",
+        headers: { "user-agent": "itfvf-migration-crawl/1.0" },
+      });
       const body = res.status === 200 ? await res.text() : "";
-      return { status: res.status, location: res.headers.get("location"), body };
+      return {
+        status: res.status,
+        location: res.headers.get("location"),
+        body,
+      };
     } catch (error) {
       if (attempt === 3) return { status: 0, error: String(error), body: "" };
       await sleep(1000 * attempt);
@@ -57,7 +64,11 @@ function extract(html) {
   const title = html.match(/<title>([\s\S]*?)<\/title>/i);
   const canonical = html.match(/<link\b[^>]*rel="canonical"[^>]*>/i);
   const h1 = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
-  const jsonLd = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)].map((m) => {
+  const jsonLd = [
+    ...html.matchAll(
+      /<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi,
+    ),
+  ].map((m) => {
     try {
       return JSON.parse(m[1]);
     } catch {
@@ -68,21 +79,38 @@ function extract(html) {
     title: title ? decode(title[1].trim()) : null,
     description: meta(html, "name", "description"),
     robots: meta(html, "name", "robots"),
-    canonical: canonical ? (canonical[0].match(/href="([^"]*)"/i) || [])[1] || null : null,
+    canonical: canonical
+      ? (canonical[0].match(/href="([^"]*)"/i) || [])[1] || null
+      : null,
     ogTitle: meta(html, "property", "og:title"),
     ogDescription: meta(html, "property", "og:description"),
     ogImage: meta(html, "property", "og:image"),
     ogType: meta(html, "property", "og:type"),
-    twitterCard: meta(html, "name", "twitter:card") ?? meta(html, "property", "twitter:card"),
-    twitterTitle: meta(html, "property", "twitter:title") ?? meta(html, "name", "twitter:title"),
-    twitterImage: meta(html, "property", "twitter:image") ?? meta(html, "name", "twitter:image"),
-    h1: h1 ? decode(h1[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()) : null,
+    twitterCard:
+      meta(html, "name", "twitter:card") ??
+      meta(html, "property", "twitter:card"),
+    twitterTitle:
+      meta(html, "property", "twitter:title") ??
+      meta(html, "name", "twitter:title"),
+    twitterImage:
+      meta(html, "property", "twitter:image") ??
+      meta(html, "name", "twitter:image"),
+    h1: h1
+      ? decode(
+          h1[1]
+            .replace(/<[^>]+>/g, " ")
+            .replace(/\s+/g, " ")
+            .trim(),
+        )
+      : null,
     jsonLd,
   };
 }
 
 const sitemap = await get(`${ORIGIN}/sitemap.xml`);
-const urls = [...sitemap.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
+const urls = [...sitemap.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
+  m[1].trim(),
+);
 console.log(`${urls.length} URLs in the sitemap`);
 
 await mkdir(HTML_DIR, { recursive: true });
@@ -99,12 +127,16 @@ async function worker() {
     if (res.error) record.error = res.error;
     if (res.body) {
       Object.assign(record, extract(res.body));
-      const file = path.join(HTML_DIR, (pathname === "/" ? "/index" : pathname) + ".html");
+      const file = path.join(
+        HTML_DIR,
+        (pathname === "/" ? "/index" : pathname) + ".html",
+      );
       await mkdir(path.dirname(file), { recursive: true });
       await writeFile(file, res.body);
     }
     pages.push(record);
-    if (pages.length % 50 === 0) console.log(`  ${pages.length} / ${urls.length}`);
+    if (pages.length % 50 === 0)
+      console.log(`  ${pages.length} / ${urls.length}`);
     await sleep(PAUSE_MS);
   }
 }
@@ -114,9 +146,23 @@ pages.sort((a, b) => a.path.localeCompare(b.path));
 
 await writeFile(
   path.join(OUT_DIR, "pages.json"),
-  JSON.stringify({ crawledAt: new Date().toISOString(), origin: ORIGIN, count: pages.length, pages }, null, 1),
+  JSON.stringify(
+    {
+      crawledAt: new Date().toISOString(),
+      origin: ORIGIN,
+      count: pages.length,
+      pages,
+    },
+    null,
+    1,
+  ),
 );
 
 const bad = pages.filter((p) => p.status !== 200);
-console.log(`Done. ${pages.length - bad.length} returned 200, ${bad.length} did not.`);
-for (const p of bad) console.log(`  ${p.status} ${p.path}${p.location ? " -> " + p.location : ""}`);
+console.log(
+  `Done. ${pages.length - bad.length} returned 200, ${bad.length} did not.`,
+);
+for (const p of bad)
+  console.log(
+    `  ${p.status} ${p.path}${p.location ? " -> " + p.location : ""}`,
+  );

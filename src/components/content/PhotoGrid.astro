@@ -16,8 +16,20 @@ const { render = true, photos } = Astro.props;
     <ul class="photo-grid_wrap">
       {photos.map((photo) => (
         <li class="photo-grid_item">
-          <a class="photo-grid_link" href={photo.src} target="_blank" rel="noopener">
-            <img class="photo-grid_image" src={photo.src} alt={photo.alt ?? ""} loading="lazy" decoding="async" {...mediaSize(photo.src)} />
+          <a
+            class="photo-grid_link"
+            href={photo.src}
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              class="photo-grid_image"
+              src={photo.src}
+              alt={photo.alt ?? ""}
+              loading="lazy"
+              decoding="async"
+              {...mediaSize(photo.src)}
+            />
             {photo.alt && <span class="photo-grid_caption">{photo.alt}</span>}
           </a>
         </li>

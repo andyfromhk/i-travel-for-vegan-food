@@ -13,30 +13,75 @@ const name = destination?.data.name;
 const travel = destination?.data.travel ?? {};
 
 const items = [
-  travel.hotelsLink && { icon: "hotel", href: travel.hotelsLink, title: `Which Area to Stay in ${name} for the Best Food`, text: travel.whereToStay, wide: true },
-  travel.gettingAroundLink && { icon: "ticket", href: travel.gettingAroundLink, title: `Getting Around ${name}`, text: travel.gettingAroundLabel, wide: true },
-  travel.esimLink && { icon: "phone-heart", href: travel.esimLink, title: "Get eSim", text: `Get cheap eSim for ${name}` },
-  travel.experienceLink && { icon: "beach", href: travel.experienceLink, title: "Experiences", text: travel.experienceLabel },
-].filter(Boolean) as { icon: string; href: string; title: string; text?: string; wide?: boolean }[];
+  travel.hotelsLink && {
+    icon: "hotel",
+    href: travel.hotelsLink,
+    title: `Which Area to Stay in ${name} for the Best Food`,
+    text: travel.whereToStay,
+    wide: true,
+  },
+  travel.gettingAroundLink && {
+    icon: "ticket",
+    href: travel.gettingAroundLink,
+    title: `Getting Around ${name}`,
+    text: travel.gettingAroundLabel,
+    wide: true,
+  },
+  travel.esimLink && {
+    icon: "phone-heart",
+    href: travel.esimLink,
+    title: "Get eSim",
+    text: `Get cheap eSim for ${name}`,
+  },
+  travel.experienceLink && {
+    icon: "beach",
+    href: travel.experienceLink,
+    title: "Experiences",
+    text: travel.experienceLabel,
+  },
+].filter(Boolean) as {
+  icon: string;
+  href: string;
+  title: string;
+  text?: string;
+  wide?: boolean;
+}[];
 ---
 
 {
   render && destination && items.length > 0 && (
     <aside class="travel-box_wrap" data-vt-ignore>
-      <h2 class="travel-box_title text-style-h3">Recommendations for Your {name} Trip</h2>
+      <h2 class="travel-box_title text-style-h3">
+        Recommendations for Your {name} Trip
+      </h2>
       <p class="travel-box_note text-style-small">
-        This recommended hotels &amp; activities may contain affiliate links. When you decide to purchase through them,
-        you support me and my mission of documenting the best vegan food around the world at no extra cost to you. Thank
-        you!
+        This recommended hotels &amp; activities may contain affiliate links.
+        When you decide to purchase through them, you support me and my mission
+        of documenting the best vegan food around the world at no extra cost to
+        you. Thank you!
       </p>
       <ul class="travel-box_list">
         {items.map((item) => (
           <li class:list={["travel-box_item", item.wide && "wide"]}>
-            <a class="travel-box_link" href={item.href} target="_blank" rel="noopener">
-              <img class="travel-box_icon" src={`/site/icons/icon-${item.icon}.png`} alt="" width="40" height="40" loading="lazy" />
+            <a
+              class="travel-box_link"
+              href={item.href}
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                class="travel-box_icon"
+                src={`/site/icons/icon-${item.icon}.png`}
+                alt=""
+                width="40"
+                height="40"
+                loading="lazy"
+              />
               <span class="travel-box_text">
                 <strong>{item.title}</strong>
-                {item.text && <span class="travel-box_detail">{item.text} →</span>}
+                {item.text && (
+                  <span class="travel-box_detail">{item.text} →</span>
+                )}
               </span>
             </a>
           </li>

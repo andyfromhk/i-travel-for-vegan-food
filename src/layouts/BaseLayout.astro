@@ -22,7 +22,13 @@ type Props = SeoProps & {
   footer?: boolean;
 };
 
-const { theme = "inherit", overlap = false, destinations = [], footer = true, ...seo } = Astro.props;
+const {
+  theme = "inherit",
+  overlap = false,
+  destinations = [],
+  footer = true,
+  ...seo
+} = Astro.props;
 ---
 
 <!doctype html>

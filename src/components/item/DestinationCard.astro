@@ -2,7 +2,12 @@
 import type { HTMLAttributes } from "astro/types";
 import Icon from "@/components/media/Icon.astro";
 import check from "@/assets/icons/check-circle.svg";
-import { type Destination, countryBySlug, destinationCounts, mediaSize } from "@/utils/content.ts";
+import {
+  type Destination,
+  countryBySlug,
+  destinationCounts,
+  mediaSize,
+} from "@/utils/content.ts";
 
 interface Props extends HTMLAttributes<"a"> {
   /** Set to `false` to omit the component. */
@@ -15,7 +20,14 @@ interface Props extends HTMLAttributes<"a"> {
   loading?: "lazy" | "eager";
 }
 
-const { render = true, destination, headingTag: Tag = "h3", loading = "lazy", class: className, ...rest } = Astro.props;
+const {
+  render = true,
+  destination,
+  headingTag: Tag = "h3",
+  loading = "lazy",
+  class: className,
+  ...rest
+} = Astro.props;
 const { data } = destination;
 const counts = await destinationCounts(destination);
 const size = mediaSize(data.image?.src);
@@ -23,9 +35,20 @@ const size = mediaSize(data.image?.src);
 
 {
   render && (
-    <a class:list={["destination-card_wrap", className]} href={`/destinations/${destination.id}`} {...rest}>
+    <a
+      class:list={["destination-card_wrap", className]}
+      href={`/destinations/${destination.id}`}
+      {...rest}
+    >
       {data.image && (
-        <img class="destination-card_image" src={data.image.src} alt="" loading={loading} decoding="async" {...size} />
+        <img
+          class="destination-card_image"
+          src={data.image.src}
+          alt=""
+          loading={loading}
+          decoding="async"
+          {...size}
+        />
       )}
       {data.book && (
         <span class="destination-card_badge">
@@ -34,9 +57,13 @@ const size = mediaSize(data.image?.src);
         </span>
       )}
       <span class="destination-card_info">
-        <span class="destination-card_country">{countryBySlug.get(data.country)?.name}</span>
+        <span class="destination-card_country">
+          {countryBySlug.get(data.country)?.name}
+        </span>
         <Tag class="destination-card_name text-style-h4">{data.name}</Tag>
-        {counts.text && <span class="destination-card_count">{counts.text}</span>}
+        {counts.text && (
+          <span class="destination-card_count">{counts.text}</span>
+        )}
       </span>
     </a>
   )
@@ -97,7 +124,10 @@ const size = mediaSize(data.image?.src);
       flex-direction: column;
       align-items: center;
       padding: var(--space-5) var(--space-2) var(--space-2);
-      background-image: linear-gradient(transparent, color-mix(in srgb, black 80%, transparent) 85%);
+      background-image: linear-gradient(
+        transparent,
+        color-mix(in srgb, black 80%, transparent) 85%
+      );
       text-align: center;
     }
 

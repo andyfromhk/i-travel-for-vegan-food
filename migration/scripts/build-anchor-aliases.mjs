@@ -11,7 +11,11 @@ const crawl = JSON.parse(await readFile("migration/crawl/pages.json", "utf8"));
 const read = (file) => readFile(file, "utf8").catch(() => null);
 
 // The old site's recipe (it ran in the browser, on the heading's HTML).
-const oldId = (inner) => inner.replace(/\s+/g, "-").replace(/[°&/\\#,+()$~%.'":;*?<>{}]/g, "").toLowerCase();
+const oldId = (inner) =>
+  inner
+    .replace(/\s+/g, "-")
+    .replace(/[°&/\\#,+()$~%.'":;*?<>{}]/g, "")
+    .toLowerCase();
 
 function oldAnchors(html) {
   const start = html.indexOf('id="content"');
@@ -21,7 +25,9 @@ function oldAnchors(html) {
   const used = new Set();
   const ids = [];
   for (const match of content.matchAll(/<h([23])\b[^>]*>([\s\S]*?)<\/h\1>/g)) {
-    const base = oldId(match[2].replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"'));
+    const base = oldId(
+      match[2].replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"'),
+    );
     if (!base) continue;
     let id = base;
     for (let n = 2; used.has(id); n++) id = `${base}-${n}`;
@@ -35,7 +41,9 @@ function newAnchors(html) {
   const start = html.indexOf('id="content"');
   const end = html.indexOf('class="author-box_wrap"', start);
   const content = html.slice(start, end === -1 ? undefined : end);
-  return [...content.matchAll(/<h[23]\b[^>]*\bid="([^"]+)"/g)].map((m) => m[1].replace(/&amp;/g, "&"));
+  return [...content.matchAll(/<h[23]\b[^>]*\bid="([^"]+)"/g)].map((m) =>
+    m[1].replace(/&amp;/g, "&"),
+  );
 }
 
 const aliases = {};
@@ -55,17 +63,34 @@ for (const page of crawl.pages) {
   const stillOld = new Set(before);
   const fresh = after.filter((id) => !stillOld.has(id));
   if (fresh.length === changed.length) {
-    aliases[page.path] = Object.fromEntries(changed.map((id, index) => [id, fresh[index]]));
+    aliases[page.path] = Object.fromEntries(
+      changed.map((id, index) => [id, fresh[index]]),
+    );
   } else {
     // Otherwise pair the ones that are plainly the same heading (the old anchor starts with the new one).
-    const pairs = changed.map((id) => [id, fresh.find((f) => id.startsWith(f) || f.startsWith(id.replace(/-+$/, "")))]).filter(([, f]) => f);
+    const pairs = changed
+      .map((id) => [
+        id,
+        fresh.find(
+          (f) => id.startsWith(f) || f.startsWith(id.replace(/-+$/, "")),
+        ),
+      ])
+      .filter(([, f]) => f);
     if (pairs.length) aliases[page.path] = Object.fromEntries(pairs);
     const left = changed.filter((id) => !pairs.some(([p]) => p === id));
     if (left.length) unresolved.push(`${page.path}: ${left.join(", ")}`);
   }
 }
 
-await writeFile("src/data/anchor-aliases.json", JSON.stringify(aliases, null, 2) + "\n");
-const total = Object.values(aliases).reduce((n, map) => n + Object.keys(map).length, 0);
-console.log(`${total} old anchors mapped across ${Object.keys(aliases).length} guides`);
+await writeFile(
+  "src/data/anchor-aliases.json",
+  JSON.stringify(aliases, null, 2) + "\n",
+);
+const total = Object.values(aliases).reduce(
+  (n, map) => n + Object.keys(map).length,
+  0,
+);
+console.log(
+  `${total} old anchors mapped across ${Object.keys(aliases).length} guides`,
+);
 for (const line of unresolved) console.log(`  not mapped: ${line}`);

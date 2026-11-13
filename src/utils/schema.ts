@@ -5,7 +5,11 @@ import { mediaSize, type Picture } from "@/utils/content.ts";
 
 const absolute = (path: string) => new URL(path, SITE_URL).href;
 
-export const author = { "@type": "Person", name: "Andy", url: absolute("/about") };
+export const author = {
+  "@type": "Person",
+  name: "Andy",
+  url: absolute("/about"),
+};
 
 export const publisher = {
   "@type": "Organization",
@@ -16,7 +20,11 @@ export const publisher = {
 
 export function imageObject(picture?: Picture) {
   if (!picture) return undefined;
-  return { "@type": "ImageObject", url: absolute(picture.src), ...mediaSize(picture.src) };
+  return {
+    "@type": "ImageObject",
+    url: absolute(picture.src),
+    ...mediaSize(picture.src),
+  };
 }
 
 /** The trail of pages leading to this one, e.g. Home > Destinations > Tokyo. */
@@ -35,12 +43,21 @@ export function breadcrumbs(trail: { name: string; path: string }[]) {
 
 /** Removes empty values so the output only states what is known. */
 export function tidy<T>(value: T): T {
-  if (Array.isArray(value)) return value.map(tidy).filter((v) => v !== undefined && v !== null && v !== "") as T;
+  if (Array.isArray(value))
+    return value
+      .map(tidy)
+      .filter((v) => v !== undefined && v !== null && v !== "") as T;
   if (value && typeof value === "object" && !(value instanceof Date)) {
     const out: Record<string, unknown> = {};
     for (const [key, v] of Object.entries(value)) {
       const cleaned = tidy(v);
-      if (cleaned === undefined || cleaned === null || cleaned === "" || (Array.isArray(cleaned) && !cleaned.length)) continue;
+      if (
+        cleaned === undefined ||
+        cleaned === null ||
+        cleaned === "" ||
+        (Array.isArray(cleaned) && !cleaned.length)
+      )
+        continue;
       out[key] = cleaned;
     }
     return out as T;

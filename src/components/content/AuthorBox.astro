@@ -18,7 +18,14 @@ const image = author?.data.image?.src ?? "/site/brand/logo-square.png";
 {
   render && author && Content && (
     <aside class="author-box_wrap" data-vt-ignore>
-      <img class="author-box_image" src={image} alt="" width="120" height="120" loading="lazy" />
+      <img
+        class="author-box_image"
+        src={image}
+        alt=""
+        width="120"
+        height="120"
+        loading="lazy"
+      />
       <div class="author-box_content">
         <h2 class="text-style-h6">Written by {author.data.name}</h2>
         <div class="author-box_bio">

@@ -15,12 +15,31 @@ import TravelBox from "@/components/content/TravelBox.astro";
 import PhotoGrid from "@/components/content/PhotoGrid.astro";
 import PlaceCard from "@/components/item/PlaceCard.astro";
 import GuideCard from "@/components/item/GuideCard.astro";
-import { getSite, guidesFor, hasPage, placesIn, priceRanges, venueTypes, cuisines, vegTypes, type Place } from "@/utils/content.ts";
-import { absolute, author, breadcrumbs, imageObject, publisher, tidy } from "@/utils/schema.ts";
+import {
+  getSite,
+  guidesFor,
+  hasPage,
+  placesIn,
+  priceRanges,
+  venueTypes,
+  cuisines,
+  vegTypes,
+  type Place,
+} from "@/utils/content.ts";
+import {
+  absolute,
+  author,
+  breadcrumbs,
+  imageObject,
+  publisher,
+  tidy,
+} from "@/utils/schema.ts";
 
 export async function getStaticPaths() {
   const { places } = await getSite();
-  return places.filter(hasPage).map((place) => ({ params: { slug: place.id }, props: { place } }));
+  return places
+    .filter(hasPage)
+    .map((place) => ({ params: { slug: place.id }, props: { place } }));
 }
 
 interface Props {
@@ -40,7 +59,11 @@ const cuisine = cuisines.get(data.cuisine ?? "");
 const price = priceRanges.get(data.priceRange ?? "");
 
 const guides = destination ? (await guidesFor(destination.id)).slice(0, 6) : [];
-const popular = destination ? (await placesIn(destination.id)).filter((p) => p.id !== place.id).slice(0, 4) : [];
+const popular = destination
+  ? (await placesIn(destination.id))
+      .filter((p) => p.id !== place.id)
+      .slice(0, 4)
+  : [];
 
 const title = `${data.name} - Photos, Menu, Review - Vegan food in ${city}`;
 const description = `${data.summary ?? ""} - Review for ${data.name} - ${veg?.name ?? ""} ${venue?.name ?? ""} in ${city}`;
@@ -53,13 +76,21 @@ const schema = [
       "@type": venue?.schemaType ?? "Restaurant",
       name: data.name,
       description: data.summary,
-      address: { "@type": "PostalAddress", streetAddress: data.address, addressLocality: city },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: data.address,
+        addressLocality: city,
+      },
       url: data.website,
       sameAs: [data.instagram, data.facebook],
       telephone: data.phone,
       priceRange: price?.symbols,
       servesCuisine: [cuisine?.name, veg?.name],
-      geo: data.location && { "@type": "GeoCoordinates", latitude: data.location.lat, longitude: data.location.lng },
+      geo: data.location && {
+        "@type": "GeoCoordinates",
+        latitude: data.location.lat,
+        longitude: data.location.lng,
+      },
       image: [imageObject(data.image)],
     },
     author,
@@ -72,15 +103,27 @@ const schema = [
   breadcrumbs([
     { name: "Home", path: "/" },
     { name: "Destinations", path: "/destinations" },
-    ...(destination ? [{ name: city, path: `/destinations/${destination.id}` }] : []),
+    ...(destination
+      ? [{ name: city, path: `/destinations/${destination.id}` }]
+      : []),
     { name: data.name, path: `/restaurants/${place.id}` },
   ]),
 ];
 ---
 
-<BaseLayout title={title} description={description} image={data.image?.src} schema={schema} destinations={destination ? [destination.id] : []}>
+<BaseLayout
+  title={title}
+  description={description}
+  image={data.image?.src}
+  schema={schema}
+  destinations={destination ? [destination.id] : []}
+>
   {/* Name, details and photos */}
-  <Section paddingTop="small" paddingBottom="none" containerClass="max-width-small">
+  <Section
+    paddingTop="small"
+    paddingBottom="none"
+    containerClass="max-width-small"
+  >
     <PlaceHero place={place} />
   </Section>
 
@@ -95,42 +138,82 @@ const schema = [
     <ContentWrapper variant="columns" class="align-items-end">
       <BookPromo destination={destination} />
       <ButtonWrapper slot="column2" marginTop="0" class="justify-content-end">
-        <Button element="link" variant="link" href="/about#contact">Suggest a place or correct outdated information →</Button>
+        <Button element="link" variant="link" href="/about#contact"
+          >Suggest a place or correct outdated information →</Button
+        >
       </ButtonWrapper>
     </ContentWrapper>
   </Section>
 
   {/* Travel recommendations */}
-  <Section render={!!destination} paddingTop="none" paddingBottom="small" containerClass="max-width-small">
+  <Section
+    render={!!destination}
+    paddingTop="none"
+    paddingBottom="small"
+    containerClass="max-width-small"
+  >
     <TravelBox destination={destination} />
   </Section>
 
   {/* Photos */}
-  <Section render={data.gallery.length > 0} id="food-and-drink" paddingTop="small" paddingBottom="small" gap="4">
-    <Heading tag="h2" variant="h3" class="align-self-center">Food &amp; Drink Photos</Heading>
+  <Section
+    render={data.gallery.length > 0}
+    id="food-and-drink"
+    paddingTop="small"
+    paddingBottom="small"
+    gap="4"
+  >
+    <Heading tag="h2" variant="h3" class="align-self-center"
+      >Food &amp; Drink Photos</Heading
+    >
     <PhotoGrid photos={data.gallery} />
   </Section>
-  <Section render={data.menu.length > 0} id="menu-and-vibe" paddingTop="small" paddingBottom="small" gap="4">
-    <Heading tag="h2" variant="h3" class="align-self-center">Menu &amp; Vibe</Heading>
+  <Section
+    render={data.menu.length > 0}
+    id="menu-and-vibe"
+    paddingTop="small"
+    paddingBottom="small"
+    gap="4"
+  >
+    <Heading tag="h2" variant="h3" class="align-self-center"
+      >Menu &amp; Vibe</Heading
+    >
     <PhotoGrid photos={data.menu} />
   </Section>
 
   {/* More places nearby */}
-  <Section render={popular.length > 0} paddingTop="small" paddingBottom="small" gap="4">
-    <Heading tag="h2" variant="h3" class="align-self-center">Popular Vegan-Friendly Restaurants in {city}</Heading>
+  <Section
+    render={popular.length > 0}
+    paddingTop="small"
+    paddingBottom="small"
+    gap="4"
+  >
+    <Heading tag="h2" variant="h3" class="align-self-center"
+      >Popular Vegan-Friendly Restaurants in {city}</Heading
+    >
     <Grid xsmall={2} medium={4} class="gap-3">
       {popular.map((item) => <PlaceCard place={item} />)}
     </Grid>
   </Section>
 
   {/* Guides */}
-  <Section render={guides.length > 0} paddingTop="small" gap="4" containerClass="max-width-small">
+  <Section
+    render={guides.length > 0}
+    paddingTop="small"
+    gap="4"
+    containerClass="max-width-small"
+  >
     <Heading tag="h2" variant="h3">More Vegan Foodie Guides for {city}</Heading>
     <Grid xsmall={2} class="gap-4">
       {guides.map((guide) => <GuideCard guide={guide} />)}
     </Grid>
     <ButtonWrapper marginTop="0" class="align-self-end">
-      <Button element="link" variant="link" href={`/articles?destination=${destination?.id}`}>See all vegan foodie guides →</Button>
+      <Button
+        element="link"
+        variant="link"
+        href={`/articles?destination=${destination?.id}`}
+        >See all vegan foodie guides →</Button
+      >
     </ButtonWrapper>
   </Section>
 </BaseLayout>
