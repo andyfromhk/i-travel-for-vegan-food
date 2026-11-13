@@ -139,7 +139,7 @@
     scrollOffsetDesktop: 72,
     scrollOffsetMobileRatio: 0.1,
     scrollOffsetMobileFallback: 60,
-    curveColor: '#5a8707',
+    curveColor: '#558005',
     curveWeight: 4,
     curveOpacity: 0.7,
     nonFoodColor: '#888888',
@@ -991,8 +991,8 @@
 #map .marker-tooltip .veg-type-pill{flex:none;white-space:nowrap;padding:.1rem .4rem;border-radius:4px;color:#fff;font-size:.575rem;line-height:1.2;letter-spacing:.1ch}
 #map .marker-tooltip .listing-info{flex:none;white-space:nowrap;margin:0;color:#555;font-size:.8rem}
 #map .marker-tooltip .listing-title{max-width:190px;color:#000;font-family:'Montserrat',sans-serif;font-size:.875rem;font-weight:600;letter-spacing:.05ch}
-#map .route-tooltip-marker-content{position:absolute;z-index:1000;width:180px;padding:.375rem .75rem;transform:translate(-50%,calc(-100% - 8px));background:#fff;border:2px solid #5a8707;border-radius:6px;color:#000;font-family:'Montserrat',sans-serif;font-size:.875rem;font-weight:600;letter-spacing:.05ch;text-align:center;white-space:normal;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
-#map .end-of-day-overlay-content{position:absolute;z-index:1000;padding:.75rem 1.25rem;transform:translate(-50%,-50%);background:#fff;border:2px solid #5a8707;border-radius:8px;color:#000;font-family:'Montserrat',sans-serif;font-size:.875rem;font-weight:600;text-align:center;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s ease}
+#map .route-tooltip-marker-content{position:absolute;z-index:1000;width:180px;padding:.375rem .75rem;transform:translate(-50%,calc(-100% - 8px));background:#fff;border:2px solid #558005;border-radius:6px;color:#000;font-family:'Montserrat',sans-serif;font-size:.875rem;font-weight:600;letter-spacing:.05ch;text-align:center;white-space:normal;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
+#map .end-of-day-overlay-content{position:absolute;z-index:1000;padding:.75rem 1.25rem;transform:translate(-50%,-50%);background:#fff;border:2px solid #558005;border-radius:8px;color:#000;font-family:'Montserrat',sans-serif;font-size:.875rem;font-weight:600;text-align:center;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s ease}
 #map .route-tooltip-marker-content.visible,#map .end-of-day-overlay-content.visible{opacity:1;visibility:visible}
 @media screen and (max-width:767px){
 #map .marker-tooltip{padding:.25rem .5rem}
@@ -1017,8 +1017,8 @@
 .guide-rich-text .vt-place-row{margin:-.25rem 0 1rem}
 .guide-rich-text .vt-go{border-color:#1a73e8!important;color:#1a73e8!important}
 .guide-rich-text .vt-go[hidden]{display:none!important}
-.guide-rich-text .route-info .vt-leg{display:inline-flex;align-items:center;gap:6px;margin-top:-1.5rem;padding:8px 14px;border:1.5px solid #5a8707;border-radius:999px;background:#fff;color:#5a8707!important;font:600 13px/1.2 'Montserrat',sans-serif;letter-spacing:.02em;text-decoration:none!important}
-.guide-rich-text .route-info .vt-leg:hover{background:#5a8707;color:#fff!important}
+.guide-rich-text .route-info .vt-leg{display:inline-flex;align-items:center;gap:6px;margin-top:-1.5rem;padding:8px 14px;border:1.5px solid #558005;border-radius:999px;background:#fff;color:#558005!important;font:600 13px/1.2 'Montserrat',sans-serif;letter-spacing:.02em;text-decoration:none!important}
+.guide-rich-text .route-info .vt-leg:hover{background:#558005;color:#fff!important}
 .guide-rich-text .route-info .vt-leg svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media (prefers-reduced-motion:reduce){#map .vt-locate.vt-busy svg{animation:none}}
 `;

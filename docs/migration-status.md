@@ -107,14 +107,16 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
 4. **Google Analytics.** GA4 is kept and only loads on the built site. Cloudflare Web Analytics could replace
    or join it.
 5. **Restaurants shown on a destination page.** The first 8, by popularity, with the rest in the map. Webflow showed 4.
-6. **The brand green is just short of the contrast guideline.** `#5a8707` is 4.28:1 on white; the
-   guideline for normal-size text is 4.5:1. It's the last thing Lighthouse flags (green labels, links and
-   white text on green buttons). `#558005` reaches 4.69:1 and looks almost the same. Say if you'd like it
-   changed; it's one line in `src/styles/base.css`. The orange used for "Good Vegan Options" is also faint
-   as text (2.4:1).
-7. **Big photos.** 3,033 of the 4,920 photos are over 100 KB (684 over 200 KB, 16 over 500 KB, the largest
-   2.3 MB). Cards and grids now use small copies, but guides show the originals. A one-off pass could shrink
-   the large ones to at most 1,600 pixels wide at good quality, keeping every file name. Say if you'd like it.
+6. **The "Good Vegan Options" orange** (`#e9942d`) is faint as text (2.4:1 on white; the guideline is
+   4.5:1). It's the only colour Lighthouse still flags on the site's own pages. A darker orange such as
+   `#a8600f` (4.8:1) would pass; it's one line in `src/data/taxonomies.json`.
+
+## Decisions made with Andy (13 November 2026)
+
+- Brand green `#558005` (was `#5a8707`), which passes the contrast guideline. Small green text on the yellow
+  boxes and the grey footer uses the darker `--brand-600`.
+- Photos over 200 KB were shrunk in place (`migration/scripts/compress-media.mjs`): 555 photos, 151 MB to
+  83.5 MB, same file names, at most 1,600 pixels wide.
 
 ## Decisions made with Andy (12 November 2026)
 

@@ -55,7 +55,7 @@
     },
     // Colours used for veg types on markers, pills and labels (from your map scripts).
     vegColors: {
-      'vegan': '#5a8707',
+      'vegan': '#558005',
       'vegetarian': '#6c57ac',
       'good vegan options': '#e9942d',
       'limited vegan options': '#7a1616',
@@ -1148,7 +1148,7 @@
 
   function injectStyles() {
     const css = `
-:root{--vt-green:#5a8707;--vt-green-soft:#eef5e1;--vt-ink:#1f2a1c;--vt-line:#d9e2d0;--vt-berry:#b83a5b;--vt-berry-soft:#fbe9ef;--vt-sun:#ffe36e;--vt-paper:#fff}
+:root{--vt-green:#558005;--vt-green-ink:#406104;--vt-green-soft:#eef5e1;--vt-ink:#1f2a1c;--vt-line:#d9e2d0;--vt-berry:#b83a5b;--vt-berry-soft:#fbe9ef;--vt-sun:#ffe36e;--vt-paper:#fff}
 .vt-ui,.vt-ui *{box-sizing:border-box}
 .vt-ui{font-family:inherit;-webkit-font-smoothing:antialiased}
 .vt-ui svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -1223,7 +1223,7 @@
 .vt-sign-tab[aria-selected="true"]{background:var(--vt-ink);color:var(--vt-sun)}
 .vt-sign-note{max-width:60ch;margin:14px auto 0;font-size:13px;line-height:1.45;text-align:center;opacity:.8}
 @media (max-width:520px){.vt-sign-hint{display:none}.vt-sign-name{font-size:13px}.vt-sign-tab{font-size:13px;padding:9px 6px}}
-.vt-price{display:inline;margin:0 .2em;padding:1px 8px;border:0;border-radius:999px;background:var(--vt-green-soft);color:var(--vt-green);font:inherit;font-size:.85em;font-weight:600;white-space:nowrap;cursor:pointer;vertical-align:baseline}
+.vt-price{display:inline;margin:0 .2em;padding:1px 8px;border:0;border-radius:999px;background:var(--vt-green-soft);color:var(--vt-green-ink);font:inherit;font-size:.85em;font-weight:600;white-space:nowrap;cursor:pointer;vertical-align:baseline}
 .vt-price[hidden]{display:none}
 .vt-pop{position:absolute;z-index:2147483001;width:260px;padding:14px;border-radius:14px;background:var(--vt-paper);color:var(--vt-ink);box-shadow:0 12px 36px rgba(20,40,28,.22);font-size:14px}
 .vt-pop-label{display:block;font-weight:600;margin-bottom:6px}

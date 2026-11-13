@@ -45,6 +45,8 @@ const { render = true, ...rest } = Astro.props;
       padding: var(--space-4);
       background-color: var(--yellow-100);
       border-radius: var(--radius-main);
+      /* The darker green keeps links and labels readable on the yellow. */
+      --link-text: var(--brand-600);
 
       @media (width >= 48rem) {
         position: sticky;

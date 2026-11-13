@@ -579,14 +579,14 @@
 .vt-toggle-heart svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .vt-toggle-count[hidden]{display:none!important}
 [data-vt-saved-toggle] .vt-toggle-count{min-width:1.1em;height:1.1em;padding:0 .3em;border-radius:.55em;background:#333;color:#fff;font-size:.75em;line-height:1}
-[data-vt-saved-toggle].is-active .vt-toggle-count{background:#fff;color:#5a8707}
+[data-vt-saved-toggle].is-active .vt-toggle-count{background:#fff;color:#558005}
 :where([data-vt-saved-toggle].is-active){background-color:#fbe9ef;border-color:#b83a5b;color:#b83a5b}
 .is-active > .vt-toggle-heart svg{fill:currentColor}
 [aria-current="true"].vt-busy{opacity:.6}
 #map-wrapper .vt-tip-link{cursor:pointer}
 #map-wrapper .vt-tip-open{display:inline-flex;margin-left:6px;vertical-align:middle;color:#8f8f8f;line-height:0}
 #map-wrapper .vt-tip-open svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-#map-wrapper .vt-tip-link:hover .vt-tip-open{color:#5a8707}
+#map-wrapper .vt-tip-link:hover .vt-tip-open{color:#558005}
 [data-map-list].vt-saved-only > :not(.vt-is-saved){display:none!important}
 .vt-card-distance{color:#1a73e8;font-size:.8rem;font-weight:600;white-space:nowrap}
 #map-wrapper .map-marker{position:relative}

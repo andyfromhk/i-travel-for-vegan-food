@@ -1,4 +1,5 @@
 ---
+import { pagePath } from "@/utils/seo.ts";
 import Icon from "@/components/media/Icon.astro";
 import NavLink from "@/components/global/NavLink.astro";
 import Button from "@/components/Button.astro";
@@ -15,7 +16,7 @@ interface Props {
 }
 
 const { render = true, overlap = false } = Astro.props;
-const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const path = pagePath(Astro.url.pathname);
 
 /* The menu's groups, each destination marked when it has a restaurant map. Groups with many
    destinations (Japan) list them in two columns, as the old menu did. */
@@ -63,7 +64,10 @@ const onDestinations = path === "/destinations";
                       <div class="nav_dropdown_groups">
                         {groups.map((group) => (
                           <div
-                            class:list={["nav_dropdown_group", group.wide && "wide"]}
+                            class:list={[
+                              "nav_dropdown_group",
+                              group.wide && "wide",
+                            ]}
                           >
                             <p class="nav_dropdown_title text-style-h4">
                               {group.title}
@@ -75,7 +79,9 @@ const onDestinations = path === "/destinations";
                                     class="nav_dropdown_link"
                                     href={destination.href}
                                     aria-current={
-                                      path === destination.href ? "page" : undefined
+                                      path === destination.href
+                                        ? "page"
+                                        : undefined
                                     }
                                   >
                                     {destination.name}
@@ -232,13 +238,6 @@ const onDestinations = path === "/destinations";
       display: flex;
       align-items: center;
       width: 2.5rem;
-      transition: opacity var(--hover-duration) var(--hover-ease);
-
-      @media (hover: hover) {
-        &:hover {
-          opacity: 0.7;
-        }
-      }
     }
 
     .nav_actions {

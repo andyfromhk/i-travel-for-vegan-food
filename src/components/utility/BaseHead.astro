@@ -1,7 +1,7 @@
 ---
 import { Font } from "astro:assets";
 import { SITE_NAME, SITE_DESCRIPTION, GA_MEASUREMENT_ID } from "@/consts.ts";
-import { isNoindexRoute } from "@/utils/seo.ts";
+import { isNoindexRoute, pagePath } from "@/utils/seo.ts";
 import type { SeoProps } from "@/types.ts";
 
 type Props = SeoProps;
@@ -18,7 +18,7 @@ const {
 const isNoindex = noindex ?? isNoindexRoute(Astro.url.pathname);
 
 const pageTitle = title || SITE_NAME;
-const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const path = pagePath(Astro.url.pathname);
 const canonical = new URL(path, Astro.site);
 const socialImage = new URL(image, Astro.site);
 const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];

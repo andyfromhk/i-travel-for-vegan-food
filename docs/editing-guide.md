@@ -175,4 +175,6 @@ Fix it in Pages CMS and save again. The next build publishes everything saved in
   `src/data/taxonomies.json`, and the matching drop-down in `.pages.yml` needs the same entry.)
 - Renaming a page that's already published: the old address needs a redirect.
 - A new tip box icon (see the end of [writing-guide.md](writing-guide.md)).
+- Shrinking photos that were uploaded too large: `node migration/scripts/compress-media.mjs` shrinks every
+  photo over 200 KB in place, keeping its name.
 - Changes to page layouts, the menu or the footer.

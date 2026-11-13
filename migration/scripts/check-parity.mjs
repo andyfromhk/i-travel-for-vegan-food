@@ -50,6 +50,12 @@ const redirectFor = (urlPath) =>
 const missing = [];
 const titleDiffs = [];
 const descriptionDiffs = [];
+// Each page must name its own public address as canonical (no .html, no trailing slash).
+const canonicalDiffs = [];
+const canonicalOf = (html) =>
+  ((html.match(/<link\b[^>]*rel="canonical"[^>]*>/i) || [])[0]?.match(
+    /href="([^"]*)"/i,
+  ) || [])[1] || "";
 const redirected = [];
 const redirectDiffs = [];
 let same = 0;
@@ -81,6 +87,13 @@ for (const page of crawl.pages) {
         old: page.description,
         new: newDescription,
       });
+      ok = false;
+    }
+    const expected =
+      "https://www.itravelforveganfood.com" +
+      (page.path === "/" ? "/" : page.path);
+    if (canonicalOf(html) !== expected) {
+      canonicalDiffs.push(`${page.path}: ${canonicalOf(html) || "(none)"}`);
       ok = false;
     }
     if (ok) same++;
@@ -211,7 +224,7 @@ lines.push(
 lines.push(`- Redirected on purpose: **${redirected.length}**`);
 lines.push(`- Missing: **${missing.length}**`);
 lines.push(
-  `- Title differs: **${titleDiffs.length}**, description differs: **${descriptionDiffs.length}**`,
+  `- Title differs: **${titleDiffs.length}**, description differs: **${descriptionDiffs.length}**, canonical address wrong: **${canonicalDiffs.length}**`,
   "",
 );
 if (redirected.length)
@@ -228,6 +241,13 @@ if (redirectDiffs.length)
     "### Redirects that changed",
     "",
     ...redirectDiffs.map((m) => `- ${m}`),
+    "",
+  );
+if (canonicalDiffs.length)
+  lines.push(
+    "### Canonical addresses that are wrong",
+    "",
+    ...canonicalDiffs.map((m) => `- ${m}`),
     "",
   );
 if (titleDiffs.length) {
@@ -273,7 +293,7 @@ console.log(
   `Old URLs: ${crawl.pages.length} | same: ${same} | redirected on purpose: ${redirected.length} | missing: ${missing.length}`,
 );
 console.log(
-  `Titles differ: ${titleDiffs.length} | descriptions differ: ${descriptionDiffs.length} | redirects changed: ${redirectDiffs.length}`,
+  `Titles differ: ${titleDiffs.length} | descriptions differ: ${descriptionDiffs.length} | canonicals wrong: ${canonicalDiffs.length} | redirects changed: ${redirectDiffs.length}`,
 );
 console.log(
   `Internal links: ${linkCount} checked, ${broken.size} broken | TOC anchors: ${anchorsChecked} checked, ${anchorDiffs.reduce((n, d) => n + d.lost.length, 0)} missing | Webflow images: ${remoteImages.size}`,

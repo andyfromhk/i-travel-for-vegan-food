@@ -180,6 +180,8 @@ const content = await slotContent(Astro.slots);
         padding: var(--space-3);
         background-color: var(--yellow-100);
         border-radius: var(--radius-main);
+        /* The darker green keeps links readable on the yellow. */
+        --link-text: var(--brand-600);
       }
 
       & .tip_icon {

@@ -49,6 +49,8 @@ const image = author?.data.image?.src ?? "/site/brand/logo-square.png";
       padding: var(--space-3);
       background-color: var(--yellow-100);
       border-radius: var(--radius-main);
+      /* The darker green keeps links readable on the yellow. */
+      --link-text: var(--brand-600);
     }
 
     .author-box_image {
