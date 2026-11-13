@@ -1,0 +1,151 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Book {
+  title: string;
+  badge?: string;
+  price: string;
+  wasPrice?: string;
+  image: string;
+  imageAlt?: string;
+  url: string;
+  text: string;
+  points: string[];
+  button: string;
+  edition?: string;
+  wide?: boolean;
+}
+
+interface Props extends HTMLAttributes<"a"> {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The book to show: an entry of `books` in src/data/shop.json. */
+  book: Book;
+}
+
+const { render = true, book, class: className, ...rest } = Astro.props;
+---
+
+{
+  render && (
+    <a class:list={["book-card_wrap", book.wide && "wide", className]} href={book.url} target="_blank" rel="nofollow noopener" {...rest}>
+      <img class="book-card_image" src={book.image} alt={book.imageAlt ?? ""} loading="lazy" decoding="async" />
+      <span class="book-card_content">
+        {book.badge && <span class="book-card_badge">{book.badge}</span>}
+        <span class="book-card_title text-style-h3">{book.title}</span>
+        <span class="book-card_prices">
+          {book.wasPrice && <s class="book-card_was">{book.wasPrice}</s>}
+          <span class="book-card_price">{book.price}</span>
+        </span>
+        <span class="book-card_text">{book.text}</span>
+        {book.points.length > 0 && (
+          <ul class="book-card_points">
+            {book.points.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        )}
+        <span class="book-card_button">{book.button}</span>
+        {book.edition && <span class="book-card_badge">{book.edition}</span>}
+      </span>
+    </a>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .book-card_wrap {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: clip;
+      background-color: var(--background);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius-main);
+      color: var(--text);
+      transition: border-color var(--hover-duration) var(--hover-ease);
+
+      @media (width >= 48rem) {
+        &.wide {
+          flex-direction: row;
+          align-items: center;
+
+          & .book-card_image {
+            width: 45%;
+          }
+        }
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          border-color: var(--brand-500);
+
+          .book-card_button {
+            background-color: var(--brand-600);
+          }
+        }
+      }
+    }
+
+    .book-card_image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      background-color: var(--background-2);
+    }
+
+    .book-card_content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+      padding: var(--space-4);
+    }
+
+    .book-card_badge {
+      color: var(--brand-500);
+      font-size: 0.7rem;
+      font-style: italic;
+      font-weight: var(--primary-bold);
+      letter-spacing: 0.1ch;
+      text-transform: uppercase;
+    }
+
+    .book-card_prices {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-2);
+      font-size: 1.1rem;
+      font-weight: var(--primary-medium);
+    }
+
+    .book-card_was {
+      color: var(--dark-500);
+      font-weight: var(--primary-regular);
+    }
+
+    .book-card_points {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      padding-left: 1.3em;
+      list-style: disc;
+
+      & li::marker {
+        color: var(--brand-500);
+      }
+    }
+
+    .book-card_button {
+      margin-top: var(--space-1);
+      padding: 0.6em 2.2em;
+      background-color: var(--brand-500);
+      border-radius: var(--radius-round);
+      color: var(--brand-text);
+      font-size: 0.85rem;
+      font-weight: var(--primary-medium);
+      letter-spacing: 0.1ch;
+      transition: background-color var(--hover-duration) var(--hover-ease);
+    }
+  }
+</style>

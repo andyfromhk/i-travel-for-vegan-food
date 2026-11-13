@@ -45,4 +45,4 @@ export const WEB3FORMS_KEY = "e182c223-205a-4d03-b274-74e7ec2a1b6c";
 export const GA_MEASUREMENT_ID = "G-4E3VDR5QL6";
 
 /** Guest post guidelines linked from the About page. */
-export const GUEST_POST_GUIDELINES = "";
+export const GUEST_POST_GUIDELINES = "https://docs.google.com/document/d/10IJDTS6zt22kpI_k4fl54ZVn4BbPpwux99gynhPvgls/edit?usp=sharing";

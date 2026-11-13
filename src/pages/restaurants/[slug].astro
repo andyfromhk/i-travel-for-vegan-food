@@ -43,7 +43,7 @@ const guides = destination ? (await guidesFor(destination.id)).slice(0, 6) : [];
 const popular = destination ? (await placesIn(destination.id)).filter((p) => p.id !== place.id).slice(0, 4) : [];
 
 const title = `${data.name} - Photos, Menu, Review - Vegan food in ${city}`;
-const description = `${data.summary ?? ""} - Review for ${data.name} - ${[veg?.name, venue?.name].filter(Boolean).join(" ")} in ${city}`;
+const description = `${data.summary ?? ""} - Review for ${data.name} - ${veg?.name ?? ""} ${venue?.name ?? ""} in ${city}`;
 
 const schema = [
   tidy({

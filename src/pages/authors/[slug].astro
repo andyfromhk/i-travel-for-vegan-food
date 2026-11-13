@@ -1,0 +1,71 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/wrapper/Section.astro";
+import ContentWrapper from "@/components/wrapper/ContentWrapper.astro";
+import Grid from "@/components/wrapper/Grid.astro";
+import Heading from "@/components/typography/Heading.astro";
+import Eyebrow from "@/components/typography/Eyebrow.astro";
+import RichText from "@/components/typography/RichText.astro";
+import ButtonWrapper from "@/components/wrapper/ButtonWrapper.astro";
+import Button from "@/components/Button.astro";
+import GuideCard from "@/components/item/GuideCard.astro";
+import { getSite, type Author } from "@/utils/content.ts";
+
+export async function getStaticPaths() {
+  const { authors } = await getSite();
+  return authors.map((author) => ({ params: { slug: author.id }, props: { author } }));
+}
+
+interface Props {
+  author: Author;
+}
+
+const { author } = Astro.props;
+const { data } = author;
+const site = await getSite();
+const { Content } = await render(author);
+const isHouse = author.id === "i-travel-for-vegan-food";
+// Guides without a named guest author are written by the site itself.
+const guides = site.guides.filter((guide) => (guide.data.author ?? "i-travel-for-vegan-food") === author.id);
+const links = [
+  data.website && { href: data.website, label: "Website" },
+  data.instagram && { href: data.instagram, label: "Instagram" },
+  data.facebook && { href: data.facebook, label: "Facebook" },
+  data.pinterest && { href: data.pinterest, label: "Pinterest" },
+].filter(Boolean) as { href: string; label: string }[];
+---
+
+<BaseLayout title="I Travel For Vegan Food" description={`Guides written by ${data.name} on I Travel For Vegan Food.`} image={data.image?.src}>
+  {/* About the author */}
+  <Section paddingTop="small" paddingBottom="small" containerClass="max-width-small">
+    <ContentWrapper variant="columns">
+      <img src={data.image?.src ?? "/site/brand/logo-square.png"} alt="" width="400" height="400" style="border-radius: 50%; aspect-ratio: 1; max-width: 16rem;" />
+      <div slot="column2" class="flex-vertical-nowrap gap-3">
+        <Eyebrow>{data.title}</Eyebrow>
+        <Heading tag="h1" variant="h2">{data.name}</Heading>
+        <RichText>
+          <Content />
+        </RichText>
+        <ButtonWrapper render={links.length > 0} marginTop="2">
+          {links.map((link, index) => (
+            <Button element="link" emphasis={index === 0 ? "primary" : "secondary"} href={link.href} target="_blank" rel="noopener">
+              {link.label}
+            </Button>
+          ))}
+        </ButtonWrapper>
+      </div>
+    </ContentWrapper>
+  </Section>
+
+  {/* Their guides */}
+  <Section render={guides.length > 0} paddingTop="small" gap="4">
+    <Heading tag="h2" variant="h3" class="align-self-center">{isHouse ? "Latest Vegan Foodie Guides" : `Guides by ${data.name}`}</Heading>
+    <Grid xsmall={2} medium={4} class="gap-3">
+      {guides.slice(0, isHouse ? 8 : 24).map((guide) => <GuideCard guide={guide} />)}
+    </Grid>
+    <ButtonWrapper marginTop="0" class="align-self-end">
+      <Button element="link" variant="link" href="/articles">See all vegan foodie guides →</Button>
+    </ButtonWrapper>
+  </Section>
+</BaseLayout>

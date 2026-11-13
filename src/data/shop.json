@@ -1,0 +1,92 @@
+{
+  "reviews": [
+    "“**Saved me hours of research**… would recommend to any vegan/vegetarian planning a trip to Japan!”",
+    "“**Such a comprehensive guide** that has made eating amazing vegan food a breeze!!”",
+    "“I'm traveling **in Japan at the moment** and I find this super helpful!”",
+    "“...it even lists vegan items in places I'd have never even thought to look, and **without this guide, would've never found.**”",
+    "“Great guide, clean design, easy to navigate, great photos!”",
+    "“There were so many places in the guide that I didn't even get to try on this trip. I can't wait to go back.”"
+  ],
+  "books": [
+    {
+      "title": "The Vegan Foodie Guide To Japan",
+      "badge": "Updated for 2026/27",
+      "price": "A$15",
+      "image": "/site/books/japan.webp",
+      "imageAlt": "Cover of The Vegan Foodie Guide to Japan - Plant-based Travel Book",
+      "url": "https://itravelforveganfood.gumroad.com/l/the-vegan-foodie-guide-to-japan",
+      "text": "Stop worrying about dashi in your miso soup. Drawing on 11 trips worth of experience, this massive 230-page guide is the only resource you need to navigate Tokyo, Osaka, Kyoto, and beyond to have your perfect foodie trip in Japan.",
+      "points": [
+        "Access to 149+ vegan spots across Tokyo, Kyoto, Osaka, and popular day-trip cities like Nara, Kamakura, Kobe and Himeji",
+        "Supermarket and Konbini survival guide with label reading cheat sheets for easy snacking",
+        "Foodie guide for traditional Japanese sweets, vegan options at Universal Studios Japan and more"
+      ],
+      "button": "Get the Guide (Free Sample Inside)",
+      "edition": "2026/27 Edition • Interactive PDF • 230 Pages"
+    },
+    {
+      "title": "The Vegan Foodie Guide To Thailand",
+      "badge": "Vegan travel EBOOK",
+      "price": "A$15",
+      "wasPrice": "A$18",
+      "image": "/site/books/thailand.webp",
+      "imageAlt": "Cover of The Vegan Foodie Guide to Thailand - Plant-based Travel Book",
+      "url": "https://itravelforveganfood.gumroad.com/l/the-vegan-foodie-guide-to-thailand",
+      "text": "The Vegan Foodie Guide to Thailand is your travel companion designed to help you eat like a local and travel with total confidence. Covering 3 popular cities - Bangkok, Chiang Mai and Phuket.",
+      "points": [
+        "Detailed reviews for over 110 vegan-friendly cafes and restaurants across three major cities",
+        "Cultural guides for navigating the Phuket Vegetarian Festival and identifying yellow 'Jay' flags",
+        "Essential shopping tips for finding vegan snacks in convenience stores & supermarkets"
+      ],
+      "button": "Get the Guide (Free Sample Inside)",
+      "edition": "2025/26 Edition • Interactive PDF • 254 Pages"
+    },
+    {
+      "title": "The Vegan Foodie Guide To Hong Kong",
+      "badge": "Vegan travel EBOOK",
+      "price": "A$12",
+      "wasPrice": "A$15",
+      "image": "/site/books/hong-kong.webp",
+      "imageAlt": "Cover of The Vegan Foodie Guide to Hong Kong - Plant-based Travel Book",
+      "url": "https://itravelforveganfood.gumroad.com/l/the-vegan-foodie-guide-to-hong-kong",
+      "text": "Written by a vegan Hong Kong-er, this book helps you uncover vegan gems from bustling street food markets to sophisticated dining spots in Hong Kong.",
+      "points": [
+        "Locally curated vegan food list across Hong Kong Island, Kowloon, and the New Territories",
+        "Vegan food guide for finding egg tarts, pineapple buns and more traditional street food in Hong Kong",
+        "Essential Cantonese phrases and local-approved travel tips"
+      ],
+      "button": "Get the Guide (Free Sample Inside)",
+      "edition": "2025/26 Edition • Interactive PDF • 122 Pages"
+    },
+    {
+      "title": "The Vegan Foodie Guide To Taiwan",
+      "badge": "Vegan travel EBOOK",
+      "price": "A$12",
+      "wasPrice": "A$15",
+      "image": "/site/books/taiwan.webp",
+      "imageAlt": "Cover of The Vegan Foodie Guide to Taiwan - Plant-based Travel Book",
+      "url": "https://itravelforveganfood.gumroad.com/l/the-vegan-foodie-guide-to-taiwan",
+      "text": "Taiwan is a vegan paradise, but navigating the \"hidden\" ingredients in a different language could be challenging. This ebook gives you a list of best vegan places to visit, as well as help you enjoy pay-by-weight buffets navigate night market, and find hidden vegan gems in supermarkets and convenience stores.",
+      "points": [
+        "Curated restaurant maps and detailed dish recommendations for Taipei, Taichung, and Taoyuan",
+        "Vegan night market and pay-by-weight vegetarian buffets guides",
+        "Label reading cheat sheet to unlock hidden vegan snacks in convenience stores and supermarkets"
+      ],
+      "button": "Get the Guide (Free Sample Inside)",
+      "edition": "2025/26 Edition • Interactive PDF • 126 Pages"
+    },
+    {
+      "title": "Vegan Asia Foodie Travel Bundle",
+      "badge": "Includes all 4 Vegan travel EBOOK",
+      "price": "A$35",
+      "image": "/site/books/bundle.webp",
+      "imageAlt": "The four vegan travel books in the Vegan Asia Foodie Travel Bundle",
+      "url": "https://itravelforveganfood.gumroad.com/l/vegan-asia-foodie-travel-bundle",
+      "text": "Planning the ultimate Asia vegan food trip? Get the complete collection which include over 800 pages of local knowledge, covering the diverse food cultures of Japan, Thailand, Hong Kong, and Taiwan in one easy download.",
+      "points": [],
+      "button": "Get the Bundle",
+      "edition": "2025/26 Edition • Interactive PDF's",
+      "wide": true
+    }
+  ]
+}

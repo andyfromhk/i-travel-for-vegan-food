@@ -21,6 +21,7 @@ import { articleCategories, getSite, guideDestinations, guideSlug, isMapGuide, t
 import { renderMarkdown } from "@/utils/markdown.ts";
 import { absolute, author as andy, breadcrumbs, imageObject, publisher, tidy } from "@/utils/schema.ts";
 import { SITE_NAME } from "@/consts.ts";
+import anchorAliases from "@/data/anchor-aliases.json";
 
 export async function getStaticPaths() {
   const { guides } = await getSite();
@@ -50,6 +51,9 @@ const related = [
   ...site.guides.filter((g) => g.id !== guide.id && guideDestinations(g).some((d) => destinations.includes(d))),
   ...site.guides.filter((g) => g.id !== guide.id && !guideDestinations(g).some((d) => destinations.includes(d))),
 ].slice(0, 6);
+
+// Section anchors whose name changed in the move from Webflow: old name -> new name.
+const aliases = (anchorAliases as Record<string, Record<string, string>>)[url];
 
 const description = `${data.description ?? ""} - Vegan ${category} - ${SITE_NAME}`;
 const schema = [
@@ -118,6 +122,14 @@ const schema = [
   </Section>
 
   <BookPopup />
+  {
+    aliases && (
+      <script is:inline define:vars={{ aliases }}>
+        /* A link to an old section anchor is sent on to the section's new anchor. */
+        const wanted = decodeURIComponent(location.hash.slice(1)); if (aliases[wanted]) location.replace("#" + aliases[wanted]);
+      </script>
+    )
+  }
   <script>
     import "@/scripts/guide.js";
   </script>
