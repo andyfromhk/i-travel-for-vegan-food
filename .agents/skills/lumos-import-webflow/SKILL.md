@@ -19,22 +19,34 @@ it is answered, not at the end** — the end is exactly when the Webflow site
 gets unpublished and the answers stop being checkable.
 
 ```markdown
-- **Live URL** — what every page is compared against, until cutover
-- **Provenance** — Lumos for Webflow, or hand-built
-- **Code export** — path to the unzipped folder
-- **Collection CSVs** — path
-- **301 redirects** — path to the CSV from Site Settings → Publishing
-- **Webflow site ID** — `data-wf-site`, how every MCP call addresses the site
-- **CMS** — content collections, a headless CMS, or Webflow headless; and why
-- **Forms** — provider, and where submissions go
-- **Search** — what replaced Webflow's, or that the site has none
-- **Hosting** — where it deploys, and the domain cutover plan
-- **Breakpoints** — the site's own, in rem, replacing the framework's
-- **Collections** — each one, and the route or component it landed in
-- **List filters and sorts** — per list, since nothing but the Designer records them
-- **Out of scope** — Ecommerce, Memberships, Logic, and what was agreed instead
-- **Decisions** — anything the site's owner chose that the code cannot explain
-- **Still open** — questions waiting on an answer
+- **Live URL** — https://www.itravelforveganfood.com (Webflow staging: itravelforveganfood.webflow.io)
+- **Provenance** — hand-built in Webflow (Relume-style class names such as `navbar8_…`), not Lumos for Webflow
+- **Code export** — none taken. The owner asked for a rebuild on Lumos defaults rather than a pixel-identical
+  port, so pages were rebuilt from the published HTML (`migration/crawl/html/`, not committed) and screenshots
+- **Collection CSVs** — not used. The CMS was exported through the Webflow MCP to `migration/export/collections/*.json`
+  (drafts and archived items included)
+- **301 redirects** — `migration/redirects/webflow-301.csv` (exported 12 Nov 2026); `public/_redirects` is
+  generated from it by `migration/scripts/build-redirects.mjs`
+- **Webflow site ID** — `60cbefb367e06dd6b12c5204`
+- **CMS** — Astro content collections in `src/content/`, to be edited with Pages CMS (the owner's choice; `.pages.yml`
+  is not written yet). Guide bodies are plain Markdown with `{{shortcodes}}` because Pages CMS's editor cannot
+  show custom components; see `src/markdown/` and `docs/writing-guide.md`
+- **Forms** — contact form: Web3Forms (`WEB3FORMS_KEY` in `src/consts.ts`). Newsletter: the Worker in `worker/`
+  (`/subscribe`), which adds the reader to Kit. "Email me my list": the same Worker (`/email-list`), unchanged
+- **Search** — none, by the owner's decision. `/search` redirects to `/`
+- **Hosting** — Cloudflare Worker with static assets (`wrangler.jsonc`, name `itfvf-site`). DNS is already on
+  Cloudflare; cutover steps are still to be written (`docs/preview-setup.md` covers the preview)
+- **Breakpoints** — the framework's own (30rem / 48rem / 64rem); the Webflow ones were not carried over
+- **Collections** — Restaurants → `places` → `/restaurants/[slug]`; Articles and Map Guides → `guides`
+  (`articles/` and `map-guides/` folders) → `/articles/[slug]`, `/map-guides/[slug]`; Destinations →
+  `destinations` → `/destinations/[slug]`; Authors → `authors` → `/authors/[slug]`; Countries, Veg Types,
+  Price Ranges, Venue Types, Cuisines → `src/data/*.json`
+- **List filters and sorts** — guide lists: newest first by "updated". Guides on a destination: its main guide
+  first. Restaurants on a destination: published, not permanently closed, most "likes" first, then newest.
+  Destinations: the order on the old Destinations page (`order`), and `homeOrder` for the 8 on the home page
+- **Out of scope** — Pages CMS set-up (Phase 4), pre-launch checks and launch (Phases 4 to 5 of the brief)
+- **Decisions** — listed at the bottom of `docs/migration-status.md`
+- **Still open** — listed under "Open questions" in `docs/migration-status.md`
 ```
 
 **This section belongs to the project, not to the framework.** In a fresh

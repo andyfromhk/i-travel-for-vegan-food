@@ -1,4 +1,38 @@
-# I Travel For Vegan Food: site scripts
+# I Travel For Vegan Food
+
+This repository holds two things:
+
+1. **The new website** (branch `astro-migration`): an [Astro](https://astro.build) site built on the Lumos
+   framework, replacing the Webflow site. Start with `docs/migration-status.md`.
+2. **The Webflow-era scripts** described below, which the live Webflow site still loads from jsDelivr, and the
+   "Email me my list" Worker in `worker/`.
+
+## The new website
+
+| Folder | What's in it |
+|---|---|
+| `src/content/` | The content: `places/` (restaurants), `destinations/`, `guides/` (foodie guides and map guides), `authors/`, `pages/` |
+| `src/data/` | Small lists: countries, categories, books, the shop |
+| `src/pages/` | One file per kind of page |
+| `src/components/` | The building blocks (Lumos components, plus the site's own cards and sections) |
+| `src/scripts/` | The traveller tools: saved places, maps, phrase card, filters |
+| `src/markdown/` | The writing shortcuts (`docs/writing-guide.md`) |
+| `public/media/` | Every photo |
+| `migration/` | The Webflow export and the scripts that converted it |
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+More in `docs/preview-setup.md`. Conventions for building pages are in `LUMOS.md`.
+
+---
+
+# Site scripts (Webflow)
 
 Scripts that add traveller features to itravelforveganfood.com. They are served to the website by
 [jsDelivr](https://www.jsdelivr.com), a free service that delivers files from public GitHub repositories.
