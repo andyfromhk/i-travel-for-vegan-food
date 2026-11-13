@@ -35,7 +35,7 @@ Your Brisbane foodie day starts at Roma Street Station, a major transport hub in
 
 ## Noosa Chocolate Factory
 
-{{place: noosa-chocolate-factory}}
+{{place: noosa-chocolate-factory | -27.4677008, 153.0256807 | Brisbane City}}
 
 ![](/media/guides/brisbane-vegan-foodie-walking-tour-itinerary/noosa-chocolate-factory-brisbane-vegan-itinerary.webp)
 
@@ -61,7 +61,7 @@ Now it's time to see the Brisbane city. One of the recommended activities is the
 
 ## Happy Dough or Krispy Kreme
 
-{{place: happy-dough}}
+{{place: happy-dough | -27.4693951, 153.0248282 | Brisbane City}}
 
 ![](/media/guides/brisbane-vegan-foodie-walking-tour-itinerary/krispy-kreme-doughnuts-brisbane-vegan-itinerary.webp)
 

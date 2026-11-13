@@ -9,7 +9,6 @@ vegType: good-vegan-options
 priceRange: budget-friendly
 venueType: takeaway-only
 cuisine: desserts
-district: Brisbane City
 location:
   lat: -27.4677008
   lng: 153.0256807

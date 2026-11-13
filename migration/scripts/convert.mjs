@@ -480,9 +480,12 @@ function placeShortcode(guide, destination) {
         place.location && data.lat !== null
           ? Math.round(distance(place.location, data))
           : null;
-      // More than 100 m apart means the guide points at a different branch or entrance than the restaurant
-      // record. The guide's own spot is kept, written after the slug, so the route on the map doesn't change.
-      const otherSpot = metres !== null && metres > 100;
+      // The guide's own spot is kept, written after the slug, whenever the restaurant record can't supply
+      // the same point: the record is a chain (chains have no single location), it has no coordinates, or
+      // its coordinates are more than 100 m away (a different branch or entrance). That way the stops and
+      // the route on the map stay exactly where they were.
+      const otherSpot =
+        data.lat !== null && (place.chain || metres === null || metres > 100);
       if (data.district && !isChainNote && !otherSpot) {
         if (!place.district) place.district = data.district;
         else if (place.district !== data.district)
@@ -515,11 +518,13 @@ function placeShortcode(guide, destination) {
       // If the restaurant record has no coordinates but the guide does, keep the guide's so the marker still shows.
       if (!place.location && data.lat !== null && !place.chain)
         place.location = { lat: data.lat, lng: data.lng };
-      return otherSpot
-        ? [slug, `${data.lat}, ${data.lng}`, data.district]
-            .filter(Boolean)
-            .join(" | ")
-        : slug;
+      if (otherSpot)
+        return [slug, `${data.lat}, ${data.lng}`, data.district]
+          .filter(Boolean)
+          .join(" | ");
+      // The guide calls it "Multiple locations" but the restaurant isn't marked as a chain: keep the guide's wording.
+      if (isChainNote && !place.chain) return `${slug} | ${data.district}`;
+      return slug;
     }
 
     // 3. A food place with no restaurant page: it becomes a place record without a page.

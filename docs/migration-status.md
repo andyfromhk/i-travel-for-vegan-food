@@ -27,13 +27,16 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
 | Internal links | 18,640 checked; 2 lead nowhere, and both were already broken on the old site |
 | Table-of-contents anchors | 665 of 666 kept (the one lost was an empty heading) |
 | Email Worker tests | 23 pass (20 existing, 3 new) |
+| Map guide markers | all 76 are where they were on the old site |
 | Listing filters, map list filters and sorting, Save buttons | tested in a browser on the local build |
 
 ## Not checked yet
 
-- **Google Maps.** The key only answers `itravelforveganfood.com`, so no map could load during the build work.
-  The map code is your own, moved across with small changes, but the scroll-synced map and the fullscreen map
-  have not been seen running on the new site. They are the first thing to test on the preview.
+- **Google Maps itself.** The Maps key only answers `itravelforveganfood.com`, so the real map could not load
+  during the build work. The map code was tested against a stand-in for the Maps service instead: every stop
+  gets a marker, the map follows the guide as you scroll, each route draws with its label, the end-of-day
+  message shows, and on destination pages the markers follow the filters. What has not been seen is the real
+  Google map drawing those things, so maps are the first thing to test on the preview.
 - **Newsletter and contact forms end to end.** The Worker route has tests and the contact form uses the
   standard Web3Forms set-up, but neither has sent a real message yet.
 - **Pages CMS.** The content is shaped for it, but the editor itself (`.pages.yml`) is Phase 4.
@@ -43,7 +46,9 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
 1. Put the site on a preview address: `docs/preview-setup.md`.
 2. Export the form submissions from Webflow (the footer sign-ups are only stored there).
 3. Look through `docs/conversion-report.md`: the map guide places matched to restaurants, especially the few
-   marked "please confirm".
+   marked "please confirm". Four stops now show what the restaurant's own record says, which differs from
+   what the guide said: Hai Hai, Motto Motto and Taro's Ramen (the Brisbane ramen guide said "Good Vegan
+   Options", their records say "Limited Vegan Options") and Alaska Zwei (the guide said "$", its record says "$$").
 
 ## Open questions
 

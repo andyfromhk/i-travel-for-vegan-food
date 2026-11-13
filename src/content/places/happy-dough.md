@@ -9,7 +9,6 @@ vegType: good-vegan-options
 priceRange: budget-friendly
 venueType: takeaway-only
 cuisine: desserts
-district: Brisbane City
 website: https://happydough.com.au
 instagram: http://www.instagram.com/happydoughau
 facebook: http://facebook.com/happydoughau

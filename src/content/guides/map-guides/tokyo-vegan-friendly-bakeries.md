@@ -72,7 +72,7 @@ A true vegan gem, Wa No Kashi Meguri ([*address*](https://maps.app.goo.gl/z9uv7F
 
 ## OVGO Baker
 
-{{place: ovgo-baker}}
+{{place: ovgo-baker | Multiple locations}}
 
 ![](/media/guides/tokyo-vegan-friendly-bakeries/ovgo-baker-tokyo-vegan-bakery-map.webp)
 

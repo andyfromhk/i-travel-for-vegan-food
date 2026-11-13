@@ -122,8 +122,11 @@ function placeNode(text: string, file: VFile) {
       );
     }
     const override = parts[1]?.match(COORDS);
+    // "Multiple locations" as the area means: no single pin, show the chain note instead.
+    const everywhere = !override && /multiple/i.test(parts[1] ?? "");
     if (override) [lat, lng] = [Number(override[1]), Number(override[2])];
-    else if (place.location && !place.chain) ({ lat, lng } = place.location);
+    else if (place.location && !place.chain && !everywhere)
+      ({ lat, lng } = place.location);
     district = (override ? parts[2] : parts[1]) || place.district || "";
     if (!district && place.chain && lat === undefined)
       district = "Multiple locations";
