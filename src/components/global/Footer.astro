@@ -12,6 +12,7 @@ interface Props {
 
 const { render = true } = Astro.props;
 
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
 const links = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
@@ -74,7 +75,11 @@ const links = [
             <ul class="footer_links">
               {links.map((link) => (
                 <li>
-                  <a class="footer_link" href={link.href}>
+                  <a
+                    class="footer_link"
+                    href={link.href}
+                    aria-current={path === link.href ? "page" : undefined}
+                  >
                     {link.label}
                   </a>
                 </li>
@@ -339,6 +344,14 @@ const links = [
 
     .footer_link {
       transition: color var(--hover-duration) var(--hover-ease);
+
+      /* The page you're on */
+      &[aria-current="page"] {
+        color: var(--brand-500);
+        text-decoration: underline;
+        text-decoration-thickness: var(--border-width);
+        text-underline-offset: 0.1875rem;
+      }
 
       @media (hover: hover) {
         &:hover {

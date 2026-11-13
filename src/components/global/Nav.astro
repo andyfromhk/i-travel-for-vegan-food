@@ -3,8 +3,9 @@ import Icon from "@/components/media/Icon.astro";
 import NavLink from "@/components/global/NavLink.astro";
 import Button from "@/components/Button.astro";
 import chevron from "@/assets/icons/chevron.svg";
+import MapIcon from "@/assets/icons/map.svg";
 import { SITE_NAME, SHOP_URL } from "@/consts.ts";
-import { destinationGroups } from "@/utils/content.ts";
+import { destinationCounts, destinationGroups } from "@/utils/content.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -14,7 +15,24 @@ interface Props {
 }
 
 const { render = true, overlap = false } = Astro.props;
-const groups = await destinationGroups();
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+/* The menu's groups, each destination marked when it has a restaurant map. Groups with many
+   destinations (Japan) list them in two columns, as the old menu did. */
+const groups = await Promise.all(
+  (await destinationGroups()).map(async (group) => ({
+    title: group.slug === "more" ? "Other Destinations" : group.title,
+    wide: group.destinations.length > 6,
+    destinations: await Promise.all(
+      group.destinations.map(async (destination) => ({
+        name: destination.data.name,
+        href: `/destinations/${destination.id}`,
+        hasMap: (await destinationCounts(destination)).hasMap,
+      })),
+    ),
+  })),
+);
+const onDestinations = path === "/destinations";
 ---
 
 {
@@ -29,7 +47,10 @@ const groups = await destinationGroups();
             <ul class="nav_links">
               <li>
                 <details class="nav_dropdown">
-                  <summary class="nav_link nav_dropdown_toggle">
+                  <summary
+                    class="nav_link nav_dropdown_toggle"
+                    aria-current={onDestinations ? "page" : undefined}
+                  >
                     <span>Destinations</span>
                     <Icon
                       class="nav_dropdown_icon"
@@ -38,28 +59,48 @@ const groups = await destinationGroups();
                     />
                   </summary>
                   <div class="nav_dropdown_panel">
-                    <div class="nav_dropdown_groups">
-                      {groups.map((group) => (
-                        <div class="nav_dropdown_group">
-                          <p class="nav_dropdown_title">{group.title}</p>
-                          <ul class="nav_dropdown_list">
-                            {group.destinations.map((destination) => (
-                              <li>
-                                <a
-                                  class="nav_dropdown_link"
-                                  href={`/destinations/${destination.id}`}
-                                >
-                                  {destination.data.name}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
+                    <div class="nav_dropdown_inner">
+                      <div class="nav_dropdown_groups">
+                        {groups.map((group) => (
+                          <div
+                            class:list={["nav_dropdown_group", group.wide && "wide"]}
+                          >
+                            <p class="nav_dropdown_title text-style-h4">
+                              {group.title}
+                            </p>
+                            <ul class="nav_dropdown_list">
+                              {group.destinations.map((destination) => (
+                                <li>
+                                  <a
+                                    class="nav_dropdown_link"
+                                    href={destination.href}
+                                    aria-current={
+                                      path === destination.href ? "page" : undefined
+                                    }
+                                  >
+                                    {destination.name}
+                                    {destination.hasMap && (
+                                      <MapIcon
+                                        class="nav_dropdown_map"
+                                        role="img"
+                                        aria-label="(has a restaurant map)"
+                                      />
+                                    )}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                      <a
+                        class="nav_dropdown_all"
+                        href="/destinations"
+                        aria-current={onDestinations ? "page" : undefined}
+                      >
+                        All destinations →
+                      </a>
                     </div>
-                    <a class="nav_dropdown_all" href="/destinations">
-                      All destinations →
-                    </a>
                   </div>
                 </details>
               </li>
@@ -183,7 +224,7 @@ const groups = await destinationGroups();
       min-height: var(--nav-height);
       display: flex;
       align-items: center;
-      gap: 0 var(--space-4);
+      gap: 0 var(--space-6);
     }
 
     .nav_logo {
@@ -309,8 +350,8 @@ const groups = await destinationGroups();
       display: flex;
       flex-direction: column;
       padding: var(--space-2) var(--site-margin) var(--space-4);
-      font-size: 0.825rem;
-      font-weight: var(--primary-medium);
+      font-size: 0.875rem;
+      font-weight: var(--primary-bold);
 
       & > li + li {
         border-top: var(--border-width) solid var(--border);
@@ -324,10 +365,6 @@ const groups = await destinationGroups();
       text-decoration: none;
       transition: color var(--hover-duration) var(--hover-ease);
 
-      &[aria-current="page"] {
-        color: var(--brand-500);
-      }
-
       @media (hover: hover) {
         &:hover {
           color: var(--brand-500);
@@ -335,7 +372,15 @@ const groups = await destinationGroups();
       }
     }
 
-    /* Destinations dropdown */
+    /* The page you're on: green and underlined, in the menu and the footer alike */
+    :is(.nav_link, .nav_dropdown_link, .nav_dropdown_all)[aria-current="page"] {
+      color: var(--brand-500);
+      text-decoration: underline;
+      text-decoration-thickness: var(--border-width);
+      text-underline-offset: 0.1875rem;
+    }
+
+    /* Destinations mega menu */
     .nav_dropdown_toggle {
       display: flex;
       align-items: center;
@@ -357,37 +402,37 @@ const groups = await destinationGroups();
       rotate: 180deg;
     }
 
-    .nav_dropdown_panel {
+    .nav_dropdown_inner {
       display: flex;
       flex-direction: column;
-      gap: var(--space-3);
-      padding-bottom: var(--space-3);
+      gap: var(--space-4);
+      padding-bottom: var(--space-4);
     }
 
     .nav_dropdown_groups {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-3) var(--space-4);
+      gap: var(--space-4);
     }
 
     .nav_dropdown_title {
-      margin-bottom: 0.35em;
+      margin-bottom: var(--space-1);
       color: var(--brand-500);
-      font-size: 0.7rem;
-      font-style: italic;
-      font-weight: var(--primary-bold);
-      letter-spacing: 0.1ch;
-      text-transform: uppercase;
     }
 
     .nav_dropdown_list {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 var(--space-4);
     }
 
     .nav_dropdown_link {
-      display: block;
-      padding-block: 0.3em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      /* Every row is as tall as one with a map icon, so the columns line up. */
+      min-height: calc(1.5em + 0.8rem);
+      padding-block: 0.4rem;
+      font-weight: var(--primary-medium);
       transition: color var(--hover-duration) var(--hover-ease);
 
       @media (hover: hover) {
@@ -397,7 +442,14 @@ const groups = await destinationGroups();
       }
     }
 
+    .nav_dropdown_map {
+      flex: none;
+      width: 1.5em;
+      height: 1.5em;
+    }
+
     .nav_dropdown_all {
+      align-self: flex-start;
       color: var(--brand-500);
       font-style: italic;
       text-decoration: underline;
@@ -437,32 +489,46 @@ const groups = await destinationGroups();
         padding-block: var(--space-3);
       }
 
-      .nav_dropdown {
-        position: relative;
-      }
-
-      .nav_dropdown_toggle {
-        justify-content: flex-start;
-      }
-
+      /* The panel spans the whole width of the page, under the bar. */
       .nav_dropdown_panel {
         position: absolute;
-        top: calc(100% + var(--border-width));
-        left: calc(var(--space-4) * -1);
-        width: max-content;
-        max-width: calc(100vw - var(--site-margin) * 2);
-        padding: var(--space-4);
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        padding-inline: var(--site-margin);
         background-color: var(--background);
-        border: var(--border-width) solid var(--border);
-        border-top: 0;
-        border-radius: 0 0 var(--radius-main) var(--radius-main);
-        box-shadow: 0 0.5rem 1.5rem
-          color-mix(in srgb, var(--text) 12%, transparent);
+        border-bottom: var(--border-width) solid var(--brand-500);
+      }
+
+      .nav_dropdown_inner {
+        width: 100%;
+        max-width: var(--max-width-main);
+        padding: var(--space-4) 8% var(--space-6);
       }
 
       .nav_dropdown_groups {
-        grid-template-columns: repeat(4, max-content);
+        display: flex;
         gap: var(--space-5);
+      }
+
+      /* A group listed in two columns (Japan) gets half as much room again. */
+      .nav_dropdown_group {
+        flex: 1 1 0;
+        min-width: 0;
+
+        &.wide {
+          flex-grow: 1.5;
+        }
+      }
+
+      .nav_dropdown_list {
+        grid-template-columns: minmax(0, 1fr);
+
+        .wide > & {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
     }
   }

@@ -8,27 +8,13 @@ import Paragraph from "@/components/typography/Paragraph.astro";
 import RichText from "@/components/typography/RichText.astro";
 import ButtonWrapper from "@/components/wrapper/ButtonWrapper.astro";
 import Button from "@/components/Button.astro";
-import Form from "@/components/form/Form.astro";
-import Input from "@/components/form/Input.astro";
-import Select from "@/components/form/Select.astro";
-import Textarea from "@/components/form/Textarea.astro";
-import { GUEST_POST_GUIDELINES, SOCIAL, WEB3FORMS_KEY } from "@/consts.ts";
+import ContactForm from "@/components/content/ContactForm.astro";
+import { GUEST_POST_GUIDELINES, SOCIAL } from "@/consts.ts";
 import { breadcrumbs } from "@/utils/schema.ts";
 
 const page = (await getEntry("pages", "about"))!;
 const { Content } = await render(page);
 
-const reasons = [
-  { value: "General Enquiry", label: "General Enquiry" },
-  { value: "Suggest a New Vegan Place", label: "Suggest a New Vegan Place" },
-  {
-    value: "Report Outdated/Incorrect Info",
-    label: "Report Outdated/Incorrect Info",
-  },
-  { value: "Advertising Opportunities", label: "Advertising Opportunities" },
-  { value: "Invite & Collaboration", label: "Invite & Collaboration" },
-  { value: "Guest Post Enquiry", label: "Guest Post Enquiry" },
-];
 const schema = breadcrumbs([
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
@@ -42,7 +28,7 @@ const schema = breadcrumbs([
 >
   {/* About Andy */}
   <Section
-    paddingTop="small"
+    paddingTop="pagetop"
     paddingBottom="small"
     gap="5"
     containerClass="max-width-small"
@@ -50,7 +36,7 @@ const schema = breadcrumbs([
     <Heading tag="h1" class="heading-accent"
       >A Bit About <strong>I Travel For Vegan Food</strong></Heading
     >
-    <ContentWrapper variant="columns">
+    <ContentWrapper variant="columns" class="gap-gutter">
       <img
         src="/site/brand/andy.webp"
         alt="Andy, the writer behind I Travel For Vegan Food"
@@ -115,56 +101,6 @@ const schema = breadcrumbs([
         >guest post guidelines</a
       > before submitting your idea!
     </Paragraph>
-    <Form
-      name="contact"
-      action="https://api.web3forms.com/submit"
-      successMessage="Thank you! Your submission has been received!"
-      errorMessage="Oops! Something went wrong while submitting the form."
-    >
-      <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-      <input
-        type="hidden"
-        name="subject"
-        value="New message from itravelforveganfood.com"
-      />
-      <input
-        type="hidden"
-        name="from_name"
-        value="I Travel For Vegan Food website"
-      />
-      {/* Web3Forms' own bot trap: real visitors never tick this hidden box. */}
-      <input
-        type="checkbox"
-        name="botcheck"
-        tabindex="-1"
-        autocomplete="off"
-        style="display: none"
-      />
-      <Input label="Name" name="name" placeholder="" autocomplete="name" />
-      <Input
-        label="Email Address"
-        variant="email"
-        name="email"
-        placeholder=""
-        required
-      />
-      <Select
-        label="Reason for Contacting"
-        name="reason"
-        placeholder="Select one..."
-        options={reasons}
-        required
-      />
-      <Textarea
-        label="Your Message"
-        name="message"
-        placeholder=""
-        maxlength={5000}
-        required
-      />
-      <ButtonWrapper marginTop="0">
-        <Button type="submit">Submit</Button>
-      </ButtonWrapper>
-    </Form>
+    <ContactForm />
   </Section>
 </BaseLayout>

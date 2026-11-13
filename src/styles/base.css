@@ -234,6 +234,7 @@
   --section-space-large-min: 88;
   --section-space-large-max: 160;
   --section-space-nav-overlap: clamp(var(--section-space-nav-overlap-min) / 16 * 1rem, ((var(--section-space-nav-overlap-min) - ((var(--section-space-nav-overlap-max) - var(--section-space-nav-overlap-min)) / (var(--viewport-max) - var(--viewport-min)) * var(--viewport-min))) / 16 * 1rem + ((var(--section-space-nav-overlap-max) - var(--section-space-nav-overlap-min)) / (var(--viewport-max) - var(--viewport-min))) * 100vw), var(--section-space-nav-overlap-max) / 16 * 1rem);
+  --section-space-page-top: 2rem;
   --section-space-nav-overlap-min: 160;
   --section-space-nav-overlap-max: 224;
 }
