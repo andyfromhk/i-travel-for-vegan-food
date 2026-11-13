@@ -39,11 +39,31 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
 - Destinations and authors gained a `slug` field (the same as the file name) so the CMS can link to them.
   `src/data/books.json` is now a list, so the CMS can edit it.
 
+## Done (Phase 5: pre-launch checks and the launch checklist)
+
+- **`docs/launch-checklist.md`**: go / no-go, the content refresh the day before, saving the DNS, the switch,
+  checks, rollback, the two weeks after, and tidying up once Webflow is cancelled.
+- **Lighthouse** (phone settings, on the local build): home 94 for performance (the live Webflow home page
+  scores 68 on the same test), accessibility 96–97, best practices 100, SEO 100 on every page tested. The
+  one best-practices point lost on map guides is the Maps key refusing `localhost`.
+- **Smaller photos in cards and photo grids.** The build makes a 600-pixel copy of each photo shown small
+  and lets the browser choose it, which halved the home page's weight (2.2 MB to 1.1 MB) and its loading
+  time on phones (5.9 to 2.9 seconds). The originals and their addresses are unchanged.
+- **Caching:** files whose names change with their contents are kept by browsers for a year, photos for a
+  week (`public/_headers`).
+- **Accessibility fixes:** grey text is darker (it was 3.2:1 against white, below the 4.5:1 guideline);
+  photo links all have names; captioned photos aren't described twice; table-of-contents links are big
+  enough to tap; destination pages have a heading for the restaurant cards.
+- **Structured data:** all 623 blocks on 330 pages are valid JSON with the properties Google asks for.
+- **Phones:** no page scrolls sideways at 320, 375, 768 or 1280 pixels wide.
+- **How Cloudflare serves it,** tried with Wrangler locally: addresses without `.html`, trailing slashes
+  dropped, every redirect, query strings kept through redirects, the 404 page with a 404 status.
+
 ## Checked, and how
 
 | Check | Result |
 |---|---|
-| Build | 330 pages, about 30 seconds |
+| Build | 330 pages, about a minute (most of it making the photo copies; a rebuild reuses them) |
 | Type check (`npx astro check`) | 0 errors, 0 warnings |
 | Old URLs (`migration/scripts/check-parity.mjs`) | 348 identical, 2 redirect on purpose (`/map-guides-itineraries`, `/search`), 0 missing |
 | Internal links | 18,640 checked; 2 lead nowhere, and both were already broken on the old site |
@@ -66,9 +86,11 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
 
 ## For Andy to do
 
-1. Put the site on a preview address: `docs/preview-setup.md`.
-2. Export the form submissions from Webflow (the footer sign-ups are only stored there).
-3. Look through `docs/conversion-report.md`: the map guide places matched to restaurants, especially the few
+1. Put the site on a preview address: `docs/preview-setup.md` (done), and switch on the Maps Embed API there.
+2. Set up Pages CMS and try it on the preview: `docs/editing-guide.md`, "Setting up".
+3. Go through the go / no-go list in `docs/launch-checklist.md`, then pick a launch day.
+4. Export the form submissions from Webflow (the footer sign-ups are only stored there).
+5. Look through `docs/conversion-report.md`: the map guide places matched to restaurants, especially the few
    marked "please confirm". Four stops now show what the restaurant's own record says, which differs from
    what the guide said: Hai Hai, Motto Motto and Taro's Ramen (the Brisbane ramen guide said "Good Vegan
    Options", their records say "Limited Vegan Options") and Alaska Zwei (the guide said "$", its record says "$$").
@@ -85,6 +107,14 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
 4. **Google Analytics.** GA4 is kept and only loads on the built site. Cloudflare Web Analytics could replace
    or join it.
 5. **Restaurants shown on a destination page.** The first 8, by popularity, with the rest in the map. Webflow showed 4.
+6. **The brand green is just short of the contrast guideline.** `#5a8707` is 4.28:1 on white; the
+   guideline for normal-size text is 4.5:1. It's the last thing Lighthouse flags (green labels, links and
+   white text on green buttons). `#558005` reaches 4.69:1 and looks almost the same. Say if you'd like it
+   changed; it's one line in `src/styles/base.css`. The orange used for "Good Vegan Options" is also faint
+   as text (2.4:1).
+7. **Big photos.** 3,033 of the 4,920 photos are over 100 KB (684 over 200 KB, 16 over 500 KB, the largest
+   2.3 MB). Cards and grids now use small copies, but guides show the originals. A one-off pass could shrink
+   the large ones to at most 1,600 pixels wide at good quality, keeping every file name. Say if you'd like it.
 
 ## Decisions made with Andy (12 November 2026)
 

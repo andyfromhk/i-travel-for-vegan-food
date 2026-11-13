@@ -15,6 +15,7 @@ import {
   taxonomies,
   vegTypes,
 } from "@/utils/content.ts";
+import { responsive } from "@/utils/thumbs.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -160,6 +161,7 @@ const priceRank = (slug?: string) =>
                       loading="lazy"
                       decoding="async"
                       {...mediaSize(data.image.src)}
+                      {...responsive(data.image.src, "6.5rem")}
                     />
                   )}
                 </div>

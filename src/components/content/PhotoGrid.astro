@@ -1,5 +1,6 @@
 ---
 import { type Picture, mediaSize } from "@/utils/content.ts";
+import { GRID_SIZES, responsive } from "@/utils/thumbs.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -22,22 +23,30 @@ const { render = true, photos, label = "Photos" } = Astro.props;
 {
   render && photos.length > 0 && (
     <ul class="photo-grid_wrap" data-lightbox={label}>
-      {photos.map((photo) => (
+      {photos.map((photo, index) => (
         <li class="photo-grid_item">
+          {/* The caption names the link, so the photo itself has empty alt text (no name read twice).
+              A photo without a caption is named by its place in the grid. */}
           <a
             class="photo-grid_link"
             href={photo.src}
             target="_blank"
             rel="noopener"
             data-caption={photo.alt}
+            aria-label={
+              photo.alt
+                ? undefined
+                : `${label}: photo ${index + 1} of ${photos.length}`
+            }
           >
             <img
               class="photo-grid_image"
               src={photo.src}
-              alt={photo.alt ?? ""}
+              alt=""
               loading="lazy"
               decoding="async"
               {...mediaSize(photo.src)}
+              {...responsive(photo.src, GRID_SIZES)}
             />
             {photo.alt && <span class="photo-grid_caption">{photo.alt}</span>}
           </a>

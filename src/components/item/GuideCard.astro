@@ -10,6 +10,7 @@ import {
   isMapGuide,
   mediaSize,
 } from "@/utils/content.ts";
+import { CARD_SIZES, responsive } from "@/utils/thumbs.ts";
 
 interface Props extends HTMLAttributes<"a"> {
   /** Set to `false` to omit the component. */
@@ -58,6 +59,7 @@ const text = data.summary || data.description;
             loading={loading}
             decoding="async"
             {...size}
+            {...responsive(data.image.src, CARD_SIZES)}
           />
         )}
         {mapGuide && (

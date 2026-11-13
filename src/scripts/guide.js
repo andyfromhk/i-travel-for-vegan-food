@@ -684,8 +684,10 @@
         (infoLine(p, false) || p.heading).insertAdjacentElement('afterend', row);
         if (FEATURES.saveButtons) row.appendChild(VT.saved.button(placeItem(p)));
         if (FEATURES.myLocation && hasLocation) {
+          // Until "My location" knows where the reader is, the link asks Google Maps for directions from wherever they are.
           p.go = VT.ui.el('a', {
             class: 'vt-chip vt-go', target: '_blank', rel: 'noopener', hidden: true,
+            href: 'https://www.google.com/maps/dir/?' + new URLSearchParams({ api: '1', destination: p.lat + ',' + p.lng }),
             html: ICONS.directions + '<span>Directions</span>', 'aria-label': 'Directions to ' + p.title + ' from where you are',
           });
           row.appendChild(p.go);

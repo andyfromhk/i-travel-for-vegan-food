@@ -18,9 +18,10 @@ const { render = true, photos } = Astro.props;
       <ul class="dest-gallery_list" tabindex="0" aria-label="Photos">
         {photos.map((photo, index) => (
           <li class="dest-gallery_slide">
+            {/* The caption below says what the photo shows, so the image doesn't repeat it. */}
             <img
               src={photo.src}
-              alt={photo.alt ?? ""}
+              alt=""
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
               {...mediaSize(photo.src)}

@@ -9,6 +9,7 @@ import {
   vegTypes,
   STATUS_LABEL,
 } from "@/utils/content.ts";
+import { CARD_SIZES, responsive } from "@/utils/thumbs.ts";
 
 interface Props extends HTMLAttributes<"article"> {
   /** Set to `false` to omit the component. */
@@ -56,6 +57,7 @@ const size = mediaSize(data.image?.src);
             loading={loading}
             decoding="async"
             {...size}
+            {...responsive(data.image.src, CARD_SIZES)}
           />
         )}
       </div>
