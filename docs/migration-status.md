@@ -107,6 +107,7 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
 4. **Google Analytics.** GA4 is kept and only loads on the built site. Cloudflare Web Analytics could replace
    or join it.
 5. **Restaurants shown on a destination page.** The first 8, by popularity, with the rest in the map. Webflow showed 4.
+
 ## Decisions made with Andy (13 November 2026, later)
 
 - "Good Vegan Options" orange `#b66000`.
