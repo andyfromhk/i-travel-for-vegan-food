@@ -29,10 +29,14 @@
     // Where replies go. Same as the "from" address; change it if you ever want replies to go elsewhere.
     "REPLY_TO": "hello@itravelforveganfood.com",
     "SITE_URL": "https://www.itravelforveganfood.com",
-    // Websites allowed to use this Worker (comma-separated). Add the new Astro site's addresses here later.
+    // Websites allowed to use this Worker (comma-separated). When the new site has a preview address
+    // (https://itfvf-site.<your-subdomain>.workers.dev), add it to the end of this list.
     "ALLOWED_ORIGINS": "https://www.itravelforveganfood.com,https://itravelforveganfood.com,https://itravelforveganfood.webflow.io",
     // Kit tag given to everyone who ticks "Also send me new guides".
     "KIT_OPTIN_TAG_ID": "24152685",
+    // Name of the Kit tag given to everyone who joins through the newsletter form in the website's footer.
+    // The tag is created in Kit the first time someone signs up.
+    "KIT_NEWSLETTER_TAG": "Website newsletter",
     // Logo at the top of the email. A PNG works in every email program (WebP doesn't show in desktop Outlook).
     "LOGO_URL": "https://cdn.prod.website-files.com/60cbefb367e06dd6b12c5204/6abe1f24f3c6b7459ce4d6fc_itfvf-logo.png"
   },

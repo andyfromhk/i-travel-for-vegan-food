@@ -55,5 +55,14 @@ export async function optIn(env, email, cityNames) {
   }
 }
 
+// Adds a reader who signed up with the newsletter form in the website's footer.
+// They get the tag named in wrangler.jsonc (KIT_NEWSLETTER_TAG), created in Kit the first time it's needed.
+export async function subscribe(env, email) {
+  if (!env.KIT_API_KEY) throw new Error('KIT_API_KEY is not set');
+  await kit(env, '/subscribers', { method: 'POST', body: JSON.stringify({ email_address: email }) });
+  const id = await tagIdFor(env, env.KIT_NEWSLETTER_TAG || 'Website newsletter');
+  if (id) await tag(env, id, email);
+}
+
 // For tests.
 export function forgetTags() { tagIds.clear(); }
