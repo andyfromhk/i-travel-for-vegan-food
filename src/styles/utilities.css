@@ -791,6 +791,10 @@
   max-width: var(--max-width-small);
 }
 
+.max-width-medium {
+  max-width: var(--max-width-medium);
+}
+
 .max-width-full {
   max-width: var(--max-width-full);
 }

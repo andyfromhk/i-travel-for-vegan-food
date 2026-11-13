@@ -60,6 +60,7 @@
 
   /* Max width */
   --max-width-small: 53.125rem;
+  --max-width-medium: 64rem;
   --max-width-main: 75rem;
   --max-width-full: 100%;
 

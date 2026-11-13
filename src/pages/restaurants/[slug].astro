@@ -122,14 +122,14 @@ const schema = [
   <Section
     paddingTop="pagetop"
     paddingBottom="none"
-    containerClass="max-width-small"
+    containerClass="max-width-medium"
   >
     <PlaceHero place={place} />
   </Section>
 
   {/* Review and location */}
   <Section paddingTop="small" paddingBottom="small" gap="6">
-    <ContentWrapper variant="columns">
+    <ContentWrapper variant="columns" column1Class="align-self-start">
       <RichText data-vt-richtext>
         <Content />
       </RichText>
@@ -166,7 +166,7 @@ const schema = [
     <Heading tag="h2" variant="h3" class="align-self-center"
       >Food &amp; Drink Photos</Heading
     >
-    <PhotoGrid photos={data.gallery} />
+    <PhotoGrid photos={data.gallery} label="Food & Drink Photos" />
   </Section>
   <Section
     render={data.menu.length > 0}
@@ -178,7 +178,7 @@ const schema = [
     <Heading tag="h2" variant="h3" class="align-self-center"
       >Menu &amp; Vibe</Heading
     >
-    <PhotoGrid photos={data.menu} />
+    <PhotoGrid photos={data.menu} label="Menu & Vibe" />
   </Section>
 
   {/* More places nearby */}

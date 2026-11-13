@@ -6,6 +6,7 @@ import instagram from "@/assets/icons/instagram.svg";
 import facebook from "@/assets/icons/facebook.svg";
 import phone from "@/assets/icons/phone.svg";
 import type { Place } from "@/utils/content.ts";
+import { GOOGLE_MAPS } from "@/consts.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -22,6 +23,17 @@ const mapsHref = data.chain
     (data.address
       ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${data.name}, ${data.address}`)}`
       : undefined));
+/* A Google map of the place, found by name and address (or by its coordinates when there's no address).
+   Chains have no single location and closed places nothing to visit, so neither gets one. */
+const mapQuery = data.address
+  ? `${data.name}, ${data.address}`
+  : data.location
+    ? `${data.location.lat},${data.location.lng}`
+    : "";
+const embedSrc =
+  mapQuery && !data.chain && data.status !== "permanently-closed"
+    ? `https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS.key}&q=${encodeURIComponent(mapQuery)}`
+    : undefined;
 const links = [
   data.website && { href: data.website, icon: globe, label: "Website" },
   data.instagram && {
@@ -74,6 +86,16 @@ const links = [
           ))}
         </ul>
       )}
+      {embedSrc && (
+        <iframe
+          class="place-info_map"
+          src={embedSrc}
+          title={`Map of ${data.name}`}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        />
+      )}
     </aside>
   )
 }
@@ -103,6 +125,15 @@ const links = [
         flex: none;
         margin-top: 0.15em;
       }
+    }
+
+    .place-info_map {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      margin-top: var(--space-1);
+      border: 0;
+      border-radius: var(--radius-main);
+      background-color: var(--background-2);
     }
 
     .place-info_links {
