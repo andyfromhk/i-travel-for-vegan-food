@@ -1,5 +1,6 @@
 ---
 name: Taipei
+slug: taipei
 country: taiwan
 order: 21
 homeOrder: 8

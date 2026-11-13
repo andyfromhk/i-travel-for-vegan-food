@@ -107,7 +107,7 @@ To get coordinates: right-click the spot in Google Maps and click the numbers at
 
 - The part before the `|` is the short label shown on the map ("15-minute walk"). The part after it is the
   text readers see in the guide. Links and bold work there.
-- Routes and days only appear on the map when the guide's **Display routes** switch is on.
+- Routes and days only appear on the map when the guide's **Draw routes between stops** switch is on.
 
 ## Embedded maps and the hotel widget
 

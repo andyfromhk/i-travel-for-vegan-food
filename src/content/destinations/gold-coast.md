@@ -1,5 +1,6 @@
 ---
 name: Gold Coast
+slug: gold-coast
 country: australia
 order: 4
 featured: true

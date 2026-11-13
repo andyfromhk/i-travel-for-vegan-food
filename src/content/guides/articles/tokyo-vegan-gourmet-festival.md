@@ -101,7 +101,7 @@ Here are some other Japanese food you can find in the festival:
 
 If you are craving a burger or burrito, worry not, this festival has you covered as well.
 
-Thi&#x73;**&#x20;**'pork' skewer is meaty and crispy. With sweet teriyaki sauce drizzled on top, it is a great snack when walking around the festival. The same shop also sells burgers.
+This 'pork' skewer is meaty and crispy. With sweet teriyaki sauce drizzled on top, it is a great snack when walking around the festival. The same shop also sells burgers.
 
 ![](/media/guides/tokyo-vegan-gourmet-festival/lrm-export-113296249705060-20190930-185930520.jpeg)
 

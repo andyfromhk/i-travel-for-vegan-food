@@ -66,8 +66,8 @@ You can also pair cookie, brownie, or simply a waffle cone with the ice cream. T
 
 Overall, this shop is a must-go in Singapore for their impressive ice cream. Make sure to visit the vegan friendly supermarket SuperNature right next door.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/e8VpKAXLJpyV4q9b7)\
-[Website ](http://kindkones.com/)| [Instagram ](https://www.instagram.com/kindkones/)| [Facebook](https://www.facebook.com/kindkones/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/e8VpKAXLJpyV4q9b7)\
+[Website](http://kindkones.com/) | [Instagram](https://www.instagram.com/kindkones/) | [Facebook](https://www.facebook.com/kindkones/)
 
 ---
 
@@ -89,8 +89,8 @@ For burgers, you can also add on vegan egg, cheese, bacon, etc for SG$2 extra ea
 
 Overall, Vegan Burg is a great place in Singapore to grab a satisfying burger meal.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/ZGvKBMhcpjN5bPE76)\
-[Website](https://www.veganburg.com/aboutus-sg) | [Instagram ](https://www.instagram.com/veganburg/)| [Facebook](http://www.facebook.com/veganburg)
+**Vegan** | [Address and Hours](https://goo.gl/maps/ZGvKBMhcpjN5bPE76)\
+[Website](https://www.veganburg.com/aboutus-sg) | [Instagram](https://www.instagram.com/veganburg/) | [Facebook](http://www.facebook.com/veganburg)
 
 ---
 
@@ -106,8 +106,8 @@ The decor is quite modern with big windows to allow natural light in. The servic
 
 A few things to note is that, even though the last order time is supposed to be 9pm, it was called at 8:30 instead. And the closest MRT station (Eunos station) is not very close to the restaurant. About a 20 minute walk. So it may be better to take the bus (bus 16 or 33).
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/yfhGazvQCZCrtcyk6)\
-[Website ](https://lovinghut.com.sg/)| [Instagram ](https://www.instagram.com/lovinghutsingapore/)| [Facebook](https://www.facebook.com/lovinghutsgjoochiat)
+**Vegan** | [Address and Hours](https://goo.gl/maps/yfhGazvQCZCrtcyk6)\
+[Website](https://lovinghut.com.sg/) | [Instagram](https://www.instagram.com/lovinghutsingapore/) | [Facebook](https://www.facebook.com/lovinghutsgjoochiat)
 
 ---
 
@@ -135,8 +135,8 @@ The modern Japanese decor and helpful staff are also a plus.
 
 Overall quite impressed with the quality of the food in this restaurant. Although it is quite pricey, it’s worth it for the high quality food.
 
-**Vegetarian&#x20;**| [Address and Hours](https://goo.gl/maps/AXhEnxc2dnngFdC1A)\
-[Website ](https://www.herbivore.sg/)| [Instagram ](https://www.instagram.com/herbivore_sg/)| [Facebook](https://www.facebook.com/herbivoresg/)
+**Vegetarian** | [Address and Hours](https://goo.gl/maps/AXhEnxc2dnngFdC1A)\
+[Website](https://www.herbivore.sg/) | [Instagram](https://www.instagram.com/herbivore_sg/) | [Facebook](https://www.facebook.com/herbivoresg/)
 
 ---
 
@@ -150,8 +150,8 @@ Also on the ground floor of Fortune Centre is this juice shop. It’s all vegan 
 
 I ordered a Tracy Special Udon and a passion fruit smoothie. The soup is hearty and filled with chunks of mushroom and some mock meat. The smoothie is good as well, but unfortunately it uses plastic cup and straw.
 
-**Vegetarian&#x20;**| [Address and Hours](https://goo.gl/maps/my7xGmUm22h8E4tq9)\
-[Website ](http://www.tracyjuiceculture.com/)| [Instagram ](https://www.instagram.com/tracyjuiceculture/)| [Facebook](https://www.facebook.com/TracyJuiceCulture/)
+**Vegetarian** | [Address and Hours](https://goo.gl/maps/my7xGmUm22h8E4tq9)\
+[Website](http://www.tracyjuiceculture.com/) | [Instagram](https://www.instagram.com/tracyjuiceculture/) | [Facebook](https://www.facebook.com/TracyJuiceCulture/)
 
 ---
 
@@ -171,8 +171,8 @@ This matcha ice cream on waffle is amazing. The ice cream is smooth and flavourf
 
 The ice cream milkshake is thick, milky, creamy, and everything you want in a good shake. You choose your own flavour of ice cream, which then is blended with Bonsoy soy milk. I couldn’t help but for two of these even though I just had the waffle!
 
-**Vegan&#x20;**| [Address and Hours](https://g.page/smoocht?share)\
-[Website ](http://www.smoocht.com/)| [Instagram ](https://www.instagram.com/smoocht/)| [Facebook](https://www.facebook.com/smoocht/)
+**Vegan** | [Address and Hours](https://g.page/smoocht?share)\
+[Website](http://www.smoocht.com/) | [Instagram](https://www.instagram.com/smoocht/) | [Facebook](https://www.facebook.com/smoocht/)
 
 ---
 
@@ -192,8 +192,8 @@ The side dishes are all good with the sesame seaweed stem being the standout.
 
 Boneless Kitchen seems to be quite popular with locals. It was full even before 6:30 on Saturday.
 
-**Vegetarian&#x20;**| [Address and Hours](https://g.page/thebonelesskitchen?share)\
-[Website ](http://thebonelesskitchen.com/)| [Instagram ](https://www.instagram.com/thebonelesskitchen/)| [Facebook](https://www.facebook.com/thebonelesskitchen/)
+**Vegetarian** | [Address and Hours](https://g.page/thebonelesskitchen?share)\
+[Website](http://thebonelesskitchen.com/) | [Instagram](https://www.instagram.com/thebonelesskitchen/) | [Facebook](https://www.facebook.com/thebonelesskitchen/)
 
 ---
 
@@ -209,8 +209,8 @@ You can find bento (with your choice of different dishes), noodles, hot pot, bur
 
 The taste is pretty good overall. As it’s a health-conscious eatery, the food won’t be very salty.
 
-**Vegetarian&#x20;**| [Address and Hours](https://www.google.com/maps/search/greendot/@1.3360833,103.8772729,15z/data=!3m1!4b1)\
-[Website ](https://www.greendot.sg/)| [Instagram ](https://www.instagram.com/greendotsg/)| [Facebook](https://www.facebook.com/greendotsg)
+**Vegetarian** | [Address and Hours](https://www.google.com/maps/search/greendot/@1.3360833,103.8772729,15z/data=!3m1!4b1)\
+[Website](https://www.greendot.sg/) | [Instagram](https://www.instagram.com/greendotsg/) | [Facebook](https://www.facebook.com/greendotsg)
 
 ---
 
@@ -226,8 +226,8 @@ The food in general is good, with the mushroom truffle burger (crispy patty with
 
 The Clarke Quay chain (nomVnom Bistro) has beautiful view and decor, overlooking the Singapore River. So if you are going, that location would be a good choice.
 
-**Vegan&#x20;**| [Address and Hours](https://www.google.com/maps/search/nomvnom/@1.336083,103.8510082,13z/data=!3m1!4b1)\
-[Website ](https://www.nomvnom.com/)| [Instagram ](https://www.instagram.com/nomvnom_sg/)| [Facebook](https://www.facebook.com/nomvnom.sg)
+**Vegan** | [Address and Hours](https://www.google.com/maps/search/nomvnom/@1.336083,103.8510082,13z/data=!3m1!4b1)\
+[Website](https://www.nomvnom.com/) | [Instagram](https://www.instagram.com/nomvnom_sg/) | [Facebook](https://www.facebook.com/nomvnom.sg)
 
 ---
 
@@ -241,7 +241,7 @@ This higher end restaurant chain in Singapore offers clearly marked vegan option
 
 This location at JEWEL, Changi Airport has a great view. Go upstairs to overlook the world's tallest indoor waterfall. It’s especially pretty at night when it changes color.
 
-**Vegan Options&#x20;**| [Address and Hours](https://goo.gl/maps/vG2CmK8Q1vehiUqg8)\
+**Vegan Options** | [Address and Hours](https://goo.gl/maps/vG2CmK8Q1vehiUqg8)\
 [Website](http://www.theprivegroup.com.sg/prive)
 
 ![](/media/guides/vegan-singapore-guide/lrm-export-415249989023572-20191015-204337594-768x1024.jpeg)
@@ -258,8 +258,8 @@ Craving for an acai bowl? This shop will get you covered. With a few locations a
 
 The bowls are mostly vegan friendly, but there are a few things to keep in mind. The granola which is found in all bowls has honey. So ask the staff to not add it. For the drizzle, all are vegan except the honey drizzle. And the Greek Physique which has yogurt.
 
-**Vegetarian&#x20;**| [Address and Hours](https://www.google.com/maps/search/an+acai+affair/@1.3134265,103.8169721,13z)\
-[Website ](https://www.anacaiaffair.com/)| [Instagram ](https://www.instagram.com/anacaiaffair/)| [Facebook](https://www.facebook.com/anacaiaffair/)
+**Vegetarian** | [Address and Hours](https://www.google.com/maps/search/an+acai+affair/@1.3134265,103.8169721,13z)\
+[Website](https://www.anacaiaffair.com/) | [Instagram](https://www.instagram.com/anacaiaffair/) | [Facebook](https://www.facebook.com/anacaiaffair/)
 
 ---
 
@@ -271,8 +271,8 @@ The bowls are mostly vegan friendly, but there are a few things to keep in mind.
 
 Another acai bowl specialty shop. No dairy is used for their acai bowls. The only non-vegan item is the Brazilian bowl with honey as a topping. The bowl tastes good with lots of toppings. A good mix of crunchy ingredients and soft fruity ones.
 
-**Vegetarian&#x20;**| [Address and Hours](https://www.google.com/maps/search/absolute+acai/@1.3134255,103.8169721,13z/data=!3m1!4b1)\
-[Website ](https://www.absolute-acai.com/)| [Instagram ](https://www.instagram.com/absoluteacai/)| [Facebook](https://www.facebook.com/absoluteacai/)
+**Vegetarian** | [Address and Hours](https://www.google.com/maps/search/absolute+acai/@1.3134255,103.8169721,13z/data=!3m1!4b1)\
+[Website](https://www.absolute-acai.com/) | [Instagram](https://www.instagram.com/absoluteacai/) | [Facebook](https://www.facebook.com/absoluteacai/)
 
 ---
 
@@ -284,8 +284,8 @@ SaladStop! is a salad bowl shop with many locations in Singapore. It’s a great
 
 I got a Beyond Me bowl which comes with beyond meat pieces, red pepper hummus, and different beans and veggies. It’s filling, healthy and delicious.
 
-**Vegan Options&#x20;**| [Address and Hours](https://www.google.com/maps/search/saladstop/@1.313425,103.816972,13z/data=!3m1!4b1)\
-[Website ](https://www.saladstop.com.sg/en/)| [Instagram ](https://www.instagram.com/saladstop/)| [Facebook](https://www.facebook.com/saladstop/)
+**Vegan Options** | [Address and Hours](https://www.google.com/maps/search/saladstop/@1.313425,103.816972,13z/data=!3m1!4b1)\
+[Website](https://www.saladstop.com.sg/en/) | [Instagram](https://www.instagram.com/saladstop/) | [Facebook](https://www.facebook.com/saladstop/)
 
 ---
 
@@ -297,7 +297,7 @@ Real Food is a vegetarian chain in Singapore. The decor is modern and seatings a
 
 Overall the food is ok to good, but with some disappointing aspects. The portions can be a bit small for the price. And also, it’s weird to see a healthy vegetarian restaurant charges money for water.
 
-**Vegetarian&#x20;**| [Address and Hours](https://www.google.com/maps/search/real+food/@1.3134245,103.816972,13z/data=!3m1!4b1)\
+**Vegetarian** | [Address and Hours](https://www.google.com/maps/search/real+food/@1.3134245,103.816972,13z/data=!3m1!4b1)\
 [Website](https://www.realfoodgrocer.com/)
 
 ---
@@ -308,7 +308,7 @@ Overall the food is ok to good, but with some disappointing aspects. The portion
 
 This curry chain from Japan has vegan options. The curry sauce, unlike in Japan, doesn’t contain animal ingredients. So the veggie curry dishes are vegan. Ask the staff to clarify if you are not sure.
 
-**Vegan Options&#x20;**| [Address and Hours](https://www.google.com/maps/search/coco+ichibanya/@1.3134241,103.816972,13z/data=!3m1!4b1)
+**Vegan Options** | [Address and Hours](https://www.google.com/maps/search/coco+ichibanya/@1.3134241,103.816972,13z/data=!3m1!4b1)
 
 ---
 
@@ -318,7 +318,7 @@ This curry chain from Japan has vegan options. The curry sauce, unlike in Japan,
 
 This vegetarian food stall near Bugis Station serves some local dishes. And the prices are reasonable as well.
 
-**Vegetarian&#x20;**| [Address and Hours](https://goo.gl/maps/K6rPnQTHNpSdvArJ6)
+**Vegetarian** | [Address and Hours](https://goo.gl/maps/K6rPnQTHNpSdvArJ6)
 
 ---
 
@@ -328,7 +328,7 @@ This vegetarian food stall near Bugis Station serves some local dishes. And the 
 
 This salad bowl shop has vegan options as well.
 
-**Vegan Options&#x20;**| [Address and Hours](https://www.google.com/maps/search/toss+and+turn/@1.2988193,103.8381623,14z/data=!3m1!4b1)
+**Vegan Options** | [Address and Hours](https://www.google.com/maps/search/toss+and+turn/@1.2988193,103.8381623,14z/data=!3m1!4b1)
 
 ---
 
@@ -338,7 +338,7 @@ This salad bowl shop has vegan options as well.
 
 This German restaurant chain has vegan burgers. The decor and environment is classy and modern.
 
-**Vegan Options&#x20;**| [Address and Hours](https://www.google.com/maps/search/Hans+im+Gl%C3%BCck/@1.2940138,103.8395356,14z/data=!3m1!4b1)
+**Vegan Options** | [Address and Hours](https://www.google.com/maps/search/Hans+im+Gl%C3%BCck/@1.2940138,103.8395356,14z/data=!3m1!4b1)
 
 ---
 
@@ -348,7 +348,7 @@ This German restaurant chain has vegan burgers. The decor and environment is cla
 
 This worldwide vegetarian chain serves Indian dishes. The location is in Vivocity food court.
 
-**Vegetarian&#x20;**| [Address and Hours](https://www.google.com/maps/search/Saravanaa+Bhavan/@1.2882502,103.8371542,14z/data=!3m1!4b1)
+**Vegetarian** | [Address and Hours](https://www.google.com/maps/search/Saravanaa+Bhavan/@1.2882502,103.8371542,14z/data=!3m1!4b1)
 
 ---
 

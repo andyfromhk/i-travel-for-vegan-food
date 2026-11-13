@@ -1,5 +1,6 @@
 ---
 name: Singapore
+slug: singapore
 country: singapore
 order: 24
 image:

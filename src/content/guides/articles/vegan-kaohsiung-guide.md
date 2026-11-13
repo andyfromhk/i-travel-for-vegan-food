@@ -74,8 +74,8 @@ The food and drinks are well made and delicious. I especially love the red beetr
 
 *Raw chocolate tart and choc chip cookie*
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/TJEh3KtzU7u8ptDy7)\
-[Website ](https://mottainai-veg.com/)| [Instagram ](https://www.instagram.com/mottainaiplantbased/)| [Facebook](https://www.facebook.com/mottainai.vegan/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/TJEh3KtzU7u8ptDy7)\
+[Website](https://mottainai-veg.com/) | [Instagram](https://www.instagram.com/mottainaiplantbased/) | [Facebook](https://www.facebook.com/mottainai.vegan/)
 
 ---
 
@@ -97,8 +97,8 @@ I especially love their sweet flavours. The lava chocolate cookie has chocolate 
 
 The food cart is located outside another vegan place called Ye Shu Shu Shi which will be introduced later in this guide.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/JcBYWRLcxLK1WCs49)\
-[Instagram ](https://www.instagram.com/wheelsoffortune86/)| [Facebook](https://www.facebook.com/wheelsoffortune86)
+**Vegan** | [Address and Hours](https://goo.gl/maps/JcBYWRLcxLK1WCs49)\
+[Instagram](https://www.instagram.com/wheelsoffortune86/) | [Facebook](https://www.facebook.com/wheelsoffortune86)
 
 ![](/media/guides/vegan-kaohsiung-guide/lrm-export-737808176614224-20190830-134657416-683x1024.jpeg)
 
@@ -121,7 +121,7 @@ For desserts and drinks, I’m happy to find 5 vegan desserts on the two visits,
 The restaurant is quite big with hundreds of seats. Even though the restaurant is not full on weekdays, the food is refilled consistently. Also the service is great with polite and happy staff.
 
 **Vegetarian** | [Address and Hours](https://goo.gl/maps/tvHNTNbsJjmjbcMq7)\
-[Website ](http://www.fruitfulfood.com.tw/)| [Facebook](https://www.facebook.com/www.fruitfulfood.com.tw/)
+[Website](http://www.fruitfulfood.com.tw/) | [Facebook](https://www.facebook.com/www.fruitfulfood.com.tw/)
 
 ![](/media/guides/vegan-kaohsiung-guide/lrm-export-693612822652958-20190829-181210851-1024x683.jpeg)
 
@@ -140,7 +140,7 @@ This busy Japanese restaurant serves high quality and delicious Japanese cuisine
 You will find many traditional Japanese dishes here like sushi, tempura, skewers, etc. I especially love the soft shell crab sushi and the mushroom ball (fried mushroom with tofu and veggies). The food is in general very good with reasonable prices.
 
 **Vegetarian** | [Address and Hours](https://goo.gl/maps/HwE8mhNNhLg489iU6)\
-[Instagram ](https://www.instagram.com/goulakuya/)| [Facebook](https://www.facebook.com/lakuya1130/)
+[Instagram](https://www.instagram.com/goulakuya/) | [Facebook](https://www.facebook.com/lakuya1130/)
 
 ![](/media/guides/vegan-kaohsiung-guide/lrm-export-79343037347023-20190905-010345575-768x1024.jpeg)
 
@@ -161,7 +161,7 @@ I went in the afternoon for the dim sum. The dishes are delicious and nicely pre
 The decor is also nice and modern with comfortable seating.
 
 **Vegetarian** | [Address and Hours](https://goo.gl/maps/QazdMYyN2bq6T55s9)\
-[Website ](http://www.hilai-foods.com/zh_TW/brand/vegetarian)| [Facebook](https://www.facebook.com/hilaivegetables/)
+[Website](http://www.hilai-foods.com/zh_TW/brand/vegetarian) | [Facebook](https://www.facebook.com/hilaivegetables/)
 
 ---
 
@@ -183,8 +183,8 @@ Takoyaki which usually is made with octopus, is created with oyster mushroom to 
 
 One thing that’s not as great is the use of plastic. Fork, spoon and chopsticks are all one-use. And they only have plastic bottled drinks available.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/R3kqYQZ9XiptntHc9)\
-[Instagram ](https://www.instagram.com/vaganfood147/)| [Facebook](https://www.facebook.com/noso2333/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/R3kqYQZ9XiptntHc9)\
+[Instagram](https://www.instagram.com/vaganfood147/) | [Facebook](https://www.facebook.com/noso2333/)
 
 ---
 
@@ -239,7 +239,7 @@ You can also add TW$30 for unlimited drinks at this machine.
 Overall the food, service and decor are all great in this veg Japanese place.
 
 **Vegetarian** | [Address and Hours](https://goo.gl/maps/d5wKDJDCiCjfE2rw8)\
-[Instagram ](https://www.instagram.com/sen.guang.fong_vegetariandiet/)| [Facebook](https://www.facebook.com/%E6%A3%AE%E5%BB%A3%E8%B1%90-%E7%B4%A0%E9%A3%9F%E7%B2%BE%E9%80%B2%E6%96%99%E7%90%86-1985262428417228/)
+[Instagram](https://www.instagram.com/sen.guang.fong_vegetariandiet/) | [Facebook](https://www.facebook.com/%E6%A3%AE%E5%BB%A3%E8%B1%90-%E7%B4%A0%E9%A3%9F%E7%B2%BE%E9%80%B2%E6%96%99%E7%90%86-1985262428417228/)
 
 ---
 
@@ -253,8 +253,8 @@ Hope Yaki is a food cart located near Yanchengpu Station that sells vegan takoya
 
 Takoyaki is a traditional Japanese street food that is usually made with octopus. Their takoyaki is delicious with a crispy shell and flavourful filling. You can find ingredients like corn and water chestnut inside the soft filling which creates a good mix of different textures. Topped with seaweed, vegan mayo and spices, this snack tastes as good as they look.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/wmZEjZThsmDijNaJ9)\
-[Instagram ](https://www.instagram.com/hopeyakivegan/)| [Facebook](https://www.facebook.com/hopeyakivegan/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/wmZEjZThsmDijNaJ9)\
+[Instagram](https://www.instagram.com/hopeyakivegan/) | [Facebook](https://www.facebook.com/hopeyakivegan/)
 
 ![](/media/guides/vegan-kaohsiung-guide/lrm-export-731755069090647-20190830-120552591-820x1024.jpeg)
 
@@ -275,7 +275,7 @@ The set also comes with chewy sweet potato mochi balls and a drink. Both are nic
 This place is located right outside Taiwan Railway Nanzi Station. It is also walking distance from the Metropolitan Park metro station (red line).
 
 **Vegetarian** | [Address and Hours](https://goo.gl/maps/xyMMvZPeotJdYQhc6)\
-[Instagram ](https://www.instagram.com/newdanhurfgobeyond/)| [Facebook](https://www.facebook.com/NewDanhurf/)
+[Instagram](https://www.instagram.com/newdanhurfgobeyond/) | [Facebook](https://www.facebook.com/NewDanhurf/)
 
 ---
 
@@ -294,7 +294,7 @@ However, some parts of this buffet can be improved. Only 1 out of 6 salads are v
 Overall it’s a good buffet for vegans and would be nice to try if you are in the area.
 
 **Vegetarian** | [Address and Hours](https://goo.gl/maps/9Q7uYZvKJM475d8YA)\
-[Instagram ](https://www.instagram.com/doubleveggie/)| [Facebook](https://www.facebook.com/doubleveggie/)
+[Instagram](https://www.instagram.com/doubleveggie/) | [Facebook](https://www.facebook.com/doubleveggie/)
 
 ---
 
@@ -312,8 +312,8 @@ The 5 flavors are Soy milk, miso soy milk, (fermented rice), kimchi and chili ta
 
 Other side dishes include kimchi, pickles, other veggie dishes.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/kHWkeK4HvdMPniPv7)\
-[Instagram ](https://www.instagram.com/ramenhagi/)| [Facebook](https://www.facebook.com/RAMENHAGI/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/kHWkeK4HvdMPniPv7)\
+[Instagram](https://www.instagram.com/ramenhagi/) | [Facebook](https://www.facebook.com/RAMENHAGI/)
 
 ---
 
@@ -329,7 +329,7 @@ The menu features some interesting dishes like the Spanish seafood rice that I h
 
 The presentation is everything for this seafood rice. The veggie prawn can pass as real ones by how they look. It also has capsicum, mushrooms, olives, tomatoes, and broccoli. The taste is good, though not really authentic.
 
-**Vegan&#x20;**| Address and Hours: [Near Kaohsiung Arena Station](https://goo.gl/maps/yYpQRWYqYovD6JK47), [Near City Council Station](https://goo.gl/maps/zynfuhRAKckbbeGd6)\
+**Vegan** | Address and Hours: [Near Kaohsiung Arena Station](https://goo.gl/maps/yYpQRWYqYovD6JK47), [Near City Council Station](https://goo.gl/maps/zynfuhRAKckbbeGd6)\
 [Facebook](https://www.facebook.com/yesuvegan/)
 
 ![](/media/guides/vegan-kaohsiung-guide/lrm-export-65386254298649-20190901-012006833-768x1024.jpeg)
@@ -343,7 +343,7 @@ Wufu is a vegan taco food truck that goes to different market throughout the yea
 The colourful art on this taco truck makes a great first impression. They sell 3 different flavors of tacos. The California Sun taco comes with soy pieces, vegan sour cream, chips and other veggies. Things like toasting the tortilla show the owner’s attention to details. The taste is also pretty great.
 
 **Vegan** | Check facebook for location\
-[Instagram ](https://www.instagram.com/wufumade/)| [Facebook](https://www.facebook.com/wufumade/)
+[Instagram](https://www.instagram.com/wufumade/) | [Facebook](https://www.facebook.com/wufumade/)
 
 ![](/media/guides/vegan-kaohsiung-guide/lrm-export-2587997935938-20190902-185614569.jpeg)
 
@@ -364,7 +364,7 @@ Be careful as the hash brown that comes with the burger sets contains milk. The 
 The beef burger has a patty and some other veggies. It’s simple but acceptable for the price. The set fries is nicely made with seasonings on top. These two items plus a drink is TW$115, which is about US$3.8.
 
 **Vegetarian** | [Multiple locations](https://www.google.com/maps/search/%E5%BE%97%E4%BE%86%E7%B4%A0%E8%94%AC%E9%A3%9F%E6%97%A9%E5%8D%88%E9%A4%90/@22.644151,120.3071815,14z)\
-[Website ](https://www.dlsveg.com.tw/)| [Instagram ](https://www.instagram.com/dlsveg.sd/)| [Facebook](https://www.facebook.com/DLSVegetarian/)
+[Website](https://www.dlsveg.com.tw/) | [Instagram](https://www.instagram.com/dlsveg.sd/) | [Facebook](https://www.facebook.com/DLSVegetarian/)
 
 ---
 

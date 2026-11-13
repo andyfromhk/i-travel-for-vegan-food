@@ -84,6 +84,6 @@ Every Saturday 6am-2pm
 
 ## Links
 
-[Website](https://westendmarket.com.au/)[\
-Facebook](https://www.facebook.com/westendmarkets)\
+[Website](https://westendmarket.com.au/)\
+[Facebook](https://www.facebook.com/westendmarkets)\
 [Instagram](https://www.instagram.com/westendmarkets/)

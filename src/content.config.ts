@@ -2,7 +2,21 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-const image = z.object({ src: z.string(), alt: z.string().optional() });
+const picture = z.object({ src: z.string(), alt: z.string().optional() });
+// In Pages CMS someone can type a description and save before choosing the photo.
+// A photo without an image counts as no photo, rather than stopping the build.
+const hasSrc = (value: unknown) =>
+  !!value && typeof value === "object" && !!(value as { src?: unknown }).src;
+const image = z.preprocess(
+  (value) => (value == null || hasSrc(value) ? value : undefined),
+  picture.optional(),
+);
+const gallery = z
+  .preprocess(
+    (value) => (Array.isArray(value) ? value.filter(hasSrc) : value),
+    z.array(picture),
+  )
+  .default([]);
 const date = z.coerce.date().optional();
 
 /** Every physical place: restaurants with a review page, and stops in map guides that have none. */
@@ -27,7 +41,17 @@ const places = defineCollection({
     venueType: z.string().optional(),
     cuisine: z.string().optional(),
     district: z.string().optional(),
-    location: z.object({ lat: z.number(), lng: z.number() }).optional(),
+    // A pin needs both numbers; with only one filled in, the place simply has no pin yet.
+    location: z.preprocess(
+      (value) =>
+        value &&
+        typeof value === "object" &&
+        typeof (value as { lat?: unknown }).lat === "number" &&
+        typeof (value as { lng?: unknown }).lng === "number"
+          ? value
+          : undefined,
+      z.object({ lat: z.number(), lng: z.number() }).optional(),
+    ),
     address: z.string().optional(),
     mapsUrl: z.string().optional(),
     phone: z.string().optional(),
@@ -37,19 +61,26 @@ const places = defineCollection({
     featured: z.boolean().default(false),
     likes: z.number().optional(),
     summary: z.string().optional(),
-    image: image.optional(),
-    gallery: z.array(image).default([]),
-    menu: z.array(image).default([]),
+    image,
+    gallery,
+    menu: gallery,
     created: date,
     updated: date,
     published: date,
   }),
 });
 
+/** A slug is the last part of a page's address, and must match the file name: tokyo.md -> tokyo. */
+const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
+  message: "Use lowercase letters, numbers and single hyphens, e.g. hong-kong",
+});
+
 const destinations = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/destinations" }),
   schema: z.object({
     name: z.string(),
+    /** Same as the file name. Other entries use it to point at this destination. */
+    slug,
     country: z.string(),
     /** Position on the Destinations page and in the menu (lowest first). */
     order: z.number().default(999),
@@ -61,9 +92,9 @@ const destinations = defineCollection({
     /** Shows the "Vegan Travel Book" badge on the destination's card. */
     book: z.boolean().default(false),
     metaDescription: z.string().optional(),
-    image: image.optional(),
-    mapGraphic: image.optional(),
-    gallery: z.array(image).default([]),
+    image,
+    mapGraphic: image,
+    gallery,
     travel: z
       .object({
         whereToStay: z.string().optional(),
@@ -105,8 +136,8 @@ const guides = defineCollection({
     linkToMap: z.boolean().default(false),
     displayRoutes: z.boolean().default(false),
     draft: z.boolean().default(false),
-    image: image.optional(),
-    gallery: z.array(image).default([]),
+    image,
+    gallery,
     tocLevels: z.string().optional(),
     introduction: z.string().optional(),
     recommendations: z.string().optional(),
@@ -120,8 +151,10 @@ const authors = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/authors" }),
   schema: z.object({
     name: z.string(),
+    /** Same as the file name. Guides use it to name their author. */
+    slug,
     title: z.string().optional(),
-    image: image.optional(),
+    image,
     website: z.string().optional(),
     instagram: z.string().optional(),
     facebook: z.string().optional(),

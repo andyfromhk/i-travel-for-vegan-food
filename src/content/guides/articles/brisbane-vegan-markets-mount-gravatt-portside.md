@@ -52,8 +52,8 @@ Multiple location. Check the links for the latest locations.
 
 ## Links
 
-[Website\
-](https://qldveganmarkets.com.au/whats-on/)[Facebook](https://www.facebook.com/QLDVeganMarkets)\
+[Website](https://qldveganmarkets.com.au/whats-on/)\
+[Facebook](https://www.facebook.com/QLDVeganMarkets)\
 [Instagram](https://www.instagram.com/qldveganmarkets/)
 
 ![](/media/guides/brisbane-vegan-markets-mount-gravatt-portside/dsc9185.webp)

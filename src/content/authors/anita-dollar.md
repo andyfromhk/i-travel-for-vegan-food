@@ -1,5 +1,6 @@
 ---
 name: Anita Dollar
+slug: anita-dollar
 title: Guest Author
 image:
   src: /media/authors/anita-dollar-author-profile-picture.webp

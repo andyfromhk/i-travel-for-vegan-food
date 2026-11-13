@@ -49,7 +49,7 @@ published: 2026-10-16T01:36:21.085Z
 
 Evah Dining is a famous vegan chain in Fukuoka. They sell vegan bento, onigiri, and more in a few places throughout the city.
 
-[Website | ](http://www.evahdining.com/)[Facebook | ](https://www.facebook.com/%E3%82%A8%E3%83%B4%E3%82%A1%E3%83%80%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0-408346639202938/)[Instagram](https://www.instagram.com/evahdining_deli/)
+[Website |](http://www.evahdining.com/) [Facebook |](https://www.facebook.com/%E3%82%A8%E3%83%B4%E3%82%A1%E3%83%80%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0-408346639202938/) [Instagram](https://www.instagram.com/evahdining_deli/)
 
 Here are their 4 branches in Fukuoka:
 

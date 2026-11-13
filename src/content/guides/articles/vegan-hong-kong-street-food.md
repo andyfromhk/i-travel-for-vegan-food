@@ -46,7 +46,7 @@ Fish ball is a timeless Hong Kong street food staple, traditionally made from fi
 
 ---
 
-## **Steamed Rice Noodles&#x20;**(Cheong Fun 腸粉)
+## **Steamed Rice Noodles** (Cheong Fun 腸粉)
 
 *Vegan*
 

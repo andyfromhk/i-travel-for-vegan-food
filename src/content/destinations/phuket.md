@@ -1,5 +1,6 @@
 ---
 name: Phuket
+slug: phuket
 country: thailand
 order: 19
 homeOrder: 6

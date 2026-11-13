@@ -67,8 +67,8 @@ The dal curry I tried comes with a bowl of flavourful curry with legumes and cut
 
 Keep in mind that they only opens at lunch time Thursday to Sunday.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/hSsQt5yYijv7q8oj9)\
-[Website ](https://okinawamana.ti-da.net/)| [Instagram ](https://www.instagram.com/mana_vegan_okinawa/)| [Facebook](https://www.facebook.com/mana07vege/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/hSsQt5yYijv7q8oj9)\
+[Website](https://okinawamana.ti-da.net/) | [Instagram](https://www.instagram.com/mana_vegan_okinawa/) | [Facebook](https://www.facebook.com/mana07vege/)
 
 ---
 
@@ -92,8 +92,8 @@ The decor and atmosphere is another high point of Ukishima Garden. The outside g
 
 Overall Ukushima Garden is a great vegan restaurant with well-prepared food if you don’t mind spending a bit more.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/Xy86JnsH1nYwe3wB8)\
-[Website ](https://ukishima-garden.com/)| [Instagram ](https://www.instagram.com/ukishimagardenokinawa/)| [Facebook](https://www.facebook.com/UkishimaGarden/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/Xy86JnsH1nYwe3wB8)\
+[Website](https://ukishima-garden.com/) | [Instagram](https://www.instagram.com/ukishimagardenokinawa/) | [Facebook](https://www.facebook.com/UkishimaGarden/)
 
 ---
 
@@ -105,8 +105,8 @@ Located on the 2/F of Ryubo Department Store next to Prefectural Office Station,
 
 You can find vegan taco rice, burger, pancake, ice cream parfait and more here. The green leaf symbol you see on the menu means vegan. At the time of visit, they carry some baked goods like cookies from Detox Cafe Felicidad.
 
-**Vegan-option&#x20;**| [Address and Hours](https://goo.gl/maps/M1NmfGnZtWeChsqC6)\
-[Website ](http://www.resort-dept.okinawa/cafe/)| [Instagram ](https://www.instagram.com/resortdept/)| [Facebook](https://www.facebook.com/resortdept/)
+**Vegan-option** | [Address and Hours](https://goo.gl/maps/M1NmfGnZtWeChsqC6)\
+[Website](http://www.resort-dept.okinawa/cafe/) | [Instagram](https://www.instagram.com/resortdept/) | [Facebook](https://www.facebook.com/resortdept/)
 
 ![rakuen-cafe-okinawa-menu](/media/guides/vegan-okinawa-guide/img-20191119-124533-674x1024.jpeg)
 
@@ -122,8 +122,8 @@ You can find dishes like curry plates, dumplings, buddha bowl, soba, desserts an
 
 The dumpling set that I tried include an appetiser plate, dumplings, soy chicken, and a spicy fried noodles which I changed to Okinawa soba. The Okinawa soba turns out to be my favourite with its varied toppings, chewy noodles, and flavorful soup.
 
-**Vegan&#x20;**| [Address and Hours](https://g.page/vibhuti888?share)\
-[Website ](https://www.lalazorba.com/)| [Instagram ](https://www.instagram.com/lalazorba888_okinawa/)| [Facebook](https://www.facebook.com/vibhuti888/)
+**Vegan** | [Address and Hours](https://g.page/vibhuti888?share)\
+[Website](https://www.lalazorba.com/) | [Instagram](https://www.instagram.com/lalazorba888_okinawa/) | [Facebook](https://www.facebook.com/vibhuti888/)
 
 ![](/media/guides/vegan-okinawa-guide/2019-1122-22200000-1024x682.jpeg)
 
@@ -139,8 +139,8 @@ They serve some classic veg options like taco rice, curry rice, and more. Dinner
 
 The taco rice at lunch time is a healthy take on the dish without losing the tastiness. It has an abundance of salad leaves, topped with flavourful soy mince. It’s well seasoned with herbs and spices.
 
-**Vegetarian&#x20;**| [Address and Hours](https://goo.gl/maps/cQrgrUSqgkxznzyA9)\
-[Instagram ](https://www.instagram.com/cafe_vg/)| [Facebook](https://www.facebook.com/CafeVG)
+**Vegetarian** | [Address and Hours](https://goo.gl/maps/cQrgrUSqgkxznzyA9)\
+[Instagram](https://www.instagram.com/cafe_vg/) | [Facebook](https://www.facebook.com/CafeVG)
 
 ---
 
@@ -150,8 +150,8 @@ The taco rice at lunch time is a healthy take on the dish without losing the tas
 
 A few blocks from Kokusai Dori is Saborami, a small cafe that has a few vegan options, including curry rice, toast, ice cream, chocolate tart, and drinks. The food is nice and the staff is friendly. It’s a nice place to sit and have a break as it’s walking distance from the main shopping area.
 
-**Vegan-option&#x20;**| [Address and Hours](https://goo.gl/maps/bRhrE6bXGTVcpUuKA)\
-[Instagram ](https://www.instagram.com/saborami_vegan_cafe/)| [Facebook](https://www.facebook.com/saborami.naha/)
+**Vegan-option** | [Address and Hours](https://goo.gl/maps/bRhrE6bXGTVcpUuKA)\
+[Instagram](https://www.instagram.com/saborami_vegan_cafe/) | [Facebook](https://www.facebook.com/saborami.naha/)
 
 ---
 
@@ -163,7 +163,7 @@ A few blocks from Kokusai Dori is Saborami, a small cafe that has a few vegan op
 
 Located at the B1 level of Ryubo Department Store is this juice store with smoothies made with soy milk. They can put the drink in your own reusable cup. Be careful as some drinks may have honey.
 
-**Vegetarian&#x20;**| [Address and Hours](https://goo.gl/maps/YAe58qmv89nrxsMh6)\
+**Vegetarian** | [Address and Hours](https://goo.gl/maps/YAe58qmv89nrxsMh6)\
 [Website](https://www.rakuten.ne.jp/gold/milkhouse/) | [Instagram](https://www.instagram.com/iruduri_juice/)
 
 ![](/media/guides/vegan-okinawa-guide/img-20191119-134830-768x1024.jpeg)
@@ -182,7 +182,7 @@ There are people who said the miso soup is not vegan. I couldn’t find informat
 
 The tempura rice bowl uses mixed vegetables and mozuku, which is a type of seaweed that’s naturally found in Okinawa). It’s overall nice, but a little bit bland in taste.
 
-**Vegan-option&#x20;**| [Address and Hours](https://goo.gl/maps/kzc59WFnveZpxDFM7)\
+**Vegan-option** | [Address and Hours](https://goo.gl/maps/kzc59WFnveZpxDFM7)\
 [Website](https://www.nantocorp.com/donnantoya/)
 
 ---
@@ -199,7 +199,7 @@ This cafe is one of the best in Okinawa I’ve had on this trip. The food is car
 
 From the great ingredients, Plant-Holic prepares them into delicious dishes. The taco rice set I had, which also include a plant-based yogurt drink and a nut ice cream, is impeccable. Even the purple coloured mixed grain rice is grown without pesticides which shows a great deal of attention to details.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/ifroPc6KAGSJMv6j9)\
+**Vegan** | [Address and Hours](https://goo.gl/maps/ifroPc6KAGSJMv6j9)\
 [Facebook](https://www.facebook.com/plantholic/) | [Instagram](https://www.instagram.com/plant_holic/)
 
 ---
@@ -218,8 +218,8 @@ Looking over the view while having great vegan food is an experience hard to fin
 
 One thing to note is that the location is a bit far from the bus stop. I recommend using apps like Didi or Japan Taxi app. They basically work just like Uber. Messaging them on Facebook to check whether they are open that day is also a good idea.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/HDjm5KW7p4ZDr3Ne8)\
-[Website ](https://imacocooyako.wixsite.com/imacoco)| [Instagram](https://www.instagram.com/imacoco_cafe7234/) | [Facebook](https://www.facebook.com/Imacoco-cafe%E7%BE%8E%E5%AE%B9%E5%AE%A4-657405307736047/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/HDjm5KW7p4ZDr3Ne8)\
+[Website](https://imacocooyako.wixsite.com/imacoco) | [Instagram](https://www.instagram.com/imacoco_cafe7234/) | [Facebook](https://www.facebook.com/Imacoco-cafe%E7%BE%8E%E5%AE%B9%E5%AE%A4-657405307736047/)
 
 ---
 
@@ -233,8 +233,8 @@ You can find ramen, plates and more at lunch and tea time. Dinner has a bigger m
 
 There are some bar seats where you can watch as the chef prepares your food. The ramen I tried have fried veggies and tofu. Simple but nice.
 
-**Vegan-options&#x20;**| [Address and Hours](https://g.page/kitchennogi?share)\
-[Website ](https://kitchennogi.business.site/)| [Instagram ](https://www.instagram.com/kitchen.nogi_okinawacity/)| [Facebook](https://www.facebook.com/kitchennogi/)
+**Vegan-options** | [Address and Hours](https://g.page/kitchennogi?share)\
+[Website](https://kitchennogi.business.site/) | [Instagram](https://www.instagram.com/kitchen.nogi_okinawacity/) | [Facebook](https://www.facebook.com/kitchennogi/)
 
 ---
 
@@ -246,8 +246,8 @@ This Japanese teahouse have some traditional desserts that are vegan. The vegan 
 
 Staff speaks some English and the menu is in Japanese. If you plan to visit, the two dessert sets on this page are vegan. The one on the left is a dorayaki (どらやき), rice ball (おはぎ) and drink set. The one on the right is a set with 2 rice balls. For rice ball, you can choose sweet red bean (あんこ), sesame (ごま) or soybean powder (きなこ).
 
-**Vegan-options&#x20;**| [Address and Hours](https://goo.gl/maps/BkMAwe8fDLFtf6yS9)\
-[Website ](https://miyabi2010.ti-da.net/)| [Instagram](https://www.instagram.com/miyabi_chaya/)
+**Vegan-options** | [Address and Hours](https://goo.gl/maps/BkMAwe8fDLFtf6yS9)\
+[Website](https://miyabi2010.ti-da.net/) | [Instagram](https://www.instagram.com/miyabi_chaya/)
 
 ---
 
@@ -263,8 +263,8 @@ The menu features a decent selection of western dishes. You can find burgers, pl
 
 One unfortunate thing at the time of visit is that there is a fish in a water dispenser. A weird site of a vegan restaurant that promotes cruelty-free food.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/nfiHKnGwvxNDH2rR8)\
-[Website ](https://www.tamis.jp/)| [Instagram](https://www.instagram.com/tamis.vegancafe/) | [Facebook](https://www.facebook.com/tamis.okinawa/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/nfiHKnGwvxNDH2rR8)\
+[Website](https://www.tamis.jp/) | [Instagram](https://www.instagram.com/tamis.vegancafe/) | [Facebook](https://www.facebook.com/tamis.okinawa/)
 
 ![](/media/guides/vegan-okinawa-guide/2019-1121-20002600-819x1024.jpeg)
 
@@ -278,8 +278,8 @@ This cafe near the American Village has a decent range of clearly marked vegan o
 
 This cafe is on the second floor. Don’t confuse the similarly named R Cafe on the first floor of the same building
 
-**Vegan-option&#x20;**| [Address and Hours](https://goo.gl/maps/p8hZBbt4y1z6R4Sz5)\
-[Website ](https://rockerscafe.org/)| [Instagram ](https://www.instagram.com/rockers_cafe/)| [Facebook](https://www.facebook.com/Rockers-Cafe-1724388414443325/)
+**Vegan-option** | [Address and Hours](https://goo.gl/maps/p8hZBbt4y1z6R4Sz5)\
+[Website](https://rockerscafe.org/) | [Instagram](https://www.instagram.com/rockers_cafe/) | [Facebook](https://www.facebook.com/Rockers-Cafe-1724388414443325/)
 
 ---
 
@@ -291,8 +291,8 @@ About 20 minute from American Village is this sweet vegan cafe that sells crepes
 
 Unfortunately on that day the pan for making the crepes is broken. So I opted for their Halcyon sandwich. The size is huge and it’s generously filled with classic ingredients like hummus, sundried tomatoes and other veggies. The peanut butter smoothie is also great. However, the paper straw gets soft very quickly and makes it a bit hard to drink.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/aBWnqcYLc1LRyh3JA)\
-[Website ](https://cafehalcyonokinawa.wixsite.com/vegan)| [Instagram ](https://www.instagram.com/cafe_halcyon/)| [Facebook](https://www.facebook.com/CafeHalcyon/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/aBWnqcYLc1LRyh3JA)\
+[Website](https://cafehalcyonokinawa.wixsite.com/vegan) | [Instagram](https://www.instagram.com/cafe_halcyon/) | [Facebook](https://www.facebook.com/CafeHalcyon/)
 
 ![](/media/guides/vegan-okinawa-guide/2019-1121-19571200-819x1024.jpeg)
 
@@ -306,8 +306,8 @@ This hostel near Cafe Halcyon has a vegan menu and other vegan goodies. You can 
 
 Another great find here is this Raw Bahalu brand of chocolate and the twix bar-like Bahalu Bar is delicious. It has peanut butter caramel and almond cookie inside the chocolate coating.
 
-**Vegan-option&#x20;**| [Address and Hours](https://goo.gl/maps/1U4ahy3HpNh2ibS67)\
-[Website ](https://aien.okinawa/)| [Instagram ](https://www.instagram.com/aien_coffee_hostel/)| [Facebook](https://www.facebook.com/AIEN-Coffeehostel-134286497163791/)
+**Vegan-option** | [Address and Hours](https://goo.gl/maps/1U4ahy3HpNh2ibS67)\
+[Website](https://aien.okinawa/) | [Instagram](https://www.instagram.com/aien_coffee_hostel/) | [Facebook](https://www.facebook.com/AIEN-Coffeehostel-134286497163791/)
 
 ---
 
@@ -317,8 +317,8 @@ Another great find here is this Raw Bahalu brand of chocolate and the twix bar-l
 
 This Mexican restaurant has quite a few clearly marked vegan options, including taco, pizza stick, enchilada, etc. However, I find the Very Vegan taco a big disappointment. More than half of the veggies are charred black. In combination of the not-toasted taco shell and not-crispy chips, I’d suggest other places in the areas.
 
-**Vegan-option&#x20;**| [Address and Hours](https://goo.gl/maps/NmqWjZ8GK4xq9cP47)\
-[Website ](https://www.obbligato.co.jp/)| [Facebook](https://www.facebook.com/esparzastacosandcoffee/)
+**Vegan-option** | [Address and Hours](https://goo.gl/maps/NmqWjZ8GK4xq9cP47)\
+[Website](https://www.obbligato.co.jp/) | [Facebook](https://www.facebook.com/esparzastacosandcoffee/)
 
 ---
 
@@ -340,5 +340,5 @@ Other items including the coconut milk berry yogurt lassi and maple syrup brown 
 
 If you want to get something home, they also have some baked goods, including cookies, scones and cakes.
 
-**Vegan&#x20;**| [Address and Hours](https://goo.gl/maps/Z9eQ3jCGEN3fzprM9)\
-[Website ](https://tsuku2.jp/storeDetail.php?scd=0000054497)| [Instagram](https://www.instagram.com/detoxcafefelicidad/) | [Facebook](https://www.facebook.com/detoxcafefelicidad/)
+**Vegan** | [Address and Hours](https://goo.gl/maps/Z9eQ3jCGEN3fzprM9)\
+[Website](https://tsuku2.jp/storeDetail.php?scd=0000054497) | [Instagram](https://www.instagram.com/detoxcafefelicidad/) | [Facebook](https://www.facebook.com/detoxcafefelicidad/)

@@ -1,5 +1,6 @@
 ---
 name: Okinawa
+slug: okinawa
 country: japan
 order: 14
 image:

@@ -1,5 +1,6 @@
 ---
 name: Nagoya
+slug: nagoya
 country: japan
 order: 16
 book: true

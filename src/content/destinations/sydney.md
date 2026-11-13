@@ -1,5 +1,6 @@
 ---
 name: Sydney
+slug: sydney
 country: australia
 order: 1
 homeOrder: 3

@@ -121,7 +121,7 @@ While exploring the main approach and outer grounds is free, there's a small fee
 
 *The 'Vegan Delight' plate from Onwa*
 
-For the perfect end to your Nara day trip, head to [Onwa ](/restaurants/onwa)for a delicious all vegan meal. Onwa is an all-vegan restaurant tucked away just a 10-minute walk from JR Nara Station (note: different from the Kintetsu Nara station you likely arrived at).
+For the perfect end to your Nara day trip, head to [Onwa](/restaurants/onwa) for a delicious all vegan meal. Onwa is an all-vegan restaurant tucked away just a 10-minute walk from JR Nara Station (note: different from the Kintetsu Nara station you likely arrived at).
 
 I love their 'Vegan Delight' plate. Using mostly local produce, this plate combines all the small dishes they make, allowing you to sample a wide variety of different flavours and textures. The plate really showcases the care they put into cooking the food. The two highlights for me include the radish cakes and crispy vegan karaage. Other than the 'Vegan Delight' plate, you'll also find a variety of other rice bowls and plates, as well as the cabinet full of desserts near the entrance, including options like vegan cheesecakes and tarts.
 

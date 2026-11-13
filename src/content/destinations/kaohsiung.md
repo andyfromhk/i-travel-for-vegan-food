@@ -1,5 +1,6 @@
 ---
 name: Kaohsiung
+slug: kaohsiung
 country: taiwan
 order: 22
 book: true

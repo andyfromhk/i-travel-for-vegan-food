@@ -63,7 +63,10 @@ const [
 
 const bySlug = (list) =>
   new Map(list.map((item) => [item.id, item.fieldData.slug]));
-const destinationSlug = bySlug(destinations);
+// Archived destinations have no page, so live entries that still point at one get no destination.
+// (Archived entries keep theirs: they're only kept for reference in migration/archive.)
+const anyDestinationSlug = bySlug(destinations);
+const destinationSlug = bySlug(destinations.filter((item) => !item.isArchived));
 const countrySlug = bySlug(countries);
 const authorSlug = bySlug(authors);
 const vegTypeSlug = bySlug(vegTypes);
@@ -301,7 +304,9 @@ for (const item of restaurants) {
   const data = {
     name: text(f.name),
     nameOriginal: text(f["name-in-original-language"]),
-    destination: destinationSlug.get(f.city),
+    destination: (item.isArchived ? anyDestinationSlug : destinationSlug).get(
+      f.city,
+    ),
     page: true,
     redirectTo: redirects.get(`/restaurants/${slug}`),
     draft: item.isDraft || undefined,
@@ -397,6 +402,7 @@ for (const item of destinations) {
   const folder = `destinations/${slug}`;
   const data = {
     name: text(f.name),
+    slug,
     country: countrySlug.get(f["destination-country"]),
     order: position(pageOrder, slug),
     homeOrder: position(homeOrder, slug),
@@ -693,6 +699,7 @@ for (const item of authors) {
   const f = item.fieldData;
   const data = {
     name: text(f.name),
+    slug: f.slug,
     title: text(f.title),
     image: image(f["profile-picture"], "authors"),
     website: f["website-link"],

@@ -1,5 +1,6 @@
 ---
 name: Kamakura
+slug: kamakura
 country: japan
 order: 11
 featured: true

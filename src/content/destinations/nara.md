@@ -1,5 +1,6 @@
 ---
 name: Nara
+slug: nara
 country: japan
 order: 10
 featured: true

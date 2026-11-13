@@ -1,5 +1,6 @@
 ---
 name: Hong Kong
+slug: hong-kong
 country: hong-kong
 order: 20
 homeOrder: 7

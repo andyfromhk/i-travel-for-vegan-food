@@ -1,5 +1,6 @@
 ---
 name: Byron Bay
+slug: byron-bay
 country: australia
 order: 5
 featured: true

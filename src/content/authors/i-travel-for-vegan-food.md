@@ -1,5 +1,6 @@
 ---
 name: I Travel For Vegan Food
+slug: i-travel-for-vegan-food
 title: Founder, Author & Traveller
 image:
   src: /media/authors/logo-square-with-space.png

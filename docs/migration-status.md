@@ -3,7 +3,7 @@
 Where the Webflow → Astro (Lumos) migration stands. Branch: `astro-migration`.
 The original brief is `docs/astro-migration-brief.md`; the decisions made since are at the bottom of this page.
 
-## Done (Phases 0 to 3)
+## Done (Phases 0 to 3, and Round 2)
 
 - **Export and inventory.** All 10 Webflow collections, every published URL and the 301 list are saved under
   `migration/`. See `docs/inventory.md`.
@@ -16,6 +16,28 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
   Finsweet is gone: `src/scripts/place-filters.js` does the filtering and sorting.
 - **Search engines see the same site.** All 350 old URLs keep their address, title and description, or redirect
   as before. See `docs/parity-report.md`.
+- **Round 2 design changes** from the first preview (mega menu, page spacing, listing filters, About, Shop,
+  destination and restaurant pages, lightbox, sticky map guide map).
+
+## Done (Phase 4: Pages CMS)
+
+- **`.pages.yml`** sets up the editing screens: Restaurants, Vegan Foodie Guides, Map Guides & Itineraries,
+  Destinations, Authors, Pages, Book promos and Shop page. Drop-downs for veg type, price, venue type, cuisine,
+  category and country; destinations and authors are picked from a searchable list.
+- **How to use it:** `docs/editing-guide.md`.
+- **Tested against Pages CMS's own code:** the config passes its validator with no errors; every guide and
+  review was run through its editor and back (the shortcodes, captions and tip boxes all survive; it only
+  re-spells things like `&` as `&amp;`, which look the same on the page); and its date format keeps every
+  existing date.
+- **Safety nets in the build:** a restaurant or guide pointing at a destination, author, cuisine and so on that
+  doesn't exist stops the build with a plain message (it found one: Nurcha Kawana pointed at the archived
+  Sunshine Coast destination, so it now has no destination, as on the live site). A photo added through the
+  CMS gets its size read from the file. A half-filled photo or map pin is skipped instead of failing the build.
+- **Content tidy-ups found on the way:** 13 guides showed a stray backslash where the old site had a line break
+  ("Hours:\\"), and a few links had a line break inside them. Both are fixed, in the content and in the
+  converter, so running the conversion again reproduces the repository exactly.
+- Destinations and authors gained a `slug` field (the same as the file name) so the CMS can link to them.
+  `src/data/books.json` is now a list, so the CMS can edit it.
 
 ## Checked, and how
 
@@ -39,7 +61,8 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
   Google map drawing those things, so maps are the first thing to test on the preview.
 - **Newsletter and contact forms end to end.** The Worker route has tests and the contact form uses the
   standard Web3Forms set-up, but neither has sent a real message yet.
-- **Pages CMS.** The content is shaped for it, but the editor itself (`.pages.yml`) is Phase 4.
+- **Pages CMS in the hosted app.** The config was checked with Pages CMS's own code, but nobody has signed in to
+  app.pagescms.org with it yet. That needs Andy's GitHub account (`docs/editing-guide.md`, "Setting up").
 
 ## For Andy to do
 

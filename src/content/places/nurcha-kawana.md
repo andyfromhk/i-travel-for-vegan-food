@@ -1,6 +1,5 @@
 ---
 name: Nurcha Kawana
-destination: sunshine-coast
 page: true
 status: open
 vegType: vegan

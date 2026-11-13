@@ -1,5 +1,6 @@
 ---
 name: Kyoto
+slug: kyoto
 country: japan
 order: 8
 homeOrder: 2

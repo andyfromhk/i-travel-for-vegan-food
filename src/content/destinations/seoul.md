@@ -1,5 +1,6 @@
 ---
 name: Seoul
+slug: seoul
 country: south-korea
 order: 23
 image:

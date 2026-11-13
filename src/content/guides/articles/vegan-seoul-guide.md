@@ -70,13 +70,15 @@ PLANT also has a bakery (also in Itaewon) that sells cakes, muffins and other ba
 
 ![vegan-seoul-guide-plant-decor-1](/media/guides/vegan-seoul-guide/vegan-seoul-guide-plant-decor-1-683x1024.jpeg)
 
-*Address:\\&#xA;*&#x50;LANT Cafe and Kitchen:\
+*Address:*\
+PLANT Cafe and Kitchen:\
 2nd Floor, Itaewon-dong 130-43, Yongsan-gu, Seoul
 
 PLANT Bakery:\
 Itaewon-dong 63-15, Yongsan-gu, Seoul
 
-*Hours:\\&#xA;*&#x50;LANT Cafe and Kitchen:\
+*Hours:*\
+PLANT Cafe and Kitchen:\
 Mon-Sat: 11am - 10pm (L.O. 9pm)\
 Closed on Sun
 
@@ -102,13 +104,16 @@ The bibimbap set comes with a bowl of rice (with shredded veggies, sprouts and k
 
 The restaurant also has a small shop section by the counter selling both Korean groceries, like noodles and canned veggie meat, and some Western imports.
 
-*Address:\\&#xA;*&#x31;4-5 Insadong 12-gil, Gwanhun-dong, Jongno-gu, Seoul
+*Address:*\
+14-5 Insadong 12-gil, Gwanhun-dong, Jongno-gu, Seoul
 
-*Direction:\\&#xA;*&#x47;o to Anguk station, exit 6. Go down the Isadong shopping street and turn left when you see the sign Isadong Gil 12 sign. Walk straight down to the last shop.
+*Direction:*\
+Go to Anguk station, exit 6. Go down the Isadong shopping street and turn left when you see the sign Isadong Gil 12 sign. Walk straight down to the last shop.
 
 ![](/media/guides/vegan-seoul-guide/vegan-seoul-guide-oh-se-gae-hyang-sign-683x1024.jpeg)
 
-*Hours:\\&#xA;*&#x4D;on-Fri: 11:30am - 3:30pm, 5 - 9pm (L.O. 8:20pm)\
+*Hours:*\
+Mon-Fri: 11:30am - 3:30pm, 5 - 9pm (L.O. 8:20pm)\
 Sat-Sun: 11:30am - 9pm (L.O. 8:20pm)
 
 [Website](http://www.go5.co.kr/default/)
@@ -137,9 +142,11 @@ The only downside is that this place is on the pricey side. The 2 main dishes an
 
 ![vegan-seoul-guide-monks-butcher-decor-2](/media/guides/vegan-seoul-guide/vegan-seoul-guide-monks-butcher-decor-1-768x1024.jpeg)
 
-*Address:\\&#xA;*&#x32;28-1 Itaewon-ro, Hannam-dong, Yongsan-gu, Seoul, South Korea
+*Address:*\
+228-1 Itaewon-ro, Hannam-dong, Yongsan-gu, Seoul, South Korea
 
-*Hours:\\&#xA;*&#x54;ue-Thu, Sun: 6-10:30pm\
+*Hours:*\
+Tue-Thu, Sun: 6-10:30pm\
 Fri-Sat: 6-11:30pm\
 Closed on Mon
 
@@ -162,9 +169,11 @@ The cafe uses plants and wooden furnitures as decor. There are some outdoor seat
 
 The lasagna tastes pretty good. The cashew cream sauce is creamy. They use a pressed tofu pasta, which has a similar texture to gluten-free pasta. Inside are some veggies like mushroom and spinach. Overall the taste is on point. It also comes with a salad drizzled with balsamic vinegar and olive oil.
 
-*Address:\\&#xA;*&#x35;9 Sinheung-ro, Yongsan-gu, Seoul, Korea 04338
+*Address:*\
+59 Sinheung-ro, Yongsan-gu, Seoul, Korea 04338
 
-*Hours:\\&#xA;*&#x54;ue: 5 - 9:30pm (L.O. 9pm)\
+*Hours:*\
+Tue: 5 - 9:30pm (L.O. 9pm)\
 Wed-Fri: 12 - 3pm, 5 - 9:30pm (L.O. 9pm)\
 Sat, Sun, Holiday: 12 - 9:30pm (L.O. 9pm)\
 Closed on Monday
@@ -199,9 +208,11 @@ This matcha frappe is a bit too icy and sweet.
 
 The shop section sells a good selection of local and imported vegan food. Also you can find some hard-to-find items like vegan cream and cheese.
 
-*Address:\\&#xA;*&#x33;5, Gaepo-ro 22-gil, Gangnam-gu, Seoul, Korea
+*Address:*\
+35, Gaepo-ro 22-gil, Gangnam-gu, Seoul, Korea
 
-*Hours:\\&#xA;*&#x31;1am - 10pm
+*Hours:*\
+11am - 10pm
 
 [Website](http://lovinghut.kr/kr/bbs/board.php?bo_table=restaurants_kr_en\&wr_id=53\&sca=\&county=%EC%84%9C%EC%9A%B8\&lang=_en)\
 [Instagram](https://www.instagram.com/lovinghutcafe/)\
@@ -231,9 +242,11 @@ The lunch buffet only costs 12000 won.
 
 ![](/media/guides/vegan-seoul-guide/vegan-seoul-guide-veg-green-cookies-o8qgdbbr1gwlqm6c1s57tludqiabophowvttv2tgrs.jpeg)
 
-*Address:\\&#xA;*&#x32;4-10, Gaepo-ro 20-gil, Gangnam-gu, Seoul, South Korea, 06307
+*Address:*\
+24-10, Gaepo-ro 20-gil, Gangnam-gu, Seoul, South Korea, 06307
 
-*Hours:\\&#xA;*&#x31;2 - 2:30pm, 6 - 9pm
+*Hours:*\
+12 - 2:30pm, 6 - 9pm
 
 [Facebook](https://www.facebook.com/veganveggreen)
 
@@ -247,9 +260,11 @@ Fell+Cole is an ice cream shop with a few vegan sorbet flavours daily. The vegan
 
 Out of the two flavours I've tried, the blueberry banana flavour is better than the strawberry thyme one.
 
-*Address:\\&#xA;*&#x33;9-21 Wausan-ro, Mapo-gu, Seoul, Korea
+*Address:*\
+39-21 Wausan-ro, Mapo-gu, Seoul, Korea
 
-*Hours:\\&#xA;*&#x53;un-Thu: 12 - 9pm\
+*Hours:*\
+Sun-Thu: 12 - 9pm\
 Fri-Sat: 12-10pm
 
 [Instagram](https://www.instagram.com/fellncole/)\
@@ -283,9 +298,11 @@ The only downside is that everything is in plastic, though they use stainless st
 
 They have some tables at the cafe which you can sit and enjoy your food with a drink. The staff is nice and can speak good English.
 
-*Address:\\&#xA;*&#x36;-5, Yanghwa-ro 7-gil, Mapo-gu, Seoul, South Korea
+*Address:*\
+6-5, Yanghwa-ro 7-gil, Mapo-gu, Seoul, South Korea
 
-*Hours:\\&#xA;*&#x38;am - 9pm\
+*Hours:*\
+8am - 9pm\
 Burger available 11am - 8:50pm
 
 [Instagram](https://www.instagram.com/yummyyomil/)
@@ -316,9 +333,11 @@ Some breads and cakes of the shop:
 
 ![vegan-bakery-the-bread-blue-seoul-storefront-cake-roll](/media/guides/vegan-seoul-guide/vegan-bakery-the-bread-blue-seoul-storefront-cake-roll-1024x683.jpeg)
 
-*Address:\\&#xA;*&#x35;4-58 Nogosan-dong, Mapo-gu, Nogosan-dong, Seoul, South Korea
+*Address:*\
+54-58 Nogosan-dong, Mapo-gu, Nogosan-dong, Seoul, South Korea
 
-*Hours:\\&#xA;*&#x4D;on: 10am - 9pm\
+*Hours:*\
+Mon: 10am - 9pm\
 Tue-Sat: 10am - 10pm\
 Sun: 8am - 9pm
 
@@ -335,9 +354,11 @@ Sunny Bread is a small bakery cafe with some vegan options. The vegan options ar
 
 The cafe is pretty small with only less than 10 seats.
 
-*Address:\\&#xA;*&#x37;36-49 Hannam-dong, Yongsan-gu, Seoul, South Korea, 140-210
+*Address:*\
+736-49 Hannam-dong, Yongsan-gu, Seoul, South Korea, 140-210
 
-*Hours:\\&#xA;*&#x57;ed-Sun: 11am - 8pm\
+*Hours:*\
+Wed-Sun: 11am - 8pm\
 Closed on Mon,Tue
 
 [Website](https://sunnysweetshop.modoo.at/)\
@@ -353,9 +374,11 @@ This bakery located in Lotte World Mall has some vegan items. At the day of visi
 
 ![lotte-world-mall-lee-sung-dang-cafe-vegan-mochi](/media/guides/vegan-seoul-guide/lotte-world-mall-lee-sung-dang-cafe-vegan-mochi-768x1024.jpeg)
 
-*Address:\\&#xA;*&#x4C;otte World Mall, 5F, 300 Olympic-ro, Songpa-gu, Seoul
+*Address:*\
+Lotte World Mall, 5F, 300 Olympic-ro, Songpa-gu, Seoul
 
-*Hours:\\&#xA;*&#x31;0:30am - 12am
+*Hours:*\
+10:30am - 12am
 
 ---
 
@@ -367,9 +390,11 @@ SF bagel is a small bakery near Hongik University station. The bagels except the
 
 ![vegan-option-bakery-sf-bagel](/media/guides/vegan-seoul-guide/vegan-option-bakery-sf-bagel-1024x683.jpeg)
 
-*Address:\\&#xA;*&#x33;85-1, Yeonnam-dong, Mapo-gu, Seoul
+*Address:*\
+385-1, Yeonnam-dong, Mapo-gu, Seoul
 
-*Hours:\\&#xA;*&#x4D;on, Thu, Fri: 11am - 9pm\
+*Hours:*\
+Mon, Thu, Fri: 11am - 9pm\
 Sat-Sun: 9am - 9pm\
 Closed on Tue, Wed
 
@@ -388,9 +413,11 @@ Vegan space is the first all vegan grocery store in Seoul. The selection is pret
 
 ![](/media/guides/vegan-seoul-guide/vegan-space-grocery-store-5-1024x682.jpeg)
 
-*Address:\\&#xA;*&#x32;6 Sinheung-ro, Yongsan 2(i)ga-dong, Yongsan-gu, Seoul, South Korea
+*Address:*\
+26 Sinheung-ro, Yongsan 2(i)ga-dong, Yongsan-gu, Seoul, South Korea
 
-*Hours:\\&#xA;*&#x54;ue-Fri: 12 - 9pm\
+*Hours:*\
+Tue-Fri: 12 - 9pm\
 Sat-Sun: 12 - 7pm\
 Closed on Mon
 

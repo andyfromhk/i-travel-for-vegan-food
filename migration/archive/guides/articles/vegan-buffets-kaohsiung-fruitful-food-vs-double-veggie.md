@@ -60,8 +60,8 @@ Here are the labels that you will see:\
 **含堅果** - Contains nuts\
 **含花生** - Contains peanuts\
 **含蜂蜜** - Contains honey\
-**蛋&#x20;**- Egg\
-**奶&#x20;**- Milk
+**蛋** - Egg\
+**奶** - Milk
 
 If you are like me and can eat food with 5 spices and alcohol, you would only need to avoid symbols of 蛋 (Egg), 奶 (Milk) and 含蜂蜜 (Contains honey).
 
@@ -100,7 +100,7 @@ About half of the food is vegan. But because the size of the restaurant is small
 In general, the dishes are clearly marked. However, during my two visits, once breakfast (not veg, more on that later) and once dinner, there are sauces and toppings are not marked, some of which are not vegan after enquiring the staff. Comparing to Fruitful Food, the labelling system doesn't seem to be as detailed and accurate.
 
 Here are the labels that you will see:\
-**全素&#x20;**- Vegan\
+**全素** - Vegan\
 **五辛素** - Contains 5 pungent spices (Onions, garlic, scallions, chives and leeks)\
 **蛋素** - Contains egg\
 **奶素** - Contains milk\

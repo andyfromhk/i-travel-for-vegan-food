@@ -139,7 +139,7 @@ This stall sells fried snacks (soy meatball and fried tempeh) and desserts (cust
 
 [Website](https://blog.naver.com/jeon921021) | [Instagram](https://www.instagram.com/so_iroum/)
 
-### Sunny Bread[](https://i0.wp.com/itravelforveganfood.com/wp-content/uploads/2019/05/LRM_EXPORT_126430062721560_20190519_234337801.jpg?ssl=1)[](https://i0.wp.com/itravelforveganfood.com/wp-content/uploads/2019/05/LRM_EXPORT_126406022228028_20190519_234313760.jpg?ssl=1)
+### Sunny Bread
 
 ![LRM_EXPORT_126406022228028_20190519_234313760](/media/guides/vegan-festival-korea-in-seoul/lrm-export-126406022228028-20190519-234313760.jpeg)
 

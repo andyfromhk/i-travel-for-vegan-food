@@ -1,5 +1,6 @@
 ---
 name: Chiang Mai
+slug: chiang-mai
 country: thailand
 order: 18
 featured: true

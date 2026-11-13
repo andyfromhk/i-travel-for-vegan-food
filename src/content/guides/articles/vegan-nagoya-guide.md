@@ -110,9 +110,11 @@ The health store outside Pupu Kitchen has a lot of vegan groceries, including no
 
 ![](/media/guides/vegan-nagoya-guide/pupu-kitchen-nagoya-shop-1-1024x683.jpeg)
 
-*Address:\\&#xA;*&#x32;-chōme-15 Jōsai, Nishi Ward, Nagoya, Aichi 451-0031, Japan
+*Address:*\
+2-chōme-15 Jōsai, Nishi Ward, Nagoya, Aichi 451-0031, Japan
 
-*Hours:\\&#xA;*&#x4C;unch Time: 11:30am - 2pm\
+*Hours:*\
+Lunch Time: 11:30am - 2pm\
 Cafe and light meals: 10am - 4pm\
 Closed on Sunday and Monday
 
@@ -146,9 +148,11 @@ This cherry cake uses a sponge cake based with cream and candied cherries on top
 
 ![](/media/guides/vegan-nagoya-guide/oteate-nagoya-vegan-menu-4-1024x683.jpeg)
 
-*Address:\\&#xA;*&#x34; Chome-95 Shinikecho, Chikusa Ward, Nagoya, Aichi 464-0027, Japan
+*Address:*\
+4 Chome-95 Shinikecho, Chikusa Ward, Nagoya, Aichi 464-0027, Japan
 
-*Hours:\\&#xA;*&#x54;ue-Fri, Sun: 11am - 5pm\
+*Hours:*\
+Tue-Fri, Sun: 11am - 5pm\
 Sat: 11am - 5pm, 6 - 10pm\
 Closed on Monday, and every other Tuesday
 
@@ -184,9 +188,11 @@ Another thing to keep in mind is that the food doesn’t come out fast. So alloc
 
 ![](/media/guides/vegan-nagoya-guide/oribio-vegetarian-nagoya-menu-4-1024x683.jpeg)
 
-*Address:\\&#xA;*&#x36; Chome-2-1 Haruokatori, Chikusa Ward, Nagoya, Aichi 464-0847, Japan
+*Address:*\
+6 Chome-2-1 Haruokatori, Chikusa Ward, Nagoya, Aichi 464-0847, Japan
 
-*Hours:\\&#xA;*&#x54;hu, Fri: 6 - 9pm\
+*Hours:*\
+Thu, Fri: 6 - 9pm\
 Sat, Sun: 11am - 2:30pm, 5:30 - 9pm\
 Closed Monday to Wednesday
 
@@ -206,9 +212,11 @@ There are only about 7 seats in the shop. So it could get full easily during pea
 
 The downside is that even if you dine in, you are still given the plastic bento box with disposable cutlery.
 
-*Address:\\&#xA;*〒460-0002, 3 Chome-1-34 Marunouchi, Naka Ward, Nagoya, Aichi 460-0002, Japan
+*Address:*\
+〒460-0002, 3 Chome-1-34 Marunouchi, Naka Ward, Nagoya, Aichi 460-0002, Japan
 
-*Hours:\\&#xA;*&#x4D;on-Fri: 11am - 3pm\
+*Hours:*\
+Mon-Fri: 11am - 3pm\
 Closed on Saturday and Sunday
 
 [Website](https://vegefirst-obento.com/)\
@@ -231,9 +239,11 @@ The vegan sandwich uses falafel, avo, veggies, and fruit jam on a focaccia. The 
 
 Overall En-Kitchen is a nice cafe for vegans in Nagoya with plenty of simple vegan options.
 
-*Address:\\&#xA;*〒460-0015, 3-31 Oicho, Naka Ward, Nagoya, Aichi 460-0015, Japan
+*Address:*\
+〒460-0015, 3-31 Oicho, Naka Ward, Nagoya, Aichi 460-0015, Japan
 
-*Hours:\\&#xA;*&#x54;ue-Sun: 10:30am - 7pm\
+*Hours:*\
+Tue-Sun: 10:30am - 7pm\
 Closed on Monday
 
 [Website](http://en-kitchen.com/)\
@@ -256,11 +266,13 @@ Overall it’s a delicious vegan option near Nagoya station.
 
 *Buy your ticket at this machine (you can also use your IC transport card) and look for the options with the word ビーガン*
 
-*Address:\\&#xA;*&#x4A;apan, 〒450-6216 Aichi, Nagoya, Nakamura Ward, Meieki, 4 Chome−7−1 ミッドランドスクエア4F
+*Address:*\
+Japan, 〒450-6216 Aichi, Nagoya, Nakamura Ward, Meieki, 4 Chome−7−1 ミッドランドスクエア4F
 
 In Midland Square shopping center, 4/F
 
-*Hours:\\&#xA;*&#x4D;on-Thu: 11am - 3pm, 5 - 10pm\
+*Hours:*\
+Mon-Thu: 11am - 3pm, 5 - 10pm\
 Fri, Sat: 11am - 10pm\
 Sun: 11am - 9pm
 
@@ -288,10 +300,12 @@ As they don’t have an english menu, I translated the menu here:
 
 ![](/media/guides/vegan-nagoya-guide/nagoya-vegan-grains-menu-1.jpeg)
 
-*Address:\\&#xA;*&#x32; Chome-26 Taishocho, Nakamura Ward, Nagoya, Aichi 453-0806, Japan
+*Address:*\
+2 Chome-26 Taishocho, Nakamura Ward, Nagoya, Aichi 453-0806, Japan
 
-*Hours:\\&#xA;*&#x54;ue-Sat: 11am - 3pm\
-Closed on Monday and Sunday[](http://greins-cafe.com/)
+*Hours:*\
+Tue-Sat: 11am - 3pm\
+Closed on Monday and Sunday
 
 [Website](http://greins-cafe.com/)\
 [Facebook](https://www.facebook.com/grainsnagoya/)\
@@ -307,6 +321,8 @@ Coco Ichibanya is a chain in Japan that sells curry. Some selected shops use a d
 
 At the time of visit, they have one option that is vegan. On this menu, the options with a green vege label are the ones using a vegan curry sauce. But other than the top left option (curry rice with mixed veggies), the rest either have meat or egg.
 
-*Address:\\&#xA;*&#x4A;apan, 〒479-0881 Aichi, Tokoname, Centrair, １−1 中部国際空港旅客ターミナルビル４階
+*Address:*\
+Japan, 〒479-0881 Aichi, Tokoname, Centrair, １−1 中部国際空港旅客ターミナルビル４階
 
-*Hours:\\&#xA;*&#x37;am - 9pm
+*Hours:*\
+7am - 9pm

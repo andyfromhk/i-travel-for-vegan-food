@@ -1,7 +1,8 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import countriesData from "@/data/countries.json";
 import taxonomies from "@/data/taxonomies.json";
-import mediaSizes from "@/data/media.json";
+import booksData from "@/data/books.json";
+import { sizeOf } from "@/utils/media-size.ts";
 
 export type Place = CollectionEntry<"places">;
 export type Destination = CollectionEntry<"destinations">;
@@ -23,9 +24,26 @@ export const articleCategories = named(taxonomies.articleCategories);
 export const mapGuideFocus = named(taxonomies.mapGuideFocus);
 export const countryBySlug = named(countries);
 
+/** A book that destination, restaurant and guide pages promote (src/data/books.json). */
+export interface Book {
+  slug: string;
+  title: string;
+  /** Short line on the book's badge, e.g. "Updated for 2026/27". */
+  edition?: string;
+  blurb?: string;
+  promoEyebrow?: string;
+  promoTitle?: string;
+  cover: string;
+  promoImage?: string;
+  url: string;
+}
+export const bookBySlug = new Map<string, Book>(
+  (booksData as Book[]).map((book) => [book.slug, book]),
+);
+
 /** Width and height of an image in public/media, so the page can hold its space while it loads. */
 export function mediaSize(src?: string): { width?: number; height?: number } {
-  const size = src ? (mediaSizes as Record<string, number[]>)[src] : undefined;
+  const size = sizeOf(src);
   return size ? { width: size[0], height: size[1] } : {};
 }
 
@@ -57,6 +75,7 @@ async function loadSite(): Promise<Site> {
   );
   // Newest first: the guide that was updated most recently leads every list.
   guides.sort((a, b) => time(b.data.updated) - time(a.data.updated));
+  checkLinks(places, destinations, guides, authors);
   return {
     places,
     destinations,
@@ -65,6 +84,63 @@ async function loadSite(): Promise<Site> {
     placeBySlug: new Map(places.map((p) => [p.id, p])),
     destinationBySlug: new Map(destinations.map((d) => [d.id, d])),
   };
+}
+
+/**
+ * Stops the build with a clear list when an entry points at something that doesn't exist, for example
+ * a restaurant whose destination was renamed, or a destination whose slug doesn't match its file name.
+ * Pages CMS fills these fields from drop-downs, so this mostly catches edits made outside it.
+ */
+function checkLinks(
+  places: Place[],
+  destinations: Destination[],
+  guides: Guide[],
+  authors: Author[],
+) {
+  const problems: string[] = [];
+  const destinationSlugs = new Set(destinations.map((d) => d.id));
+  const authorSlugs = new Set(authors.map((a) => a.id));
+  const check = (
+    where: string,
+    field: string,
+    value: string | undefined,
+    allowed: { has(value: string): boolean },
+  ) => {
+    if (value && !allowed.has(value))
+      problems.push(`${where}: ${field} "${value}" doesn't exist.`);
+  };
+
+  for (const entry of [...destinations, ...authors]) {
+    const where = `${entry.collection}/${entry.id}.md`;
+    if (entry.data.slug !== entry.id)
+      problems.push(
+        `${where}: slug "${entry.data.slug}" must match the file name "${entry.id}".`,
+      );
+  }
+  for (const d of destinations)
+    check(`destinations/${d.id}.md`, "country", d.data.country, countryBySlug);
+  for (const p of places) {
+    const where = `places/${p.id}.md`;
+    check(where, "destination", p.data.destination, destinationSlugs);
+    check(where, "vegType", p.data.vegType, vegTypes);
+    check(where, "priceRange", p.data.priceRange, priceRanges);
+    check(where, "venueType", p.data.venueType, venueTypes);
+    check(where, "cuisine", p.data.cuisine, cuisines);
+  }
+  for (const g of guides) {
+    const where = `guides/${g.id}.md`;
+    check(where, "destination", g.data.destination, destinationSlugs);
+    for (const d of g.data.destinations)
+      check(where, "destinations", d, destinationSlugs);
+    check(where, "author", g.data.author, authorSlugs);
+    check(where, "category", g.data.category, articleCategories);
+    check(where, "focus", g.data.focus, mapGuideFocus);
+  }
+
+  if (problems.length)
+    throw new Error(
+      `Some content points at something that doesn't exist:\n  - ${problems.join("\n  - ")}`,
+    );
 }
 
 /* ---------- Places ---------- */
