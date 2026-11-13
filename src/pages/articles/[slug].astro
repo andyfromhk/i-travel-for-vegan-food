@@ -1,0 +1,207 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/wrapper/Section.astro";
+import Grid from "@/components/wrapper/Grid.astro";
+import Heading from "@/components/typography/Heading.astro";
+import RichText from "@/components/typography/RichText.astro";
+import ButtonWrapper from "@/components/wrapper/ButtonWrapper.astro";
+import Button from "@/components/Button.astro";
+import GuideArticle from "@/components/section/GuideArticle.astro";
+import GuideHero from "@/components/content/GuideHero.astro";
+import Toc from "@/components/content/Toc.astro";
+import MapBanner from "@/components/content/MapBanner.astro";
+import ShareLinks from "@/components/content/ShareLinks.astro";
+import TravelBox from "@/components/content/TravelBox.astro";
+import AuthorBox from "@/components/content/AuthorBox.astro";
+import BookPopup from "@/components/content/BookPopup.astro";
+import PhotoGrid from "@/components/content/PhotoGrid.astro";
+import GuideCard from "@/components/item/GuideCard.astro";
+import {
+  articleCategories,
+  getSite,
+  guideDestinations,
+  guideSlug,
+  isMapGuide,
+  type Guide,
+} from "@/utils/content.ts";
+import { renderMarkdown } from "@/utils/markdown.ts";
+import {
+  absolute,
+  author as andy,
+  breadcrumbs,
+  imageObject,
+  publisher,
+  tidy,
+} from "@/utils/schema.ts";
+import { SITE_NAME } from "@/consts.ts";
+import anchorAliases from "@/data/anchor-aliases.json";
+
+export async function getStaticPaths() {
+  const { guides } = await getSite();
+  return guides
+    .filter((guide) => !isMapGuide(guide))
+    .map((guide) => ({ params: { slug: guideSlug(guide) }, props: { guide } }));
+}
+
+interface Props {
+  guide: Guide;
+}
+
+const { guide } = Astro.props;
+const { data } = guide;
+const site = await getSite();
+const url = `/articles/${guideSlug(guide)}`;
+const destinations = guideDestinations(guide);
+const destination = site.destinationBySlug.get(data.destination ?? "");
+const author = site.authors.find(
+  (a) => a.id === (data.author ?? "i-travel-for-vegan-food"),
+);
+const category = articleCategories.get(data.category ?? "")?.name ?? "";
+
+const { Content, headings } = await render(guide);
+const levels = (data.tocLevels ?? "h2,h3")
+  .split(",")
+  .map((level) => Number(level.trim().slice(1)));
+const toc = headings.filter((heading) => levels.includes(heading.depth));
+const recommendations = await renderMarkdown(data.recommendations);
+
+// Other guides about the same places come first, then the newest of the rest.
+const related = [
+  ...site.guides.filter(
+    (g) =>
+      g.id !== guide.id &&
+      guideDestinations(g).some((d) => destinations.includes(d)),
+  ),
+  ...site.guides.filter(
+    (g) =>
+      g.id !== guide.id &&
+      !guideDestinations(g).some((d) => destinations.includes(d)),
+  ),
+].slice(0, 6);
+
+// Section anchors whose name changed in the move from Webflow: old name -> new name.
+const aliases = (anchorAliases as Record<string, Record<string, string>>)[url];
+
+const description = `${data.description ?? ""} - Vegan ${category} - ${SITE_NAME}`;
+const schema = [
+  tidy({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: data.title,
+    description: data.description,
+    image: [imageObject(data.image)],
+    author:
+      data.author && author
+        ? {
+            "@type": "Person",
+            name: author.data.name,
+            url: absolute(`/authors/${author.id}`),
+          }
+        : andy,
+    publisher,
+    datePublished: data.created?.toISOString(),
+    dateModified: data.updated?.toISOString(),
+    mainEntityOfPage: { "@type": "WebPage", "@id": absolute(url) },
+    articleSection: "Travel Guide",
+    keywords: [
+      "vegan restaurants",
+      "plant-based dining",
+      "vegan travel",
+      "food travel guide",
+    ],
+  }),
+  breadcrumbs([
+    { name: "Home", path: "/" },
+    { name: "Vegan Foodie Guides", path: "/articles" },
+    { name: data.title, path: url },
+  ]),
+];
+---
+
+<BaseLayout
+  title={data.title}
+  description={description}
+  image={data.image?.src}
+  type="article"
+  schema={schema}
+  destinations={destinations}
+>
+  {/* Title */}
+  <Section paddingTop="none" paddingBottom="small">
+    <GuideHero guide={guide} author={author} />
+  </Section>
+
+  {/* Guide */}
+  <GuideArticle paddingTop="none" paddingBottom="small">
+    <Fragment slot="sidebar">
+      <Toc headings={toc} />
+      <MapBanner
+        render={data.linkToMap}
+        destination={destination}
+        variant="sidebar"
+        href={`/destinations/${destination?.id}`}
+      />
+      <ShareLinks
+        title={data.title}
+        image={data.image?.src}
+        label="Share this guide:"
+        variant="boxed"
+      />
+    </Fragment>
+    <TravelBox destination={destination} />
+    {
+      recommendations && (
+        <RichText
+          class="padding-3"
+          style="background-color: var(--yellow-100); border-radius: var(--radius-main);"
+          data-vt-richtext
+        >
+          <Fragment set:html={recommendations} />
+        </RichText>
+      )
+    }
+    <RichText id="content" data-vt-richtext>
+      <Content />
+    </RichText>
+    <AuthorBox author={author} />
+  </GuideArticle>
+
+  {/* Gallery */}
+  <Section
+    render={data.gallery.length > 0}
+    paddingTop="small"
+    paddingBottom="small"
+    gap="4"
+  >
+    <Heading tag="h2" variant="h3">Gallery</Heading>
+    <PhotoGrid photos={data.gallery} />
+  </Section>
+
+  {/* More guides */}
+  <Section paddingTop="small" gap="4" containerClass="max-width-small">
+    <Heading tag="h2" variant="h3">More Vegan Foodie Guides</Heading>
+    <Grid xsmall={2} class="gap-4">
+      {related.map((item) => <GuideCard guide={item} />)}
+    </Grid>
+    <ButtonWrapper marginTop="0" class="align-self-end">
+      <Button element="link" variant="link" href="/articles"
+        >See all vegan foodie guides →</Button
+      >
+    </ButtonWrapper>
+  </Section>
+
+  <BookPopup />
+  {
+    aliases && (
+      <script is:inline define:vars={{ aliases }}>
+        /* A link to an old section anchor is sent on to the section's new
+        anchor. */ const wanted = decodeURIComponent(location.hash.slice(1)); if
+        (aliases[wanted]) location.replace("#" + aliases[wanted]);
+      </script>
+    )
+  }
+  <script>
+    import "@/scripts/guide.js";
+  </script>
+</BaseLayout>

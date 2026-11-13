@@ -1,0 +1,305 @@
+---
+import ShareLinks from "@/components/content/ShareLinks.astro";
+import {
+  type Place,
+  getSite,
+  mediaSize,
+  placeKind,
+  priceRanges,
+  vegTypes,
+  STATUS_LABEL,
+} from "@/utils/content.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The restaurant the page is about. */
+  place: Place;
+}
+
+const { render = true, place } = Astro.props;
+const { data } = place;
+const site = await getSite();
+const destination = site.destinationBySlug.get(data.destination ?? "");
+const veg = vegTypes.get(data.vegType ?? "");
+const price = priceRanges.get(data.priceRange ?? "");
+const info = [placeKind(place, " | "), price?.symbols]
+  .filter(Boolean)
+  .join(" | ");
+const tiles = [
+  data.gallery.length > 0 && {
+    label: "Food & Drink",
+    href: "#food-and-drink",
+    photo:
+      data.gallery.find((p) => p.src !== data.image?.src) ?? data.gallery[0],
+  },
+  data.menu.length > 0 && {
+    label: "Menu & Vibe",
+    href: "#menu-and-vibe",
+    photo: data.menu[0],
+  },
+].filter(Boolean) as {
+  label: string;
+  href: string;
+  photo: { src: string; alt?: string };
+}[];
+---
+
+{
+  render && (
+    <div class="place-hero_wrap">
+      {/* The data-vt-* attributes are read by the saved-places script and by the "Email me my list" Worker. */}
+      <header
+        class="place-hero_header"
+        data-vt-place={place.id}
+        data-vt-name={data.name}
+        data-vt-destination={data.destination}
+        data-vt-area={data.district}
+        data-vt-address={data.address}
+        data-vt-lat={data.location?.lat}
+        data-vt-lng={data.location?.lng}
+        data-vt-maps={data.mapsUrl ?? ""}
+        data-vt-locator={data.storeLocator ?? ""}
+      >
+        <div class="place-hero_top">
+          {destination && (
+            <a class="place-hero_back" href={`/destinations/${destination.id}`}>
+              Destination - {destination.data.name}
+            </a>
+          )}
+          <ShareLinks title={data.name} image={data.image?.src} />
+        </div>
+        {veg && (
+          <span class="place-hero_veg" style={`color: ${veg.colour}`}>
+            {veg.name}
+          </span>
+        )}
+        <div class="place-hero_title">
+          <h1 class="text-style-h1">{data.name}</h1>
+          <span class="place-hero_save" data-vt-save-slot="1" />
+        </div>
+        {data.nameOriginal && (
+          <p class="place-hero_original text-style-large">
+            {data.nameOriginal}
+          </p>
+        )}
+        {info && <p class="place-hero_info text-style-small">{info}</p>}
+        {data.chain && (
+          <p class="place-hero_chain text-style-small" data-vt-chain>
+            Multiple locations
+            {data.storeLocator && (
+              <Fragment>
+                {" · "}
+                <a href={data.storeLocator} target="_blank" rel="noopener">
+                  Find a location
+                </a>
+              </Fragment>
+            )}
+          </p>
+        )}
+        {data.status !== "open" && (
+          <p class:list={["place-hero_status", data.status]} role="status">
+            {STATUS_LABEL[data.status]}
+            {data.status === "permanently-closed"
+              ? ": this place has closed for good. The review is kept for reference."
+              : ": check their website or social media before you visit."}
+          </p>
+        )}
+        {data.summary && <p class="place-hero_summary">{data.summary}</p>}
+      </header>
+
+      {data.image && (
+        <div class:list={["place-hero_photos", tiles.length === 0 && "single"]}>
+          <img
+            class="place-hero_main"
+            src={data.image.src}
+            alt={data.image.alt ?? ""}
+            fetchpriority="high"
+            {...mediaSize(data.image.src)}
+          />
+          {tiles.length > 0 && (
+            <div class="place-hero_tiles">
+              {tiles.map((tile) => (
+                <a class="place-hero_tile" href={tile.href}>
+                  <img
+                    src={tile.photo.src}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    {...mediaSize(tile.photo.src)}
+                  />
+                  <span class="place-hero_tile_label">{tile.label} →</span>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .place-hero_wrap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      width: 100%;
+    }
+
+    .place-hero_header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .place-hero_top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      width: 100%;
+      margin-bottom: var(--space-2);
+    }
+
+    .place-hero_back {
+      color: var(--dark-500);
+      font-size: 0.8rem;
+      text-decoration: underline;
+      transition: color var(--hover-duration) var(--hover-ease);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--brand-500);
+        }
+      }
+    }
+
+    .place-hero_veg {
+      font-size: 0.8rem;
+      font-style: italic;
+      font-weight: var(--primary-bold);
+      letter-spacing: 0.1ch;
+      text-transform: uppercase;
+    }
+
+    .place-hero_title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      width: 100%;
+    }
+
+    .place-hero_save {
+      flex: none;
+    }
+
+    .place-hero_info,
+    .place-hero_chain {
+      color: var(--dark-500);
+    }
+
+    .place-hero_status {
+      padding: 0.6em 1.2em;
+      background-color: #faeeda;
+      border-radius: var(--radius-main);
+      color: #633806;
+      font-weight: var(--primary-medium);
+      text-box: none;
+
+      &.permanently-closed {
+        background-color: var(--red-100);
+        color: var(--red-700);
+      }
+    }
+
+    .place-hero_summary {
+      width: 100%;
+      margin-top: var(--space-1);
+      padding-top: var(--space-3);
+      border-top: var(--border-width) solid var(--border);
+    }
+
+    .place-hero_photos {
+      display: grid;
+      gap: var(--space-2);
+
+      @media (width >= 48rem) {
+        grid-template-columns: 1.55fr 1fr;
+        grid-template-rows: minmax(0, 1fr);
+        height: clamp(20rem, 42vw, 30rem);
+
+        &.single {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    }
+
+    .place-hero_main {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-main);
+
+      @media (width >= 48rem) {
+        height: 100%;
+        min-height: 0;
+        aspect-ratio: auto;
+      }
+    }
+
+    .place-hero_tiles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-2);
+      min-height: 0;
+
+      @media (width >= 48rem) {
+        grid-template-columns: minmax(0, 1fr);
+        grid-auto-rows: minmax(0, 1fr);
+      }
+    }
+
+    .place-hero_tile {
+      position: relative;
+      display: block;
+      min-height: 0;
+      aspect-ratio: 3 / 2;
+      overflow: clip;
+      border-radius: var(--radius-main);
+
+      & img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transition: scale calc(var(--hover-duration) * 2) var(--hover-ease);
+      }
+
+      @media (width >= 48rem) {
+        aspect-ratio: auto;
+      }
+
+      @media (hover: hover) {
+        &:hover img {
+          scale: 1.04;
+        }
+      }
+    }
+
+    .place-hero_tile_label {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 0.2em 1em;
+      background-color: color-mix(in srgb, black 55%, transparent);
+      border-radius: var(--radius-main) 0 0 0;
+      color: var(--light-100);
+      font-size: 0.8rem;
+      font-style: italic;
+    }
+  }
+</style>

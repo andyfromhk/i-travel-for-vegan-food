@@ -1,0 +1,288 @@
+{
+  "id": "63cca2133f5ddf74a0876843",
+  "displayName": "Restaurants",
+  "singularName": "Restaurant",
+  "slug": "restaurants",
+  "createdOn": "2021-06-18T00:59:32.627Z",
+  "lastUpdated": "2026-09-28T02:20:27.693Z",
+  "fields": [
+    {
+      "id": "7e7dbcafac6bd4deb3fa46b61b3a8b05",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "name-in-original-language",
+      "displayName": "Name in Original Language",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "077cd12f5b0bb1691cc5279cf089d0bf",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "google-map-share-link",
+      "displayName": "Google Map Share Link"
+    },
+    {
+      "id": "56238b06e037d2108d65b79f2949cb2d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "latitude-2",
+      "displayName": "Latitude",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "2429ebb3acc4b2f5dbc4e361064a3dd0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "longitude-2",
+      "displayName": "Longitude",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "711d8d91e8dcf8f8550e960c832e7dfa",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "address-text",
+      "displayName": "Address Text",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "a4d04f66e8d52670d137d9389e81b93e",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "phone-2",
+      "displayName": "Phone",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "73ca144ac7fb43e5d9bd4462bcfb29f1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "website",
+      "displayName": "Website"
+    },
+    {
+      "id": "e466098bbb3313903d815d5f1dcad07b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "instagram",
+      "displayName": "Instagram"
+    },
+    {
+      "id": "b0c662c037d34c35b3b485ec50008ab9",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "facebook",
+      "displayName": "Facebook"
+    },
+    {
+      "id": "eb56a54d4db6e8292e7d96f6da1acf4d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "featured",
+      "displayName": "Featured"
+    },
+    {
+      "id": "f5cafe8eacf51712232b6688039ad140",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "meta-description",
+      "displayName": "Short description",
+      "validations": {
+        "singleLine": true,
+        "maxLength": 100
+      }
+    },
+    {
+      "id": "5f486b4abf6ab06b0255347c23620b62",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "description",
+      "displayName": "Description"
+    },
+    {
+      "id": "fe1c14a4e4e9579cbbe83f19b4223359",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-photo",
+      "displayName": "Featured Image"
+    },
+    {
+      "id": "1a0d95c953b43d2d3cc52122401fc20d",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "gallery",
+      "displayName": "Gallery"
+    },
+    {
+      "id": "35289524348b35bb5a251ab036cb6bec",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "menu",
+      "displayName": "Menu"
+    },
+    {
+      "id": "ec08279103004a119204f9dcc0ee0c27",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "veg-type",
+      "displayName": "Veg Type",
+      "validations": {
+        "collectionId": "63cca2133f5ddf0aca876845"
+      }
+    },
+    {
+      "id": "0f6bcad9ffb4188088c0e9c5daf67a66",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "city",
+      "displayName": "Destination",
+      "validations": {
+        "collectionId": "63cca2133f5ddf6edd876842"
+      }
+    },
+    {
+      "id": "25c5f5b649ff1f6cfe38e4536b9b8863",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Number",
+      "slug": "likes",
+      "displayName": "Likes",
+      "validations": {
+        "format": "decimal",
+        "precision": 1,
+        "allowNegative": false
+      }
+    },
+    {
+      "id": "fb7a3c85bc04f7f4a94341b0f679174f",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "price-range",
+      "displayName": "Price Range",
+      "validations": {
+        "collectionId": "67dea7079a2cc4e976ec8321"
+      }
+    },
+    {
+      "id": "2ede1255029435b5ba7d0fc03426c2df",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "venue-type",
+      "displayName": "Venue Type",
+      "validations": {
+        "collectionId": "67dcbbe93cc77a167b55a005"
+      }
+    },
+    {
+      "id": "9694c530a093d4f6c5e1da1b8cadd6fb",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "cuisine-3",
+      "displayName": "Cuisine",
+      "validations": {
+        "collectionId": "67deac1f050dd1d08856a1ad"
+      }
+    },
+    {
+      "id": "d6401c1cc5306cf9c8f6a39d5d4d9fcc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Option",
+      "slug": "status-2",
+      "displayName": "Status",
+      "helpText": "Leave empty if the place is open. Only set this when something changes.",
+      "validations": {
+        "options": [
+          {
+            "name": "Open",
+            "id": "fc2b46483bd90d83476e7f4000689c9a"
+          },
+          {
+            "name": "Temporarily closed",
+            "id": "ac33d6159aa2410466ee7fba35a2ad5e"
+          },
+          {
+            "name": "Permanently closed",
+            "id": "f78b3656eaf59727015484684ba7d55d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "47a7db10ce9dbc005253ea84effdea87",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "chain",
+      "displayName": "Chain",
+      "helpText": "Turn on for chains with multiple locations. Chains are listed but not pinned on destination maps."
+    },
+    {
+      "id": "e67c84b53241500413f2c8142679b0af",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "store-locator",
+      "displayName": "Store Locator",
+      "helpText": "Optional. The chain's own store finder page. If empty, readers get a Google Maps search for the chain near them."
+    },
+    {
+      "id": "338316a83fb5541359c475c0f68ec2d3",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "fcc3f396633194c075403ca70d812bb1",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

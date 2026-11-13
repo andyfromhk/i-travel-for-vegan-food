@@ -1,0 +1,75 @@
+---
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** Headings to list, in page order. */
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { render = true, headings } = Astro.props;
+---
+
+{
+  render && headings.length > 0 && (
+    <nav class="toc_wrap" aria-label="Table of contents">
+      <p class="text-style-h4">Table Of Content</p>
+      <div class="toc_list" id="toc">
+        {headings.map((heading) => (
+          <a
+            class:list={["tocitem", `toc-h${heading.depth}`]}
+            href={`#${heading.slug}`}
+          >
+            {heading.text}
+          </a>
+        ))}
+      </div>
+    </nav>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .toc_wrap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      min-height: 0;
+    }
+
+    .toc_list {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .tocitem {
+      flex: none;
+      padding: 0.25rem 0.625rem;
+      border-radius: var(--radius-round);
+      color: var(--dark-700);
+      font-size: 0.7rem;
+      font-weight: var(--primary-medium);
+      letter-spacing: 0.1ch;
+      text-transform: uppercase;
+      transition: background-color var(--hover-duration) var(--hover-ease);
+
+      &.toc-h3 {
+        padding-left: 1.4rem;
+        font-weight: var(--primary-regular);
+      }
+
+      &.active {
+        background-color: var(--brand-100);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--brand-100);
+        }
+      }
+    }
+  }
+</style>

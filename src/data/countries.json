@@ -1,0 +1,9 @@
+[
+  { "slug": "australia", "name": "Australia", "currency": "AUD", "phrases": null, "navGroup": true },
+  { "slug": "japan", "name": "Japan", "currency": "JPY", "phrases": "ja", "navGroup": true, "book": "japan" },
+  { "slug": "thailand", "name": "Thailand", "currency": "THB", "phrases": "th", "navGroup": true, "book": "thailand" },
+  { "slug": "hong-kong", "name": "Hong Kong", "currency": "HKD", "phrases": "zh-HK", "book": "hong-kong" },
+  { "slug": "taiwan", "name": "Taiwan", "currency": "TWD", "phrases": "zh-TW", "book": "taiwan" },
+  { "slug": "south-korea", "name": "South Korea", "currency": "KRW", "phrases": "ko" },
+  { "slug": "singapore", "name": "Singapore", "currency": "SGD", "phrases": "zh-SG" }
+]

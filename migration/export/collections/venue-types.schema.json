@@ -1,0 +1,49 @@
+{
+  "id": "67dcbbe93cc77a167b55a005",
+  "displayName": "Venue Types",
+  "singularName": "Venue Type",
+  "slug": "venue-type",
+  "createdOn": "2025-03-21T01:07:53.781Z",
+  "lastUpdated": "2025-06-02T02:37:36.130Z",
+  "fields": [
+    {
+      "id": "0d6291888f427bbf5a2901a032759322",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "schema-type",
+      "displayName": "Schema Type",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "7d7ad4d2695f35ef6b4006b2c5444369",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "441a6788b8c70b90a1560ba6b84cde4b",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

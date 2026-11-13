@@ -303,6 +303,52 @@ test('long lists are capped at 60 items, with a note', async () => {
   assert.match(env.sent[0].html, /first 60 items/);
 });
 
+// ---------- newsletter sign-up (the footer form) ----------
+
+const subscribeRequest = (body, { origin = SITE, method = 'POST' } = {}) =>
+  new Request('https://api.itravelforveganfood.com/subscribe', {
+    method,
+    headers: { 'Content-Type': 'application/json', Origin: origin },
+    body: method === 'POST' ? JSON.stringify(body) : undefined,
+  });
+
+test('newsletter: adds the reader to Kit with the newsletter tag, sends no email', async () => {
+  forgetTags();
+  const env = makeEnv({ KIT_NEWSLETTER_TAG: 'Website newsletter' });
+  const calls = mockFetch();
+  const response = await worker.fetch(subscribeRequest({ email: 'Reader@Example.com', token: 'ok' }), env, { waitUntil() {} });
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { ok: true });
+  assert.equal(env.sent.length, 0);
+  const subscriber = calls.find((c) => c.url.endsWith('/v4/subscribers'));
+  assert.equal(JSON.parse(subscriber.body).email_address, 'reader@example.com');
+  const created = calls.find((c) => c.url.endsWith('/v4/tags') && c.method === 'POST');
+  assert.equal(JSON.parse(created.body).name, 'Website newsletter');
+  assert.ok(calls.some((c) => /\/v4\/tags\/[^/]+\/subscribers$/.test(c.url)));
+});
+
+test('newsletter: only your website, a real email and a passed bot check', async () => {
+  forgetTags();
+  const env = makeEnv();
+  mockFetch();
+  const ctx = { waitUntil() {} };
+  assert.equal((await worker.fetch(subscribeRequest({ email: 'a@b.co', token: 'ok' }, { origin: 'https://evil.example' }), env, ctx)).status, 403);
+  assert.deepEqual(await (await worker.fetch(subscribeRequest({ email: 'not-an-email', token: 'ok' }), env, ctx)).json(), { ok: false, code: 'email' });
+  assert.deepEqual(await (await worker.fetch(subscribeRequest({ email: 'a@b.co' }), env, ctx)).json(), { ok: false, code: 'bot_check' });
+  mockFetch({ human: false });
+  assert.deepEqual(await (await worker.fetch(subscribeRequest({ email: 'a@b.co', token: 'bad' }), env, ctx)).json(), { ok: false, code: 'bot_check' });
+  assert.equal((await worker.fetch(subscribeRequest(null, { method: 'GET' }), env, ctx)).status, 405);
+});
+
+test('newsletter: a Kit problem is reported, not hidden', async () => {
+  forgetTags();
+  const env = makeEnv({ KIT_API_KEY: '' });
+  mockFetch();
+  const response = await worker.fetch(subscribeRequest({ email: 'a@b.co', token: 'ok' }), env, { waitUntil() {} });
+  assert.equal(response.status, 502);
+  assert.deepEqual(await response.json(), { ok: false, code: 'server' });
+});
+
 test('health check', async () => {
   const response = await worker.fetch(new Request('https://api.itravelforveganfood.com/'), makeEnv(), {});
   assert.deepEqual(await response.json(), { ok: true, service: 'itfvf-email-list' });

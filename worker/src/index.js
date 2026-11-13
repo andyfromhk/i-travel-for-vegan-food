@@ -3,15 +3,19 @@
 // POST https://api.itravelforveganfood.com/email-list
 //   { email, optIn, token, items: [...] }   (sent by core.js from the Saved drawer)
 //
+// POST https://api.itravelforveganfood.com/subscribe
+//   { email, token }                        (sent by the newsletter form in the website's footer)
+//   Same checks, then the reader is added to Kit. No email is sent from here.
+//
 // Steps: only your website may call it -> check and clean the request -> rate limits ->
 // Turnstile bot check -> fill in each restaurant's links from your CMS -> send the email ->
 // (if they ticked the box) add them to Kit.
 // Replies are always { ok: true } or { ok: false, code } so the website can show a friendly message.
 
-import { readRequest } from './validate.js';
+import { readRequest, cleanEmail } from './validate.js';
 import { renderEmail, citiesIn } from './email.js';
 import { addCmsLinks } from './lookup.js';
-import { optIn } from './kit.js';
+import { optIn, subscribe } from './kit.js';
 
 const allowedOrigins = (env) => String(env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
 
@@ -62,6 +66,36 @@ function sendErrorCode(error) {
   return { code: 'server', status: 500 };
 }
 
+// The newsletter form in the footer: check the request the same way as a list email, then add the reader to Kit.
+async function newsletterSignUp(request, env, origin, allowed, headers) {
+  if (request.method === 'OPTIONS') return new Response(null, { status: allowed.includes(origin) ? 204 : 403, headers });
+  if (request.method !== 'POST') return reply({ ok: false, code: 'method' }, 405, headers);
+  if (!allowed.includes(origin)) return reply({ ok: false, code: 'origin' }, 403, headers);
+
+  let body;
+  try { body = await request.json(); } catch (e) { return reply({ ok: false, code: 'invalid' }, 400, headers); }
+  const email = cleanEmail(body && body.email);
+  const token = body && typeof body.token === 'string' ? body.token.slice(0, 4096) : '';
+  if (!email) return reply({ ok: false, code: 'email' }, 400, headers);
+  if (!token) return reply({ ok: false, code: 'bot_check' }, 400, headers);
+
+  const ip = request.headers.get('CF-Connecting-IP') || '';
+  if (!(await withinLimit(env.LIMIT_BY_VISITOR, 'ip:' + ip)) || !(await withinLimit(env.LIMIT_BY_RECIPIENT, 'to:' + email))) {
+    return reply({ ok: false, code: 'rate_limited' }, 429, headers);
+  }
+
+  const allowedHosts = allowed.map((o) => { try { return new URL(o).hostname; } catch (e) { return ''; } });
+  if (!(await isHuman(token, ip, env, allowedHosts))) return reply({ ok: false, code: 'bot_check' }, 400, headers);
+
+  try {
+    await subscribe(env, email);
+  } catch (error) {
+    console.error('Newsletter sign-up failed:', error && error.message);
+    return reply({ ok: false, code: 'server' }, 502, headers);
+  }
+  return reply({ ok: true }, 200, headers);
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -70,6 +104,7 @@ export default {
     const headers = corsHeaders(origin, allowed);
 
     if (url.pathname === '/' && request.method === 'GET') return reply({ ok: true, service: 'itfvf-email-list' }, 200, headers);
+    if (url.pathname === '/subscribe') return newsletterSignUp(request, env, origin, allowed, headers);
     if (url.pathname !== '/email-list') return reply({ ok: false, code: 'not_found' }, 404, headers);
     if (request.method === 'OPTIONS') return new Response(null, { status: allowed.includes(origin) ? 204 : 403, headers });
     if (request.method !== 'POST') return reply({ ok: false, code: 'method' }, 405, headers);

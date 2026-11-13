@@ -1,0 +1,195 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import {
+  type Place,
+  mediaSize,
+  placeKind,
+  placeUrl,
+  priceRanges,
+  vegTypes,
+  STATUS_LABEL,
+} from "@/utils/content.ts";
+
+interface Props extends HTMLAttributes<"article"> {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The restaurant to show. */
+  place: Place;
+  /** Heading level. */
+  headingTag?: "h2" | "h3" | "h4";
+  /** Loading behavior. */
+  loading?: "lazy" | "eager";
+}
+
+const {
+  render = true,
+  place,
+  headingTag: Tag = "h3",
+  loading = "lazy",
+  class: className,
+  ...rest
+} = Astro.props;
+const { data } = place;
+const veg = vegTypes.get(data.vegType ?? "");
+const price = priceRanges.get(data.priceRange ?? "");
+const size = mediaSize(data.image?.src);
+---
+
+{
+  render && (
+    <article
+      class:list={["place-card_wrap", className]}
+      data-place={place.id}
+      data-name={data.name}
+      data-veg={data.vegType}
+      data-price={data.priceRange}
+      data-venue={data.venueType}
+      data-cuisine={data.cuisine}
+      {...rest}
+    >
+      <div class="place-card_visual">
+        {data.image && (
+          <img
+            class="place-card_image"
+            src={data.image.src}
+            alt={data.image.alt ?? ""}
+            loading={loading}
+            decoding="async"
+            {...size}
+          />
+        )}
+      </div>
+      <div class="place-card_content">
+        <div class="place-card_meta">
+          {veg && (
+            <span class="place-card_veg" style={`color: ${veg.colour}`}>
+              {veg.name}
+            </span>
+          )}
+          {data.status === "temporarily-closed" && (
+            <span class="place-card_status">{STATUS_LABEL[data.status]}</span>
+          )}
+          {price && <span class="place-card_price">{price.symbols}</span>}
+        </div>
+        <Tag class="place-card_name text-style-h4">
+          <a class="place-card_link" href={placeUrl(place)}>
+            {data.name}
+          </a>
+        </Tag>
+        {data.nameOriginal && (
+          <span class="place-card_original">{data.nameOriginal}</span>
+        )}
+        <span class="place-card_kind">{placeKind(place)}</span>
+        {data.summary && (
+          <p class="place-card_text text-style-small">{data.summary}</p>
+        )}
+      </div>
+    </article>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .place-card_wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: clip;
+      background-color: var(--background);
+      border: var(--border-width) solid var(--border);
+      border-radius: var(--radius-main);
+      transition: border-color var(--hover-duration) var(--hover-ease);
+
+      &[hidden] {
+        display: none;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          border-color: var(--brand-500);
+
+          .place-card_link {
+            text-decoration: underline;
+          }
+
+          .place-card_image {
+            scale: 1.04;
+          }
+        }
+      }
+    }
+
+    .place-card_visual {
+      position: relative;
+      flex: none;
+      aspect-ratio: 4 / 5;
+      overflow: clip;
+      background-color: var(--background-skeleton);
+    }
+
+    .place-card_image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transition: scale calc(var(--hover-duration) * 2) var(--hover-ease);
+    }
+
+    .place-card_content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      padding: var(--space-1) var(--space-1) var(--space-3);
+    }
+
+    .place-card_meta {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-1);
+      font-size: 0.65rem;
+    }
+
+    .place-card_veg {
+      font-style: italic;
+      font-weight: var(--primary-bold);
+      letter-spacing: 0.1ch;
+      text-transform: uppercase;
+    }
+
+    .place-card_status {
+      padding: 0.1em 0.7em;
+      background-color: #faeeda;
+      border-radius: var(--radius-round);
+      color: #633806;
+    }
+
+    .place-card_price {
+      margin-left: auto;
+      color: var(--dark-500);
+    }
+
+    /* The name is the link; it stretches over the card so the whole card is one target. */
+    .place-card_link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .place-card_original {
+      font-size: 0.75rem;
+    }
+
+    .place-card_kind {
+      color: var(--dark-500);
+      font-size: 0.7rem;
+    }
+
+    .place-card_text {
+      padding-top: 0.55rem;
+      border-top: var(--border-width) solid var(--border);
+      line-height: var(--line-height-large);
+    }
+  }
+</style>

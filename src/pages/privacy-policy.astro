@@ -1,0 +1,17 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/wrapper/Section.astro";
+import RichText from "@/components/typography/RichText.astro";
+
+const page = (await getEntry("pages", "privacy-policy"))!;
+const { Content } = await render(page);
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <Section paddingTop="small" containerClass="max-width-small">
+    <RichText>
+      <Content />
+    </RichText>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,201 @@
+{
+  "id": "63cca2133f5ddf9f93876844",
+  "displayName": "Articles",
+  "singularName": "Article",
+  "slug": "articles",
+  "createdOn": "2021-06-18T00:59:38.162Z",
+  "lastUpdated": "2026-11-12T12:40:56.704Z",
+  "fields": [
+    {
+      "id": "17b9f44600ec35317fed13adf49a3c5a",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "main-destination-if-any",
+      "displayName": "Main Destination (if any)",
+      "validations": {
+        "collectionId": "63cca2133f5ddf6edd876842"
+      }
+    },
+    {
+      "id": "f2109898dca67ff3290c271ffdce47d5",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "meta-description",
+      "displayName": "Meta Description",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "fdaec80781fb6f019b8fff1e501de92b",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "intro-text",
+      "displayName": "Intro Text",
+      "helpText": "(copy from meta description)",
+      "validations": {
+        "singleLine": true,
+        "maxLength": 100
+      }
+    },
+    {
+      "id": "9f9f3c34f7fa85ca060ecb0f0b6a4fa2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Option",
+      "slug": "category",
+      "displayName": "Category",
+      "validations": {
+        "options": [
+          {
+            "name": "Food Guide",
+            "id": "65582cd7b554a902b1dd2ca5f6972b35"
+          },
+          {
+            "name": "Restaurant Feature",
+            "id": "ba9f2155eb4ccbd6743595d1d4cc0111"
+          },
+          {
+            "name": "Travel Tips",
+            "id": "be2208771ac441ead67496271d59573e"
+          },
+          {
+            "name": "Accomodation",
+            "id": "b7bc14957ea69a2318df85332614211c"
+          },
+          {
+            "name": "Markets & Festivals",
+            "id": "25ed5dfb1f0a686eba03eeb09096f062"
+          },
+          {
+            "name": "Products & Shopping",
+            "id": "4f370d8a4fb9cb95e375db8e102cb5c8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "9cce791290e4bbdfd7cda4095b3ab745",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "guest-author",
+      "displayName": "Guest Author",
+      "helpText": "Choose only if it's written by guest author; Default is ITFVF",
+      "validations": {
+        "collectionId": "6822dac4bb152a4db37622f6"
+      }
+    },
+    {
+      "id": "bf02a57633a4e858eb0e21eb76c780bc",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "featured",
+      "displayName": "Main Guide"
+    },
+    {
+      "id": "8fd81a88b0f014ea9ade764dbe73cdcf",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Switch",
+      "slug": "map",
+      "displayName": "Link to map?",
+      "helpText": "Turn this on to show the destination map link"
+    },
+    {
+      "id": "c9403c8b95d869a074216fac4aa35eb3",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-image",
+      "displayName": "Featured Image"
+    },
+    {
+      "id": "2612755ef60e5f4568657d1e78256f42",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiImage",
+      "slug": "gallery",
+      "displayName": "Gallery"
+    },
+    {
+      "id": "b673ba00850abcc0e1fc0d41a44f5efb",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "toc-based-on",
+      "displayName": "TOC based on...",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "d4555166794365534c4335d34be59c89",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "MultiReference",
+      "slug": "referenced-cities",
+      "displayName": "Referenced Destination",
+      "validations": {
+        "collectionId": "63cca2133f5ddf6edd876842"
+      }
+    },
+    {
+      "id": "0627b71b63506c0ff68d5c4572fb31ca",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "destination-recommendations",
+      "displayName": "Destination Recommendations"
+    },
+    {
+      "id": "de5c6725a4ea9cf2ac1955ee0e531e66",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "blog-introduction",
+      "displayName": "Blog Introduction",
+      "helpText": "(copy blog introduction here before showing the content)"
+    },
+    {
+      "id": "2b7b8fe4963d1ed38105934607f0e39c",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "blog-content",
+      "displayName": "Blog Content"
+    },
+    {
+      "id": "d1c4644e52faabe1361f9d5f1ad56d09",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "7d7146b0adf0632df068f2cf68d9da3c",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

@@ -1,5 +1,10 @@
 # Migration brief: I Travel For Vegan Food, from Webflow to Astro + Cloudflare Pages
 
+> **Update, 12 November 2026.** Phases 0 to 3 of this brief are done on the `astro-migration` branch, with a
+> few decisions that differ from what is written below (the site lives in this repository, on the Lumos
+> starter; Pages CMS instead of Keystatic; Markdown shortcuts instead of MDX components; a Cloudflare Worker
+> instead of Pages). The current state and every decision are in `docs/migration-status.md`.
+
 ## For Andy: how to use this brief
 
 1. Create a **new, empty GitHub repository** for the new site (for example `itfvf-site`) and clone it to your computer.

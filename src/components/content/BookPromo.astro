@@ -1,0 +1,116 @@
+---
+import books from "@/data/books.json";
+import { type Destination, countryBySlug } from "@/utils/content.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** The destination the page is about. The promo shows when its country has a book. */
+  destination?: Destination;
+}
+
+type Book = {
+  /** Small line above the title. */
+  promoEyebrow?: string;
+  /** Promo headline. */
+  promoTitle?: string;
+  /** Book image. */
+  promoImage?: string;
+  /** Where the promo leads. */
+  url: string;
+};
+
+const { render = true, destination } = Astro.props;
+const country = destination
+  ? countryBySlug.get(destination.data.country)
+  : undefined;
+const key = country && "book" in country ? country.book : undefined;
+const book = key ? (books as Record<string, Book>)[key] : undefined;
+---
+
+{
+  render && book?.promoTitle && (
+    <aside class="book-promo_wrap" data-vt-ignore>
+      {book.promoImage && (
+        <img
+          class="book-promo_image"
+          src={book.promoImage}
+          alt=""
+          width="120"
+          height="120"
+          loading="lazy"
+        />
+      )}
+      <div class="book-promo_content">
+        <span class="book-promo_eyebrow">{book.promoEyebrow}</span>
+        <a class="book-promo_title text-style-h5" href={book.url}>
+          {book.promoTitle}
+        </a>
+        <span class="book-promo_cta" aria-hidden="true">
+          See More Details
+        </span>
+      </div>
+    </aside>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .book-promo_wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-2) var(--space-3);
+      background-color: var(--yellow-100);
+      border-radius: var(--radius-small);
+    }
+
+    .book-promo_image {
+      flex: none;
+      width: 5rem;
+      height: 5rem;
+      object-fit: contain;
+    }
+
+    .book-promo_content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .book-promo_eyebrow {
+      color: var(--brand-500);
+      font-size: 0.7rem;
+      font-style: italic;
+      font-weight: var(--primary-bold);
+      letter-spacing: 0.1ch;
+      text-transform: uppercase;
+    }
+
+    /* The title is the link; it stretches over the whole box so the box works as one target. */
+    .book-promo_title::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    .book-promo_cta {
+      padding: 0.25em 1.6em;
+      background-color: var(--brand-500);
+      border-radius: var(--radius-round);
+      color: var(--brand-text);
+      font-size: 0.7rem;
+      font-weight: var(--primary-medium);
+      letter-spacing: 0.1ch;
+      transition: background-color var(--hover-duration) var(--hover-ease);
+    }
+
+    @media (hover: hover) {
+      .book-promo_wrap:hover .book-promo_cta {
+        background-color: var(--brand-600);
+      }
+    }
+  }
+</style>

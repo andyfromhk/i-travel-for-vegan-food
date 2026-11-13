@@ -1,0 +1,62 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/wrapper/Section.astro";
+import Grid from "@/components/wrapper/Grid.astro";
+import Heading from "@/components/typography/Heading.astro";
+import Paragraph from "@/components/typography/Paragraph.astro";
+import DestinationCard from "@/components/item/DestinationCard.astro";
+import { destinationGroups } from "@/utils/content.ts";
+import { breadcrumbs } from "@/utils/schema.ts";
+
+const groups = await destinationGroups();
+const schema = breadcrumbs([
+  { name: "Home", path: "/" },
+  { name: "Destinations", path: "/destinations" },
+]);
+---
+
+<BaseLayout
+  title="Browse Vegan Food Destination - I Travel For Vegan Food"
+  description="Browse these destinations to find the best vegan food you can have. Japan, Thailand, Australia, Taiwan, Hong Kong, Singapore, and more!"
+  schema={schema}
+>
+  {/* Title */}
+  <Section
+    paddingTop="small"
+    paddingBottom="small"
+    gap="3"
+    containerClass="max-width-small"
+  >
+    <Heading tag="h1" class="heading-accent"
+      >Find Your Next <strong>Vegan Food Destination</strong></Heading
+    >
+    <Paragraph
+      >Browse the destinations, find the best vegan restaurants, and plan your
+      next vegan foodie trip!</Paragraph
+    >
+  </Section>
+
+  {/* One group per country */}
+  {
+    groups.map((group, groupIndex) => (
+      <Section
+        paddingTop="small"
+        paddingBottom={groupIndex === groups.length - 1 ? "medium" : "small"}
+        gap="4"
+        id={group.slug}
+      >
+        <Heading tag="h2" variant="h3" class="align-self-center">
+          {group.title}
+        </Heading>
+        <Grid xsmall={2} medium={3} class="gap-3">
+          {group.destinations.map((destination, index) => (
+            <DestinationCard
+              destination={destination}
+              loading={groupIndex === 0 && index < 3 ? "eager" : "lazy"}
+            />
+          ))}
+        </Grid>
+      </Section>
+    ))
+  }
+</BaseLayout>

@@ -1,0 +1,116 @@
+{
+  "id": "67fdc4fccb04b2f6b03452ad",
+  "displayName": "Map Guides",
+  "singularName": "Map Guide",
+  "slug": "map-guides",
+  "createdOn": "2025-04-15T02:31:24.738Z",
+  "lastUpdated": "2026-11-12T12:39:11.513Z",
+  "fields": [
+    {
+      "id": "ebfea84f606b840148eb3d3c90d1ce79",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Option",
+      "slug": "display-routes",
+      "displayName": "Display Routes?",
+      "validations": {
+        "options": [
+          {
+            "name": "true",
+            "id": "8c7103c624402df9d3e616df208cad72"
+          },
+          {
+            "name": "false",
+            "id": "84ce9ad4e317879b1667a1709af5b2d1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "3001b70b8d594a7a73eb6a8f521f9fa8",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "featured-image",
+      "displayName": "Featured Image"
+    },
+    {
+      "id": "98a29601c47cfdcb288d7d2b31fc32e0",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Reference",
+      "slug": "referenced-destination",
+      "displayName": "Referenced Destination",
+      "validations": {
+        "collectionId": "63cca2133f5ddf6edd876842"
+      }
+    },
+    {
+      "id": "f545801f8cbc245eccba15a362c9e9ff",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Option",
+      "slug": "focus",
+      "displayName": "Category",
+      "validations": {
+        "options": [
+          {
+            "name": "Itinerary",
+            "id": "e392e401efbcbfd221b9ab190a5b91f4"
+          },
+          {
+            "name": "Foodie City Map",
+            "id": "265aa93be591db7f86d3d144b4429db7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "45009f99778e428f5ebffe274a03eb88",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "short-description",
+      "displayName": "Short Description",
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "id": "cf292bda7965bf27a2288a94e6ab61f4",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "content",
+      "displayName": "Content"
+    },
+    {
+      "id": "6ef86b74fd3f247acd5598c020554cba",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "a3148447b9d0e25000ddf875511af8da",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

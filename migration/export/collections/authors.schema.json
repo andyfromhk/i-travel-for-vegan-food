@@ -1,0 +1,97 @@
+{
+  "id": "6822dac4bb152a4db37622f6",
+  "displayName": "Authors",
+  "singularName": "Author",
+  "slug": "authors",
+  "createdOn": "2025-05-13T05:38:12.398Z",
+  "lastUpdated": "2025-05-14T05:22:47.343Z",
+  "fields": [
+    {
+      "id": "ea58fd7bb8ddd99deebad70575d1b3ee",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Image",
+      "slug": "profile-picture",
+      "displayName": "Profile Picture"
+    },
+    {
+      "id": "d3563a727cd2a7b46940202384c49688",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "title",
+      "displayName": "TItle",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "049520a3a0b8e3a12ca0c0b3de1ca3f1",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "RichText",
+      "slug": "short-bio",
+      "displayName": "Short Bio"
+    },
+    {
+      "id": "2aa46736d31dcefc6869b11c1ec932aa",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "website-link",
+      "displayName": "Website Link"
+    },
+    {
+      "id": "2c132a7121d8cdbbc8846d2eb1a05bf2",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "instagram-link",
+      "displayName": "Instagram Link"
+    },
+    {
+      "id": "c3b0d9d2e515a7b31538254e2167a7b6",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "facebook-link",
+      "displayName": "Facebook Link"
+    },
+    {
+      "id": "f59ee09b2fe3037323a6dcff12554aad",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "Link",
+      "slug": "pinterest-link",
+      "displayName": "Pinterest Link"
+    },
+    {
+      "id": "3b92a8152bc31430661d720065fc603c",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "64e1b61439c1a02a8f0f392ecc10c7db",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

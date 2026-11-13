@@ -1,0 +1,49 @@
+{
+  "id": "67dea7079a2cc4e976ec8321",
+  "displayName": "Price Ranges",
+  "singularName": "Price Range",
+  "slug": "price-ranges",
+  "createdOn": "2025-03-22T12:03:19.384Z",
+  "lastUpdated": "2025-06-07T08:39:39.712Z",
+  "fields": [
+    {
+      "id": "4a4b9082943078fa324121d2faea2212",
+      "isEditable": true,
+      "isRequired": false,
+      "type": "PlainText",
+      "slug": "symbols",
+      "displayName": "Symbols",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "id": "7f6c89ae0defd42dde66f1486b183337",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "name",
+      "displayName": "Name",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "id": "994db2618d8bc28134642876a93b775f",
+      "isEditable": true,
+      "isRequired": true,
+      "type": "PlainText",
+      "slug": "slug",
+      "displayName": "Slug",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    }
+  ],
+  "fieldGroups": []
+}

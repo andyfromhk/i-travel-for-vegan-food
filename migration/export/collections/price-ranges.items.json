@@ -1,0 +1,48 @@
+{
+ "collection": "price-ranges",
+ "count": 3,
+ "items": [
+  {
+   "id": "67dea731cc4eebc34a89c05d",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-23T02:59:38.485Z",
+   "lastUpdated": "2025-03-22T12:04:01.488Z",
+   "createdOn": "2025-03-22T12:04:01.488Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "symbols": "$$$",
+    "name": "Fine-Dining",
+    "slug": "fine-dining"
+   }
+  },
+  {
+   "id": "67dea726a659780f71b063a4",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-23T02:59:38.485Z",
+   "lastUpdated": "2025-03-22T12:03:50.982Z",
+   "createdOn": "2025-03-22T12:03:50.982Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "symbols": "$$",
+    "name": "Mid-Range",
+    "slug": "mid-range"
+   }
+  },
+  {
+   "id": "67dea718c8f20e3b837d2f60",
+   "cmsLocaleId": "653ad267e882f528b30a60f6",
+   "lastPublished": "2025-03-23T02:59:38.485Z",
+   "lastUpdated": "2025-03-22T12:03:36.708Z",
+   "createdOn": "2025-03-22T12:03:36.708Z",
+   "isArchived": false,
+   "isDraft": false,
+   "fieldData": {
+    "symbols": "$",
+    "name": "Budget-Friendly",
+    "slug": "budget-friendly"
+   }
+  }
+ ]
+}

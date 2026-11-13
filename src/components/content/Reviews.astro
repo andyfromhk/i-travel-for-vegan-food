@@ -1,0 +1,62 @@
+---
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** Reader quotes. Wrap a phrase in ** to make it bold. */
+  reviews: string[];
+}
+
+const { render = true, reviews } = Astro.props;
+const escape = (value: string) =>
+  value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const html = (value: string) =>
+  escape(value).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+---
+
+{
+  render && reviews.length > 0 && (
+    <ul class="reviews_wrap">
+      {reviews.map((review) => (
+        <li class="reviews_item">
+          <span class="reviews_stars" role="img" aria-label="5 out of 5 stars">
+            ★★★★★
+          </span>
+          <q
+            class="reviews_quote"
+            set:html={html(review).replace(/^“|”$/g, "")}
+          />
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .reviews_wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+      gap: var(--space-3);
+      width: 100%;
+    }
+
+    .reviews_item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding: var(--space-3);
+      background-color: var(--yellow-100);
+      border-radius: var(--radius-main);
+    }
+
+    .reviews_stars {
+      color: #f5a623;
+      letter-spacing: 0.15em;
+    }
+
+    .reviews_quote {
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+  }
+</style>

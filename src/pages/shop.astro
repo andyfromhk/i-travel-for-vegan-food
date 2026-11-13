@@ -1,0 +1,59 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/wrapper/Section.astro";
+import Grid from "@/components/wrapper/Grid.astro";
+import Heading from "@/components/typography/Heading.astro";
+import Paragraph from "@/components/typography/Paragraph.astro";
+import Reviews from "@/components/content/Reviews.astro";
+import BookCard from "@/components/item/BookCard.astro";
+import shop from "@/data/shop.json";
+import { breadcrumbs } from "@/utils/schema.ts";
+
+const books = shop.books.filter((book) => !("wide" in book && book.wide));
+const bundles = shop.books.filter((book) => "wide" in book && book.wide);
+const schema = breadcrumbs([
+  { name: "Home", path: "/" },
+  { name: "Shop Vegan Travel Books", path: "/shop" },
+]);
+---
+
+<BaseLayout
+  title="Shop Vegan Foodie Guides"
+  description="Shop our exclusive vegan foodie travel books, with detailed insights and recommendations to explore the best plant-based eats around the world"
+  schema={schema}
+>
+  {/* Title */}
+  <Section
+    paddingTop="small"
+    paddingBottom="small"
+    gap="3"
+    containerClass="max-width-small"
+  >
+    <Heading tag="h1" class="heading-accent"
+      >Shop <strong>Vegan Travel Books &amp; PDF Guides</strong></Heading
+    >
+    <Paragraph>
+      Stop stressing about ingredients lists and hidden fish sauce. Our
+      comprehensive vegan travel books for Japan, Thailand, Hong Kong, and
+      Taiwan are curated manually to help you find the best plant-based food in
+      Asia. Download these PDF itineraries and guidebooks to your phone and
+      travel like a local.
+    </Paragraph>
+  </Section>
+
+  {/* Reader reviews */}
+  <Section paddingTop="none" paddingBottom="small" gap="4">
+    <Heading tag="h2" variant="h3" class="align-self-center"
+      >Trusted by Vegan Travelers</Heading
+    >
+    <Reviews reviews={shop.reviews} />
+  </Section>
+
+  {/* Books */}
+  <Section paddingTop="small" gap="4">
+    <Grid small={2} class="gap-4">
+      {books.map((book) => <BookCard book={book} />)}
+    </Grid>
+    {bundles.map((book) => <BookCard book={book} />)}
+  </Section>
+</BaseLayout>

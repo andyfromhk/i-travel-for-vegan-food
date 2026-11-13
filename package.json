@@ -1,0 +1,45 @@
+{
+  "name": "itfvf-site",
+  "type": "module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build && node migration/scripts/build-redirects.mjs && cp public/_redirects dist/_redirects",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write .",
+    "build:site": "astro build"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/markdown-remark": "^7.3.8",
+    "astro": "^7.3.8",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.27",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "hast-util-to-string": "^3.0.1",
+    "image-size": "^2.1.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "rehype-parse": "^9.0.1",
+    "rehype-remark": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-stringify": "^11.0.0",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.2.0",
+    "wrangler": "^4.123.0",
+    "yaml": "^2.9.1"
+  },
+  "lumos": {
+    "version": "1.0.0",
+    "commit": "04795f80076775ab7a9d0a6a0f59228ab7845bd0",
+    "scaffolded": "2026-10-18"
+  }
+}

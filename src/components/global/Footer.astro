@@ -1,0 +1,378 @@
+---
+import Icon from "@/components/media/Icon.astro";
+import Button from "@/components/Button.astro";
+import instagram from "@/assets/icons/instagram.svg";
+import pinterest from "@/assets/icons/pinterest.svg";
+import { SITE_NAME, SOCIAL, SHOP_URL, EMAIL_LIST } from "@/consts.ts";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+}
+
+const { render = true } = Astro.props;
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/destinations", label: "Destinations" },
+  { href: SHOP_URL, label: "Shop Vegan Travel Books" },
+  { href: "/articles", label: "Vegan Foodie Guides" },
+  { href: "/about", label: "About" },
+];
+---
+
+{
+  render && (
+    <footer class="footer_wrap">
+      <div class="footer_inner">
+        <form
+          class="footer_form"
+          data-endpoint={EMAIL_LIST.subscribeEndpoint}
+          data-sitekey={EMAIL_LIST.turnstileSiteKey}
+          novalidate
+        >
+          <h2 class="footer_form_title text-style-h4">
+            Get the latest vegan foodie guides
+          </h2>
+          <p class="footer_form_text text-style-small">
+            I don't spam cause spam is not vegan
+          </p>
+          <div class="footer_form_row">
+            <label class="footer_form_label" for="footer-email">
+              Email address
+            </label>
+            <input
+              class="footer_form_input"
+              id="footer-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="Enter your email"
+              required
+            />
+            {/* Bots fill every field they find; people never see this one. */}
+            <input
+              class="footer_form_trap"
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <Button type="submit">Join The Club</Button>
+          </div>
+          <div class="footer_form_check" />
+          <p
+            class="footer_form_message text-style-small"
+            role="status"
+            aria-live="polite"
+          />
+        </form>
+
+        <div class="footer_main">
+          <nav aria-label="Footer">
+            <ul class="footer_links">
+              {links.map((link) => (
+                <li>
+                  <a class="footer_link" href={link.href}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <ul class="footer_social">
+            <li>
+              <a
+                class="footer_social_link"
+                href={SOCIAL.instagram}
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+                <Icon src={instagram} variant="medium" />
+              </a>
+            </li>
+            <li>
+              <a
+                class="footer_social_link"
+                href={SOCIAL.pinterest}
+                target="_blank"
+                rel="noopener"
+                aria-label="Pinterest"
+              >
+                <Icon src={pinterest} variant="medium" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer_bottom text-style-small">
+          <p>
+            &copy; <span id="year">{new Date().getFullYear()}</span> {SITE_NAME}
+            . All rights reserved.
+          </p>
+          <p class="footer_credit">
+            Website by{" "}
+            <a
+              href="https://www.veganbuzz.com.au/"
+              target="_blank"
+              rel="noopener"
+            >
+              VeganBuzz
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+<script>
+  const year = document.querySelector<HTMLSpanElement>("#year");
+  if (year) year.textContent = new Date().getFullYear().toString();
+
+  /* Newsletter sign-up. The address goes to the site's own Worker, which adds it to Kit.
+     Cloudflare Turnstile (a bot check) loads only once someone starts using the form. */
+  type Turnstile = {
+    render: (el: HTMLElement, options: Record<string, unknown>) => string;
+    reset: (id: string) => void;
+  };
+  const form = document.querySelector<HTMLFormElement>(".footer_form");
+  if (form) {
+    const input = form.querySelector<HTMLInputElement>(".footer_form_input")!;
+    const trap = form.querySelector<HTMLInputElement>(".footer_form_trap")!;
+    const button = form.querySelector<HTMLButtonElement>(
+      "button[type=submit], button:not([type])",
+    )!;
+    const message = form.querySelector<HTMLElement>(".footer_form_message")!;
+    const check = form.querySelector<HTMLElement>(".footer_form_check")!;
+    let token = "";
+    let widget: string | null = null;
+    let loading: Promise<Turnstile> | null = null;
+
+    const turnstile = () =>
+      (loading ??= new Promise<Turnstile>((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src =
+          "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+        script.async = true;
+        script.onload = () =>
+          resolve((window as unknown as { turnstile: Turnstile }).turnstile);
+        script.onerror = () => {
+          loading = null;
+          reject(new Error("Turnstile could not load"));
+        };
+        document.head.appendChild(script);
+      }));
+
+    const prepare = () =>
+      turnstile()
+        .then((api) => {
+          if (widget !== null) return;
+          widget = api.render(check, {
+            sitekey: form.dataset.sitekey,
+            size: "flexible",
+            callback: (value: string) => (token = value),
+            "expired-callback": () => (token = ""),
+          });
+        })
+        .catch(() => {});
+    input.addEventListener("focus", prepare, { once: true });
+
+    const say = (text: string, state: "ok" | "error" | "") => {
+      message.textContent = text;
+      message.dataset.state = state;
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (trap.value) return;
+      const email = input.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        say("Please enter a valid email address.", "error");
+        input.focus();
+        return;
+      }
+      await prepare();
+      if (!token) {
+        say("Please complete the quick check above, then try again.", "error");
+        return;
+      }
+      button.disabled = true;
+      say("Signing you up…", "");
+      try {
+        const response = await fetch(form.dataset.endpoint!, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, token }),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (response.ok && result.ok) {
+          form.classList.add("done");
+          say("Thank you! Your email has been received!", "ok");
+          input.value = "";
+        } else if (result.code === "rate_limited") {
+          say(
+            "That's a lot of sign-ups. Please try again in a minute.",
+            "error",
+          );
+        } else {
+          say("Oops! Something went wrong. Please try again.", "error");
+        }
+      } catch {
+        say(
+          "Oops! Something went wrong. Please check your connection and try again.",
+          "error",
+        );
+      }
+      button.disabled = false;
+      token = "";
+      const api = (window as unknown as { turnstile?: Turnstile }).turnstile;
+      if (api && widget !== null) api.reset(widget);
+    });
+  }
+</script>
+
+<style is:global>
+  @layer components {
+    .footer_wrap {
+      display: flex;
+      justify-content: center;
+      padding-block: var(--space-6);
+      padding-inline: var(--site-margin);
+      background-color: var(--background-3);
+      color: var(--text);
+      border-top: var(--border-width) solid var(--brand-500);
+    }
+
+    .footer_inner {
+      width: 100%;
+      max-width: var(--max-width-small);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .footer_form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+      text-align: center;
+    }
+
+    .footer_form_row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      width: min(100%, 26rem);
+      margin-top: var(--space-2);
+      padding: 0.3rem;
+      background-color: var(--background);
+      border-radius: var(--radius-round);
+
+      &:focus-within {
+        outline: var(--focus-width) solid var(--brand-500);
+      }
+    }
+
+    .footer_form_label,
+    .footer_form_trap {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .footer_form_input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.4em 1em;
+      background: none;
+      color: inherit;
+      border: 0;
+      border-radius: var(--radius-round);
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .footer_form_check:empty {
+      display: none;
+    }
+
+    .footer_form_message {
+      min-height: 1lh;
+
+      &[data-state="error"] {
+        color: var(--red-700);
+      }
+
+      &[data-state="ok"] {
+        color: var(--brand-600);
+        font-weight: var(--primary-medium);
+      }
+    }
+
+    .footer_main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3) var(--space-5);
+      padding-top: var(--space-5);
+      border-top: var(--border-width) solid var(--brand-500);
+    }
+
+    .footer_links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-2) var(--space-5);
+      font-size: 0.8rem;
+      font-weight: var(--primary-medium);
+    }
+
+    .footer_link {
+      transition: color var(--hover-duration) var(--hover-ease);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--brand-500);
+        }
+      }
+    }
+
+    .footer_social {
+      display: flex;
+      gap: var(--space-2);
+    }
+
+    .footer_social_link {
+      display: flex;
+      transition: color var(--hover-duration) var(--hover-ease);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--brand-500);
+        }
+      }
+    }
+
+    .footer_bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-1) var(--space-4);
+      color: var(--dark-500);
+    }
+
+    .footer_credit {
+      font-style: italic;
+    }
+  }
+</style>

@@ -1,0 +1,23 @@
+dist
+.astro
+node_modules
+
+# The Webflow-era scripts still served to the live site from jsDelivr, and the email Worker
+/core.js
+/guide.js
+/destination.js
+/worker
+/docs
+
+# The site's copies of those scripts keep their original formatting
+src/scripts
+
+# Content and data written by the migration scripts or the CMS
+src/content
+src/data
+migration/export
+migration/crawl
+migration/archive
+migration/redirects
+migration/media-manifest.json
+public

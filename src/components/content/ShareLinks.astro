@@ -1,0 +1,127 @@
+---
+import Icon from "@/components/media/Icon.astro";
+import facebook from "@/assets/icons/facebook.svg";
+import pinterest from "@/assets/icons/pinterest.svg";
+import whatsapp from "@/assets/icons/whatsapp.svg";
+
+interface Props {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** Title of the page being shared. */
+  title: string;
+  /** Image offered to Pinterest. */
+  image?: string;
+  /** Text in front of the icons. */
+  label?: string;
+  /** Layout. `boxed` draws the outlined pill used beside articles. */
+  variant?: "plain" | "boxed";
+}
+
+const {
+  render = true,
+  title,
+  image,
+  label = "Share this:",
+  variant = "plain",
+} = Astro.props;
+const url = new URL(Astro.url.pathname.replace(/\/+$/, "") || "/", Astro.site)
+  .href;
+const media = image ? new URL(image, Astro.site).href : "";
+const q = encodeURIComponent;
+const links = [
+  {
+    name: "Facebook",
+    icon: facebook,
+    kind: "facebook",
+    href: `https://www.facebook.com/sharer/sharer.php?u=${q(url)}`,
+  },
+  {
+    name: "Pinterest",
+    icon: pinterest,
+    kind: "pinterest",
+    href: `https://pinterest.com/pin/create/button/?url=${q(url)}&media=${q(media)}&description=${q(title)}`,
+  },
+  {
+    name: "WhatsApp",
+    icon: whatsapp,
+    kind: "whatsapp",
+    href: `https://wa.me/?text=${q(`${title} ${url}`)}`,
+  },
+];
+---
+
+{
+  render && (
+    <div class:list={["share-links_wrap", variant !== "plain" && variant]}>
+      <span class="share-links_label">{label}</span>
+      <ul class="share-links_list">
+        {links.map((link) => (
+          <li>
+            <a
+              class:list={["share-links_link", link.kind]}
+              href={link.href}
+              target="_blank"
+              rel="noopener"
+              aria-label={`Share on ${link.name}`}
+            >
+              <Icon src={link.icon} variant="small" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+<style is:global>
+  @layer components {
+    .share-links_wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 0.8rem;
+      font-style: italic;
+
+      &.boxed {
+        justify-content: center;
+        padding: 0.3rem var(--space-3);
+        border: var(--border-width) solid var(--brand-500);
+        border-radius: var(--radius-round);
+        color: var(--brand-500);
+      }
+    }
+
+    .share-links_list {
+      display: flex;
+      gap: var(--space-2);
+    }
+
+    .share-links_link {
+      display: grid;
+      place-items: center;
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      color: var(--light-100);
+      transition: opacity var(--hover-duration) var(--hover-ease);
+
+      &.facebook {
+        background-color: #1d4ed8;
+      }
+
+      &.pinterest {
+        background-color: #c8232c;
+      }
+
+      &.whatsapp {
+        background-color: #22c55e;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+</style>
