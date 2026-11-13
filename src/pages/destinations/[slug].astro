@@ -93,7 +93,7 @@ const schema = breadcrumbs([
   >
     <h2 class="sr-only">Vegan-friendly restaurants in {name}</h2>
     <MapBanner render={hasMap} destination={destination} />
-    <Grid xsmall={2} medium={4} class="gap-3">
+    <Grid xsmall={2} medium={4} class="gap-grid">
       {
         places
           .slice(0, 8)
@@ -130,7 +130,7 @@ const schema = breadcrumbs([
     id="guides"
   >
     <Heading tag="h2" variant="h3">Vegan Foodie Guides for {name}</Heading>
-    <Grid xsmall={2} class="gap-4">
+    <Grid xsmall={2} class="gap-grid">
       {guides.map((guide) => <GuideCard guide={guide} />)}
     </Grid>
     <ButtonWrapper marginTop="0" class="align-self-end">

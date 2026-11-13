@@ -63,5 +63,20 @@ const { render = true, ...rest } = Astro.props;
       gap: var(--space-6);
       min-width: 0;
     }
+
+    /* On phones the guide's photos run edge to edge, past the page margins, as on the old site. */
+    @media (width < 48rem) {
+      .guide-article_content > .rich-text > :is(.figure, .image-pair) {
+        margin-inline: calc(var(--site-margin) * -1);
+
+        & img {
+          border-radius: 0;
+        }
+
+        & figcaption {
+          padding-inline: var(--site-margin);
+        }
+      }
+    }
   }
 </style>

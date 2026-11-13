@@ -49,7 +49,7 @@ const guides = site.guides.filter(
     <Heading tag="h2" variant="h3" class="align-self-center"
       >Latest Guides by {data.name}</Heading
     >
-    <Grid xsmall={2} medium={4} class="gap-3">
+    <Grid xsmall={2} medium={4} class="gap-grid">
       {guides.map((guide) => <GuideCard guide={guide} />)}
     </Grid>
     <ButtonWrapper marginTop="0" class="align-self-end">

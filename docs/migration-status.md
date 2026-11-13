@@ -107,9 +107,13 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
 4. **Google Analytics.** GA4 is kept and only loads on the built site. Cloudflare Web Analytics could replace
    or join it.
 5. **Restaurants shown on a destination page.** The first 8, by popularity, with the rest in the map. Webflow showed 4.
-6. **The "Good Vegan Options" orange** (`#e9942d`) is faint as text (2.4:1 on white; the guideline is
-   4.5:1). It's the only colour Lighthouse still flags on the site's own pages. A darker orange such as
-   `#a8600f` (4.8:1) would pass; it's one line in `src/data/taxonomies.json`.
+## Decisions made with Andy (13 November 2026, later)
+
+- "Good Vegan Options" orange `#b66000`.
+- Paragraphs in rich text have 2.5em after them, close to the blank line the old site's spacer paragraphs gave.
+  Done with CSS rather than empty paragraphs, which the CMS editor and screen readers handle poorly.
+- No book pop-up on guide pages.
+- On phones, guide photos run edge to edge; every grid of cards or photos has a 0.5rem gap.
 
 ## Decisions made with Andy (13 November 2026)
 

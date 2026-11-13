@@ -51,7 +51,7 @@ const schema = breadcrumbs([
 
   {/* Books */}
   <Section paddingTop="small" gap="4">
-    <Grid small={2} class="gap-4">
+    <Grid small={2} class="gap-grid">
       {books.map((book) => <BookCard book={book} />)}
     </Grid>
     {bundles.map((book) => <BookCard book={book} />)}

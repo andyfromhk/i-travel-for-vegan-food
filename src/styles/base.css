@@ -198,6 +198,8 @@
   --site-gutter-max: 32;
 
   --site-width: calc(100% - var(--site-margin) * 2);
+  /* The gap between cards and photos in every grid: tight on phones, a little more room above. */
+  --grid-gap: 0.5rem;
 
   /* Spacing */
   --space-1: clamp(var(--space-1-min) / 16 * 1rem, ((var(--space-1-min) - ((var(--space-1-max) - var(--space-1-min)) / (var(--viewport-max) - var(--viewport-min)) * var(--viewport-min))) / 16 * 1rem + ((var(--space-1-max) - var(--space-1-min)) / (var(--viewport-max) - var(--viewport-min))) * 100vw), var(--space-1-max) / 16 * 1rem);
@@ -238,6 +240,12 @@
   --section-space-page-top: 2rem;
   --section-space-nav-overlap-min: 160;
   --section-space-nav-overlap-max: 224;
+}
+
+@media (width >= 48rem) {
+  :root {
+    --grid-gap: var(--space-3);
+  }
 }
 
 /* Color themes */
@@ -406,6 +414,8 @@ img {
 
 button {
   background-color: transparent;
+  /* iOS Safari colours button text blue unless a colour is set. */
+  color: inherit;
   text-align: inherit;
   padding: 0;
   border: 0;

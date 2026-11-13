@@ -675,7 +675,9 @@ const priceRank = (slug?: string) =>
       }
     }
 
+    /* Google Maps sets Roboto/Arial on everything inside a map; the labels use the site font. */
     #map-wrapper .marker-tooltip {
+      font-family: var(--primary-family);
       position: absolute;
       bottom: calc(100% + 0.4rem);
       left: 50%;
