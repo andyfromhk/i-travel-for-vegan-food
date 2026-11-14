@@ -108,6 +108,22 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
    or join it.
 5. **Restaurants shown on a destination page.** The first 8, by popularity, with the rest in the map. Webflow showed 4.
 
+## Done (Round 5, 14 November 2026)
+
+- **18 Thailand restaurant pages** from the Bangkok, Chiang Mai and Phuket main guides: your review text and the
+  guide's photos, veg type, area, map pin, Google Maps link (Phuket) or a Google Maps search (others), and Instagram
+  where the guide linked it. Each guide section now links to its page, and the three destinations show their
+  restaurant list and map. Veganerie and Broccoli Revolution are chains ("Multiple locations", no pin).
+  **To check in Pages CMS:** price range (set only for Imjai Vegan, V Secret and Yo Vegan, which the guides call
+  cheap), venue type and cuisine (chosen from the guide text), addresses and opening details, and store-locator
+  links for the two chains. The Thailand book PDF didn't come through, so nothing was taken from it.
+- **Cheat-sheet sign-ups** for Japan, Thailand, Taiwan and Hong Kong pages, with the email the Worker sends
+  (`email-checklist.md`). The sign-up box replaces the recommendations box on restaurant and destination pages and
+  sits under the share links on guides. **Needs the email Worker deployed.**
+- Travel box: Travel Insurance next to Getting Around, Saily eSIM links, softer green card borders.
+- Shop reviews with reviewer names. Map guide headings keep their colour when active.
+- Safari: list items whose first child is a flex or grid box (the share buttons) no longer get an empty line.
+
 ## Decisions made with Andy (13 November 2026, later)
 
 - "Good Vegan Options" orange `#b66000`.

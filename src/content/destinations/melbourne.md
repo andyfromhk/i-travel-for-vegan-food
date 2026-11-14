@@ -21,7 +21,7 @@ gallery:
 travel:
   whereToStay: Stay in the CBD for easy tram access almost everywhere, or in Fitzroy or Collingwood to be close to one of Melbourne's biggest clusters of vegan cafes and bars.
   hotelsLink: https://booking.tpo.lu/1n1oKlgo
-  esimLink: https://airalo.tpo.lu/EMt8Jywg
+  esimLink: https://saily.tpo.lu/rx9nwLXc
   gettingAroundLabel: "Melbourne Airport to city: SkyBus"
   gettingAroundLink: https://klook.tpo.lu/vaTinGlc
   experienceLabel: Great Ocean Road day trip

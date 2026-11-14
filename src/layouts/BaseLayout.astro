@@ -6,6 +6,7 @@ import Nav from "@/components/global/Nav.astro";
 import Footer from "@/components/global/Footer.astro";
 import SiteData from "@/components/utility/SiteData.astro";
 import type { SeoProps } from "@/types.ts";
+import { cheatSheetCountry } from "@/utils/content.ts";
 
 type Props = SeoProps & {
   /** Theme for the whole page. `inherit` leaves the root defaults in place. */
@@ -29,6 +30,8 @@ const {
   footer = true,
   ...seo
 } = Astro.props;
+// The sign-up form offers a country's free cheat sheet on pages about Japan, Thailand, Taiwan or Hong Kong.
+const country = await cheatSheetCountry(destinations);
 ---
 
 <!doctype html>
@@ -43,7 +46,7 @@ const {
     <main id="main" tabindex="-1">
       <slot />
     </main>
-    <Footer render={footer} />
+    <Footer render={footer} country={country} />
     <SiteData destinations={destinations} />
     <slot name="scripts" />
   </body>

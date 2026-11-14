@@ -128,7 +128,7 @@ const schema = [
       <Content />
     </RichText>
     <AuthorBox author={author} />
-    <Footer slot="footer" />
+    <Footer slot="footer" country={destination?.data.country} />
   </MapGuide>
 
   <script>

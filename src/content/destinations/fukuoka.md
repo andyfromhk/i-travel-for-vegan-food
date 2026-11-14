@@ -11,7 +11,7 @@ mapGraphic:
 travel:
   whereToStay: Stay in Tenjin for the city's best dining and shopping, within walking distance of the riverside yatai stalls in Nakasu. Hakata Station is the better pick if you're taking the Shinkansen.
   hotelsLink: https://booking.tpo.lu/ITUif2lq
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: "Exploring Kyushu: JR Kyushu Rail Pass"
   gettingAroundLink: https://klook.tpo.lu/yq9IrDzF
   experienceLabel: Day trip to Yufuin, Dazaifu and more

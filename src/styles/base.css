@@ -438,6 +438,14 @@ ol {
   list-style-type: "";
 }
 
+/* Safari gives a list item an empty line of its own when its first child is a flex or grid box (the list
+   marker, even an empty one, needs a line). Lists with a class are styled lists without markers, so their
+   items don't need to be list items. Rich text lists (no class) keep their bullets. */
+ul[class] > li,
+ol[class] > li {
+  display: block;
+}
+
 p,
 h1,
 h2,

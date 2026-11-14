@@ -4,8 +4,10 @@
 //   { email, optIn, token, items: [...] }   (sent by core.js from the Saved drawer)
 //
 // POST https://api.itravelforveganfood.com/subscribe
-//   { email, token }                        (sent by the newsletter form in the website's footer)
-//   Same checks, then the reader is added to Kit. No email is sent from here.
+//   { email, token, country? }              (sent by the website's sign-up forms)
+//   Same checks, then the reader is added to Kit with the newsletter tag. When the form was on a Japan,
+//   Thailand, Taiwan or Hong Kong page (country), they're also sent that country's free cheat-sheet email
+//   and get a "Cheat sheet: Japan" (etc.) tag.
 //
 // Steps: only your website may call it -> check and clean the request -> rate limits ->
 // Turnstile bot check -> fill in each restaurant's links from your CMS -> send the email ->
@@ -16,6 +18,7 @@ import { readRequest, cleanEmail } from './validate.js';
 import { renderEmail, citiesIn } from './email.js';
 import { addCmsLinks } from './lookup.js';
 import { optIn, subscribe } from './kit.js';
+import { renderCheatSheet, cheatSheetCountries } from './cheat-sheet.js';
 
 const allowedOrigins = (env) => String(env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
 
@@ -66,8 +69,9 @@ function sendErrorCode(error) {
   return { code: 'server', status: 500 };
 }
 
-// The newsletter form in the footer: check the request the same way as a list email, then add the reader to Kit.
-async function newsletterSignUp(request, env, origin, allowed, headers) {
+// The sign-up forms: check the request the same way as a list email, send the cheat sheet if the form asked
+// for one, then add the reader to Kit.
+async function newsletterSignUp(request, env, ctx, origin, allowed, headers) {
   if (request.method === 'OPTIONS') return new Response(null, { status: allowed.includes(origin) ? 204 : 403, headers });
   if (request.method !== 'POST') return reply({ ok: false, code: 'method' }, 405, headers);
   if (!allowed.includes(origin)) return reply({ ok: false, code: 'origin' }, 403, headers);
@@ -76,6 +80,8 @@ async function newsletterSignUp(request, env, origin, allowed, headers) {
   try { body = await request.json(); } catch (e) { return reply({ ok: false, code: 'invalid' }, 400, headers); }
   const email = cleanEmail(body && body.email);
   const token = body && typeof body.token === 'string' ? body.token.slice(0, 4096) : '';
+  // Only countries that have a cheat sheet count; anything else is a plain newsletter sign-up.
+  const country = body && cheatSheetCountries().includes(body.country) ? body.country : null;
   if (!email) return reply({ ok: false, code: 'email' }, 400, headers);
   if (!token) return reply({ ok: false, code: 'bot_check' }, 400, headers);
 
@@ -86,6 +92,28 @@ async function newsletterSignUp(request, env, origin, allowed, headers) {
 
   const allowedHosts = allowed.map((o) => { try { return new URL(o).hostname; } catch (e) { return ''; } });
   if (!(await isHuman(token, ip, env, allowedHosts))) return reply({ ok: false, code: 'bot_check' }, 400, headers);
+
+  if (country) {
+    const sheet = renderCheatSheet(country, { siteUrl: env.SITE_URL, logoUrl: env.LOGO_URL });
+    try {
+      await env.EMAIL.send({
+        to: email,
+        from: { email: env.FROM_EMAIL, name: env.FROM_NAME },
+        replyTo: env.REPLY_TO,
+        subject: sheet.subject,
+        html: sheet.html,
+        text: sheet.text,
+      });
+    } catch (error) {
+      const { code, status } = sendErrorCode(error);
+      console.error('Cheat sheet sending failed:', error && error.code, error && error.message);
+      return reply({ ok: false, code }, status, headers);
+    }
+    // The email has gone, so Kit can finish after the reply.
+    const name = { japan: 'Japan', thailand: 'Thailand', taiwan: 'Taiwan', 'hong-kong': 'Hong Kong' }[country] || country;
+    ctx.waitUntil(subscribe(env, email, ['Cheat sheet: ' + name]).catch((e) => console.error('Kit sign-up failed:', e.message)));
+    return reply({ ok: true, sent: true }, 200, headers);
+  }
 
   try {
     await subscribe(env, email);
@@ -104,7 +132,7 @@ export default {
     const headers = corsHeaders(origin, allowed);
 
     if (url.pathname === '/' && request.method === 'GET') return reply({ ok: true, service: 'itfvf-email-list' }, 200, headers);
-    if (url.pathname === '/subscribe') return newsletterSignUp(request, env, origin, allowed, headers);
+    if (url.pathname === '/subscribe') return newsletterSignUp(request, env, ctx, origin, allowed, headers);
     if (url.pathname !== '/email-list') return reply({ ok: false, code: 'not_found' }, 404, headers);
     if (request.method === 'OPTIONS') return new Response(null, { status: allowed.includes(origin) ? 204 : 403, headers });
     if (request.method !== 'POST') return reply({ ok: false, code: 'method' }, 405, headers);

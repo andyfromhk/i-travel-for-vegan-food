@@ -20,7 +20,7 @@ gallery:
 travel:
   whereToStay: Stay in the town centre. Everything is walkable, from Main Beach and the health-focused cafe scene to the start of the Cape Byron lighthouse walk.
   hotelsLink: https://booking.tpo.lu/K5LslE2X
-  esimLink: https://airalo.tpo.lu/EMt8Jywg
+  esimLink: https://saily.tpo.lu/rx9nwLXc
   gettingAroundLabel: Gold Coast Airport to Byron Bay Bus
   gettingAroundLink: https://byronbayexpress.com.au/
   experienceLabel: Byron Bay sea kayak tour

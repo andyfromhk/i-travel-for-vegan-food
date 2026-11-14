@@ -847,9 +847,20 @@ content:
     fields:
       - name: reviews
         label: Reader reviews
-        type: text
-        list: true
-        description: Wrap words in **double asterisks** to make them bold.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.name}"
+        fields:
+          - name: text
+            label: Review
+            type: text
+            required: true
+            description: Wrap words in **double asterisks** to make them bold.
+          - name: name
+            label: Reviewer name
+            type: string
       - name: books
         label: Books
         type: object

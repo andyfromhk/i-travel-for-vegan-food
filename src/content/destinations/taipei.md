@@ -26,7 +26,7 @@ gallery:
 travel:
   whereToStay: Stay near Taipei Main Station or Ximending. The station has direct trains to the airport and the high-speed rail, and Ximending, one MRT stop away, is a lively area packed with vegetarian food.
   hotelsLink: https://booking.tpo.lu/ZJzlBCzX
-  esimLink: https://airalo.tpo.lu/OWkt3P7v
+  esimLink: https://saily.tpo.lu/odanlrz7
   gettingAroundLabel: Taiwan Easycard transport card
   gettingAroundLink: https://klook.tpo.lu/7OJPLER9
   experienceLabel: Jiufen & Shifen day trip

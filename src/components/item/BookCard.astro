@@ -155,6 +155,11 @@ const { render = true, book, class: className, ...rest } = Astro.props;
       padding-left: 1.3em;
       list-style: disc;
 
+      /* Bullets need real list items (base.css turns items of styled lists into blocks). */
+      & li {
+        display: list-item;
+      }
+
       & li::marker {
         color: var(--brand-500);
       }

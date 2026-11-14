@@ -1,0 +1,356 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import Button from "@/components/Button.astro";
+import { EMAIL_LIST } from "@/consts.ts";
+import { CHEAT_SHEET_COUNTRIES, countryBySlug } from "@/utils/content.ts";
+
+type Props = HTMLAttributes<"form"> & {
+  /** Set to `false` to omit the component. */
+  render?: boolean;
+  /** Where the form sits: `footer` (on the grey footer) or `box` (a card in the page). */
+  variant?: "footer" | "box";
+  /**
+   * The country the page is about. Japan, Thailand, Taiwan and Hong Kong offer their free cheat sheet
+   * (sent by the email Worker); any other country, or none, shows the regular sign-up.
+   */
+  country?: string;
+};
+
+const {
+  render = true,
+  variant = "footer",
+  country,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const sheet =
+  country && CHEAT_SHEET_COUNTRIES.includes(country)
+    ? (countryBySlug.get(country)?.name ?? country)
+    : undefined;
+const copy = sheet
+  ? {
+      title: `Going to ${sheet}? Get my free vegan ${sheet} cheat sheet.`,
+      text: "The must-visit restaurants, best-of food guides, phrases you should know and more.",
+      button: "Get the Cheat Sheet",
+      done: `Check your inbox! Your ${sheet} cheat sheet is on its way.`,
+    }
+  : {
+      title: "Get the latest vegan foodie guides",
+      text: undefined,
+      button: "Join The Club",
+      done: "Thank you! Your email has been received!",
+    };
+const id = `signup-email-${variant}`;
+---
+
+{
+  /* The newsletter sign-up. It posts to the email Worker, which adds the reader to Kit and, on a
+     cheat-sheet country's pages, emails them that country's cheat sheet. */
+}
+{
+  render && (
+    <form
+      class:list={["signup_wrap", variant, className]}
+      data-endpoint={EMAIL_LIST.subscribeEndpoint}
+      data-sitekey={EMAIL_LIST.turnstileSiteKey}
+      data-country={sheet ? country : undefined}
+      data-done={copy.done}
+      novalidate
+      {...rest}
+    >
+      <h2 class="signup_title text-style-h4">{copy.title}</h2>
+      {copy.text && <p class="signup_text text-style-small">{copy.text}</p>}
+      <div class="signup_row">
+        <label class="signup_label" for={id}>
+          Email address
+        </label>
+        <input
+          class="signup_input"
+          id={id}
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="Enter your email"
+          required
+        />
+        {/* Bots fill every field they find; people never see this one. */}
+        <input
+          class="signup_trap"
+          name="website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
+        <Button type="submit">{copy.button}</Button>
+      </div>
+      <p class="signup_note text-style-small">
+        I don't spam cause spam is not vegan
+      </p>
+      <div class="signup_check" />
+      <p
+        class="signup_message text-style-small"
+        role="status"
+        aria-live="polite"
+      />
+    </form>
+  )
+}
+
+<script>
+  /* Sends the address to the site's own email Worker. Cloudflare Turnstile (a bot check) loads only once
+     someone starts using a form. Every sign-up form on the page works on its own. */
+  type Turnstile = {
+    render: (el: HTMLElement, options: Record<string, unknown>) => string;
+    reset: (id: string) => void;
+  };
+  let loading: Promise<Turnstile> | null = null;
+  const turnstile = () =>
+    (loading ??= new Promise<Turnstile>((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src =
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.async = true;
+      script.onload = () =>
+        resolve((window as unknown as { turnstile: Turnstile }).turnstile);
+      script.onerror = () => {
+        loading = null;
+        reject(new Error("Turnstile could not load"));
+      };
+      document.head.appendChild(script);
+    }));
+
+  document.querySelectorAll<HTMLFormElement>(".signup_wrap").forEach((form) => {
+    const input = form.querySelector<HTMLInputElement>(".signup_input")!;
+    const trap = form.querySelector<HTMLInputElement>(".signup_trap")!;
+    const button = form.querySelector<HTMLButtonElement>(
+      "button[type=submit], button:not([type])",
+    )!;
+    const message = form.querySelector<HTMLElement>(".signup_message")!;
+    const check = form.querySelector<HTMLElement>(".signup_check")!;
+    let token = "";
+    let widget: string | null = null;
+
+    const prepare = () =>
+      turnstile()
+        .then((api) => {
+          if (widget !== null) return;
+          widget = api.render(check, {
+            sitekey: form.dataset.sitekey,
+            size: "flexible",
+            callback: (value: string) => (token = value),
+            "expired-callback": () => (token = ""),
+          });
+        })
+        .catch(() => {});
+    input.addEventListener("focus", prepare, { once: true });
+
+    const say = (text: string, state: "ok" | "error" | "") => {
+      message.textContent = text;
+      message.dataset.state = state;
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (trap.value) return;
+      const email = input.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        say("Please enter a valid email address.", "error");
+        input.focus();
+        return;
+      }
+      await prepare();
+      if (!token) {
+        say("Please complete the quick check above, then try again.", "error");
+        return;
+      }
+      button.disabled = true;
+      say(form.dataset.country ? "Sending…" : "Signing you up…", "");
+      try {
+        const response = await fetch(form.dataset.endpoint!, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email,
+            token,
+            country: form.dataset.country,
+          }),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (response.ok && result.ok) {
+          form.classList.add("done");
+          say(form.dataset.done ?? "Thank you!", "ok");
+          input.value = "";
+        } else if (result.code === "rate_limited") {
+          say(
+            "That's a lot of sign-ups. Please try again in a minute.",
+            "error",
+          );
+        } else if (result.code === "address") {
+          say(
+            "That address couldn't receive email. Please check it and try again.",
+            "error",
+          );
+        } else {
+          say("Oops! Something went wrong. Please try again.", "error");
+        }
+      } catch {
+        say(
+          "Oops! Something went wrong. Please check your connection and try again.",
+          "error",
+        );
+      }
+      button.disabled = false;
+      token = "";
+      const api = (window as unknown as { turnstile?: Turnstile }).turnstile;
+      if (api && widget !== null) api.reset(widget);
+    });
+  });
+</script>
+
+<style is:global>
+  @layer components {
+    .signup_wrap {
+      /* The row below stacks when the form itself is narrow (a sidebar, a phone), wherever it sits. */
+      container-type: inline-size;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+      width: 100%;
+      text-align: center;
+
+      &.box {
+        padding: var(--space-4) var(--space-3);
+        background-color: var(--background);
+        border: var(--border-width) solid var(--brand-500);
+        border-radius: var(--radius-main);
+      }
+    }
+
+    .signup_title {
+      text-wrap: balance;
+
+      .box > & {
+        color: var(--brand-500);
+      }
+    }
+
+    .signup_text {
+      max-width: 34rem;
+      text-wrap: pretty;
+    }
+
+    .signup_row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      width: min(100%, 26rem);
+      margin-top: var(--space-2);
+      padding: 0.3rem;
+      background-color: var(--background);
+      border-radius: var(--radius-round);
+
+      /* On white, the field needs an outline to be seen. */
+      .box > & {
+        border: var(--border-width) solid var(--border);
+      }
+
+      &:focus-within {
+        outline: var(--focus-width) solid var(--brand-500);
+      }
+    }
+
+    .signup_label,
+    .signup_trap {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .signup_input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.4em 1em;
+      background: none;
+      color: inherit;
+      border: 0;
+      border-radius: var(--radius-round);
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .signup_note {
+      margin-top: var(--space-1);
+      color: var(--text-2);
+      font-style: italic;
+
+      .footer > & {
+        color: var(--dark-700);
+      }
+    }
+
+    .signup_check:empty {
+      display: none;
+    }
+
+    .signup_message {
+      min-height: 1lh;
+
+      &:empty {
+        min-height: 0;
+      }
+
+      &[data-state="error"] {
+        color: var(--red-700);
+      }
+
+      &[data-state="ok"] {
+        color: var(--brand-600);
+        font-weight: var(--primary-medium);
+      }
+    }
+
+    /* Narrow forms: the field and the button each take the full width, one above the other. */
+    @container (width < 26rem) {
+      .signup_row {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        background: none;
+        border: 0;
+        border-radius: 0;
+
+        .box > & {
+          border: 0;
+        }
+
+        &:focus-within {
+          outline: none;
+        }
+
+        & .button_wrap {
+          justify-content: center;
+          width: 100%;
+        }
+      }
+
+      .signup_input {
+        padding: 0.6em 1em;
+        background-color: var(--background);
+        border: var(--border-width) solid var(--border);
+        text-align: center;
+
+        &:focus-visible {
+          outline: var(--focus-width) solid var(--brand-500);
+        }
+      }
+    }
+  }
+</style>

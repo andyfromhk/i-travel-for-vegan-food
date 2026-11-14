@@ -67,6 +67,8 @@ The quality is high across the board, but my personal favourites are their India
 
 ![](/media/guides/vegan-phuket-guide/dsc7390.webp)
 
+[**_See restaurant details here →_**](/restaurants/ubuntu-eat)
+
 ### Soul Cafe & Restaurant
 
 **Vegan** | *Karon Beach*
@@ -81,6 +83,8 @@ The food here was amazing with great attention to detail. For me, the star of th
 
 ![](/media/guides/vegan-phuket-guide/dsc5901.webp)
 
+[**_See restaurant details here →_**](/restaurants/soul-cafe-restaurant)
+
 ### The Vegan Table
 
 **Vegan** | *Old Town*
@@ -93,6 +97,8 @@ If you find yourself craving Western comfort food in the middle of Phuket's Old 
 
 While the food here was a bit of a mixed bag for me personally, it is a reliable stop for a hearty meal after a day of travelling. I tried the chicken and garlic mayo wrap, which uses crispy plant-based chicken and spirulina tortillas. It’s a great pitstop if you need a break if you want something Western.
 
+[**_See restaurant details here →_**](/restaurants/the-vegan-table)
+
 ### Pure Vegan Heaven
 
 **Vegan** | *Rawai & Chalong*
@@ -100,6 +106,8 @@ While the food here was a bit of a mixed bag for me personally, it is a reliable
 ![](/media/guides/vegan-phuket-guide/dsc5739.webp)
 
 There are two Pure Vegan Heaven in Phuket. It is a reliable spot for fresh, healthy, and beautifully presented vegan food. I visited [the Rawai branch](https://maps.app.goo.gl/9hUsNYERP22FHxZKA), which is set in a big, beautiful garden. You reach the open-air cafe after walking through a windy garden path. The menu is extensive, featuring colourful smoothie bowls, hearty wraps, and burgers. If you want something lighter, order the Nutty Bliss Bowl like I did. It was beautifully presented with a fantastic mix of peanut butter, granola, berries, and banana.
+
+[**_See restaurant details here →_**](/restaurants/pure-vegan-heaven)
 
 ### Yo Vegan
 
@@ -114,6 +122,8 @@ If you want a truly local Thai dining experience in Phuket, it doesn't get more 
 They run on a self-serve setup where you point to what you want from a delicious spread of pre-made dishes. There's no English menu and staff may speak limited English, so learning a few essential Thai phrases would be helpful. All the food is vegan, and I went for a green curry with vegan sausages and tofu, along with some crispy soy protein. It wasn't fancy, but it was flavourful and incredible value.
 
 ![](/media/guides/vegan-phuket-guide/dsc6742.webp)
+
+[**_See restaurant details here →_**](/restaurants/yo-vegan)
 
 ## The Phuket Vegetarian Festival
 

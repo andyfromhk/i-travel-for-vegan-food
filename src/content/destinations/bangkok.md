@@ -29,7 +29,7 @@ gallery:
 travel:
   whereToStay: Stay in Sukhumvit around Asok or near Siam. Both are on the BTS Skytrain with plenty of vegan food nearby, making it easy to reach the temples, malls and markets.
   hotelsLink: https://booking.tpo.lu/3m6R5zJW
-  esimLink: https://airalo.tpo.lu/sHms8D07
+  esimLink: https://saily.tpo.lu/cQjCWJQy
   gettingAroundLabel: "Suvarnabhumi Airport to city: private transfer"
   gettingAroundLink: https://klook.tpo.lu/r4SWoFgz
   experienceLabel: Bangkok temple tour with Grand Palace, Wat Pho and more

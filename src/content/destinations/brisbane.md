@@ -30,7 +30,7 @@ gallery:
 travel:
   whereToStay: Stay in South Brisbane or West End. You'll be close to South Bank Parklands and the Cultural Centre, near one of Brisbane's best clusters of vegan cafes, and a short walk or bus ride from the CBD.
   hotelsLink: https://booking.tpo.lu/B7g2ZUUh
-  esimLink: https://airalo.tpo.lu/EMt8Jywg
+  esimLink: https://saily.tpo.lu/rx9nwLXc
   gettingAroundLabel: "Brisbane Airport to city: Airtrain"
   gettingAroundLink: https://klook.tpo.lu/p7wLu5AL
   experienceLabel: Story Bridge Adventure Climb

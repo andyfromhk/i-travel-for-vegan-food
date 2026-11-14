@@ -2,8 +2,8 @@
 interface Props {
   /** Set to `false` to omit the component. */
   render?: boolean;
-  /** Reader quotes. Wrap a phrase in ** to make it bold. */
-  reviews: string[];
+  /** Reader quotes and who wrote them. Wrap a phrase in ** to make it bold. */
+  reviews: { text: string; name?: string }[];
 }
 
 const { render = true, reviews } = Astro.props;
@@ -23,8 +23,9 @@ const html = (value: string) =>
           </span>
           <q
             class="reviews_quote"
-            set:html={html(review).replace(/^“|”$/g, "")}
+            set:html={html(review.text).replace(/^“|”$/g, "")}
           />
+          {review.name && <p class="reviews_name">{review.name}</p>}
         </li>
       ))}
     </ul>
@@ -62,6 +63,16 @@ const html = (value: string) =>
     .reviews_quote {
       font-size: 0.85rem;
       font-style: italic;
+    }
+
+    .reviews_name {
+      margin-top: var(--space-2);
+      font-size: 0.8rem;
+      font-weight: var(--primary-medium);
+
+      &::before {
+        content: "— ";
+      }
     }
   }
 </style>

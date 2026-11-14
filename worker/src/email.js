@@ -9,8 +9,8 @@
 
 import { DESTINATIONS, COUNTRY_NAMES, BOOKS, BOOK_LINK_TRACKING } from './data.js';
 
-const COLOURS = { ink: '#1f2a1c', muted: '#5f6b62', faint: '#8a948c', green: '#558005', line: '#e3e8df', pill: '#d3d9cf', sun: '#fff6cf', sunInk: '#3d3406' };
-const FONT = "Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif";
+export const COLOURS = { ink: '#1f2a1c', muted: '#5f6b62', faint: '#8a948c', green: '#558005', line: '#e3e8df', pill: '#d3d9cf', sun: '#fff6cf', sunInk: '#3d3406' };
+export const FONT = "Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 export function escapeHtml(text) {
   return String(text == null ? '' : text)
@@ -97,15 +97,15 @@ function footerNote(optedIn) {
 
 // ---------------------------------------------------------------- HTML version
 
-const a = (href, text, style) => '<a href="' + escapeHtml(href) + '" style="' + style + '">' + escapeHtml(text) + '</a>';
+export const a = (href, text, style) => '<a href="' + escapeHtml(href) + '" style="' + style + '">' + escapeHtml(text) + '</a>';
 
 // Place and guide names.
-const NAME = 'color:' + COLOURS.ink + ';text-decoration:none;font-weight:700;font-size:19px;line-height:1.35;';
+export const NAME = 'color:' + COLOURS.ink + ';text-decoration:none;font-weight:700;font-size:19px;line-height:1.35;';
 // Small pill-shaped link buttons, like the chips in the Saved drawer: grey text, thin outline.
-const PILL = 'display:inline-block;margin:8px 6px 0 0;padding:5px 12px;border:1px solid ' + COLOURS.pill + ';border-radius:999px;'
+export const PILL = 'display:inline-block;margin:8px 6px 0 0;padding:5px 12px;border:1px solid ' + COLOURS.pill + ';border-radius:999px;'
   + 'color:' + COLOURS.muted + ';font-size:13px;font-weight:500;line-height:1.3;text-decoration:none;white-space:nowrap;';
-const pills = (links) => '<div>' + links.join(' ') + '</div>';
-const ROW = 'padding:14px 0;border-bottom:1px solid ' + COLOURS.line + ';font-family:' + FONT + ';';
+export const pills = (links) => '<div>' + links.join(' ') + '</div>';
+export const ROW = 'padding:14px 0;border-bottom:1px solid ' + COLOURS.line + ';font-family:' + FONT + ';';
 
 function placeRow(item, siteUrl) {
   const l = placeLinks(item, siteUrl);
@@ -132,7 +132,7 @@ function guideRow(guide, siteUrl) {
     + '</td></tr>';
 }
 
-function heading(text, detail) {
+export function heading(text, detail) {
   return '<tr><td style="padding:26px 0 6px;font-family:' + FONT + ';border-bottom:2px solid ' + COLOURS.green + ';">'
     + '<span style="font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:' + COLOURS.green + ';">' + escapeHtml(text) + '</span>'
     + (detail ? '<span style="font-size:13px;color:' + COLOURS.faint + ';">&nbsp;&nbsp;' + escapeHtml(detail) + '</span>' : '')
@@ -187,8 +187,25 @@ export function renderHtml(items, { siteUrl, logoUrl, optedIn, truncated }) {
     other.places.forEach((p) => { rows += placeRow(p, siteUrl); });
   }
 
+  return shell({
+    title: subjectFor(items),
+    preheader,
+    siteUrl,
+    logoUrl,
+    h1: 'Your saved vegan spots',
+    intro: '<p style="margin:0;font-size:15px;line-height:1.55;color:' + COLOURS.muted + ';">Here\'s the list you saved on I Travel For Vegan Food. Keep this email handy on your trip: tap <strong>Google Maps</strong> for directions to any place.</p>'
+      + (truncated ? '<p style="margin:8px 0 0;font-size:13px;color:' + COLOURS.faint + ';">Your list was long, so this email has the first 60 items.</p>' : ''),
+    rows,
+    footer: '<p style="margin:0 0 8px;">Questions, or found a place that has closed? Just reply to this email.</p>'
+      + '<p style="margin:0;">' + escapeHtml(footerNote(optedIn)) + '</p>',
+  });
+}
+
+// The frame every email shares: logo, heading, intro, the rows, and the small print.
+// `intro`, `rows` and `footer` are HTML that is already escaped.
+export function shell({ title, preheader, siteUrl, logoUrl, h1, intro, rows, footer }) {
   return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-    + '<meta name="color-scheme" content="light only"><title>' + escapeHtml(subjectFor(items)) + '</title></head>'
+    + '<meta name="color-scheme" content="light only"><title>' + escapeHtml(title) + '</title></head>'
     + '<body style="margin:0;padding:0;background:#ffffff;">'
     + '<div style="display:none;max-height:0;overflow:hidden;opacity:0;">' + escapeHtml(preheader) + '</div>'
     + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;"><tr><td align="center" style="padding:0;">'
@@ -196,14 +213,12 @@ export function renderHtml(items, { siteUrl, logoUrl, optedIn, truncated }) {
     + '<tr><td style="padding:24px 16px 4px;font-family:' + FONT + ';">'
     + '<a href="' + escapeHtml(siteUrl) + '" style="text-decoration:none;color:' + COLOURS.green + ';font-weight:700;font-size:14px;">'
     + '<img src="' + escapeHtml(logoUrl) + '" width="36" height="36" alt="I Travel For Vegan Food" style="vertical-align:middle;border:0;margin-right:8px;">I Travel For Vegan Food</a>'
-    + '<h1 style="margin:22px 0 6px;font-family:' + FONT + ';font-size:24px;line-height:1.3;color:' + COLOURS.ink + ';">Your saved vegan spots</h1>'
-    + '<p style="margin:0;font-size:15px;line-height:1.55;color:' + COLOURS.muted + ';">Here\'s the list you saved on I Travel For Vegan Food. Keep this email handy on your trip: tap <strong>Google Maps</strong> for directions to any place.</p>'
-    + (truncated ? '<p style="margin:8px 0 0;font-size:13px;color:' + COLOURS.faint + ';">Your list was long, so this email has the first 60 items.</p>' : '')
+    + '<h1 style="margin:22px 0 6px;font-family:' + FONT + ';font-size:24px;line-height:1.3;color:' + COLOURS.ink + ';">' + escapeHtml(h1) + '</h1>'
+    + intro
     + '</td></tr>'
     + '<tr><td style="padding:0 16px 8px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">' + rows + '</table></td></tr>'
     + '<tr><td style="padding:24px 16px 28px;font-family:' + FONT + ';font-size:13px;line-height:1.55;color:' + COLOURS.faint + ';">'
-    + '<p style="margin:0 0 8px;">Questions, or found a place that has closed? Just reply to this email.</p>'
-    + '<p style="margin:0;">' + escapeHtml(footerNote(optedIn)) + '</p>'
+    + footer
     + '</td></tr></table>'
     + '</td></tr></table></body></html>';
 }

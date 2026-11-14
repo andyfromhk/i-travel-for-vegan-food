@@ -36,7 +36,7 @@ gallery:
 travel:
   whereToStay: Base yourself in Shibuya or Shinjuku. Both are major train hubs close to Harajuku and Omotesando, where many of Tokyo's best vegan cafes are, and well connected to sights across the city.
   hotelsLink: https://booking.tpo.lu/J9x8eOqw
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: "Unlimited metro rides: Tokyo Subway Ticket"
   gettingAroundLink: https://klook.tpo.lu/s7al1dtY
   experienceLabel: teamLab Borderless tickets

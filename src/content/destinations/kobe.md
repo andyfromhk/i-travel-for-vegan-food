@@ -26,7 +26,7 @@ gallery:
 travel:
   whereToStay: Kobe is an easy day trip from Osaka or Kyoto. To stay overnight, pick the area around Sannomiya Station, Kobe's main hub, within walking distance of Kitano, Chinatown and the harbourfront.
   hotelsLink: https://booking.tpo.lu/Vhjk3vMY
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: Osaka Kansai Airport to Kobe Station
   gettingAroundLink: https://klook.tpo.lu/CAhvyxsa
   experienceLabel: Nunobiki Herb Gardens & Ropeway

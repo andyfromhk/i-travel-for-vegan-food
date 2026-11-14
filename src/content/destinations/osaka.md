@@ -33,7 +33,7 @@ gallery:
 travel:
   whereToStay: Stay in Namba or Shinsaibashi. You'll be within walking distance of Dotonbori and plenty of vegan options, with direct trains to Kansai Airport and Nara.
   hotelsLink: https://booking.tpo.lu/IkkBPxvv
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: "Kansai Airport to Namba: Nankai Rapi:t"
   gettingAroundLink: https://klook.tpo.lu/aEG0z30Y
   experienceLabel: Universal Studios Japan tickets

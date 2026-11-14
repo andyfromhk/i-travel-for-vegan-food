@@ -11,7 +11,7 @@ mapGraphic:
 travel:
   whereToStay: Stay near Nagoya Station for easy Shinkansen day trips, or in Sakae, the city's dining and shopping centre, close to the cafes of Osu and a short ride from Nagoya Castle.
   hotelsLink: https://booking.tpo.lu/uElS5lYA
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: "Tokyo to Nagoya: Shinkansen tickets"
   gettingAroundLink: https://klook.tpo.lu/Hz2kDHxh
   experienceLabel: Takayama & Shirakawa-go day trip

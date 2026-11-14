@@ -31,7 +31,7 @@ gallery:
 travel:
   whereToStay: Stay downtown around Shijo-Kawaramachi. It's walkable to Gion and Nishiki Market, close to many of Kyoto's vegan cafes, and well connected by bus and train to the main temples.
   hotelsLink: https://booking.tpo.lu/WIbgcGQc
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: JR West Kansai Area Pass
   gettingAroundLink: https://klook.tpo.lu/TW3jHIsz
   experienceLabel: Kyoto the art of kintsugi workshop

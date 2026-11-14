@@ -24,6 +24,25 @@ export const articleCategories = named(taxonomies.articleCategories);
 export const mapGuideFocus = named(taxonomies.mapGuideFocus);
 export const countryBySlug = named(countries);
 
+/** Countries with a free cheat-sheet email (the plan is in worker/scripts/build-cheat-sheets.mjs). */
+export const CHEAT_SHEET_COUNTRIES = [
+  "japan",
+  "thailand",
+  "taiwan",
+  "hong-kong",
+];
+
+/** The cheat-sheet country of a page about these destinations (the first one decides), if it has one. */
+export async function cheatSheetCountry(
+  destinations: string[] = [],
+): Promise<string | undefined> {
+  const { destinationBySlug } = await getSite();
+  const country = destinationBySlug.get(destinations[0] ?? "")?.data.country;
+  return country && CHEAT_SHEET_COUNTRIES.includes(country)
+    ? country
+    : undefined;
+}
+
 /** A book that destination, restaurant and guide pages promote (src/data/books.json). */
 export interface Book {
   slug: string;

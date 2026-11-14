@@ -68,6 +68,8 @@ Everything I tried here, whether it's their authentic Thai dishes or Western com
 
 ![](/media/guides/vegan-chiang-mai-guide/dsc4089.webp)
 
+[**_See restaurant details here →_**](/restaurants/the-vegano-bistro)
+
 ---
 
 ### Goodsouls Kitchen
@@ -84,6 +86,8 @@ I tried a couple of their signature dishes and was impressed with the flavours a
 
 ![](/media/guides/vegan-chiang-mai-guide/dsc3553.webp)
 
+[**_See restaurant details here →_**](/restaurants/goodsouls-kitchen)
+
 ---
 
 ### Imjai Vegan
@@ -95,6 +99,8 @@ I tried a couple of their signature dishes and was impressed with the flavours a
 If you are exploring the trendy Nimman area, head inside the Maya Lifestyle Shopping Centre. On the B1 food court level, you'll find Imjai Vegan for a quick, affordable, and tasty vegan meal. They serve pre-made vegan dishes where you simply point to the ones that catch your eyes. A simple plate of rice and three dishes will only run you about 55 baht. Apart from the rice plates, they also have fried radish cake, sausages, and mushroom ball skewers. I even tried a simple vegan burger that had a patty that reminded me of a kofta. It is the perfect pitstop for an affordable lunch after shopping.
 
 ![](/media/guides/vegan-chiang-mai-guide/dsc4327.webp)
+
+[**_See restaurant details here →_**](/restaurants/imjai-vegan)
 
 ---
 
@@ -112,6 +118,8 @@ The Texas BBQ pizza I tried was like a meat lover's pizza made vegan, loaded wit
 
 ![](/media/guides/vegan-chiang-mai-guide/dsc2592.webp)
 
+[**_See restaurant details here →_**](/restaurants/rad-rabbit)
+
 ---
 
 ### Aum Vegetarian
@@ -128,6 +136,8 @@ You'll find traditional Thai dishes, with a selection of Northern Thai specialti
 
 ![](/media/guides/vegan-chiang-mai-guide/dsc4897.webp)
 
+[**_See restaurant details here →_**](/restaurants/aum-vegetarian)
+
 ---
 
 ### V Secret
@@ -139,6 +149,8 @@ You'll find traditional Thai dishes, with a selection of Northern Thai specialti
 ![](/media/guides/vegan-chiang-mai-guide/dsc2218.webp)
 
 For a lively night out, head to the Ploen Ruedee Night Market on the east side of Chiang Mai. There is an all-vegan food stall here called V Secret selling delicious and affordable Thai dishes. All dishes have a flat price of 80 baht each. Despite the low price, the portions are generous. I tried the vegan sausage which has a meaty texture with strong lemongrass flavour, and it came with sticky rice, peanuts, and cucumber. The Chiang Da green noodles were also great with fried mash potato pieces. Grab a couple of dishes, find a seat, and soak in the market vibes with live music.
+
+[**_See restaurant details here →_**](/restaurants/v-secret)
 
 ---
 

@@ -26,7 +26,7 @@ gallery:
 travel:
   whereToStay: Stay in the CBD or Surry Hills to be close to the harbour, the Opera House and ferries. Surry Hills and nearby Newtown are also home to many of Sydney's best vegan restaurants.
   hotelsLink: https://booking.tpo.lu/hpw6GZgu
-  esimLink: https://airalo.tpo.lu/EMt8Jywg
+  esimLink: https://saily.tpo.lu/rx9nwLXc
   gettingAroundLabel: "Sydney Airport to city: shuttle transfer"
   gettingAroundLink: https://klook.tpo.lu/7yt2VuMU
   experienceLabel: Blue Mountains day trip

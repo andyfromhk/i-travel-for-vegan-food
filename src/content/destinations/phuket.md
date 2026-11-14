@@ -21,7 +21,7 @@ gallery:
 travel:
   whereToStay: Stay in Phuket Old Town for the island's best vegan food scene, colourful streets and, during the Vegetarian Festival, the centre of the action. Add a few nights on the coast if you want beach time.
   hotelsLink: https://booking.tpo.lu/UDwY0m7i
-  esimLink: https://airalo.tpo.lu/sHms8D07
+  esimLink: https://saily.tpo.lu/cQjCWJQy
   gettingAroundLabel: "Phuket Airport to Old Town: private transfer"
   gettingAroundLink: https://klook.tpo.lu/syMQVknS
   experienceLabel: Phi Phi Islands day trip

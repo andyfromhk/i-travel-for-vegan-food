@@ -130,8 +130,20 @@ Google Doc linked from the About page.
 
 - **Book promos** holds one entry per book. The box on destination and restaurant pages appears when the
   destination's country names a book (Japan, Thailand, Hong Kong, Taiwan).
-- **Shop page** holds the reader reviews and the books on /shop. Wrap words in `**double asterisks**` to make them
-  bold in a review.
+- **Shop page** holds the reader reviews (each with the reviewer's name, shown under the quote) and the books on
+  /shop. Wrap words in `**double asterisks**` to make them bold in a review.
+
+### Recommendations for Your … Trip
+
+The box on guides and map guides takes its links from the destination (**Destinations** → **Recommendations for
+your trip**): where to stay, getting around, eSIM and an experience. The Travel Insurance link is the same for every
+destination, so it lives in the code (`TRAVEL_INSURANCE_URL` in `src/consts.ts`); changing it is a developer job.
+
+### The sign-up form and cheat sheets
+
+On Japan, Thailand, Taiwan and Hong Kong pages the sign-up form offers that country's free cheat sheet, which the
+email Worker sends. Its restaurants, guides and phrases come from the site, so edits you make here reach it the
+next time a developer runs `worker/scripts/build-cheat-sheets.mjs` (see `email-checklist.md`).
 
 ## Photos
 

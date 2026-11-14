@@ -1,5 +1,31 @@
 # "Email me my list": deploy and test checklist
 
+## Cheat-sheet emails (new, needs a Worker deploy)
+
+The sign-up forms on Japan, Thailand, Taiwan and Hong Kong pages (destinations, guides, map guides and
+restaurants) now offer a free cheat sheet. When someone signs up there, the Worker:
+
+1. sends them that country's cheat-sheet email (three must-visit restaurants per city, recommended guides, the
+   book linked to `/shop`, the phrase card's six phrases, and a link back to the site), from `hello@`, in the same
+   style as "Email me my list";
+2. adds them to Kit with the `Website newsletter` tag and a `Cheat sheet: Japan` (or Thailand, Taiwan, Hong Kong)
+   tag. Kit creates the tags the first time they're used.
+
+Sign-ups anywhere else work as before: Kit only, with the `Website newsletter` tag, no email.
+
+**To switch it on:** deploy the email Worker (its build runs from GitHub when `worker/` changes, or run
+`npx wrangler deploy` in `worker/`). Until then the forms on those pages show "Oops! Something went wrong".
+
+**To test:** sign up on a Japan page with an address you can check. You should get "Your vegan Japan cheat
+sheet" within a minute, and see the address in Kit with both tags. The cheat sheets count towards Cloudflare
+Email Sending's daily limit, like the saved-list emails.
+
+**To change what's in a cheat sheet:** edit the plan at the top of `worker/scripts/build-cheat-sheets.mjs` (which
+restaurants, guides and book), then run `node worker/scripts/build-cheat-sheets.mjs` from the repository and
+deploy the Worker. Names, descriptions, Google Maps links and phrases are read from the website, so updating a
+restaurant in Pages CMS and re-running the script keeps the email in step. The wording around them is in
+`worker/src/cheat-sheet.js`.
+
 ## Updating the Worker to v1.1.0 (you are here)
 
 What's new:
@@ -165,6 +191,7 @@ have one, and a guide. Then open **Saved**.
 | "From" name or address, reply-to address, logo | `worker/wrangler.jsonc` (`vars`). If you change `FROM_EMAIL`, change `allowed_sender_addresses` too | Push to GitHub |
 | Book wording or Gumroad links, destinations | `worker/src/data.js` (add new destinations in `core.js` too) | Push to GitHub |
 | Email wording or design | `worker/src/email.js` | Push to GitHub |
+| Cheat-sheet restaurants, guides or book | `worker/scripts/build-cheat-sheets.mjs`, then run it | Push to GitHub |
 | Form wording on the website | `core.js` (search for `EMAIL_MESSAGES` and `Email me my list`) | New release, then update the core line |
 
 **Preview the email:** open `worker/preview/sample-email.html` in your browser. If you change the design and have
