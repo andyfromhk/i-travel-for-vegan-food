@@ -17,11 +17,54 @@ mapsUrl: https://maps.app.goo.gl/8xXEPNgBJBTduX3U6
 likes: 0
 summary: A refined all-vegan Thai restaurant in a restored 120-year-old teakwood house near Wat Arun
 image:
-  src: /media/guides/vegan-bangkok-guide/dsc8601.webp
+  src: /media/restaurants/vegan-mahanakhon/main.webp
+  alt: "A spread at Vegan Mahanakhon: the appetiser platter, curries, salads and mango sticky rice"
 gallery:
-  - src: /media/guides/vegan-bangkok-guide/dsc8601.webp
-  - src: /media/guides/vegan-bangkok-guide/dsc8583.webp
-  - src: /media/guides/vegan-bangkok-guide/dsc8546.webp
+  - src: /media/restaurants/vegan-mahanakhon/food.webp
+    alt: Coconut cream poured over the mango sticky rice
+  - src: /media/restaurants/vegan-mahanakhon/main.webp
+    alt: "A spread at Vegan Mahanakhon: the appetiser platter, curries, salads and mango sticky rice"
+  - src: /media/restaurants/vegan-mahanakhon/dsc8572.webp
+    alt: "The assorted appetiser platter, with blue flower dumplings"
+  - src: /media/restaurants/vegan-mahanakhon/dsc8603.webp
+    alt: "Pad Thai, with condiments on a traditional scale"
+  - src: /media/restaurants/vegan-mahanakhon/dsc8610.webp
+    alt: Tom kha coconut soup in a brass pot
+  - src: /media/restaurants/vegan-mahanakhon/dsc8567.webp
+    alt: A stir-fry with peppers
+  - src: /media/restaurants/vegan-mahanakhon/dsc8652.webp
+    alt: A spoonful of the stir-fry
+  - src: /media/restaurants/vegan-mahanakhon/dsc8531.webp
+    alt: Drinks served in brass holders
+menu:
+  - src: /media/restaurants/vegan-mahanakhon/dsc8546.webp
+    alt: "The elegant, flower-filled dining room"
+  - src: /media/restaurants/vegan-mahanakhon/dsc8505.webp
+    alt: The restored 120-year-old teakwood house at night
+  - src: /media/restaurants/vegan-mahanakhon/dsc8504.webp
+    alt: The lane leading to Vegan Mahanakhon at night
+  - src: /media/restaurants/vegan-mahanakhon/dsc8703.webp
+    alt: Flowers and antiques in the dining room
+  - src: /media/restaurants/vegan-mahanakhon/dsc8711.webp
+    alt: A cat at the entrance
+  - src: /media/restaurants/vegan-mahanakhon/img-1255.webp
+    alt: "Vegan Mahanakhon menu: drinks"
+  - src: /media/restaurants/vegan-mahanakhon/img-1260.webp
+    alt: "Vegan Mahanakhon menu: desserts, including mango sticky rice"
+  - src: /media/restaurants/vegan-mahanakhon/img-1263.webp
+    alt: "Vegan Mahanakhon menu: the assorted appetiser platter"
+  - src: /media/restaurants/vegan-mahanakhon/img-1264.webp
+    alt: "Vegan Mahanakhon menu: appetisers, including blue flower dumplings"
+  - src: /media/restaurants/vegan-mahanakhon/img-1265.webp
+    alt: "Vegan Mahanakhon menu: appetisers"
+  - src: /media/restaurants/vegan-mahanakhon/img-1268.webp
+    alt: "Vegan Mahanakhon menu: salads and spicy dishes"
+  - src: /media/restaurants/vegan-mahanakhon/img-1273.webp
+    alt: "Vegan Mahanakhon menu: stir-fries"
+  - src: /media/restaurants/vegan-mahanakhon/img-1278.webp
+    alt: "Vegan Mahanakhon menu: curries"
+  - src: /media/restaurants/vegan-mahanakhon/img-1282.webp
+    alt: "Vegan Mahanakhon menu: rice dishes"
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---

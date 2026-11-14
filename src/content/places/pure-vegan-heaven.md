@@ -17,9 +17,26 @@ mapsUrl: https://maps.app.goo.gl/9hUsNYERP22FHxZKA
 likes: 0
 summary: "A garden cafe for fresh, healthy and beautifully presented vegan food, with branches in Rawai and Chalong"
 image:
-  src: /media/guides/vegan-phuket-guide/dsc5739.webp
+  src: /media/restaurants/pure-vegan-heaven/main.webp
+  alt: The Nutty Bliss Bowl at Pure Vegan Heaven
 gallery:
-  - src: /media/guides/vegan-phuket-guide/dsc5739.webp
+  - src: /media/restaurants/pure-vegan-heaven/food.webp
+    alt: "The Nutty Bliss Bowl, with peanut butter, granola, berries and banana"
+  - src: /media/restaurants/pure-vegan-heaven/main.webp
+    alt: The Nutty Bliss Bowl at Pure Vegan Heaven
+menu:
+  - src: /media/restaurants/pure-vegan-heaven/dsc5711.webp
+    alt: The garden path to the Rawai branch
+  - src: /media/restaurants/pure-vegan-heaven/img-8478.webp
+    alt: "Pure Vegan Heaven menu: breakfast"
+  - src: /media/restaurants/pure-vegan-heaven/img-8479.webp
+    alt: "Pure Vegan Heaven menu: poke bowls"
+  - src: /media/restaurants/pure-vegan-heaven/img-8480.webp
+    alt: "Pure Vegan Heaven menu: wraps and sandwiches"
+  - src: /media/restaurants/pure-vegan-heaven/img-8481.webp
+    alt: "Pure Vegan Heaven menu: more dishes, pasta and the kids menu"
+  - src: /media/restaurants/pure-vegan-heaven/img-8482.webp
+    alt: "Pure Vegan Heaven menu: Thai food and acai bowls"
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---

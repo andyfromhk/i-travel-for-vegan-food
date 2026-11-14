@@ -18,11 +18,34 @@ instagram: https://www.instagram.com/aum_vegetarian/
 likes: 0
 summary: "An open-air restaurant south of Old Town serving home-style Thai and Northern Thai dishes, most of them vegan"
 image:
-  src: /media/guides/vegan-chiang-mai-guide/dsc4907.webp
+  src: /media/restaurants/aum-vegetarian/main.webp
+  alt: "Khao soi, nam prik ong, blue sticky rice and an iced drink at Aum Vegetarian"
 gallery:
-  - src: /media/guides/vegan-chiang-mai-guide/dsc4907.webp
-  - src: /media/guides/vegan-chiang-mai-guide/dsc4929.webp
-  - src: /media/guides/vegan-chiang-mai-guide/dsc4897.webp
+  - src: /media/restaurants/aum-vegetarian/food.webp
+    alt: "Blue sticky rice with nam prik ong, a creamy tomato and scrambled tofu stew"
+  - src: /media/restaurants/aum-vegetarian/main.webp
+    alt: "Khao soi, nam prik ong, blue sticky rice and an iced drink at Aum Vegetarian"
+  - src: /media/restaurants/aum-vegetarian/dsc4934.webp
+    alt: "Nam prik ong, ordered non-spicy"
+  - src: /media/restaurants/aum-vegetarian/dsc4918.webp
+    alt: "Khao soi, Northern Thai curry noodles"
+  - src: /media/restaurants/aum-vegetarian/dsc4903.webp
+    alt: An iced Thai tea
+menu:
+  - src: /media/restaurants/aum-vegetarian/dsc4897.webp
+    alt: The open-air restaurant at night
+  - src: /media/restaurants/aum-vegetarian/dsc4929.webp
+    alt: Wooden tables inside
+  - src: /media/restaurants/aum-vegetarian/img-8054.webp
+    alt: "Aum Vegetarian menu: recommended and special dishes"
+  - src: /media/restaurants/aum-vegetarian/img-8058.webp
+    alt: "Aum Vegetarian menu: fried rice and noodles"
+  - src: /media/restaurants/aum-vegetarian/img-8059.webp
+    alt: "Aum Vegetarian menu: salads and steamed dishes"
+  - src: /media/restaurants/aum-vegetarian/img-8060.webp
+    alt: "Aum Vegetarian menu: deep-fried dishes and rice, including blue sticky rice"
+  - src: /media/restaurants/aum-vegetarian/img-8066.webp
+    alt: "Aum Vegetarian menu: specials and drinks"
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---
