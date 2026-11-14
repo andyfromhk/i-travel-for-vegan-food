@@ -133,7 +133,6 @@ const guides = defineCollection({
     destinations: z.array(z.string()).default([]),
     author: z.string().optional(),
     mainGuide: z.boolean().default(false),
-    linkToMap: z.boolean().default(false),
     displayRoutes: z.boolean().default(false),
     draft: z.boolean().default(false),
     image,

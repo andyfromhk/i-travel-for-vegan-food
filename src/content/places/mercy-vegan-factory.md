@@ -14,8 +14,8 @@ location:
 address: Japan, 〒542-0066 Osaka, Chuo Ward, Kawarayamachi, 2 Chome−4−15 西側（瓦屋町グランド正面 1階
 mapsUrl: https://maps.app.goo.gl/oDedUSLwU5tDAVJM8
 website: https://shop.mercy-vegan.jp
-instagram: http://www.instagram.com/mercy_veganfactory
-facebook: http://facebook.com/people/VeganFactory-Mercy/100081978061798
+instagram: https://www.instagram.com/mercy_veganfactory
+facebook: https://facebook.com/people/VeganFactory-Mercy/100081978061798
 likes: 5
 summary: All vegan cafe serving realistic egg sandwich and other delicious comfort food
 image:

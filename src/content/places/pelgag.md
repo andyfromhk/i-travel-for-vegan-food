@@ -13,7 +13,7 @@ location:
   lng: 135.768004
 address: Japan, 〒604-8041 Kyoto, Nakagyo Ward, Uraderacho, 607‐19 ヴァントワビル3階 4階
 mapsUrl: https://maps.app.goo.gl/o3qk8xv8PnKsJ6r59
-instagram: http://www.instagram.com/pelgag.cafe
+instagram: https://www.instagram.com/pelgag.cafe
 likes: 2.5
 summary: A small, artsy omni restaurant near Teramachi-Dori shopping street
 image:

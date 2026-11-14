@@ -10,8 +10,8 @@ priceRange: mid-range
 venueType: cafe
 cuisine: french
 website: https://www.missclaudes.com.au/
-instagram: http://instagram.com/missclaudescrepes
-facebook: http://facebook.com/missclaudes
+instagram: https://instagram.com/missclaudescrepes
+facebook: https://facebook.com/missclaudes
 likes: 2
 summary: Creperie with a dedicated vegan menu for sweet & savoury options in South Brisbane
 image:

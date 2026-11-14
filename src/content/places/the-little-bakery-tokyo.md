@@ -14,8 +14,8 @@ location:
   lng: 139.705053
 address: 6 Chome-13-6 Jingumae, Shibuya City, Tokyo 150-0001, Japan
 mapsUrl: https://maps.app.goo.gl/mmmudhBSJfKdT2VQ7
-instagram: http://www.instagram.com/thelittlebakerytokyo
-facebook: http://facebook.com/TheLittleBakeryTokyo
+instagram: https://www.instagram.com/thelittlebakerytokyo
+facebook: https://facebook.com/TheLittleBakeryTokyo
 likes: 2.5
 summary: Highly popular bakery with vegan donuts, cinnamon rolls & bread
 image:

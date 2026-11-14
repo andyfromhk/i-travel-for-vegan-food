@@ -14,7 +14,7 @@ location:
 address: 10/242 Victoria St, Richmond VIC 3121
 website: http://www.lovinghutmelbourne.com.au
 instagram: https://www.instagram.com/lovinghutrichmond
-facebook: http://facebook.com/pg/lhrichmond
+facebook: https://facebook.com/pg/lhrichmond
 likes: 3.5
 created: 2025-04-09T10:44:27.851Z
 updated: 2025-04-09T10:45:22.452Z

@@ -14,8 +14,8 @@ location:
 address: 58 Hope St, South Brisbane QLD 4101
 phone: +61-450315053
 website: https://elplanta.com
-instagram: http://www.instagram.com/elplantamexican
-facebook: http://facebook.com/elplantamexican
+instagram: https://www.instagram.com/elplantamexican
+facebook: https://facebook.com/elplantamexican
 likes: 3
 created: 2025-03-29T08:47:09.213Z
 updated: 2025-03-31T06:08:17.416Z

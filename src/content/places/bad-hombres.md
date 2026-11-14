@@ -13,7 +13,7 @@ location:
 address: 231 Oxford St, Darlinghurst NSW 2010
 website: https://www.badhombres.com.au
 instagram: https://www.instagram.com/bad.hombres.dining/
-facebook: http://facebook.com/badhombresdining
+facebook: https://facebook.com/badhombresdining
 likes: 4
 summary: Fully vegan & gluten-free Mexican dishes & cocktails in Darlinghurst
 image:

@@ -15,8 +15,8 @@ location:
   lng: 139.69108
 address: 2 Chome-5-7 Higashiyama, Meguro City, Tokyo 153-0043, Japan
 website: https://alaskazwei.theshop.jp/
-instagram: http://www.instagram.com/alaska_zwei
-facebook: http://facebook.com/alaskazwei
+instagram: https://www.instagram.com/alaska_zwei
+facebook: https://facebook.com/alaskazwei
 likes: 4
 summary: Cozy vegan cafe; known for tofu katsu sandwich & set meals.
 created: 2025-04-26T13:54:37.331Z

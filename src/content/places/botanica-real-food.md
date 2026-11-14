@@ -10,8 +10,8 @@ priceRange: mid-range
 venueType: takeaway-only
 cuisine: healthy
 website: https://botanicarealfood.com.au
-instagram: http://www.instagram.com/botanicarealfood
-facebook: http://facebook.com/@BotanicaRealFood
+instagram: https://www.instagram.com/botanicarealfood
+facebook: https://facebook.com/@BotanicaRealFood
 likes: 3
 summary: Takeaway salad shop offering fresh, hearty salads. Most options are vegan-friendly
 image:

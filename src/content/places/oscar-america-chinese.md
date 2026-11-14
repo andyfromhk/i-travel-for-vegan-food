@@ -12,7 +12,7 @@ location:
   lat: 35.659179
   lng: 139.663801
 address: 2 Chome-36-15 Daita, Setagaya City, Tokyo 155-0033, Japan
-instagram: http://www.instagram.com/oscaramericanchinese
+instagram: https://www.instagram.com/oscaramericanchinese
 likes: 4.5
 summary: Vegan eatery serving American-Chinese style food near Shimo-Kitazawa
 image:

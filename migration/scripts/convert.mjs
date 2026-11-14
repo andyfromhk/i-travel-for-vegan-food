@@ -11,15 +11,26 @@
 //   migration/media-manifest.json   every image the content uses: where it is now, and where it goes in public/media
 //   docs/conversion-report.md       counts, warnings and the place matches to double-check
 //
-// Safe to re-run: it rebuilds those folders from the export every time. Drafts are kept with `draft: true`.
-// Archived items go to migration/archive/ and are not part of the site.
+// It empties those folders and rebuilds them from the export. Since the first conversion the content has been
+// edited directly (Pages CMS saves, the Thailand restaurants, photos and fixes), so running it now would delete
+// all of that. It only runs when asked for explicitly; to bring a later Webflow change across, copy that item
+// by hand instead. Drafts are kept with `draft: true`. Archived items go to migration/archive/.
 //
-// Run:  node migration/scripts/convert.mjs
+// Run:  node migration/scripts/convert.mjs --replace-content   (overwrites the content folders listed above)
 
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import YAML from "yaml";
 import { cleanHref, richTextToMarkdown, slugify } from "./lib/richtext.mjs";
+
+if (!process.argv.includes("--replace-content")) {
+  console.error(
+    "Stopped: this rebuilds src/content from the Webflow export and would delete every edit made since\n" +
+      "(Pages CMS saves, new restaurants, photos). Copy later Webflow changes by hand instead.\n" +
+      "To overwrite the content anyway: node migration/scripts/convert.mjs --replace-content",
+  );
+  process.exit(1);
+}
 
 const EXPORT = "migration/export/collections";
 const CRAWL_HTML = "migration/crawl/html";
@@ -612,7 +623,6 @@ for (const item of articles) {
       .filter(Boolean),
     author: authorSlug.get(f["guest-author"]),
     mainGuide: f.featured || undefined,
-    linkToMap: f.map || undefined,
     draft: item.isDraft || undefined,
     image: image(f["featured-image"], folder),
     gallery: images(f.gallery, folder),

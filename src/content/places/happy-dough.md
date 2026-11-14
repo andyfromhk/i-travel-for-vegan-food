@@ -10,8 +10,8 @@ priceRange: budget-friendly
 venueType: takeaway-only
 cuisine: desserts
 website: https://happydough.com.au
-instagram: http://www.instagram.com/happydoughau
-facebook: http://facebook.com/happydoughau
+instagram: https://www.instagram.com/happydoughau
+facebook: https://facebook.com/happydoughau
 likes: 2.5
 summary: A Brisbane CBD spot with great vegan-friendly doughnut options including custard and 'new-tella'
 image:

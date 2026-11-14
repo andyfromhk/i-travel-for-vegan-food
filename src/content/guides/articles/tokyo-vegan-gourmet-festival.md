@@ -6,7 +6,6 @@ category: markets-and-festivals
 destination: tokyo
 destinations:
   - tokyo
-linkToMap: true
 image:
   src: /media/guides/tokyo-vegan-gourmet-festival/tokyo-gourmet-festival-featured-image.jpg
 created: 2021-08-30T07:48:23.544Z

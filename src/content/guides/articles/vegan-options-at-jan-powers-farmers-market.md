@@ -6,7 +6,6 @@ category: markets-and-festivals
 destination: brisbane
 destinations:
   - brisbane
-linkToMap: true
 image:
   src: /media/guides/vegan-options-at-jan-powers-farmers-market/img-5417.webp
 created: 2025-07-16T04:36:00.812Z

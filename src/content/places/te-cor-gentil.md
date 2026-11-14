@@ -14,7 +14,7 @@ location:
   lat: 35.654243
   lng: 139.735898
 address: 2 Chome-18-8 Azabujuban, Minato City, Tokyo 106-0045, Japan
-instagram: http://www.instagram.com/tecorgentil
+instagram: https://www.instagram.com/tecorgentil
 facebook: https://www.facebook.com/p/Te-cor-gentil-100086170585278/
 likes: 4.5
 summary: Amazing vegan bakery; huge range (croissants, melon pan), sells out!

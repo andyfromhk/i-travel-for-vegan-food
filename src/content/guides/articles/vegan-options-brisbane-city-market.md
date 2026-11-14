@@ -6,7 +6,6 @@ category: markets-and-festivals
 destination: brisbane
 destinations:
   - brisbane
-linkToMap: true
 image:
   src: /media/guides/vegan-options-brisbane-city-market/img-6738.jpg
 created: 2021-10-31T05:23:20.897Z

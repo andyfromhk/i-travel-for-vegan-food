@@ -6,7 +6,6 @@ category: markets-and-festivals
 destination: sydney
 destinations:
   - sydney
-linkToMap: true
 image:
   src: /media/guides/sydney-vegan-market-guide/img-9804.jpg
 gallery:
@@ -72,7 +71,7 @@ Check their Instagram page for the latest location. I've visited them in the Ent
 
 [Website](https://www.sydneyveganmarket.com/)\
 [Facebook](https://www.facebook.com/sydveganmarket/)\
-[Instagram](http://instagram.com/sydneyveganmarket)
+[Instagram](https://instagram.com/sydneyveganmarket)
 
 ![](/media/guides/sydney-vegan-market-guide/img-9791-2.jpg)
 

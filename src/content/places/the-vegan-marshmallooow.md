@@ -14,7 +14,7 @@ location:
   lng: 139.765738
 address: 洋菓子エリア 銀座三越 地下2, 4 Chome-6-16 Ginza, Chuo City, Tokyo 104-0061, Japan
 website: https://veganmarshmallooow.stores.jp
-instagram: http://www.instagram.com/theveganmarshmallooow
+instagram: https://www.instagram.com/theveganmarshmallooow
 likes: 3.5
 summary: Stunning vegan cakes & pastries in Ginza Mitsukoshi B2F; pricey.
 created: 2025-04-26T13:54:36.601Z

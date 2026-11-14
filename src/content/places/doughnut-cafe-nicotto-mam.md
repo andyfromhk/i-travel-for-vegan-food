@@ -14,8 +14,8 @@ location:
 address: Japan, 〒604-0842 Kyoto, Nakagyo Ward, Kurumayacho, 通押小路上る109-1
 mapsUrl: https://maps.app.goo.gl/aDuiZM3yCbdkF7vD8
 website: https://www.doughnut.jp
-instagram: http://www.instagram.com/nicottoandmam
-facebook: http://facebook.com/Nicottomam
+instagram: https://www.instagram.com/nicottoandmam
+facebook: https://facebook.com/Nicottomam
 likes: 3.5
 summary: Small bakery with a range of vegan donuts, including tofu cream filled doughnuts
 image:

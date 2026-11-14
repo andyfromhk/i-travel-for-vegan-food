@@ -13,7 +13,7 @@ location:
   lng: 139.527393
 address: 5 Chome-41-48 Fueda, Kamakura, Kanagawa 248-0027, Japan
 mapsUrl: https://maps.app.goo.gl/gGH3oeoUD8K1gADu6
-instagram: http://www.instagram.com/earlybird_coffee
+instagram: https://www.instagram.com/earlybird_coffee
 likes: 3
 summary: Creative vegan cafe known for sweet & savoury gluten-free pancakes
 image:

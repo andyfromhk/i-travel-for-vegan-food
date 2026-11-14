@@ -11,7 +11,7 @@ venueType: quick-bites
 cuisine: japanese
 website: https://soranoiro-vege.com
 instagram: https://www.instagram.com/soranoiro.vege/
-facebook: http://facebook.com/soranoiro01/
+facebook: https://facebook.com/soranoiro01/
 likes: 2.5
 summary: Convenient ramen in Tokyo Station w/ vegan options via machine.
 created: 2025-04-26T13:54:36.336Z

@@ -14,8 +14,8 @@ location:
   lng: 139.788904
 address: 2 Chome-7-6 Nishiasakusa, Taito City, Tokyo 111-0035, Japan
 website: https://shochiku-en.jp
-instagram: http://www.instagram.com/shochikuen_vegan_cafe
-facebook: http://facebook.com/enenvegan
+instagram: https://www.instagram.com/shochikuen_vegan_cafe
+facebook: https://facebook.com/enenvegan
 likes: 3
 summary: Cute vegan cafe near Kappabashi; cakes, coffee, light meals, GF.
 created: 2025-04-26T13:54:38.511Z

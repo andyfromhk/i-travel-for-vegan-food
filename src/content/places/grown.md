@@ -11,7 +11,7 @@ address: Shop G03/21 Buchanan St, West End QLD 4101
 phone: "+61730367213"
 website: https://grownbne.com/
 instagram: https://www.instagram.com/grown_bne
-facebook: http://www.facebook.com/grownbne
+facebook: https://www.facebook.com/grownbne
 likes: 1
 summary: A modern vegan cafe in West End with an emphasis on local produce and seasonal menu
 image:

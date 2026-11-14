@@ -14,8 +14,8 @@ location:
 address: 40 Kameicho, Higashiyama Ward, Kyoto, 605-0803, Japan
 mapsUrl: https://maps.app.goo.gl/6Q4FzSX3xXjj5nnb7
 website: https://soymilkramen.com
-instagram: http://www.instagram.com/unoyukiko.ramen
-facebook: http://facebook.com/100071300720369
+instagram: https://www.instagram.com/unoyukiko.ramen
+facebook: https://facebook.com/100071300720369
 likes: 4
 summary: Fully vegan soy milk ramen in the popular Gion area
 image:

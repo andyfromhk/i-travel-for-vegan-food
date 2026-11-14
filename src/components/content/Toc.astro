@@ -28,6 +28,19 @@ const { render = true, headings } = Astro.props;
 }
 
 <style is:global>
+  /* Registered so the fades can ease in and out. */
+  @property --toc-fade-top {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  @property --toc-fade-bottom {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+  }
+
   @layer components {
     .toc_wrap {
       display: flex;
@@ -43,6 +56,26 @@ const { render = true, headings } = Astro.props;
       min-height: 0;
       overflow-y: auto;
       overscroll-behavior: contain;
+      /* A long list fades out at the edge where there's more to scroll to (guide.js adds the classes), so it's
+         clear it scrolls. A mask fades the links themselves, on the white page or the yellow box alike. */
+      mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        #000 var(--toc-fade-top),
+        #000 calc(100% - var(--toc-fade-bottom)),
+        transparent
+      );
+      transition:
+        --toc-fade-top var(--hover-duration) var(--hover-ease),
+        --toc-fade-bottom var(--hover-duration) var(--hover-ease);
+
+      &.fade-top {
+        --toc-fade-top: 2.5rem;
+      }
+
+      &.fade-bottom {
+        --toc-fade-bottom: 4rem;
+      }
     }
 
     .tocitem {

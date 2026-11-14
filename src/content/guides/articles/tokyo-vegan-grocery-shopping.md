@@ -6,7 +6,6 @@ category: food-guide
 destination: tokyo
 destinations:
   - tokyo
-linkToMap: true
 image:
   src: /media/guides/tokyo-vegan-grocery-shopping/tokyo-vegan-grocery-shop-guide-cover-image.jpg
 created: 2021-08-27T05:51:50.142Z

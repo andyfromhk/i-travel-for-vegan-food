@@ -14,7 +14,7 @@ address: 1/1 Park Rd, Milton QLD 4064
 mapsUrl: https://maps.app.goo.gl/NS2YbnmLjnS4LoCZ7
 phone: +61-733698500
 website: http://www.arrivedercipizza.com.au
-facebook: http://facebook.com/ArrivederciPizza/
+facebook: https://facebook.com/ArrivederciPizza/
 likes: 3
 summary: Milton pizzeria famous for their metre-long pizzas & great vegan options
 image:

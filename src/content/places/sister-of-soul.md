@@ -13,7 +13,7 @@ location:
 address: 73 Acland St, St Kilda VIC 3182
 website: http://www.sisterofsoul.com.au
 instagram: https://www.instagram.com/sisterofsoul_stk/
-facebook: http://facebook.com/sisterofsoulstkilda
+facebook: https://facebook.com/sisterofsoulstkilda
 likes: 4
 summary: A St Kilda vegetarian restaurant featuring international flavours with many vegan options
 image:

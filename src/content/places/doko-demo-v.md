@@ -13,8 +13,8 @@ location:
 address: 2/2 Sunlight Dr, Burleigh Waters QLD 4220
 mapsUrl: https://maps.app.goo.gl/fD8axy1h2zAKwmGQ9
 website: http://dokodemov.com
-instagram: http://www.instagram.com/dokodemov
-facebook: http://facebook.com/DokoDemoV
+instagram: https://www.instagram.com/dokodemov
+facebook: https://facebook.com/DokoDemoV
 likes: 3.5
 summary: 100% vegan cafe with a diverse menu in Burleigh Waters
 image:

@@ -14,7 +14,7 @@ location:
   lng: 139.699473
 address: Japan, 〒153-0051 Tokyo, Meguro City, Kamimeguro, 2 Chome−9−36 目黒銀座ビル1F
 website: https://gelato.organic
-facebook: http://facebook.com/pregelatokyo
+facebook: https://facebook.com/pregelatokyo
 likes: 4
 summary: Gelato shop w/ huge variety of amazing vegan flavors; pricey
 created: 2025-04-26T13:54:37.347Z

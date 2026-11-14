@@ -14,8 +14,8 @@ address: 1/253 Ferry Rd, Southport QLD 4215
 mapsUrl: https://maps.app.goo.gl/j581xrT1gcRDMYby7
 phone: +61-755031968
 website: http://www.blendlove.com
-instagram: http://www.instagram.com/blendlove
-facebook: http://facebook.com/blendlovegc
+instagram: https://www.instagram.com/blendlove
+facebook: https://facebook.com/blendlovegc
 likes: 4.5
 summary: Gold Coast vegan cafe serving inventive brunch classics & tasty desserts
 image:

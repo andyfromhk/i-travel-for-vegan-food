@@ -13,8 +13,8 @@ location:
   lng: 139.537316
 address: 2 Chome-10-34 Hase, Kamakura, Kanagawa 248-0016, Japan
 mapsUrl: https://maps.app.goo.gl/ejLAEu4ZfBHzsieZ6
-instagram: http://www.instagram.com/cotonoha.kitakamakura
-facebook: http://facebook.com/GIGI.KNITTING
+instagram: https://www.instagram.com/cotonoha.kitakamakura
+facebook: https://facebook.com/GIGI.KNITTING
 likes: 4
 summary: Vegan restaurant in a vintage setting serving curries & buddha bowls
 image:

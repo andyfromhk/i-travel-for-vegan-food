@@ -7,7 +7,6 @@ destination: tokyo
 destinations:
   - tokyo
 mainGuide: true
-linkToMap: true
 image:
   src: /media/restaurants/vegan-bistro-jangara/vegan-bistro-jangara-harajuku-tokyo-vegan-restaurants-2.webp
 created: 2021-09-01T14:50:41.522Z

@@ -31,7 +31,9 @@ const guides = site.guides.filter(
 ---
 
 <BaseLayout
-  title="I Travel For Vegan Food"
+  title={data.name === "I Travel For Vegan Food"
+    ? "Guides by I Travel For Vegan Food"
+    : `Guides by ${data.name} | I Travel For Vegan Food`}
   description={`Guides written by ${data.name} on I Travel For Vegan Food.`}
   image={data.image?.src}
 >

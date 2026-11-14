@@ -14,7 +14,7 @@ location:
 address: 5-41 Onarimachi, Kamakura, Kanagawa 248-0012, Japan
 mapsUrl: https://maps.app.goo.gl/2HqGcVbDgKKp26TMA
 website: https://onariyokotyo.owst.jp/
-instagram: http://www.instagram.com/onari_yokocho
+instagram: https://www.instagram.com/onari_yokocho
 likes: 3.5
 summary: Japanese spot with a separate English menu for vegan ramen & sushi
 image:

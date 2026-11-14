@@ -14,8 +14,8 @@ location:
   lng: 139.709765
 address: Japan, 〒150-0011 Tokyo, Shibuya City, Higashi, 3 Chome−25−3, Lions Plaza Ebisu, 1F
 website: http://ko-so-cafe.jp
-instagram: http://www.instagram.com/ko.so.cafe
-facebook: http://facebook.com/KOSOCAFEBIORISE
+instagram: https://www.instagram.com/ko.so.cafe
+facebook: https://facebook.com/KOSOCAFEBIORISE
 likes: 3.5
 summary: Cozy vegan health cafe near Ebisu; great pancakes & soy meat.
 created: 2025-04-26T13:54:37.343Z

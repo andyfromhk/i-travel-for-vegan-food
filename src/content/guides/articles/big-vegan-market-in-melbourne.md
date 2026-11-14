@@ -6,7 +6,6 @@ category: markets-and-festivals
 destination: melbourne
 destinations:
   - melbourne
-linkToMap: true
 image:
   src: /media/guides/big-vegan-market-in-melbourne/img-8948.jpg
 gallery:

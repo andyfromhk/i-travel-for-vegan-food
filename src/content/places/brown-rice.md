@@ -14,7 +14,7 @@ location:
 address: 5 Chome-1-8 Jingumae, Shibuya City, Tokyo 150-0001, Japan
 mapsUrl: https://maps.app.goo.gl/ECGQwfrs7qAYvYfK6
 website: https://brownrice.jp
-instagram: http://www.instagram.com/brownrice_tokyo
+instagram: https://www.instagram.com/brownrice_tokyo
 likes: 3
 summary: Elegant vegan eatery in Omotesando serving aesthetic seasonal Japanese sets
 image:

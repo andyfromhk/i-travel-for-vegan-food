@@ -14,7 +14,7 @@ location:
   lng: 139.779699
 address: 3 Chome-11-17 Negishi, Taito City, Tokyo 110-0003, Japan
 website: https://www.vegangyoza.com
-instagram: http://www.instagram.com/vegan_gyoza
+instagram: https://www.instagram.com/vegan_gyoza
 likes: 4.5
 summary: Vegan gyoza specialist; flavourful dumplings, no sauce needed.
 created: 2025-04-26T13:54:39.390Z

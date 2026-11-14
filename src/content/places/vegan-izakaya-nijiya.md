@@ -14,7 +14,7 @@ location:
 address: Japan, 〒604-8022 Kyoto, Nakagyo Ward, Minamikurumayacho, 287 木屋町会館 １階
 mapsUrl: https://maps.app.goo.gl/cudYBBaHAjWwm2xn9
 website: https://nijiya-produced-by-vegan-farm.jimdosite.com
-instagram: http://www.instagram.com/nijiya.kyoto
+instagram: https://www.instagram.com/nijiya.kyoto
 likes: 3.5
 summary: Intimate vegan izakaya offering traditional Japanese sets & chazuke
 image:

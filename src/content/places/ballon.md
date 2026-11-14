@@ -14,7 +14,7 @@ location:
   lng: 139.699771
 address: Japan, 〒153-0061 Tokyo, Meguro City, Nakameguro, 3 Chome−2−19 ラミアール中目黒
 website: https://www.ballontokyo.com/
-instagram: http://www.instagram.com/ballontokyo
+instagram: https://www.instagram.com/ballontokyo
 likes: 3.5
 summary: Tiny vegan spot; known for amazing falafel & vegan soft serve.
 created: 2025-04-26T13:54:37.660Z

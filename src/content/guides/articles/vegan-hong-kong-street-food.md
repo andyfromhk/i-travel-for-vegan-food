@@ -6,7 +6,6 @@ category: food-guide
 destination: hong-kong
 destinations:
   - hong-kong
-linkToMap: true
 image:
   src: /media/restaurants/ln-coffee/img-2872.webp
 created: 2025-03-04T01:33:36.483Z

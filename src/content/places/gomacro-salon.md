@@ -14,8 +14,8 @@ location:
 address: Japan, 〒604-8207 Kyoto, Nakagyo Ward, Shinmeicho, ６７−3
 mapsUrl: https://maps.app.goo.gl/VLXaASYPJLyLV2F26
 website: http://www.gomacro.jp/cafe
-instagram: http://www.instagram.com/gomacro_salon
-facebook: http://facebook.com/gomacro.fpage
+instagram: https://www.instagram.com/gomacro_salon
+facebook: https://facebook.com/gomacro.fpage
 likes: 4.5
 summary: A mostly vegan cafe specialising in sesame-based dishes like tantan ramen and white sesame curry
 image:

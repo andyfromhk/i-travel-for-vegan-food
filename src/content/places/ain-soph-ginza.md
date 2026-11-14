@@ -14,8 +14,8 @@ location:
   lng: 139.767976
 address: 4 Chome-12-1 Ginza, Chuo City, Tokyo 104-0061, Japan
 website: http://ain-soph.jp
-instagram: http://www.instagram.com/ainsoph.ginza
-facebook: http://facebook.com/ainsoph.ginza
+instagram: https://www.instagram.com/ainsoph.ginza
+facebook: https://facebook.com/ainsoph.ginza
 likes: 4
 summary: Fine dining vegan Japanese fusion in Ginza; pricey, book ahead.
 created: 2025-04-26T13:54:36.089Z

@@ -77,3 +77,8 @@
 /vegan-travel-tips /articles/top-10-vegan-travel-tips-you-need-to-know 301
 /veganic-to-go /articles/vegan-tokyo-guide 301
 /wired-bonbon /articles/vegan-tokyo-guide 301
+
+# Trailing slashes: /about/ -> /about
+/:a/ /:a 301
+/:a/:b/ /:a/:b 301
+/:a/:b/:c/ /:a/:b/:c 301

@@ -13,7 +13,7 @@ location:
   lng: 144.915521
 address: 151 Union Rd, Ascot Vale VIC 3032
 website: http://www.misterniceguy.com.au
-instagram: http://www.instagram.com/mister_nice_guys_bakeshop
+instagram: https://www.instagram.com/mister_nice_guys_bakeshop
 facebook: https://www.facebook.com/misterniceguysbakeshop/
 likes: 4
 created: 2025-04-09T10:44:30.858Z

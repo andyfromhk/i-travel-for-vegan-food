@@ -7,7 +7,6 @@ destination: brisbane
 destinations:
   - brisbane
 mainGuide: true
-linkToMap: true
 image:
   src: /media/guides/vegan-brisbane-guide/img-0101.jpg
 created: 2021-06-18T01:47:35.372Z

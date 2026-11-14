@@ -13,8 +13,8 @@ location:
 address: 2/144-148 Glenayr Ave, Bondi Beach NSW 2026
 mapsUrl: https://maps.app.goo.gl/D88i5u3L1FmyWQnd6
 website: http://www.funkypies.com.au
-instagram: http://www.instagram.com/funkypiesbondicafe
-facebook: http://facebook.com/FunkyPiesBondi
+instagram: https://www.instagram.com/funkypiesbondicafe
+facebook: https://facebook.com/FunkyPiesBondi
 likes: 3.5
 summary: Hearty vegan pies, mash, gravy & homemade sweet treats near Bondi Beach
 image:

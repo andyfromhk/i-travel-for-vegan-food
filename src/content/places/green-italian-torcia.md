@@ -15,7 +15,7 @@ address: Japan, 〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3 Chome−14−1 伊
 mapsUrl: https://maps.app.goo.gl/QP7vqkogC5U8xio18
 website: http://www.chayam.co.jp/restaurant/isetan.shtml
 instagram: https://www.instagram.com/greenitalian_torcia/
-facebook: http://facebook.com/chayamacrobi
+facebook: https://facebook.com/chayamacrobi
 likes: 3.5
 summary: A macrobiotic Italian high-end restaurant with vegan options
 image:

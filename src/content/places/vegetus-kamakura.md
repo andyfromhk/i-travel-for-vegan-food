@@ -14,7 +14,7 @@ location:
 address: Japan, 〒248-0012 Kanagawa, Kamakura, Onarimachi, 10−13 2F
 mapsUrl: https://maps.app.goo.gl/qkgvmoSKnLitDMjM6
 website: http://vegetus.jpn.com
-facebook: http://facebook.com/vegetus.jpn
+facebook: https://facebook.com/vegetus.jpn
 likes: 3
 summary: Reservation-only vegan bistro for a classy multi-course meal
 image:

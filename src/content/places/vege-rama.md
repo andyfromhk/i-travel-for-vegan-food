@@ -14,8 +14,8 @@ address: ANZAC Square, shop 1/241 Adelaide St, Brisbane City QLD 4000
 mapsUrl: https://maps.app.goo.gl/43rumB2JVUfH7pc56
 phone: +61-732117688
 website: http://vegerama.com.au
-instagram: http://www.instagram.com/explore/locations/504130504/vege-rama
-facebook: http://facebook.com/VegeRama
+instagram: https://www.instagram.com/explore/locations/504130504/vege-rama
+facebook: https://facebook.com/VegeRama
 likes: 3.5
 summary: All-vegan CBD spot with a hot food counter offering curries, lasagna & more
 image:

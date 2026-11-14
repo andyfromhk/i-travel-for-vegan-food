@@ -15,7 +15,7 @@ mapsUrl: https://maps.app.goo.gl/f14qWkHMtyinzd4c9
 phone: +61-732100255
 website: http://brisbanegovindas.com.au
 instagram: https://www.instagram.com/brisbanegovindas/
-facebook: http://facebook.com/BrisbaneGovindas
+facebook: https://facebook.com/BrisbaneGovindas
 likes: 3
 summary: Hearty, affordable vegan Indian option in Brisbane CBD
 image:

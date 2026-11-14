@@ -6,7 +6,6 @@ category: markets-and-festivals
 destination: brisbane
 destinations:
   - brisbane
-linkToMap: true
 image:
   src: /media/guides/brisbane-vegan-markets-mount-gravatt-portside/img-9023.jpg
 gallery:

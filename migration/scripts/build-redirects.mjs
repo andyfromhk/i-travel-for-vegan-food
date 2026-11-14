@@ -73,9 +73,18 @@ for (const [source, firstTarget] of [...rules].sort(([a], [b]) =>
     missing.push(`${source} -> ${target}`);
   lines.push(`${source} ${target} 301`);
 }
+// An address with a trailing slash goes to the one without, permanently, as on Webflow. (Cloudflare would
+// otherwise answer with a temporary 307.) The site's addresses are at most three levels deep.
+lines.push(
+  "",
+  "# Trailing slashes: /about/ -> /about",
+  "/:a/ /:a 301",
+  "/:a/:b/ /:a/:b 301",
+  "/:a/:b/:c/ /:a/:b/:c 301",
+);
 await writeFile("public/_redirects", lines.join("\n") + "\n");
 
-console.log(`${lines.length - 3} redirects written to public/_redirects`);
+console.log(`${lines.length - 8} redirects written to public/_redirects`);
 if (skipped.length)
   console.log(
     `Left out because the address is a real page now: ${skipped.join(", ")}`,

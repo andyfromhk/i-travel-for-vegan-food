@@ -13,7 +13,7 @@ location:
   lng: 139.560312
 address: 4 Chome-1-19 Yukinoshita, Kamakura, Kanagawa 248-0005, Japan
 mapsUrl: https://maps.app.goo.gl/hsmiZyhVPKSeCwcw6
-instagram: http://www.instagram.com/wakamiya_stand
+instagram: https://www.instagram.com/wakamiya_stand
 likes: 2.5
 summary: Cozy vegan deli with a Japanese & Middle Eastern fusion menu
 image:

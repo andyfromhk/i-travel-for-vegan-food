@@ -13,7 +13,7 @@ location:
   lng: 135.506229
 address: 3 Chome-4-5 Ebisuhigashi, Naniwa Ward, Osaka, 556-0002, Japan
 mapsUrl: https://maps.app.goo.gl/rjKua2FJs2ixwPJv6
-instagram: http://www.instagram.com/shinsekai.paprika_vegan
+instagram: https://www.instagram.com/shinsekai.paprika_vegan
 likes: 4
 summary: Vegan cafe serving veganised Japanese street food located near Tsūtenkaku tower
 image:

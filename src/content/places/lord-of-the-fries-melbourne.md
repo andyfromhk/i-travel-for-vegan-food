@@ -10,8 +10,8 @@ priceRange: budget-friendly
 venueType: quick-bites
 cuisine: fast-food
 website: http://www.lordofthefries.com.au
-instagram: http://www.instagram.com/lordofthefries1
-facebook: http://facebook.com/lordofthefriesau
+instagram: https://www.instagram.com/lordofthefries1
+facebook: https://facebook.com/lordofthefriesau
 likes: 2.5
 summary: An all-vegan fast-food chain offering plant-based burgers, hot dogs, nuggets, and signature fries
 image:

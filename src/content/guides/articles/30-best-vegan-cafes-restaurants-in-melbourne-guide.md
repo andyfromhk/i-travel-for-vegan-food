@@ -7,7 +7,6 @@ destination: melbourne
 destinations:
   - melbourne
 mainGuide: true
-linkToMap: true
 image:
   src: /media/restaurants/brother-bon/dsc5369.webp
 created: 2022-09-19T08:00:30.064Z

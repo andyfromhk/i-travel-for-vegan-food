@@ -14,8 +14,8 @@ location:
 address: 3 Chome-10-14 Kita-Aoyama, Minato City, Tokyo 107-0061, Japan
 mapsUrl: https://maps.app.goo.gl/ft8cm2akhm55itxP6
 website: https://sotarte.jp/
-instagram: http://www.instagram.com/sotarte_/
-facebook: http://facebook.com/sotarteomotesando
+instagram: https://www.instagram.com/sotarte_/
+facebook: https://facebook.com/sotarteomotesando
 likes: 4
 summary: High quality vegan & GF fruit tart cafe in Omotesando and Yoyogi
 image:

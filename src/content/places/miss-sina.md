@@ -13,7 +13,7 @@ location:
 address: 132 Illawarra Rd, Marrickville NSW 2204
 mapsUrl: https://maps.app.goo.gl/jv3M4WYp12Xvg8R87
 website: https://www.misssina.com.au
-instagram: http://www.instagram.com/miss.sina.sydney
+instagram: https://www.instagram.com/miss.sina.sydney
 facebook: https://www.facebook.com/misssina.au
 likes: 5
 summary: Fully vegan Marrickville bakery & cafe known for creative and delicious pastries

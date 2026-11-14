@@ -14,8 +14,8 @@ location:
 address: Tennoji Park Villa, 105号, 1 Chome-1-10 Sanno, Nishinari Ward, Osaka, 557-0001, Japan
 mapsUrl: https://maps.app.goo.gl/mNRttwAGWUq7ZfSW9
 website: https://saijiki-syojin.com/shop
-instagram: http://www.instagram.com/saijiki_20230312
-facebook: http://facebook.com/people/咲璽季saijiki素食vegan/100094504521993
+instagram: https://www.instagram.com/saijiki_20230312
+facebook: https://facebook.com/people/咲璽季saijiki素食vegan/100094504521993
 likes: 3.5
 summary: Fully vegan Taiwanese spot that's budget-friendly and delicious
 image:

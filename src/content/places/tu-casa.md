@@ -13,7 +13,7 @@ location:
   lng: 135.768834
 address: 8 Chome-414-4 宮川 Higashiyama Ward, Kyoto, 605-0801, Japan
 mapsUrl: https://maps.app.goo.gl/uzRcR5u9VQF8QLom6
-instagram: http://www.instagram.com/tucasa_zerowaste
+instagram: https://www.instagram.com/tucasa_zerowaste
 likes: 3
 summary: Vegan zero-waste store with a cafe serving vegan Korean dishes like gimbap and BBQ bowl
 image:

@@ -12,7 +12,7 @@ location:
   lat: 35.312758
   lng: 139.535533
 address: 2 Chome-13-37 Hase, Kamakura, Kanagawa 248-0016, Japan
-instagram: http://www.instagram.com/blossom_kamakura
+instagram: https://www.instagram.com/blossom_kamakura
 likes: 4.5
 summary: Lovely vegan gem near Kotoku-in serving Japanese sweets & amazake drinks
 image:

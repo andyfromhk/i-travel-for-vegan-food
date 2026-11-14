@@ -13,8 +13,8 @@ location:
 address: 10 Howey Pl, Melbourne VIC 3000
 mapsUrl: https://maps.app.goo.gl/zdSvkKka6UTBsdk56
 website: http://www.unionkiosk.com.au
-instagram: http://www.instagram.com/unionkiosk
-facebook: http://facebook.com/unionkiosk
+instagram: https://www.instagram.com/unionkiosk
+facebook: https://facebook.com/unionkiosk
 likes: 4
 summary: A CBD laneway vegan cafe specialising in creative sweet and savoury jaffles for a quick bite
 image:

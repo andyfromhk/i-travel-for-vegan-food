@@ -13,8 +13,8 @@ location:
 address: 377-379 High St, Northcote VIC 3070
 mapsUrl: https://maps.app.goo.gl/jsAZzZsxcFCqN1pK8
 website: https://www.brotherbon.com.au
-instagram: http://www.instagram.com/brotherbonmelb
-facebook: http://facebook.com/brotherbonmelb
+instagram: https://www.instagram.com/brotherbonmelb
+facebook: https://facebook.com/brotherbonmelb
 likes: 5
 summary: High quality Asian eatery that will wow vegans and impress any non-vegan you bring along
 image:

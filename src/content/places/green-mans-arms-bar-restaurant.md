@@ -13,8 +13,8 @@ location:
 address: 418 Lygon St, Carlton VIC 3053
 mapsUrl: https://maps.app.goo.gl/bR1QdCdzpmBjYXwA8
 website: https://greenmansarms.com.au
-instagram: http://www.instagram.com/greenmansarms
-facebook: http://facebook.com/greenmansarms
+instagram: https://www.instagram.com/greenmansarms
+facebook: https://facebook.com/greenmansarms
 likes: 4.5
 summary: This Carlton vegan pub serves plant-based pub classics and craft beers in a relaxed, retro setting
 image:

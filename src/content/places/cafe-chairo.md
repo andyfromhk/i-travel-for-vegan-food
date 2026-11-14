@@ -13,7 +13,7 @@ location:
   lng: 139.706464
 address: Japan, 〒150-0001 Tokyo, Shibuya City, Jingumae, 5 Chome−11−13 茶庵表参道 1階
 mapsUrl: https://maps.app.goo.gl/L2T3eeV6NMAkaNmJ9
-instagram: http://www.instagram.com/cafechairo
+instagram: https://www.instagram.com/cafechairo
 likes: 3.5
 summary: Cute vegan Japanese cafe with Japanese desserts and a resident cat
 image:

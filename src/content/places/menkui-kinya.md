@@ -13,7 +13,7 @@ location:
   lng: 135.772042
 address: 112-2 Hakatacho, Higashiyama Ward, Kyoto, 605-0805, Japan
 mapsUrl: https://maps.app.goo.gl/UoZYrogXikGvhBHo7
-facebook: http://facebook.com/menkuikinya/
+facebook: https://facebook.com/menkuikinya/
 likes: 3.5
 summary: Local udon shop in Gion area with clearly marked vegan options including tempura udon
 image:

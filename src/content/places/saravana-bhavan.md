@@ -13,7 +13,7 @@ location:
   lng: 144.955526
 address: 131 King St, Melbourne VIC 3000
 website: https://www.saravanabhavan.com
-facebook: http://facebook.com/pages/Saravanaa-Bhavan-131-King-Street-Melbourne/1061749720622851
+facebook: https://facebook.com/pages/Saravanaa-Bhavan-131-King-Street-Melbourne/1061749720622851
 likes: 2.5
 created: 2025-04-09T10:44:25.471Z
 updated: 2025-04-09T10:45:23.682Z

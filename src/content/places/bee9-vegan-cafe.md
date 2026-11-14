@@ -13,7 +13,7 @@ location:
   lng: 135.515421
 address: Japan, 〒530-0037 Osaka, Kita Ward, Matsugaecho, 6−1 グロウビル 1F
 website: https://bee9-osaka.com
-instagram: http://www.instagram.com/bee9_vegan_cafe_studio
+instagram: https://www.instagram.com/bee9_vegan_cafe_studio
 facebook: https://www.facebook.com/bee9.Minamimorimachi/
 likes: 4.5
 summary: Wholesome vegan cafe serving buddha bowl, bibimbap and more. Located near Tenmangu Shrine

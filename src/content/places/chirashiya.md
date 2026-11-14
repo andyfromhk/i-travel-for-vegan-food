@@ -14,7 +14,7 @@ location:
 address: 400-2 Yamanouchi, Kamakura, Kanagawa 247-0062, Japan
 mapsUrl: https://maps.app.goo.gl/1hCkjC86233DBn6M7
 website: https://chirashiya-kamakura.com
-instagram: http://www.instagram.com/0467chirashiya
+instagram: https://www.instagram.com/0467chirashiya
 likes: 4.5
 summary: An all-vegan restaurant near Kita-Kamakura station serving beautifully presented & delicious sushi
 image:

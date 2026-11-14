@@ -13,8 +13,8 @@ location:
   lng: 151.188475
 address: 75A Burrows Rd, Alexandria NSW 2015
 website: http://www.yullisbrews.com.au
-instagram: http://www.instagram.com/yullisbrews
-facebook: http://facebook.com/yullisbrews
+instagram: https://www.instagram.com/yullisbrews
+facebook: https://facebook.com/yullisbrews
 likes: 4
 created: 2025-04-09T10:44:21.302Z
 updated: 2025-04-09T10:45:21.935Z

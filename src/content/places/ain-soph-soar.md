@@ -14,8 +14,8 @@ location:
   lng: 139.717138
 address: Japan, 〒170-0013 Tokyo, Toshima City, Higashiikebukuro, 3 Chome−5−7 ユニオンビルディング 101
 website: http://ain-soph.jp/soar
-instagram: http://www.instagram.com/ainsoph_jp
-facebook: http://facebook.com/ainsoph.soar
+instagram: https://www.instagram.com/ainsoph_jp
+facebook: https://facebook.com/ainsoph.soar
 likes: 4
 summary: Calm vegan Japanese fusion near Sunshine City; kids menu avail.
 created: 2025-04-26T13:54:35.942Z
