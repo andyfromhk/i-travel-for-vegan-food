@@ -18,47 +18,34 @@ likes: 0
 summary: "A vegan restaurant in Old Town with a massive menu spanning Indian, Lebanese, Thai and Western dishes"
 image:
   src: /media/restaurants/ubuntu-eat/main.webp
-  alt: "A spread at Ubuntu Eat: biryani, a mezze platter, fysh fingers and chips, and drinks"
+  alt: "Biryani, mezze platter and fysh fingers"
 gallery:
   - src: /media/restaurants/ubuntu-eat/food.webp
-    alt: Biryani served in a clay pot
+    alt: Biryani
   - src: /media/restaurants/ubuntu-eat/main.webp
-    alt: "A spread at Ubuntu Eat: biryani, a mezze platter, fysh fingers and chips, and drinks"
+    alt: "Biryani, mezze platter and fysh fingers"
   - src: /media/restaurants/ubuntu-eat/dsc7460.webp
-    alt: A spoonful of the biryani
+    alt: Biryani
   - src: /media/restaurants/ubuntu-eat/dsc7314.webp
-    alt: "A mezze platter with hummus, falafel and pita bread"
+    alt: Mezze platter
   - src: /media/restaurants/ubuntu-eat/dsc7339.webp
-    alt: A tikka kebab skewer
   - src: /media/restaurants/ubuntu-eat/dsc7323.webp
     alt: Fysh fingers and chips
   - src: /media/restaurants/ubuntu-eat/dsc7411.webp
-    alt: A bowl of curry soup
   - src: /media/restaurants/ubuntu-eat/dsc7325.webp
-    alt: A smoothie bowl in a coconut shell
+    alt: Smoothie bowl
   - src: /media/restaurants/ubuntu-eat/dsc7334.webp
-    alt: A blue soda and a mango drink
 menu:
-  - src: /media/restaurants/ubuntu-eat/dsc7289.webp
-    alt: The teal and wood dining room
-  - src: /media/restaurants/ubuntu-eat/dsc7278.webp
-    alt: "Ubuntu Eat's pink shophouse in Phuket Old Town"
-  - src: /media/restaurants/ubuntu-eat/dsc7288.webp
-    alt: A table by a sunflower mural
   - src: /media/restaurants/ubuntu-eat/img-0764.webp
-    alt: "Ubuntu Eat menu: starters"
   - src: /media/restaurants/ubuntu-eat/img-0765.webp
-    alt: "Ubuntu Eat menu: Lebanese dishes"
   - src: /media/restaurants/ubuntu-eat/img-0767.webp
-    alt: "Ubuntu Eat menu: kebabs and biryani"
   - src: /media/restaurants/ubuntu-eat/img-0768.webp
-    alt: "Ubuntu Eat menu: Indian mains and sides"
   - src: /media/restaurants/ubuntu-eat/img-0769.webp
-    alt: "Ubuntu Eat menu: Thai mains"
   - src: /media/restaurants/ubuntu-eat/img-0774.webp
-    alt: "Ubuntu Eat menu: desserts"
   - src: /media/restaurants/ubuntu-eat/img-0775.webp
-    alt: "Ubuntu Eat menu: smoothies and lassis"
+  - src: /media/restaurants/ubuntu-eat/dsc7289.webp
+  - src: /media/restaurants/ubuntu-eat/dsc7278.webp
+  - src: /media/restaurants/ubuntu-eat/dsc7288.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---

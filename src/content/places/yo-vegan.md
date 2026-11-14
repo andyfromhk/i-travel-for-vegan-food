@@ -18,25 +18,19 @@ likes: 0
 summary: A no-frills local vegan restaurant where you point and pick from a spread of pre-made Thai dishes
 image:
   src: /media/restaurants/yo-vegan/dsc6720.webp
-  alt: "Green curry with vegan sausages and tofu, crispy soy protein and rice at Yo Vegan"
+  alt: Green curry with vegan sausages and tofu
 gallery:
   - src: /media/restaurants/yo-vegan/dsc6724.webp
-    alt: "Green curry with vegan sausages and tofu, and crispy soy protein"
+    alt: Green curry with vegan sausages and tofu
   - src: /media/restaurants/yo-vegan/dsc6720.webp
-    alt: "Green curry with vegan sausages and tofu, crispy soy protein and rice at Yo Vegan"
+    alt: Green curry with vegan sausages and tofu
 menu:
-  - src: /media/restaurants/yo-vegan/dsc6740.webp
-    alt: "Yo Vegan's shopfront, with its yellow sign"
-  - src: /media/restaurants/yo-vegan/dsc6709.webp
-    alt: Pre-made dishes at the counter
-  - src: /media/restaurants/yo-vegan/dsc6710.webp
-    alt: Staff serving from the counter
   - src: /media/restaurants/yo-vegan/dsc6706.webp
-    alt: "Yo Vegan's menu board, in Thai"
+  - src: /media/restaurants/yo-vegan/dsc6740.webp
+  - src: /media/restaurants/yo-vegan/dsc6709.webp
+  - src: /media/restaurants/yo-vegan/dsc6710.webp
   - src: /media/restaurants/yo-vegan/dsc6730.webp
-    alt: Pandan desserts for sale
   - src: /media/restaurants/yo-vegan/dsc6731.webp
-    alt: Boxed Thai desserts
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---

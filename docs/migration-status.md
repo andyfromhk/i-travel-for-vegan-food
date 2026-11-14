@@ -113,9 +113,10 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
 - **Photos for all 25 Thailand restaurants**, from the folders you uploaded. The folders are renamed to the page
   addresses (`public/media/restaurants/kem-kon/` and so on) and the files have web-safe names. On each page: your
   `main` photo, then `food` first in Food & Drink, with the other dish and drink photos after it; interiors, shopfronts
-  and menus go in Menu & Vibe, with an interior or shopfront shown first. Golden State, Vegetarian Society, Ruamjai
-  and Yo Vegan had no `main` or `food` file, so their main and first photos were picked from the set. Every photo has
-  a description; check them in Pages CMS, especially dish names. The 18 older pages no longer use the guide photos.
+  and menus go in Menu & Vibe, menu pages first. Golden State, Vegetarian Society, Ruamjai and Yo Vegan had no `main`
+  or `food` file, so their main and first photos were picked from the set. Food & Drink descriptions are just the
+  dish name, and only where it's certain; Menu & Vibe photos have none. The 18 older pages no longer use the guide
+  photos.
 - One photo in the Nature's Charm folder (`dsc0356`) shows a Veganerie counter, so it moved to Veganerie.
 
 ## Done (Round 6, 14 November 2026)
