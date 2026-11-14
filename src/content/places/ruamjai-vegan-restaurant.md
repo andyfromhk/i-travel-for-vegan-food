@@ -18,27 +18,18 @@ likes: 0
 summary: "A busy, no-frills local vegan restaurant on Ranong Road where you point and pick from dozens of Thai dishes"
 image:
   src: /media/restaurants/ruamjai-vegan-restaurant/dsc7522.webp
-  alt: "Four plates of dishes picked from the counter at Ruamjai, with rice"
 gallery:
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7533.webp
-    alt: Braised shiitake mushrooms with sesame on greens
+    alt: Braised shiitake mushrooms
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7522.webp
-    alt: "Four plates of dishes picked from the counter at Ruamjai, with rice"
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7529.webp
-    alt: "Sweet and sour 'pork' and mock meats with rice"
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7526.webp
-    alt: "A crispy pancake, mock meat floss and a skewer"
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7528.webp
-    alt: A skewer from the counter
 menu:
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7535.webp
-    alt: The busy dining room
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7537.webp
-    alt: "The counter, loaded with dozens of dishes"
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7539.webp
-    alt: "Curries, soups and stir-fries at the counter"
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7540.webp
-    alt: Staff serving at the counter
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---

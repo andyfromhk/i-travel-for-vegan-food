@@ -18,39 +18,28 @@ likes: 0
 summary: "A retro, colourful spot for creative all-vegan sushi and Japanese-inspired dishes, open until midnight"
 image:
   src: /media/restaurants/golden-state-vegan-sushi/dsc1285.webp
-  alt: "A spread of sushi, small plates and cocktails at Golden State"
+  alt: Volcavo and sushi rolls
 gallery:
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1260.webp
-    alt: "The Volcavo, a tower of crunchy sweet and sour goodness, surrounded by sushi rolls"
+    alt: Volcavo
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1285.webp
-    alt: "A spread of sushi, small plates and cocktails at Golden State"
+    alt: Volcavo and sushi rolls
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1244.webp
-    alt: Sushi rolls around the Volcavo
+    alt: Volcavo and sushi rolls
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1240.webp
-    alt: Avocado and mango sushi rolls
+    alt: Sushi rolls
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1312.webp
-    alt: Fried tofu topped with crispy onions in a sweet soy sauce
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1269.webp
-    alt: "Crispy cauliflower in a spicy glaze, with carrot and celery sticks and a creamy dip"
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1266.webp
-    alt: Green noodles with crispy seaweed and lime
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1305.webp
-    alt: A forkful of the green noodles
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1218.webp
-    alt: "Cocktails, one served in a frog-painted pot"
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1181.webp
-    alt: A cocktail on the bar
 menu:
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1192.webp
-    alt: "The colourful, retro dining room"
   - src: /media/restaurants/golden-state-vegan-sushi/dsc9259.webp
-    alt: "Golden State's neon signs at night, at RR Space on Sukhumvit 33"
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1144.webp
-    alt: A lounge with green sofas and bookshelves
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1143.webp
-    alt: A neon-lit corner with a drum kit
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1155.webp
-    alt: Mixing drinks at the bar
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---

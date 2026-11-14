@@ -18,55 +18,39 @@ likes: 0
 summary: "A plant-filled vegan cafe from the Nature's Charm brand, with a huge, creative menu and a shop for its coconut condensed milk"
 image:
   src: /media/restaurants/natures-charm-cafe/main.webp
-  alt: "A spread at Nature's Charm Cafe: fish and chips, son-in-law eggs, lu rou fan and matcha crepe cake"
+  alt: "Fish and chips, son-in-law eggs, lu rou fan and matcha crepe cake"
 gallery:
   - src: /media/restaurants/natures-charm-cafe/food.webp
-    alt: Chocolate sauce poured over the matcha crepe cake
+    alt: Matcha crepe cake
   - src: /media/restaurants/natures-charm-cafe/main.webp
-    alt: "A spread at Nature's Charm Cafe: fish and chips, son-in-law eggs, lu rou fan and matcha crepe cake"
+    alt: "Fish and chips, son-in-law eggs, lu rou fan and matcha crepe cake"
   - src: /media/restaurants/natures-charm-cafe/dsc0749.webp
     alt: Banana blossom fish and chips
   - src: /media/restaurants/natures-charm-cafe/dsc0752.webp
-    alt: "The flaky banana blossom fish, with minty mashed peas and chips"
+    alt: Banana blossom fish and chips
   - src: /media/restaurants/natures-charm-cafe/dsc0702.webp
-    alt: "Lu rou fan, Taiwanese braised 'pork' rice, with a vegan egg and greens"
+    alt: Lu rou fan
   - src: /media/restaurants/natures-charm-cafe/dsc0687.webp
-    alt: "Son-in-law eggs: vegan boiled eggs in a sweet and tangy sauce"
+    alt: Son-in-law eggs
   - src: /media/restaurants/natures-charm-cafe/dsc0688.webp
-    alt: Matcha crepe cake and an iced coffee
+    alt: Matcha crepe cake
   - src: /media/restaurants/natures-charm-cafe/dsc0656.webp
-    alt: An iced drink topped with a mango rose
 menu:
-  - src: /media/restaurants/natures-charm-cafe/dsc0599.webp
-    alt: "The dining room, with a pink and green tropical mural"
-  - src: /media/restaurants/natures-charm-cafe/dsc0597.webp
-    alt: "Nature's Charm Cafe's shopfront at night"
-  - src: /media/restaurants/natures-charm-cafe/dsc0611.webp
-    alt: Tables under the tropical mural
-  - src: /media/restaurants/natures-charm-cafe/dsc0615.webp
-    alt: "A booth by a wall with the Nature's Charm founder's quote"
-  - src: /media/restaurants/natures-charm-cafe/dsc0618.webp
-    alt: The counter and dessert fridge
-  - src: /media/restaurants/natures-charm-cafe/dsc0626.webp
-    alt: "Shelves of Nature's Charm products, from coconut condensed milk to cooking sauces"
   - src: /media/restaurants/natures-charm-cafe/img-2896.webp
-    alt: "Nature's Charm Cafe menu: all-day breakfast"
   - src: /media/restaurants/natures-charm-cafe/img-2898.webp
-    alt: "Nature's Charm Cafe menu: mains"
   - src: /media/restaurants/natures-charm-cafe/img-2899.webp
-    alt: "Nature's Charm Cafe menu: mains and burgers"
   - src: /media/restaurants/natures-charm-cafe/img-2900.webp
-    alt: "Nature's Charm Cafe menu: mains and sides"
   - src: /media/restaurants/natures-charm-cafe/img-2901.webp
-    alt: "Nature's Charm Cafe menu: Korean dishes"
   - src: /media/restaurants/natures-charm-cafe/img-2902.webp
-    alt: "Nature's Charm Cafe menu: Thai appetisers"
   - src: /media/restaurants/natures-charm-cafe/img-2903.webp
-    alt: "Nature's Charm Cafe menu: Thai mains"
   - src: /media/restaurants/natures-charm-cafe/img-2904.webp
-    alt: "Nature's Charm Cafe menu: more Thai mains"
   - src: /media/restaurants/natures-charm-cafe/img-2907.webp
-    alt: "Nature's Charm Cafe dessert menu"
+  - src: /media/restaurants/natures-charm-cafe/dsc0599.webp
+  - src: /media/restaurants/natures-charm-cafe/dsc0597.webp
+  - src: /media/restaurants/natures-charm-cafe/dsc0611.webp
+  - src: /media/restaurants/natures-charm-cafe/dsc0615.webp
+  - src: /media/restaurants/natures-charm-cafe/dsc0618.webp
+  - src: /media/restaurants/natures-charm-cafe/dsc0626.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---
