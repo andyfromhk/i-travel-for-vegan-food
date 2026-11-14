@@ -108,6 +108,19 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
    or join it.
 5. **Restaurants shown on a destination page.** The first 8, by popularity, with the rest in the map. Webflow showed 4.
 
+## Done (Round 6, 14 November 2026)
+
+- **Thailand restaurants checked against the book** (The Vegan Foodie Guide to Thailand). All 18 pages now have the
+  book's Thai name, address, Google Maps link and map pin, and its price level (฿ budget-friendly, ฿฿ mid-range).
+  Venue type and cuisine follow the book's labels (Modern → Contemporary, Creative → Fusion, Traditional → Thai).
+  Golden State Vegan Sushi's pin moved to RR Space, Sukhumvit 33. The two chains (Veganerie, Broccoli Revolution)
+  link "find one near you" to a Google Maps search.
+- **7 new restaurant pages** from the book: Nature's Charm Cafe, Kem-Kon and Vegetarian Society (Bangkok); Vegan
+  Heaven and Aeeen Japanese Vegan (Chiang Mai); Go Vegan Cafe and Ruamjai Vegan Restaurant (Phuket). Their review
+  text is the book's. **They have no photos yet:** add them in Pages CMS (main photo and gallery).
+- Sign-up form: bigger title, shorter cheat-sheet title, more room in the box, 2px border.
+- Home and Destinations: no top padding on the second section. Shop reviews: balanced card spacing.
+
 ## Done (Round 5, 14 November 2026)
 
 - **18 Thailand restaurant pages** from the Bangkok, Chiang Mai and Phuket main guides: your review text and the

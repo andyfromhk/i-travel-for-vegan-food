@@ -1,16 +1,19 @@
 ---
 name: Golden State Vegan Sushi
+nameOriginal: โกลเด้นสเตท วีแกน ซูชิ
 destination: bangkok
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
 cuisine: japanese
 district: Sukhumvit
 location:
-  lat: 13.7298405
-  lng: 100.590149
-mapsUrl: https://www.google.com/maps/search/?api=1&query=Golden+State+Vegan+Sushi%2C+Bangkok
+  lat: 13.7319479
+  lng: 100.5678647
+address: "3rd Floor RR Space, Sukhumvit 33 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110, Thailand"
+mapsUrl: https://maps.app.goo.gl/6HRwvhUhLRP95nPw6
 likes: 0
 summary: "A retro, colourful spot for creative all-vegan sushi and Japanese-inspired dishes, open until midnight"
 image:

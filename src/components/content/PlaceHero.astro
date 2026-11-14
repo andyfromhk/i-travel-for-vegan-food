@@ -153,6 +153,12 @@ const tiles = [
       flex-direction: column;
       align-items: flex-start;
       gap: 0.8rem;
+
+      /* With no photos, the trimmed summary is the last thing in the section, and the next section's
+         background would cover the bottoms of its letters. */
+      &:last-child {
+        padding-bottom: var(--space-1);
+      }
     }
 
     .place-hero_top {

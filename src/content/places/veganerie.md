@@ -1,11 +1,14 @@
 ---
 name: Veganerie
+nameOriginal: วีแกนเนอรี
 destination: bangkok
 page: true
 status: open
 chain: true
+storeLocator: "https://www.google.com/maps/search/?api=1&query=Veganerie%2C+Bangkok"
 vegType: vegan
-venueType: cafe
+priceRange: mid-range
+venueType: restaurant
 cuisine: international
 likes: 0
 summary: "A popular all-vegan chain across Bangkok, known for comfort food, Thai favourites and indulgent desserts like waffles and cakes"

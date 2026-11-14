@@ -1,18 +1,21 @@
 ---
 name: Ubuntu Eat
+nameOriginal: อูบุนตู้ อีท
 destination: phuket
 page: true
 status: open
 vegType: vegan
-venueType: cafe
+priceRange: mid-range
+venueType: restaurant
 cuisine: international
 district: Old Town
 location:
   lat: 7.8836405
   lng: 98.3918827
+address: "135 Phangnga Rd, Talat Yai, Mueang Phuket District, Phuket 83000, Thailand"
 mapsUrl: https://maps.app.goo.gl/GUnTqkZbHzCaeCvG9
 likes: 0
-summary: "A vegan cafe near Old Town with a massive menu spanning Indian, Lebanese, Thai and Western dishes"
+summary: "A vegan restaurant in Old Town with a massive menu spanning Indian, Lebanese, Thai and Western dishes"
 image:
   src: /media/guides/vegan-phuket-guide/dsc7321.webp
 gallery:

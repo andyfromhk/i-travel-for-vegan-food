@@ -1,5 +1,6 @@
 ---
 name: Imjai Vegan
+nameOriginal: อิ่มเจ วีแกน
 destination: chiang-mai
 page: true
 status: open
@@ -9,9 +10,10 @@ venueType: quick-bites
 cuisine: thai
 district: Nimman
 location:
-  lat: 18.801934
-  lng: 98.9675387
-mapsUrl: https://www.google.com/maps/search/?api=1&query=Imjai+Vegan%2C+Chiang+Mai
+  lat: 18.8022362
+  lng: 98.9672563
+address: "55, ตําบล, Chang Phueak, Mueang Chiang Mai District, Chiang Mai 50300, Thailand"
+mapsUrl: https://maps.app.goo.gl/6SaEk6VwkyJauiK69
 likes: 0
 summary: "A quick, affordable vegan food court stall in Maya Lifestyle Shopping Centre where you point and pick your dishes"
 image:

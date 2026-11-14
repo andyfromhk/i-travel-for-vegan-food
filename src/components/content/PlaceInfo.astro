@@ -59,7 +59,7 @@ const links = [
                 : data.address}
             </a>
           ) : (
-            <span>{data.address}</span>
+            <span>{data.chain ? "Multiple locations" : data.address}</span>
           )}
         </p>
       )}

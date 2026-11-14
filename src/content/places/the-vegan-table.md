@@ -1,15 +1,18 @@
 ---
 name: The Vegan Table
+nameOriginal: ตารางมังสวิรัต
 destination: phuket
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
-cuisine: western
+cuisine: contemporary
 district: Old Town
 location:
   lat: 7.8828543
   lng: 98.3902594
+address: "106 Ratsada Rd, Talat Yai, Mueang Phuket District, Phuket 83000, Thailand"
 mapsUrl: https://maps.app.goo.gl/aShd3rzJkTSCUa9r5
 likes: 0
 summary: "A popular Old Town spot for Western vegan comfort food like burgers, pizzas, wraps and full English breakfasts"

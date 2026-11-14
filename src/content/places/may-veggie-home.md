@@ -1,16 +1,19 @@
 ---
 name: May Veggie Home
+nameOriginal: เมย์ เวจจี้ โฮม
 destination: bangkok
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
 cuisine: thai
 district: Phra Khanong
 location:
-  lat: 13.6911934
-  lng: 100.6140834
-mapsUrl: https://www.google.com/maps/search/?api=1&query=May+Veggie+Home%2C+Bangkok
+  lat: 13.6911039
+  lng: 100.6140784
+address: "738 Sukhumvit 101 Alley, Khwaeng Bang Chak, Khet Phra Khanong, Krung Thep Maha Nakhon 10260, Thailand"
+mapsUrl: https://maps.app.goo.gl/mUPWzHBgiQSKXoL89
 likes: 0
 summary: "A long-running, home-style vegan kitchen serving classic Thai dishes like pad kaprao and pineapple fried rice"
 image:

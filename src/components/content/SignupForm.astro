@@ -30,7 +30,7 @@ const sheet =
     : undefined;
 const copy = sheet
   ? {
-      title: `Going to ${sheet}? Get my free vegan ${sheet} cheat sheet.`,
+      title: `Going to ${sheet}? Get my free vegan cheat sheet`,
       text: "The must-visit restaurants, best-of food guides, phrases you should know and more.",
       button: "Get the Cheat Sheet",
       done: `Check your inbox! Your ${sheet} cheat sheet is on its way.`,
@@ -59,7 +59,7 @@ const id = `signup-email-${variant}`;
       novalidate
       {...rest}
     >
-      <h2 class="signup_title text-style-h4">{copy.title}</h2>
+      <h2 class="signup_title text-style-h3">{copy.title}</h2>
       {copy.text && <p class="signup_text text-style-small">{copy.text}</p>}
       <div class="signup_row">
         <label class="signup_label" for={id}>
@@ -222,9 +222,9 @@ const id = `signup-email-${variant}`;
       text-align: center;
 
       &.box {
-        padding: var(--space-4) var(--space-3);
+        padding: var(--space-6) var(--space-3);
         background-color: var(--background);
-        border: var(--border-width) solid var(--brand-500);
+        border: 0.125rem solid var(--brand-500);
         border-radius: var(--radius-main);
       }
     }
@@ -238,7 +238,7 @@ const id = `signup-email-${variant}`;
     }
 
     .signup_text {
-      max-width: 34rem;
+      margin-top: 0.5rem;
       text-wrap: pretty;
     }
 
