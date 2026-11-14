@@ -1,17 +1,19 @@
 ---
 name: V Secret
+nameOriginal: วี ซีเคร็ท
 destination: chiang-mai
 page: true
 status: open
 vegType: vegan
 priceRange: budget-friendly
 venueType: food-truck-market-stall
-cuisine: street-food
+cuisine: thai
 district: East of Old Town
 location:
   lat: 18.7868697
   lng: 99.0004873
-mapsUrl: https://www.google.com/maps/search/?api=1&query=V+Secret%2C+Chiang+Mai
+address: "28/3-4 Changklan Rd, Tambon Chang Moi, Mueang Chiang Mai District, Chiang Mai 50100, Thailand"
+mapsUrl: https://maps.app.goo.gl/wj9n2eHezK4WDPDD9
 likes: 0
 summary: An all-vegan Thai food stall at Ploen Ruedee Night Market with generous dishes at a flat 80 baht
 image:

@@ -1,16 +1,19 @@
 ---
 name: Goodsouls Kitchen
+nameOriginal: กู๊ดโซลส์ คิทเช่น
 destination: chiang-mai
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
-cuisine: international
+cuisine: fusion
 district: Old Town
 location:
-  lat: 18.7932709
-  lng: 98.9820903
-mapsUrl: https://www.google.com/maps/search/?api=1&query=Goodsouls+Kitchen%2C+Chiang+Mai
+  lat: 18.7931734
+  lng: 98.9820563
+address: "52 Sinharat Rd Lane 3, Tambon Si Phum, Mueang Chiang Mai District, Chiang Mai 50200, Thailand"
+mapsUrl: https://maps.app.goo.gl/vikwsE9hegFiwCKYA
 instagram: https://www.instagram.com/goodsoulskitchen/
 likes: 0
 summary: A retro diner-style vegan restaurant in Old Town with a big menu of Thai and Western dishes

@@ -1,12 +1,15 @@
 ---
 name: Broccoli Revolution
+nameOriginal: บรอกโคลี เรฟโวลูชั่น
 destination: bangkok
 page: true
 status: open
 chain: true
+storeLocator: "https://www.google.com/maps/search/?api=1&query=Broccoli+Revolution%2C+Bangkok"
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
-cuisine: healthy
+cuisine: contemporary
 likes: 0
 summary: "A leafy vegan restaurant with wholesome Thai, Asian and Western dishes and an elixir bar for juices and smoothies"
 image:

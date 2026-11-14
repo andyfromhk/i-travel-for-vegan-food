@@ -89,7 +89,7 @@ Yes, almost always. The ingredients are mung beans, sugar, coconut milk, and aga
 
 ![](/media/guides/accidentally-vegan-thai-street-food-desserts/dsc1638.webp)
 
-For a savoury snack, look for these chewy, translucent dumplings filled with garlic chives. You can find them either steamed or fried. I tried the fried version at the Vegetarian Society in Chatuchak. It is crispy on the outside, and hearty and chewy on the inside. They are often served with a dark soy dipping sauce.
+For a savoury snack, look for these chewy, translucent dumplings filled with garlic chives. You can find them either steamed or fried. I tried the fried version at the [Vegetarian Society in Chatuchak](/restaurants/vegetarian-society-chatuchak). It is crispy on the outside, and hearty and chewy on the inside. They are often served with a dark soy dipping sauce.
 
 **Is Gui Chai Vegan?**
 

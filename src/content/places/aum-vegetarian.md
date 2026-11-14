@@ -1,16 +1,19 @@
 ---
 name: Aum Vegetarian
+nameOriginal: ร้านโอมมังสวิรัต
 destination: chiang-mai
 page: true
 status: open
 vegType: vegetarian
+priceRange: mid-range
 venueType: restaurant
 cuisine: thai
 district: South of Old Town
 location:
-  lat: 18.7784432
-  lng: 98.9879385
-mapsUrl: https://www.google.com/maps/search/?api=1&query=Aum+Vegetarian%2C+Chiang+Mai
+  lat: 18.778374
+  lng: 98.9879973
+address: "1, 4 Suriyawong Alley, Haiya Sub-district, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50100, Thailand"
+mapsUrl: https://maps.app.goo.gl/PUX7a7NgBrTsoRF88
 instagram: https://www.instagram.com/aum_vegetarian/
 likes: 0
 summary: "An open-air restaurant south of Old Town serving home-style Thai and Northern Thai dishes, most of them vegan"

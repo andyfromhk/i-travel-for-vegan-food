@@ -17,7 +17,7 @@ Written by `migration/scripts/check-parity.mjs`. Re-run it after a build to refr
 
 ## Internal links
 
-- Pages in the new build: **348**, internal links checked: **19566**
+- Pages in the new build: **355**, internal links checked: **19900**
 - Links that lead nowhere: **2**
 
 - `/restaurants/shu` (linked from /articles/30-best-vegan-cafes-restaurants-in-melbourne-guide)

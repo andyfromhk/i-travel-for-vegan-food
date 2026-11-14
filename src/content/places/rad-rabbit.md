@@ -1,16 +1,19 @@
 ---
 name: Rad Rabbit
+nameOriginal: แรด แรบบิท
 destination: chiang-mai
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
 cuisine: italian
 district: Old Town
 location:
-  lat: 18.7938597
-  lng: 98.992134
-mapsUrl: https://www.google.com/maps/search/?api=1&query=Rad+Rabbit%2C+Chiang+Mai
+  lat: 18.793906
+  lng: 98.9921329
+address: "27, 2 Moon Muang Rd Soi 9, Tambon Si Phum, Mueang Chiang Mai District, Chiang Mai 50200, Thailand"
+mapsUrl: https://maps.app.goo.gl/hgNY9HohEbFuJDeD6
 instagram: https://www.instagram.com/radrabbitveganpizza/
 likes: 0
 summary: "Chiang Mai's first all-vegan pizzeria, with cheesy pizzas, pasta, wraps and house-made cakes"

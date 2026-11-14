@@ -1,16 +1,18 @@
 ---
 name: Yo Vegan
+nameOriginal: โย โภชนา
 destination: phuket
 page: true
 status: open
 vegType: vegan
 priceRange: budget-friendly
-venueType: quick-bites
+venueType: restaurant
 cuisine: thai
 district: Ratsada
 location:
-  lat: 7.9070056
-  lng: 98.3759277
+  lat: 7.9070063
+  lng: 98.3759822
+address: "2 Soi Yaowarat 2, Ratsada, Mueang Phuket District, Phuket 83000, Thailand"
 mapsUrl: https://maps.app.goo.gl/BTtic6XQfJJqGNUCA
 likes: 0
 summary: A no-frills local vegan restaurant where you point and pick from a spread of pre-made Thai dishes

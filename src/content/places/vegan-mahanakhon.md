@@ -1,16 +1,19 @@
 ---
 name: Vegan Mahanakhon
+nameOriginal: วีแกนมหานคร
 destination: bangkok
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
 cuisine: thai
 district: Bangkok Noi
 location:
-  lat: 13.7515623
-  lng: 100.4834018
-mapsUrl: https://www.google.com/maps/search/?api=1&query=Vegan+Mahanakhon%2C+Bangkok
+  lat: 13.7515069
+  lng: 100.4832849
+address: "661 Arun Amarin Rd, ศิริราช Bangkok Noi, Bangkok 10700, Thailand"
+mapsUrl: https://maps.app.goo.gl/8xXEPNgBJBTduX3U6
 likes: 0
 summary: A refined all-vegan Thai restaurant in a restored 120-year-old teakwood house near Wat Arun
 image:

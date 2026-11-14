@@ -1,16 +1,19 @@
 ---
 name: Mercy Republic
+nameOriginal: เมอร์ซี รีพลับบลิค
 destination: bangkok
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
 cuisine: fusion
 district: Sukhumvit
 location:
-  lat: 13.7397802
-  lng: 100.5652624
-mapsUrl: https://www.google.com/maps/search/?api=1&query=Mercy+Republic%2C+Bangkok
+  lat: 13.7397642
+  lng: 100.5652833
+address: "120/17 ถนน สุขุมวิท Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand"
+mapsUrl: https://maps.app.goo.gl/GeRu2sT8QMeemgb87
 likes: 0
 summary: A moody vegan restaurant and bar in Sukhumvit with punchy Thai fusion dishes
 image:

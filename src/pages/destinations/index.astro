@@ -40,7 +40,7 @@ const schema = breadcrumbs([
   {
     groups.map((group, groupIndex) => (
       <Section
-        paddingTop="small"
+        paddingTop={groupIndex === 0 ? "none" : "small"}
         paddingBottom={groupIndex === groups.length - 1 ? "medium" : "small"}
         gap="4"
         id={group.slug}

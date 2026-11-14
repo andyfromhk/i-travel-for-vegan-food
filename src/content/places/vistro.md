@@ -1,16 +1,19 @@
 ---
 name: Vistro
+nameOriginal: วิสโทร
 destination: bangkok
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
 cuisine: fusion
 district: Sukhumvit
 location:
-  lat: 13.7272112
-  lng: 100.5680358
-mapsUrl: https://www.google.com/maps/search/?api=1&query=Vistro%2C+Bangkok
+  lat: 13.7272629
+  lng: 100.5682153
+address: "46/1 Sukhumvit 24 Alley, Klongton Khlong Toei, Bangkok 10110, Thailand"
+mapsUrl: https://maps.app.goo.gl/bcYmChxLbfEdsZgK8
 likes: 0
 summary: "A greenhouse-style vegan restaurant in Sukhumvit serving creative, beautifully presented fusion dishes"
 image:

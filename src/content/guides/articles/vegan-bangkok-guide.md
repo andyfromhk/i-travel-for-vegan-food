@@ -210,7 +210,7 @@ Located on the riverside, this is one of Bangkok’s most iconic and visually st
 
 ### Chatuchak Weekend Market
 
- One of the largest markets in the world, Chatuchak is a maze of stalls selling everything from vintage clothes to local crafts. The market could be quite touristy and crowded, but there are lots of hidden gems if you spend some time to browse this market. It's located pretty close to [Vegetarian Society in Chatuchak](https://maps.app.goo.gl/iqG74mcg7fuxkMgv7) - this canteen-style hall offers incredibly cheap, authentic Thai vegan food. You exchange cash for coupons and can get a full plate of curry and rice for about 40-50 THB ($1.50). It’s a truly local experience.
+ One of the largest markets in the world, Chatuchak is a maze of stalls selling everything from vintage clothes to local crafts. The market could be quite touristy and crowded, but there are lots of hidden gems if you spend some time to browse this market. It's located pretty close to [Vegetarian Society in Chatuchak](/restaurants/vegetarian-society-chatuchak) - this canteen-style hall offers incredibly cheap, authentic Thai vegan food. You exchange cash for coupons and can get a full plate of curry and rice for about 40-50 THB ($1.50). It’s a truly local experience.
 
 ![](/media/guides/vegan-bangkok-guide/dsc8133.webp)
 

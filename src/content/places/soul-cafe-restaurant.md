@@ -1,15 +1,18 @@
 ---
 name: "Soul Cafe & Restaurant"
+nameOriginal: โซล คาเฟ่
 destination: phuket
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: cafe
-cuisine: international
+cuisine: healthy
 district: Karon Beach
 location:
   lat: 7.8480269
   lng: 98.2936228
+address: "224 Karon Rd, Karon, phuket, Phuket 83100, Thailand"
 mapsUrl: https://maps.app.goo.gl/4Vjo2qnrGzw2vPU7A
 likes: 0
 summary: "A beachy, fully vegan cafe next to Karon Beach serving wholesome food and excellent pizza"

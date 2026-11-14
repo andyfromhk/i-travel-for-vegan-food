@@ -1,15 +1,18 @@
 ---
 name: Pure Vegan Heaven
+nameOriginal: เพียว วีแกน เฮเว่น
 destination: phuket
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: cafe
 cuisine: healthy
 district: Rawai
 location:
   lat: 7.7959478
   lng: 98.3267619
+address: "ร้านPure Vegan, Soi Saiyuan, Rawai, Mueang Phuket District, Phuket 83100, Thailand"
 mapsUrl: https://maps.app.goo.gl/9hUsNYERP22FHxZKA
 likes: 0
 summary: "A garden cafe for fresh, healthy and beautifully presented vegan food, with branches in Rawai and Chalong"

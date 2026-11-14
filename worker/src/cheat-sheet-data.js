@@ -162,7 +162,7 @@ export const CHEAT_SHEETS = {
         "places": [
           {
             "name": "Ubuntu Eat",
-            "text": "A vegan cafe near Old Town with a massive menu spanning Indian, Lebanese, Thai and Western dishes",
+            "text": "A vegan restaurant in Old Town with a massive menu spanning Indian, Lebanese, Thai and Western dishes",
             "page": "/restaurants/ubuntu-eat"
           },
           {

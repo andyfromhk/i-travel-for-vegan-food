@@ -1,16 +1,19 @@
 ---
 name: The Vegano Bistro
+nameOriginal: วีเกนโน่ บิสโทร
 destination: chiang-mai
 page: true
 status: open
 vegType: vegan
+priceRange: mid-range
 venueType: restaurant
-cuisine: thai
+cuisine: contemporary
 district: Hang Dong
 location:
-  lat: 18.737371
-  lng: 98.934905
-mapsUrl: https://www.google.com/maps/search/?api=1&query=The+Vegano+Bistro%2C+Chiang+Mai
+  lat: 18.7373225
+  lng: 98.9348882
+address: "69, 69/1 Nong Kwai, Hang Dong District, Chiang Mai 50230, Thailand"
+mapsUrl: https://maps.app.goo.gl/Jn8QmMJv3EgpedmV7
 instagram: https://www.instagram.com/theveganobistro/
 likes: 0
 summary: A must-visit vegan restaurant outside the city serving top-notch Thai dishes and Western comfort food
