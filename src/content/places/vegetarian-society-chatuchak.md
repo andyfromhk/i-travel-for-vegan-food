@@ -1,5 +1,5 @@
 ---
-name: Vegetarian Society
+name: Vegetarian Society in Chatuchak
 nameOriginal: ชมรมมังสวิรัติแห่งประเทศไทย
 destination: bangkok
 page: true
@@ -12,18 +12,22 @@ district: Chatuchak
 location:
   lat: 13.799389
   lng: 100.5470842
-address: "580-592 ชมรมมังสวิรัติแห่งประเทศไทย สาขาจตุจักร ลาดยาว Chatuchak, Bangkok 10900, Thailand"
+address: 580-592 ชมรมมังสวิรัติแห่งประเทศไทย สาขาจตุจักร ลาดยาว Chatuchak,
+  Bangkok 10900, Thailand
 mapsUrl: https://maps.app.goo.gl/awiE4EXRFsFRA8gQ6
 likes: 0
-summary: "A local, canteen-style vegan food hall near Chatuchak Market with cheap Thai dishes, paid for with food vouchers"
+summary: A local, canteen-style vegan food hall near Chatuchak Market with cheap
+  Thai dishes, paid for with food vouchers
 image:
   src: /media/restaurants/vegetarian-society-chatuchak/dsc8105.webp
-  alt: "Grilled skewers with a spicy green dip, rice with stir-fried morning glory and mock meat, and fried taro cake"
+  alt: Grilled skewers with a spicy green dip, rice with stir-fried morning glory
+    and mock meat, and fried taro cake
 gallery:
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8110.webp
-    alt: "Skewers of grilled mushrooms and mock meat with a spicy, tangy green dip"
+    alt: Skewers of grilled mushrooms and mock meat with a spicy, tangy green dip
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8105.webp
-    alt: "Grilled skewers with a spicy green dip, rice with stir-fried morning glory and mock meat, and fried taro cake"
+    alt: Grilled skewers with a spicy green dip, rice with stir-fried morning glory
+      and mock meat, and fried taro cake
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8113.webp
     alt: Crispy fried taro cake and chive cakes with dark soy sauce
 menu:
@@ -34,19 +38,21 @@ menu:
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8065.webp
     alt: The entrance
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8097.webp
-    alt: "The voucher counter, where you swap cash for food tickets"
+    alt: The voucher counter, where you swap cash for food tickets
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8101.webp
     alt: Food vouchers
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8088.webp
     alt: A vendor serving from trays of curries and stir-fries
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8071.webp
-    alt: "Stir-fries and mock meats at a stall, with prices in baht"
+    alt: Stir-fries and mock meats at a stall, with prices in baht
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8075.webp
     alt: Fried rice and noodles at a stall
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8082.webp
     alt: Fried snacks and mock meats
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 Vegetarian Society near Chatuchak Market is a truly local experience. The food is tasty and cheap, but there are a few things you'll need to know beforehand for a smooth visit.
 
