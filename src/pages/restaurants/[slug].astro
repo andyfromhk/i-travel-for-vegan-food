@@ -10,7 +10,7 @@ import Button from "@/components/Button.astro";
 import PlaceHero from "@/components/content/PlaceHero.astro";
 import PlaceInfo from "@/components/content/PlaceInfo.astro";
 import BookPromo from "@/components/content/BookPromo.astro";
-import TravelBox from "@/components/content/TravelBox.astro";
+import SignupForm from "@/components/content/SignupForm.astro";
 import PhotoGrid from "@/components/content/PhotoGrid.astro";
 import PlaceReview from "@/components/section/PlaceReview.astro";
 import PlaceCard from "@/components/item/PlaceCard.astro";
@@ -141,14 +141,15 @@ const schema = [
     <BookPromo slot="promo" destination={destination} />
   </PlaceReview>
 
-  {/* Travel recommendations */}
+  {
+    /* Sign-up (a free cheat sheet on Japan, Thailand, Taiwan and Hong Kong pages) */
+  }
   <Section
-    render={!!destination}
     paddingTop="none"
     paddingBottom="small"
     containerClass="max-width-small"
   >
-    <TravelBox destination={destination} />
+    <SignupForm variant="box" country={destination?.data.country} />
   </Section>
 
   {/* Photos */}

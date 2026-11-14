@@ -11,7 +11,7 @@ mapGraphic:
 travel:
   whereToStay: Stay near Formosa Boulevard or Central Park MRT stations. You'll be right on the MRT, close to night markets with vegetarian stalls, and a short ride from the Pier-2 Art Center.
   hotelsLink: https://booking.tpo.lu/PkjyD1i8
-  esimLink: https://airalo.tpo.lu/OWkt3P7v
+  esimLink: https://saily.tpo.lu/odanlrz7
   gettingAroundLabel: "Taipei to Kaohsiung: High Speed Rail ticket"
   gettingAroundLink: https://klook.tpo.lu/VP5Urxpe
   experienceLabel: Kaohsiung Full-Day Cultural & Art Discovery Tour

@@ -12,11 +12,13 @@ import GuideHero from "@/components/content/GuideHero.astro";
 import Toc from "@/components/content/Toc.astro";
 import MapBanner from "@/components/content/MapBanner.astro";
 import ShareLinks from "@/components/content/ShareLinks.astro";
+import SignupForm from "@/components/content/SignupForm.astro";
 import TravelBox from "@/components/content/TravelBox.astro";
 import AuthorBox from "@/components/content/AuthorBox.astro";
 import PhotoGrid from "@/components/content/PhotoGrid.astro";
 import GuideCard from "@/components/item/GuideCard.astro";
 import {
+  cheatSheetCountry,
   articleCategories,
   getSite,
   guideDestinations,
@@ -57,6 +59,7 @@ const author = site.authors.find(
   (a) => a.id === (data.author ?? "i-travel-for-vegan-food"),
 );
 const category = articleCategories.get(data.category ?? "")?.name ?? "";
+const country = await cheatSheetCountry(destinations);
 
 const { Content, headings } = await render(guide);
 const levels = (data.tocLevels ?? "h2,h3")
@@ -147,6 +150,7 @@ const schema = [
         label="Share this guide:"
         variant="boxed"
       />
+      <SignupForm variant="box" country={country} />
     </Fragment>
     <TravelBox destination={destination} />
     {

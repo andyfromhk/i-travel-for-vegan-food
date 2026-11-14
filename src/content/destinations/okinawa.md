@@ -10,7 +10,7 @@ mapGraphic:
 travel:
   whereToStay: Stay in Naha near Kokusai-dori for the widest choice of food and easy monorail access to the airport. If you're hiring a car to explore the island, add a few nights further north near the beaches.
   hotelsLink: https://booking.tpo.lu/jWCS99bR
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: "Explore the island: Okinawa car rental"
   gettingAroundLink: https://klook.tpo.lu/EL2s2MsT
   experienceLabel: Kerama Islands snorkelling day trip

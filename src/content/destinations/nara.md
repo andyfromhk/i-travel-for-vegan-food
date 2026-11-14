@@ -27,7 +27,7 @@ gallery:
 travel:
   whereToStay: Most visitors see Nara on a day trip from Osaka or Kyoto. If you stay overnight, choose the area around Kintetsu-Nara Station, a short walk from Nara Park, the old streets of Naramachi and the city's vegan-friendly cafes.
   hotelsLink: https://booking.tpo.lu/NEc7VFwK
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: "Osaka to Nara: Kintetsu Rail Pass"
   gettingAroundLink: https://klook.tpo.lu/l76npIFi
   experienceLabel: Nara and Uji day tour

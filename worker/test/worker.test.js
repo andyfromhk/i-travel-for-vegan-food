@@ -349,6 +349,63 @@ test('newsletter: a Kit problem is reported, not hidden', async () => {
   assert.deepEqual(await response.json(), { ok: false, code: 'server' });
 });
 
+// ---------- cheat sheets (sign-ups on Japan, Thailand, Taiwan and Hong Kong pages) ----------
+
+test('cheat sheet: sends the country email, then tags the reader in Kit', async () => {
+  forgetTags();
+  const env = makeEnv({ KIT_NEWSLETTER_TAG: 'Website newsletter' });
+  const calls = mockFetch();
+  const waits = [];
+  const response = await worker.fetch(subscribeRequest({ email: 'reader@example.com', token: 'ok', country: 'japan' }), env, { waitUntil(p) { waits.push(p); } });
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), { ok: true, sent: true });
+  assert.equal(env.sent.length, 1);
+  const mail = env.sent[0];
+  assert.equal(mail.subject, 'Your vegan Japan cheat sheet');
+  assert.equal(mail.to, 'reader@example.com');
+  assert.equal(mail.replyTo, 'hello@itravelforveganfood.com');
+  // Restaurants by city with their pages, the guides, the book (linked to the shop page) and the phrases.
+  for (const text of ['Tokyo', 'Kyoto', 'Osaka', 'Izakaya Masaka', 'Mercy Vegan Factory', '3-Day Tokyo Itinerary', 'Phrases to know', '私はヴィーガンです。', 'Visit I Travel For Vegan Food']) {
+    assert.ok(mail.html.includes(text), 'HTML has ' + text);
+  }
+  assert.match(mail.html, /href="https:\/\/www\.itravelforveganfood\.com\/restaurants\/izakaya-masaka\?utm_source=cheat-sheet-email/);
+  assert.match(mail.html, /href="https:\/\/www\.itravelforveganfood\.com\/shop\?utm_source=cheat-sheet-email/);
+  assert.match(mail.text, /IZAKAYA|Izakaya Masaka/);
+  await Promise.all(waits);
+  const names = calls.filter((c) => c.url.endsWith('/v4/tags') && c.method === 'POST').map((c) => JSON.parse(c.body).name);
+  assert.deepEqual(names, ['Website newsletter', 'Cheat sheet: Japan']);
+});
+
+test('cheat sheet: Taiwan lists its Taipei places without links', async () => {
+  forgetTags();
+  const env = makeEnv();
+  mockFetch();
+  await worker.fetch(subscribeRequest({ email: 'a@b.co', token: 'ok', country: 'taiwan' }), env, { waitUntil() {} });
+  const html = env.sent[0].html;
+  assert.ok(html.includes('Foldie') && html.includes('Baganhood') && html.includes('Mukuchi'));
+  assert.ok(!/href="[^"]*foldie/i.test(html), 'no link for Foldie');
+  assert.ok(html.includes('Vegan Taipei Guide') || html.includes('Taipei'), 'the Taipei guide');
+});
+
+test('cheat sheet: any other country is a plain newsletter sign-up', async () => {
+  forgetTags();
+  const env = makeEnv();
+  mockFetch();
+  const response = await worker.fetch(subscribeRequest({ email: 'a@b.co', token: 'ok', country: 'australia' }), env, { waitUntil() {} });
+  assert.deepEqual(await response.json(), { ok: true });
+  assert.equal(env.sent.length, 0);
+});
+
+test('cheat sheet: if the email cannot be sent, the reader is told and Kit is not touched', async () => {
+  forgetTags();
+  const env = makeEnv({ EMAIL: { async send() { const e = new Error('limit'); e.code = 'E_DAILY_LIMIT_EXCEEDED'; throw e; } } });
+  const calls = mockFetch();
+  const response = await worker.fetch(subscribeRequest({ email: 'a@b.co', token: 'ok', country: 'thailand' }), env, { waitUntil() {} });
+  assert.equal(response.status, 503);
+  assert.deepEqual(await response.json(), { ok: false, code: 'busy' });
+  assert.equal(calls.filter((c) => c.url.includes('api.kit.com')).length, 0);
+});
+
 test('health check', async () => {
   const response = await worker.fetch(new Request('https://api.itravelforveganfood.com/'), makeEnv(), {});
   assert.deepEqual(await response.json(), { ok: true, service: 'itfvf-email-list' });

@@ -32,7 +32,7 @@ gallery:
 travel:
   whereToStay: Stay in Tsim Sha Tsui or around Central and Sheung Wan. Both have plenty of vegan and vegetarian food nearby, with the Star Ferry and MTR linking you to the rest of the city.
   hotelsLink: https://booking.tpo.lu/4NIhI8vF
-  esimLink: https://airalo.tpo.lu/uXP2lxrv
+  esimLink: https://saily.tpo.lu/N42LEpUD
   gettingAroundLabel: "Airport to city: Airport Express ticket"
   gettingAroundLink: https://klook.tpo.lu/8MYEJtNt
   experienceLabel: Ngong Ping 360 cable car to the Big Buddha

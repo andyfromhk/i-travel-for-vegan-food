@@ -10,7 +10,7 @@ mapGraphic:
 travel:
   whereToStay: Stay in Hongdae or Itaewon for the best concentration of vegan-friendly cafes and restaurants, or Myeongdong if you'd rather be central for shopping and the palaces.
   hotelsLink: https://booking.tpo.lu/g45vviqw
-  esimLink: https://www.airalo.com/south-korea-esim
+  esimLink: https://saily.tpo.lu/tgod2zBm
   gettingAroundLabel: "Incheon Airport to Seoul Station: AREX Express"
   gettingAroundLink: https://klook.tpo.lu/KqANSGtW
   experienceLabel: Lotte World Ticket

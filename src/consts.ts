@@ -47,3 +47,6 @@ export const GA_MEASUREMENT_ID = "G-4E3VDR5QL6";
 /** Guest post guidelines linked from the About page. */
 export const GUEST_POST_GUIDELINES =
   "https://docs.google.com/document/d/10IJDTS6zt22kpI_k4fl54ZVn4BbPpwux99gynhPvgls/edit?usp=sharing";
+
+/** Travel insurance link in every "Recommendations for Your … Trip" box (the same for all destinations). */
+export const TRAVEL_INSURANCE_URL = "https://klook.tpo.lu/k4LF7KUG";

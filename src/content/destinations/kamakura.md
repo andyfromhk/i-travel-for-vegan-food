@@ -24,7 +24,7 @@ gallery:
 travel:
   whereToStay: Kamakura is an easy day trip from Tokyo. To stay overnight, choose the area around Kamakura Station, next to the food stalls of Komachi-dori and a short walk from Tsurugaoka Hachimangu.
   hotelsLink: https://booking.tpo.lu/wAGZVbpE
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: Day trip from Tokyo to Kamakura
   gettingAroundLink: https://klook.tpo.lu/m2f1eYFQ
   experienceLabel: Kamakura guided day tour from Tokyo

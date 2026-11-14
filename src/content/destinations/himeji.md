@@ -23,7 +23,7 @@ gallery:
 travel:
   whereToStay: Himeji is an easy day trip from Osaka or Kyoto by Shinkansen. If you stay overnight, the area around Himeji Station puts you on the main street leading straight to Himeji Castle.
   hotelsLink: https://booking.tpo.lu/MNpV9X2x
-  esimLink: https://airalo.tpo.lu/kXJApkVw
+  esimLink: https://saily.tpo.lu/5Rxoeswd
   gettingAroundLabel: "Shinkansen to Himeji: JR Kansai Wide Area Pass"
   gettingAroundLink: https://klook.tpo.lu/TW3jHIsz
   experienceLabel: Himeji Castle day tour from Osaka

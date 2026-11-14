@@ -13,7 +13,7 @@ import DestinationGallery from "@/components/content/DestinationGallery.astro";
 import HeroDestination from "@/components/content/HeroDestination.astro";
 import BookPromo from "@/components/content/BookPromo.astro";
 import MapBanner from "@/components/content/MapBanner.astro";
-import TravelBox from "@/components/content/TravelBox.astro";
+import SignupForm from "@/components/content/SignupForm.astro";
 import PlaceCard from "@/components/item/PlaceCard.astro";
 import GuideCard from "@/components/item/GuideCard.astro";
 import {
@@ -111,13 +111,15 @@ const schema = breadcrumbs([
     </ButtonWrapper>
   </Section>
 
-  {/* Travel recommendations */}
+  {
+    /* Sign-up (a free cheat sheet on Japan, Thailand, Taiwan and Hong Kong pages) */
+  }
   <Section
     paddingTop="small"
     paddingBottom={guides.length > 0 ? "none" : "medium"}
     containerClass="max-width-small"
   >
-    <TravelBox destination={destination} />
+    <SignupForm variant="box" country={destination.data.country} />
   </Section>
 
   {/* Guides */}

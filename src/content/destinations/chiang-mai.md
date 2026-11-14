@@ -26,7 +26,7 @@ gallery:
 travel:
   whereToStay: Stay in the Old City or Nimman. The Old City puts you among the temples and the Sunday Walking Street, while Nimman has a trendy cafe scene, and both have plenty of vegan food nearby.
   hotelsLink: https://booking.tpo.lu/YIhGcVWJ
-  esimLink: https://airalo.tpo.lu/sHms8D07
+  esimLink: https://saily.tpo.lu/cQjCWJQy
   gettingAroundLabel: "Bangkok to Chiang Mai: domestic flights"
   gettingAroundLink: https://trip.tpo.lu/cJ7C9ENr
   experienceLabel: Doi Inthanon National Park day trip

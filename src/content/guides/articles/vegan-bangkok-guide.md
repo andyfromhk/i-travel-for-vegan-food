@@ -64,6 +64,8 @@ The menu is big, covering everything from Western-style burgers and pastas to po
 
 ![](/media/guides/vegan-bangkok-guide/dsc1671.webp)
 
+[**_See restaurant details here →_**](/restaurants/veganerie)
+
 ---
 
 ### Vegan Mahanakhon 
@@ -79,6 +81,8 @@ The dishes focus on perfecting traditional Thai cuisine. You'll find a big range
 ![](/media/guides/vegan-bangkok-guide/dsc8583.webp)
 
 ![](/media/guides/vegan-bangkok-guide/dsc8546.webp)
+
+[**_See restaurant details here →_**](/restaurants/vegan-mahanakhon)
 
 ---
 
@@ -96,6 +100,8 @@ The menu features a great selection of classic Thai dishes made fully vegan. You
 
 ![](/media/guides/vegan-bangkok-guide/dsc9695.webp)
 
+[**_See restaurant details here →_**](/restaurants/may-veggie-home)
+
 ---
 
 ### Vistro
@@ -112,6 +118,8 @@ My personal favourite here is the 'Vagyu Sando'. It is their take on a Japanese 
 
 ![](/media/guides/vegan-bangkok-guide/dsc1457.webp)
 
+[**_See restaurant details here →_**](/restaurants/vistro)
+
 ---
 
 ### Broccoli Revolution 
@@ -125,6 +133,8 @@ My personal favourite here is the 'Vagyu Sando'. It is their take on a Japanese 
 With high ceilings and lots of flowers and greenery, Broccoli Revolution specialises in wholesome, nourishing food, which could be great if you feel like something lighter. They place a heavy emphasis on fresh ingredients, and they have an "elixir bar" for revitalising cold-pressed juices and smoothies.
 
 The menu is diverse, spanning Thai, Asian, and Western dishes. A unique highlight here is the Burmese tea leaf salad (Laphet thoke), which has umami flavours from fermented tea leaves with crunchy textures from roasted nuts. If you want something heartier, their veggie balls, which is made with broccoli, beetroot and quinoa, is also a solid choice.
+
+[**_See restaurant details here →_**](/restaurants/broccoli-revolution)
 
 ---
 
@@ -146,6 +156,8 @@ The food is just as creative and well-thought-out as the decor. They serve all-v
 
 ![](/media/guides/vegan-bangkok-guide/dsc1218.webp)
 
+[**_See restaurant details here →_**](/restaurants/golden-state-vegan-sushi)
+
 ### Mercy Republic
 
 **Vegan** | *Sukhumvit*
@@ -157,6 +169,8 @@ The food is just as creative and well-thought-out as the decor. They serve all-v
 Be warned: this place is not shy with spice! A few of the dishes I tried were spicy (but super tasty so I couldn't stop eating them). Ask the staff for recommendations if you are not great with spicy food.
 
 ![](/media/guides/vegan-bangkok-guide/dsc0008.webp)
+
+[**_See restaurant details here →_**](/restaurants/mercy-republic)
 
 ---
 

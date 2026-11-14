@@ -10,7 +10,7 @@ mapGraphic:
 travel:
   whereToStay: Stay around Bugis or Chinatown. Both are central and well connected by MRT, with hawker centres nearby where vegetarian stalls are easy to find.
   hotelsLink: https://booking.tpo.lu/jQbFOR3L
-  esimLink: https://airalo.tpo.lu/8U6zUdyZ
+  esimLink: https://saily.tpo.lu/LB1DhIBv
   gettingAroundLabel: "Changi Airport to city: bus transfer"
   gettingAroundLink: https://klook.tpo.lu/9t8hmq2V
   experienceLabel: Gardens by the Bay tickets

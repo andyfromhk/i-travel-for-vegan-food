@@ -27,7 +27,7 @@ gallery:
 travel:
   whereToStay: Stay in Surfers Paradise or Broadbeach. Both are right on the beach and the G:link tram line, with plenty of places to eat nearby and good transport to the theme parks.
   hotelsLink: https://booking.tpo.lu/OpngAw0J
-  esimLink: https://airalo.tpo.lu/EMt8Jywg
+  esimLink: https://saily.tpo.lu/rx9nwLXc
   gettingAroundLabel: "Gold Coast Airport to your hotel: shared transfer"
   gettingAroundLink: https://klook.tpo.lu/iyrQpc4W
   experienceLabel: Warner Bros. Movie World tickets

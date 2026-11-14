@@ -1,5 +1,6 @@
 ---
 import type { Destination } from "@/utils/content.ts";
+import { TRAVEL_INSURANCE_URL } from "@/consts.ts";
 
 interface Props {
   /** Set to `false` to omit the component. */
@@ -25,7 +26,12 @@ const items = [
     href: travel.gettingAroundLink,
     title: `Getting Around ${name}`,
     text: travel.gettingAroundLabel,
-    wide: true,
+  },
+  {
+    icon: "luggage",
+    href: TRAVEL_INSURANCE_URL,
+    title: "Travel Insurance",
+    text: `Get covered for your ${name} trip`,
   },
   travel.esimLink && {
     icon: "phone-heart",
@@ -55,7 +61,7 @@ const items = [
         Recommendations for Your {name} Trip
       </h2>
       <p class="travel-box_note text-style-small">
-        This recommended hotels &amp; activities may contain affiliate links.
+        These recommended hotels &amp; activities may contain affiliate links.
         When you decide to purchase through them, you support me and my mission
         of documenting the best vegan food around the world at no extra cost to
         you. Thank you!
@@ -135,8 +141,9 @@ const items = [
       align-items: center;
       gap: var(--space-2);
       padding: 0.5rem var(--space-3);
-      border: var(--border-width) solid var(--border);
-      border-radius: var(--radius-round);
+      border: var(--border-width) solid
+        color-mix(in srgb, var(--brand-500) 40%, transparent);
+      border-radius: 0.625rem;
       transition: border-color var(--hover-duration) var(--hover-ease);
 
       @media (hover: hover) {
@@ -167,10 +174,6 @@ const items = [
     @media (width < 30rem) {
       .travel-box_list {
         grid-template-columns: minmax(0, 1fr);
-      }
-
-      .travel-box_link {
-        border-radius: var(--radius-main);
       }
     }
   }

@@ -1,11 +1,29 @@
 {
   "reviews": [
-    "“**Saved me hours of research**… would recommend to any vegan/vegetarian planning a trip to Japan!”",
-    "“**Such a comprehensive guide** that has made eating amazing vegan food a breeze!!”",
-    "“I'm traveling **in Japan at the moment** and I find this super helpful!”",
-    "“...it even lists vegan items in places I'd have never even thought to look, and **without this guide, would've never found.**”",
-    "“Great guide, clean design, easy to navigate, great photos!”",
-    "“There were so many places in the guide that I didn't even get to try on this trip. I can't wait to go back.”"
+    {
+      "text": "Such a comprehensive guide that has made eating amazing vegan food a breeze!!",
+      "name": "stoovey"
+    },
+    {
+      "text": "Not only does this guide list great vegan places, it even lists vegan items in places I'd have never even thought to look, and without this guide, would've never found. Thank you.",
+      "name": "Henry Shepherd"
+    },
+    {
+      "text": "great guide, clean design, easy to navigate, great photos! and a wonderful variety of sweet vs. savoury, street food vs. restaurants. highly recommend!!",
+      "name": "Caroline Wendling"
+    },
+    {
+      "text": "Great book. Saved me hours of research… would recommend to any vegan/ vegetarian planning a trip to Japan!",
+      "name": "Anonymous"
+    },
+    {
+      "text": "I could just flip through and easily pick places that looked amazing for each day based on where I was sightseeing. The itinerary part also came in handy for planning my day. There were so many places in the guide that I didn't even get to try on this trip.",
+      "name": "Alexander N"
+    },
+    {
+      "text": "I'm traveling in Japan at the moment and I find this super helpful!",
+      "name": "ninabold"
+    }
   ],
   "books": [
     {

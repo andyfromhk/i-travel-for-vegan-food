@@ -14,9 +14,12 @@ Tick each box as you go. Times are rough.
       `preview-setup.md`.
 - [ ] **Maps work on the preview:** a map guide, a destination's restaurant map, and the small map on a
       restaurant page (that one needs the Maps Embed API switched on; see `preview-setup.md`).
-- [ ] **Newsletter form** (footer) on the preview: sign up with a test address. It appears in Kit with the tag
-      `Website newsletter`. If the form says "Oops", the email Worker doesn't have the `/subscribe` update yet
-      or doesn't know the preview address: deploy it and check `ALLOWED_ORIGINS` (`email-checklist.md`).
+- [ ] **Newsletter form** (footer) on the preview: sign up with a test address on a page that isn't about Japan,
+      Thailand, Taiwan or Hong Kong (the home page). It appears in Kit with the tag `Website newsletter`. If the
+      form says "Oops", the email Worker doesn't have the latest update yet or doesn't know the preview address:
+      deploy it and check `ALLOWED_ORIGINS` (`email-checklist.md`).
+- [ ] **Cheat sheet:** sign up on a Japan page. "Your vegan Japan cheat sheet" arrives, and Kit shows the address
+      with `Website newsletter` and `Cheat sheet: Japan` (`email-checklist.md`, "Cheat-sheet emails").
 - [ ] **Contact form** (`/about`): send a test message. It arrives at the address set up in Web3Forms.
 - [ ] **Pages CMS:** create a test restaurant and a test guide, see them on the preview, then delete them
       (`editing-guide.md`).
@@ -105,9 +108,11 @@ If something is badly wrong, see [Rolling back](#6-rolling-back).
 
 ## 5. Same day, after the checks
 
-- [ ] **Email Worker logo:** in `worker/wrangler.jsonc`, change `LOGO_URL` to
-      `https://www.itravelforveganfood.com/site/brand/itfvf-logo.png` (it still points at Webflow's file
-      storage, which goes away when Webflow is cancelled), then deploy the email Worker.
+- [ ] **Email Worker images:** in `worker/wrangler.jsonc`, change `LOGO_URL` to
+      `https://www.itravelforveganfood.com/site/brand/itfvf-logo.png`, and in `worker/src/data.js` change each
+      book's `cover` to the matching file on the new site (`https://www.itravelforveganfood.com/site/books/japan.webp`
+      and so on). Both still point at Webflow's file storage, which goes away when Webflow is cancelled. Then
+      deploy the email Worker.
 - [ ] **Google Search Console** → your property → **Sitemaps** → submit `sitemap.xml` (same address as before).
 - [ ] Search Console → **URL inspection** → paste the home page, a destination and a popular guide, and click
       **Request indexing** on each.
