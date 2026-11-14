@@ -15,7 +15,7 @@ const items = [
 ];
 const email = renderEmail(items, {
   siteUrl: 'https://www.itravelforveganfood.com',
-  logoUrl: 'https://cdn.prod.website-files.com/60cbefb367e06dd6b12c5204/683d12c3ba958d15096befc9_i-travel-for-vegan-food-square-logo.webp',
+  logoUrl: 'https://www.itravelforveganfood.com/site/brand/itfvf-logo.png',
   optedIn: false,
 });
 writeFileSync(new URL('./sample-email.html', import.meta.url), email.html);

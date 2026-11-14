@@ -167,8 +167,8 @@ test('book block: cover image, Gumroad link with tracking', async () => {
   const env = makeEnv();
   await run(post({ email: 'a@example.com', token: 't', items }), env);
   const { html, text } = env.sent[0];
-  assert.match(html, /<img src="https:\/\/cdn\.prod\.website-files\.com\/[^"]+vegan-foodie-guide-cover-japan\.webp" width="76" alt="Cover of The Vegan Foodie Guide To Japan"/);
-  assert.match(html, /vegan-foodie-guide-cover-thailand\.webp/);
+  assert.match(html, /<img src="https:\/\/www\.itravelforveganfood\.com\/site\/books\/japan\.webp" width="76" alt="Cover of The Vegan Foodie Guide To Japan"/);
+  assert.match(html, /site\/books\/thailand\.webp/);
   assert.match(html, /href="https:\/\/itravelforveganfood\.gumroad\.com\/l\/the-vegan-foodie-guide-to-japan\?utm_source=saved-list-email/);
   assert.match(text, /https:\/\/itravelforveganfood\.gumroad\.com\/l\/the-vegan-foodie-guide-to-thailand\?utm_source=saved-list-email/);
   assert.doesNotMatch(html, /Heading to Australia/);

@@ -38,7 +38,7 @@
     // The tag is created in Kit the first time someone signs up.
     "KIT_NEWSLETTER_TAG": "Website newsletter",
     // Logo at the top of the email. A PNG works in every email program (WebP doesn't show in desktop Outlook).
-    "LOGO_URL": "https://cdn.prod.website-files.com/60cbefb367e06dd6b12c5204/6abe1f24f3c6b7459ce4d6fc_itfvf-logo.png"
+    "LOGO_URL": "https://www.itravelforveganfood.com/site/brand/itfvf-logo.png"
   },
 
   "observability": { "enabled": true }
