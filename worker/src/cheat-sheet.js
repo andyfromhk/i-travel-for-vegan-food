@@ -4,7 +4,7 @@
 
 import { CHEAT_SHEETS } from './cheat-sheet-data.js';
 import { BOOKS } from './data.js';
-import { COLOURS, FONT, escapeHtml, a, NAME, PILL, pills, ROW, heading, shell } from './email.js';
+import { COLOURS, FONT, escapeHtml, a, NAME, ROW, heading, shell } from './email.js';
 
 // Added to links back to the site so you can tell which visits and sales came from this email.
 const TRACKING = 'utm_source=cheat-sheet-email&utm_medium=email&utm_campaign=cheat-sheet';
@@ -21,23 +21,24 @@ export function cheatSheetSubject(country) {
   return 'Your vegan ' + CHEAT_SHEETS[country].name + ' cheat sheet';
 }
 
+// Green text links, like "Restaurant page →".
+const LINK = 'color:' + COLOURS.green + ';font-weight:500;font-size:14px;text-decoration:none;white-space:nowrap;';
+
+// Two lines: the name with "Restaurant page →" on the right (a table, as email apps don't all do flexbox),
+// then the description.
 function placeRow(place, siteUrl) {
   const page = place.page ? track(siteUrl + place.page) : null;
-  const title = page ? a(page, place.name, NAME) : '<span style="' + NAME + '">' + escapeHtml(place.name) + '</span>';
-  const links = [];
-  if (place.maps) links.push(a(place.maps, place.mapsLabel || 'Google Maps', PILL));
-  if (page) links.push(a(page, 'Restaurant page', PILL));
   return '<tr><td style="' + ROW + '">'
-    + title
-    + (place.area ? '<div style="margin-top:2px;font-size:13px;color:' + COLOURS.faint + ';">' + escapeHtml(place.area) + '</div>' : '')
-    + (place.text ? '<div style="margin-top:6px;font-size:14px;line-height:1.5;color:' + COLOURS.muted + ';">' + escapeHtml(place.text) + '</div>' : '')
-    + (links.length ? pills(links) : '')
+    + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
+    + '<td valign="middle" style="font-family:' + FONT + ';"><span style="' + NAME + '">' + escapeHtml(place.name) + '</span></td>'
+    + (page ? '<td valign="middle" align="right" style="padding-left:12px;font-family:' + FONT + ';">' + a(page, 'Restaurant page →', LINK) + '</td>' : '')
+    + '</tr></table>'
+    + (place.text ? '<div style="margin-top:4px;font-size:14px;line-height:1.5;color:' + COLOURS.muted + ';">' + escapeHtml(place.text) + '</div>' : '')
     + '</td></tr>';
 }
 
 function guideRow(guide, siteUrl) {
-  const url = track(siteUrl + guide.page);
-  return '<tr><td style="' + ROW + '">' + a(url, guide.name, NAME) + pills([a(url, 'Read the guide', PILL)]) + '</td></tr>';
+  return '<tr><td style="' + ROW + '">' + a(track(siteUrl + guide.page), guide.name + ' →', NAME) + '</td></tr>';
 }
 
 function bookBlock(sheet, siteUrl) {
@@ -51,7 +52,7 @@ function bookBlock(sheet, siteUrl) {
   return '<tr><td style="padding:26px 0 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' + COLOURS.sun + ';border-radius:10px;"><tr>'
     + cover
     + '<td valign="top" style="padding:16px 18px 16px ' + (book.cover ? '14px' : '18px') + ';font-family:' + FONT + ';color:' + COLOURS.sunInk + ';">'
-    + '<div style="font-size:16px;font-weight:700;">Want the full guide?</div>'
+    + '<div style="font-size:20px;line-height:1.3;font-weight:700;color:' + COLOURS.green + ';">Want the full guide?</div>'
     + '<div style="margin:4px 0 12px;font-size:14px;line-height:1.5;"><strong>' + escapeHtml(book.title) + '</strong>: ' + escapeHtml(book.text) + '</div>'
     + a(link, 'See the book', 'display:inline-block;padding:9px 16px;border:1.5px solid ' + COLOURS.sunInk + ';border-radius:20px;color:' + COLOURS.sunInk + ';font-weight:700;font-size:14px;text-decoration:none;')
     + '</td></tr></table></td></tr>';
@@ -109,9 +110,7 @@ export function renderCheatSheetText(country, { siteUrl }) {
     lines.push(city.name.toUpperCase() + ': MUST-VISIT RESTAURANTS', '');
     city.places.forEach((place) => {
       lines.push(place.name);
-      if (place.area) lines.push(place.area);
       if (place.text) lines.push(place.text);
-      if (place.maps) lines.push((place.mapsLabel || 'Google Maps') + ': ' + place.maps);
       if (place.page) lines.push('Restaurant page: ' + track(siteUrl + place.page));
       lines.push('');
     });

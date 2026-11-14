@@ -1,8 +1,8 @@
 // Builds worker/src/cheat-sheet-data.js: what goes in each country's free cheat-sheet email.
 //
-// The plan below names the restaurants, guides and book for each country. Names, areas, descriptions,
-// Google Maps links and page addresses are read from the website's own content (src/content), and the
-// phrases from the phrase card (src/scripts/core.js), so the email always matches the site.
+// The plan below names the restaurants, guides and book for each country. Names, descriptions and page
+// addresses are read from the website's own content (src/content), and the phrases from the phrase card
+// (src/scripts/core.js), so the email always matches the site.
 //
 // Run after changing the plan or the restaurants it names:
 //   node worker/scripts/build-cheat-sheets.mjs
@@ -60,17 +60,14 @@ const PLAN = {
         places: [
           {
             name: "Foldie",
-            area: "Vegetarian · Near Zhongxiao Dunhua Station",
             text: "Creative takes on Asian favourites like tomato wonton and truffle stinky tofu, beautifully presented. Dishes with egg or milk are marked on the menu.",
           },
           {
             name: "Baganhood",
-            area: "Vegan · Near Taipei City Hall Station",
             text: "A classy vegan restaurant near Taipei 101 with Western dishes and standouts like Sichuan peppercorn 'fried chicken' made from enoki mushrooms.",
           },
           {
             name: "Mukuchi Kitchen & Bar 無口小廚",
-            area: "Vegan · Near Daqiaotou Station",
             text: "Hearty all-vegan ramen bowls in a charming alleyway near historic Dihua Old Street.",
           },
         ],
@@ -99,8 +96,6 @@ async function frontMatter(file) {
   return YAML.parse(source.slice(3, end));
 }
 
-const taxonomies = JSON.parse(await readFile(path.join(ROOT, "src/data/taxonomies.json"), "utf8"));
-const vegName = new Map(taxonomies.vegTypes.map((v) => [v.slug, v.name]));
 
 // The phrase card's PHRASES object, read straight out of core.js.
 async function phraseCards() {
@@ -115,17 +110,13 @@ async function phraseCards() {
   return new Function(`return ${source.slice(start, end + 1)};`)();
 }
 
-async function place(slug, cityName) {
+async function place(slug) {
   const data = await frontMatter(path.join(ROOT, "src/content/places", `${slug}.md`));
   if (data.page === false || data.redirectTo || data.status === "permanently-closed")
     throw new Error(`${slug} has no live page`);
-  const search = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${data.name}, ${cityName}`)}`;
   return {
     name: data.name,
-    area: [vegName.get(data.vegType), data.chain ? "Multiple locations" : data.district].filter(Boolean).join(" · "),
     text: data.summary || "",
-    maps: data.chain ? data.storeLocator || search : data.mapsUrl || search,
-    mapsLabel: data.chain ? "Find a location" : "Google Maps",
     page: `/restaurants/${slug}`,
   };
 }
@@ -148,7 +139,7 @@ for (const [country, plan] of Object.entries(PLAN)) {
     cities: await Promise.all(
       plan.cities.map(async (city) => ({
         name: city.name,
-        places: await Promise.all(city.places.map((p) => (typeof p === "string" ? place(p, city.name) : p))),
+        places: await Promise.all(city.places.map((p) => (typeof p === "string" ? place(p) : p))),
       })),
     ),
     guides: await Promise.all(plan.guides.map(guide)),

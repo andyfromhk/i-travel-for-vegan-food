@@ -22,7 +22,7 @@ Email Sending's daily limit, like the saved-list emails.
 
 **To change what's in a cheat sheet:** edit the plan at the top of `worker/scripts/build-cheat-sheets.mjs` (which
 restaurants, guides and book), then run `node worker/scripts/build-cheat-sheets.mjs` from the repository and
-deploy the Worker. Names, descriptions, Google Maps links and phrases are read from the website, so updating a
+deploy the Worker. Names, descriptions, page links and phrases are read from the website, so updating a
 restaurant in Pages CMS and re-running the script keeps the email in step. The wording around them is in
 `worker/src/cheat-sheet.js`.
 

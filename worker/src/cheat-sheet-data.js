@@ -11,26 +11,17 @@ export const CHEAT_SHEETS = {
         "places": [
           {
             "name": "Izakaya Masaka",
-            "area": "Vegan · Shibuya",
             "text": "A Shibuya vegan izakaya restaurant that offers one of the best plant-based karaage",
-            "maps": "https://maps.app.goo.gl/ciAenkz3Tyt5MnLdA",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/izakaya-masaka"
           },
           {
             "name": "T's Tantan",
-            "area": "Vegan · Multiple locations",
             "text": "A highly popular vegan ramen chain offering delicious ramen at reasonable prices",
-            "maps": "https://ts-restaurant.jp/tantan/",
-            "mapsLabel": "Find a location",
             "page": "/restaurants/ts-tantan"
           },
           {
             "name": "Marbre Vegan",
-            "area": "Vegan · Shinjuku",
             "text": "A vegan dessert shop near Shinjuku Gyoen National Garden with a great selection of sweets",
-            "maps": "https://maps.app.goo.gl/k7yAUSwpbWUAV2Cy6",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/marbre-vegan"
           }
         ]
@@ -40,26 +31,17 @@ export const CHEAT_SHEETS = {
         "places": [
           {
             "name": "Vegan Ramen UZU",
-            "area": "Vegan",
             "text": "Experience a unique, sensory-rich dining experience with rich and delicious vegan ramen and sushi",
-            "maps": "https://maps.app.goo.gl/xWhKWwdvvTwxugmB8",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/vegan-ramen-uzu"
           },
           {
             "name": "Mumokuteki Cafe",
-            "area": "Vegan",
             "text": "A charming all-vegan eatery near Nishiki Market serving beautiful & delicious 'gozen' meals",
-            "maps": "https://maps.app.goo.gl/iAYPCcxZxK5dTkXJ7",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/mumokuteki-cafe"
           },
           {
             "name": "Veg Out",
-            "area": "Vegan",
             "text": "This riverside cafe offers classic Japanese dishes made with local organic ingredients",
-            "maps": "https://maps.app.goo.gl/1WeKsYSpD9QyRtnJA",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/veg-out"
           }
         ]
@@ -69,26 +51,17 @@ export const CHEAT_SHEETS = {
         "places": [
           {
             "name": "Mercy Vegan Factory",
-            "area": "Vegan",
             "text": "All vegan cafe serving realistic egg sandwich and other delicious comfort food",
-            "maps": "https://maps.app.goo.gl/oDedUSLwU5tDAVJM8",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/mercy-vegan-factory"
           },
           {
             "name": "Paprika Shokudo",
-            "area": "Vegan",
             "text": "Popular and high quality vegan eatery conveniently located in the Shinsaibashi area",
-            "maps": "https://maps.app.goo.gl/an9B3jNescjg5tuj6",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/paprika-shokudo"
           },
           {
             "name": "Vegan Ramen By Playpen Friends",
-            "area": "Vegan",
             "text": "A vegan ramen restaurant in downtown Osaka that offers 3 types of ramen bowls",
-            "maps": "https://maps.app.goo.gl/vHvbWw31HzdTSEWk7",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/vegan-ramen-by-playpen-friends"
           }
         ]
@@ -149,26 +122,17 @@ export const CHEAT_SHEETS = {
         "places": [
           {
             "name": "Vegan Mahanakhon",
-            "area": "Vegan · Bangkok Noi",
             "text": "A refined all-vegan Thai restaurant in a restored 120-year-old teakwood house near Wat Arun",
-            "maps": "https://www.google.com/maps/search/?api=1&query=Vegan+Mahanakhon%2C+Bangkok",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/vegan-mahanakhon"
           },
           {
             "name": "Veganerie",
-            "area": "Vegan · Multiple locations",
             "text": "A popular all-vegan chain across Bangkok, known for comfort food, Thai favourites and indulgent desserts like waffles and cakes",
-            "maps": "https://www.google.com/maps/search/?api=1&query=Veganerie%2C%20Bangkok",
-            "mapsLabel": "Find a location",
             "page": "/restaurants/veganerie"
           },
           {
             "name": "Vistro",
-            "area": "Vegan · Sukhumvit",
             "text": "A greenhouse-style vegan restaurant in Sukhumvit serving creative, beautifully presented fusion dishes",
-            "maps": "https://www.google.com/maps/search/?api=1&query=Vistro%2C+Bangkok",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/vistro"
           }
         ]
@@ -178,26 +142,17 @@ export const CHEAT_SHEETS = {
         "places": [
           {
             "name": "The Vegano Bistro",
-            "area": "Vegan · Hang Dong",
             "text": "A must-visit vegan restaurant outside the city serving top-notch Thai dishes and Western comfort food",
-            "maps": "https://www.google.com/maps/search/?api=1&query=The+Vegano+Bistro%2C+Chiang+Mai",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/the-vegano-bistro"
           },
           {
             "name": "Rad Rabbit",
-            "area": "Vegan · Old Town",
             "text": "Chiang Mai's first all-vegan pizzeria, with cheesy pizzas, pasta, wraps and house-made cakes",
-            "maps": "https://www.google.com/maps/search/?api=1&query=Rad+Rabbit%2C+Chiang+Mai",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/rad-rabbit"
           },
           {
             "name": "Aum Vegetarian",
-            "area": "Vegetarian · South of Old Town",
             "text": "An open-air restaurant south of Old Town serving home-style Thai and Northern Thai dishes, most of them vegan",
-            "maps": "https://www.google.com/maps/search/?api=1&query=Aum+Vegetarian%2C+Chiang+Mai",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/aum-vegetarian"
           }
         ]
@@ -207,26 +162,17 @@ export const CHEAT_SHEETS = {
         "places": [
           {
             "name": "Ubuntu Eat",
-            "area": "Vegan · Old Town",
             "text": "A vegan cafe near Old Town with a massive menu spanning Indian, Lebanese, Thai and Western dishes",
-            "maps": "https://maps.app.goo.gl/GUnTqkZbHzCaeCvG9",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/ubuntu-eat"
           },
           {
             "name": "Soul Cafe & Restaurant",
-            "area": "Vegan · Karon Beach",
             "text": "A beachy, fully vegan cafe next to Karon Beach serving wholesome food and excellent pizza",
-            "maps": "https://maps.app.goo.gl/4Vjo2qnrGzw2vPU7A",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/soul-cafe-restaurant"
           },
           {
             "name": "Yo Vegan",
-            "area": "Vegan · Ratsada",
             "text": "A no-frills local vegan restaurant where you point and pick from a spread of pre-made Thai dishes",
-            "maps": "https://maps.app.goo.gl/BTtic6XQfJJqGNUCA",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/yo-vegan"
           }
         ]
@@ -291,17 +237,14 @@ export const CHEAT_SHEETS = {
         "places": [
           {
             "name": "Foldie",
-            "area": "Vegetarian · Near Zhongxiao Dunhua Station",
             "text": "Creative takes on Asian favourites like tomato wonton and truffle stinky tofu, beautifully presented. Dishes with egg or milk are marked on the menu."
           },
           {
             "name": "Baganhood",
-            "area": "Vegan · Near Taipei City Hall Station",
             "text": "A classy vegan restaurant near Taipei 101 with Western dishes and standouts like Sichuan peppercorn 'fried chicken' made from enoki mushrooms."
           },
           {
             "name": "Mukuchi Kitchen & Bar 無口小廚",
-            "area": "Vegan · Near Daqiaotou Station",
             "text": "Hearty all-vegan ramen bowls in a charming alleyway near historic Dihua Old Street."
           }
         ]
@@ -354,26 +297,17 @@ export const CHEAT_SHEETS = {
         "places": [
           {
             "name": "LN Coffee",
-            "area": "Vegan",
             "text": "This vegan gem veganises classic Hong Kong dishes like egg waffle and French toast",
-            "maps": "https://maps.app.goo.gl/xPdCcMqbg6ZmyQhv9",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/ln-coffee"
           },
           {
             "name": "Veggie Kingdom",
-            "area": "Vegan · Tsim Sha Tsui & Causeway Bay",
             "text": "An authentic yum cha experience for vegans in Tsim Sha Tsui",
-            "maps": "https://maps.app.goo.gl/P9o1WH9EYkBhsFkN9",
-            "mapsLabel": "Google Maps",
             "page": "/restaurants/veggie-kingdom"
           },
           {
             "name": "Tin Tin Vegetarian",
-            "area": "Vegetarian · Multiple locations",
             "text": "A popular veggetarian takeaway chain offers everything from bean curd rolls to cheung fun",
-            "maps": "https://www.google.com/maps/search/?api=1&query=Tin%20Tin%20Vegetarian%2C%20Hong%20Kong",
-            "mapsLabel": "Find a location",
             "page": "/restaurants/tin-tin-vegetarian"
           }
         ]
