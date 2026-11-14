@@ -24,16 +24,19 @@ gallery:
   - src: /media/destinations/chiang-mai/dsc4177.webp
     alt: Royal Park Rajapruek
 travel:
-  whereToStay: Stay in the Old City or Nimman. The Old City puts you among the temples and the Sunday Walking Street, while Nimman has a trendy cafe scene, and both have plenty of vegan food nearby.
+  whereToStay: Stay in the Old City or Nimman. The Old City puts you among the
+    temples and the Sunday Walking Street, while Nimman has a trendy cafe scene,
+    and both have plenty of vegan food nearby.
   hotelsLink: https://booking.tpo.lu/YIhGcVWJ
   esimLink: https://saily.tpo.lu/cQjCWJQy
   gettingAroundLabel: "Bangkok to Chiang Mai: domestic flights"
   gettingAroundLink: https://trip.tpo.lu/cJ7C9ENr
   experienceLabel: Doi Inthanon National Park day trip
   experienceLink: https://klook.tpo.lu/KPGAvNZ0
-created: 2025-12-09T12:18:59.546Z
-updated: 2026-10-15T11:00:09.639Z
+created: 2025-12-09T12:18:00.000Z
+updated: 2026-10-15T11:00:00.000Z
 published: 2026-10-16T01:36:21.085Z
+mapGraphic:
+  src: /media/destinations/chiang-mai-vegan-map-graphic.webp
 ---
-
 Nestled in the mountains of Northern Thailand, Chiang Mai is the creative heart of the country's vegan scene. Its relaxing atmosphere is home to a thriving plant-based community, with incredible food found everywhere from the charming laneways of Old Town to the trendy Nimman neighbourhood. You can indulge in comforting pizzas at places like Rad Rabbit, make a special trip for a top-tier cafe at Vegano Bistro, or stay at an all-vegan hotel at Away Chiang Mai.
