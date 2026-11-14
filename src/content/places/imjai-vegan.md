@@ -17,10 +17,28 @@ mapsUrl: https://maps.app.goo.gl/6SaEk6VwkyJauiK69
 likes: 0
 summary: "A quick, affordable vegan food court stall in Maya Lifestyle Shopping Centre where you point and pick your dishes"
 image:
-  src: /media/guides/vegan-chiang-mai-guide/dsc4353.webp
+  src: /media/restaurants/imjai-vegan/main.webp
+  alt: "A plate of noodles and dishes, a vegan burger, and sausages with a mushroom ball skewer from Imjai Vegan"
 gallery:
-  - src: /media/guides/vegan-chiang-mai-guide/dsc4353.webp
-  - src: /media/guides/vegan-chiang-mai-guide/dsc4327.webp
+  - src: /media/restaurants/imjai-vegan/food.webp
+    alt: Sausages and a mushroom ball skewer with chilli sauce
+  - src: /media/restaurants/imjai-vegan/main.webp
+    alt: "A plate of noodles and dishes, a vegan burger, and sausages with a mushroom ball skewer from Imjai Vegan"
+  - src: /media/restaurants/imjai-vegan/dsc4360.webp
+    alt: "Lunch at the food court: a plate with three dishes, a vegan burger and sausages"
+menu:
+  - src: /media/restaurants/imjai-vegan/dsc4327.webp
+    alt: "Imjai Vegan's stall in the Maya food court"
+  - src: /media/restaurants/imjai-vegan/dsc4328.webp
+    alt: Pre-made dishes to point and pick from
+  - src: /media/restaurants/imjai-vegan/dsc4338.webp
+    alt: "Fried radish cake, sausages and mushroom ball skewers"
+  - src: /media/restaurants/imjai-vegan/dsc4331.webp
+    alt: Vegan burgers at the counter
+  - src: /media/restaurants/imjai-vegan/dsc4329.webp
+    alt: "Imjai Vegan's recommended menu"
+  - src: /media/restaurants/imjai-vegan/dsc4330.webp
+    alt: "Imjai Vegan menu: meal combos, noodles and side dishes"
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---

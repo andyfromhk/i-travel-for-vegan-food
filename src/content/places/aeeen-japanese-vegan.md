@@ -16,6 +16,45 @@ address: "Unnamed Road, Tambon Su Thep, Mueang Chiang Mai District, Chiang Mai 5
 mapsUrl: https://maps.app.goo.gl/2KscMstCnKBHnSdz7
 likes: 0
 summary: "A Michelin-recommended Japanese restaurant in a traditional wooden house, serving shojin-style curry rice and rice bowls"
+image:
+  src: /media/restaurants/aeeen-japanese-vegan/main.webp
+  alt: "Tempe katsu curry rice, tempe burg-don, tofu karaage and miso soup at Aeeen"
+gallery:
+  - src: /media/restaurants/aeeen-japanese-vegan/food.webp
+    alt: Tempe katsu curry rice
+  - src: /media/restaurants/aeeen-japanese-vegan/main.webp
+    alt: "Tempe katsu curry rice, tempe burg-don, tofu karaage and miso soup at Aeeen"
+  - src: /media/restaurants/aeeen-japanese-vegan/dsc5173.webp
+    alt: "Tempe burg-don: a tempeh patty in demi-glace sauce over rice"
+  - src: /media/restaurants/aeeen-japanese-vegan/dsc5199.webp
+    alt: Inside the tempe burg-don
+  - src: /media/restaurants/aeeen-japanese-vegan/dsc5188.webp
+    alt: Natto
+menu:
+  - src: /media/restaurants/aeeen-japanese-vegan/dsc5152.webp
+    alt: "Aeeen's traditional wooden house"
+  - src: /media/restaurants/aeeen-japanese-vegan/dsc5202.webp
+    alt: The entrance
+  - src: /media/restaurants/aeeen-japanese-vegan/dsc5156.webp
+    alt: "The counter, seen from upstairs"
+  - src: /media/restaurants/aeeen-japanese-vegan/dsc5165.webp
+    alt: The kitchen counter
+  - src: /media/restaurants/aeeen-japanese-vegan/img-8457.webp
+    alt: Upstairs seating by the windows
+  - src: /media/restaurants/aeeen-japanese-vegan/dsc5164.webp
+    alt: House-made sauces and dressings for sale
+  - src: /media/restaurants/aeeen-japanese-vegan/img-8446.webp
+    alt: "Aeeen menu: obanzai set"
+  - src: /media/restaurants/aeeen-japanese-vegan/img-8447.webp
+    alt: "Aeeen menu: tofu karaage, hiya yakko, tofu salad and natto"
+  - src: /media/restaurants/aeeen-japanese-vegan/img-8449.webp
+    alt: "Aeeen menu: toumeshi and tempe burg-don"
+  - src: /media/restaurants/aeeen-japanese-vegan/img-8451.webp
+    alt: "Aeeen menu: curries and omusubi"
+  - src: /media/restaurants/aeeen-japanese-vegan/img-8454.webp
+    alt: "Aeeen menu: raw sweets, moringa latte, chai and cocoa"
+  - src: /media/restaurants/aeeen-japanese-vegan/img-8455.webp
+    alt: "Aeeen menu: juices, coffee and teas"
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
 ---
