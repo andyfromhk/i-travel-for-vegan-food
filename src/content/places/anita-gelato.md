@@ -15,7 +15,7 @@ mapsUrl: https://maps.app.goo.gl/hPHBFESGShobQS5X9
 phone: +61-736678385
 website: https://www.anita-gelato.com
 instagram: https://www.instagram.com/anitagelato_australia/
-facebook: http://facebook.com/AnitaGelatoAU
+facebook: https://facebook.com/AnitaGelatoAU
 likes: 3.5
 summary: Popular West End gelateria with tasty and clearly marked vegan sorbet flavours
 image:

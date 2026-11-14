@@ -12,7 +12,7 @@ location:
   lat: -37.811798
   lng: 144.965059
 address: 3/264 Swanston St, Melbourne VIC 3000
-instagram: http://www.instagram.com/gongdelin_melb
+instagram: https://www.instagram.com/gongdelin_melb
 facebook: https://www.facebook.com/gongdelin/
 likes: 3
 created: 2025-04-09T10:44:26.229Z

@@ -13,7 +13,7 @@ location:
   lat: 35.722834
   lng: 139.790621
 address: 1 Chome-1-2 Ryusen, Taito City, Tokyo 110-0012, Japan
-instagram: http://www.instagram.com/vegancurry
+instagram: https://www.instagram.com/vegancurry
 likes: 4
 summary: Creative vegan cafe; seasonal menus, dog-friendly, peaceful vibe.
 created: 2025-04-26T13:54:39.630Z

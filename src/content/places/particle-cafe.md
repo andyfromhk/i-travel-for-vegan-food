@@ -12,8 +12,8 @@ location:
   lng: 144.864507
 address: 47 Military Rd, Avondale Heights VIC 3034
 mapsUrl: https://maps.app.goo.gl/GZA5escxYuJ8RvFQ7
-instagram: http://www.instagram.com/particlecafe/
-facebook: http://facebook.com/particlecafe
+instagram: https://www.instagram.com/particlecafe/
+facebook: https://facebook.com/particlecafe
 likes: 4
 summary: This Avondale Heights vegan cafe offers classic comfort food and many gluten-free choices
 image:

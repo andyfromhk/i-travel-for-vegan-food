@@ -10,7 +10,6 @@ import Button from "@/components/Button.astro";
 import GuideArticle from "@/components/section/GuideArticle.astro";
 import GuideHero from "@/components/content/GuideHero.astro";
 import Toc from "@/components/content/Toc.astro";
-import MapBanner from "@/components/content/MapBanner.astro";
 import ShareLinks from "@/components/content/ShareLinks.astro";
 import SignupForm from "@/components/content/SignupForm.astro";
 import TravelBox from "@/components/content/TravelBox.astro";
@@ -138,19 +137,13 @@ const schema = [
   <GuideArticle paddingTop="none" paddingBottom="small">
     <Fragment slot="sidebar">
       <Toc headings={toc} />
-      <MapBanner
-        render={data.linkToMap}
-        destination={destination}
-        variant="sidebar"
-        href={`/destinations/${destination?.id}`}
-      />
       <ShareLinks
         title={data.title}
         image={data.image?.src}
         label="Share this guide:"
         variant="boxed"
       />
-      <SignupForm variant="box" country={country} />
+      <SignupForm variant="sidebar" country={country} />
     </Fragment>
     <TravelBox destination={destination} />
     {

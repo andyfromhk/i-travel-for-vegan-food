@@ -6,7 +6,6 @@ category: food-guide
 destination: tokyo
 destinations:
   - tokyo
-linkToMap: true
 image:
   src: /media/guides/best-vegan-desserts-in-tokyo/sakura-cake-best-vegan-desserts-tokyo.jpg
 created: 2021-08-30T07:27:06.934Z

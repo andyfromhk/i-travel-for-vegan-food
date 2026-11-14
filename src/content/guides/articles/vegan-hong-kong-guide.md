@@ -7,7 +7,6 @@ destination: hong-kong
 destinations:
   - hong-kong
 mainGuide: true
-linkToMap: true
 image:
   src: /media/guides/vegan-hong-kong-guide/vegan-hong-kong-food-guide-featured-image.webp
 created: 2025-02-28T07:04:29.642Z

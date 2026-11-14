@@ -14,7 +14,7 @@ location:
 address: Japan, 〒650-0012 Hyogo, Kobe, Chuo Ward, Kitanagasadori, 4 Chome−7−12 オーシャンズコート 1F
 mapsUrl: https://maps.app.goo.gl/vLDcJxWHjp1zQxpU6
 website: http://thallo.jp
-facebook: http://facebook.com/VeganCafeThallo
+facebook: https://facebook.com/VeganCafeThallo
 likes: 4.5
 summary: Weekend-only vegan cafe with colourful nutritious plates and vegan cakes
 image:

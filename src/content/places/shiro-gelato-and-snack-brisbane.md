@@ -13,8 +13,8 @@ location:
 address: shop2B/131 Elizabeth St, Brisbane City QLD 4000
 mapsUrl: https://maps.app.goo.gl/q9vYb8RANovBwp2M6
 phone: +61-426517035
-instagram: http://www.instagram.com/shiro_gelato_snack
-facebook: http://facebook.com/shiro.gelato.and.snack
+instagram: https://www.instagram.com/shiro_gelato_snack
+facebook: https://facebook.com/shiro.gelato.and.snack
 likes: 1.5
 summary: Japanese takeaway spot with vegan-friendly sorbet, drinks, warabimochi & onigiri options
 image:

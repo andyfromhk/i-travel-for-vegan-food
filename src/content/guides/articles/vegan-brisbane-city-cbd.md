@@ -6,7 +6,6 @@ category: food-guide
 destination: brisbane
 destinations:
   - brisbane
-linkToMap: true
 image:
   src: /media/guides/vegan-brisbane-city-cbd/brisbane-cbd-vegan-guide.jpg
 created: 2022-01-02T12:13:26.888Z

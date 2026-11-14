@@ -13,7 +13,7 @@ location:
 address: 1/148 Merthyr Rd, New Farm QLD 4005
 phone: "153.0489422"
 website: https://mylkko.com.au/
-instagram: http://instagram.com/mylkko
+instagram: https://instagram.com/mylkko
 facebook: https://facebook.com/mylkko
 likes: 2.5
 summary: A vegan-friendly cafe in New Farm with acai bowls, gnocchi and other options

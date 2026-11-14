@@ -14,7 +14,7 @@ location:
   lng: 135.837077
 address: Japan, 〒630-8213 Nara, Noboriojicho, 59-12 2階
 mapsUrl: https://maps.app.goo.gl/GYqoSHu8Y6zRnB7C6
-instagram: http://www.instagram.com/vegan_friendly_ramen
+instagram: https://www.instagram.com/vegan_friendly_ramen
 likes: 4
 summary: Ramen shop by Nara Park with vegan ramen options
 image:

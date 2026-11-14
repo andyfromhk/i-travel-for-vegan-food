@@ -14,7 +14,7 @@ address: Shop TR-06, 111 Boundary Street, West Village Retail, West End QLD 4101
 mapsUrl: https://maps.app.goo.gl/zNH6tVit8qbAh6Vo8
 phone: +61-736678386
 website: https://kurtosh.com.au
-instagram: http://www.instagram.com/kurtosh_official/
+instagram: https://www.instagram.com/kurtosh_official/
 likes: 2
 summary: Cafe specialising in Hungarian kurtosh chimney cakes. Freshly-made and vegan-options are available
 image:

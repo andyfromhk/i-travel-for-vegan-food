@@ -7,7 +7,6 @@ destination: osaka
 destinations:
   - osaka
 mainGuide: true
-linkToMap: true
 image:
   src: /media/guides/vegan-osaka-guide/ice-cream-parfait-vegan-osaka-guide.jpg
 created: 2024-05-18T01:51:13.532Z

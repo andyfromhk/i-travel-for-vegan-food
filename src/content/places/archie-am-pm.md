@@ -12,8 +12,8 @@ location:
   lat: -27.345347
   lng: 153.010629
 address: Archie Am Pm Opposite the Dentist and Pathology, Shop 23/735 Beams Rd, Carseldine QLD 4034
-instagram: http://www.instagram.com/archieampm
-facebook: http://facebook.com/profile.php?id=61558346081742&mibextid=LQQJ4d
+instagram: https://www.instagram.com/archieampm
+facebook: https://facebook.com/profile.php?id=61558346081742&mibextid=LQQJ4d
 likes: 3.5
 created: 2025-03-29T08:47:11.976Z
 updated: 2025-03-31T06:08:17.368Z

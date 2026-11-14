@@ -13,8 +13,8 @@ location:
 address: 380 Brunswick St, Fitzroy VIC 3065
 mapsUrl: https://maps.app.goo.gl/7AX8v6AT6RrNbE3K9
 website: http://www.vegiebar.com.au
-instagram: http://www.instagram.com/vegiebar
-facebook: http://facebook.com/vegiebar
+instagram: https://www.instagram.com/vegiebar
+facebook: https://facebook.com/vegiebar
 likes: 4
 summary: Fitzroy's popular vegetarian cafe has a large, diverse menu that is mostly vegan
 image:

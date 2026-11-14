@@ -8,7 +8,7 @@ vegType: vegan
 address: 1916 Gold Coast Hwy, Miami QLD 4220
 phone: "0755207722"
 website: https://www.greenhousecanteen.com/
-instagram: http://instagram.com/greenhouse_canteen
+instagram: https://instagram.com/greenhouse_canteen
 facebook: https://www.facebook.com/greenhousecanteentandbar/
 likes: 1
 summary: A classy restaurant on the Gold Coast that offers a fully vegan and gluten-free menu

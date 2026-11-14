@@ -13,8 +13,8 @@ location:
 address: 57 Macleay St, Potts Point NSW 2011
 mapsUrl: https://maps.app.goo.gl/EJfLsKVhno76hifD7
 website: https://www.yellowsydney.com.au
-instagram: http://www.instagram.com/yellowsydney
-facebook: http://facebook.com/yellowsydney
+instagram: https://www.instagram.com/yellowsydney
+facebook: https://facebook.com/yellowsydney
 likes: 4.5
 summary: Upscale vegan restaurant serving seasonal tasting menus, perfect for special occasions
 image:

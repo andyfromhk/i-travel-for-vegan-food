@@ -71,7 +71,7 @@ P'Nut Street Noodles is a restaurant chain specialised in South-east Asian cuisi
 Other than dairy-free milk, Starbucks now offer rice-based vegan whipped cream for drinks, but availability is not consistent from shop to shop. They also carry options like muffins, sandwiches and sausage roll.
 
 **Vegan-option** | *Multiple locations*\
-[Website](https://www.starbucks.com.au/Home.php) | [Instagram](https://www.instagram.com/starbucksau) | [Facebook](http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.starbucks.com.au%2FHome.php\&t=Home)
+[Website](https://www.starbucks.com.au/Home.php) | [Instagram](https://www.instagram.com/starbucksau) | [Facebook](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.starbucks.com.au%2FHome.php\&t=Home)
 
 ![](/media/guides/australia-chain-cafes-restaurants-vegan-options/starbucks-au-vegan-options.jpeg)
 

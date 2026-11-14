@@ -13,8 +13,8 @@ location:
 address: 107 Cambridge St, Collingwood VIC 3066
 mapsUrl: https://maps.app.goo.gl/NwJtbFohwrNpqZpN9
 website: http://www.smithanddaughters.com
-instagram: http://www.instagram.com/smithanddaughters
-facebook: http://facebook.com/smithanddaughters
+instagram: https://www.instagram.com/smithanddaughters
+facebook: https://facebook.com/smithanddaughters
 likes: 3.5
 summary: Collingwood's iconic vegan restaurant known for innovative Mediterranean food and a cool vibe
 image:

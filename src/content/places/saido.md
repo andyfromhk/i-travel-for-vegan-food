@@ -14,8 +14,8 @@ location:
   lng: 139.6661
 address: 2 Chome-15-10 Jiyugaoka, Meguro City, Tokyo 152-0035, Japan
 website: https://saido.tokyo
-instagram: http://www.instagram.com/saido_tokyo
-facebook: http://facebook.com/saido.tokyo.jp
+instagram: https://www.instagram.com/saido_tokyo
+facebook: https://facebook.com/saido.tokyo.jp
 likes: 4.5
 summary: Top-tier vegan Japanese; innovative food, requires reservation.
 created: 2025-04-26T13:54:40.631Z

@@ -6,7 +6,6 @@ category: markets-and-festivals
 destination: brisbane
 destinations:
   - brisbane
-linkToMap: true
 image:
   src: /media/guides/2024-brisbane-vegan-expo/img-1299.webp
 created: 2024-10-05T06:46:30.075Z

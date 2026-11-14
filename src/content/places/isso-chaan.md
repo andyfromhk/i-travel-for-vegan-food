@@ -14,8 +14,8 @@ location:
 address: Japan, 〒247-0062 Kanagawa, Kamakura, Yamanouchi, １７５番地１
 mapsUrl: https://maps.app.goo.gl/LVxTCGePxy8X2FYx6
 website: https://vt-isso.com
-instagram: http://www.instagram.com/vt.isso
-facebook: http://facebook.com/vt.isso
+instagram: https://www.instagram.com/vt.isso
+facebook: https://facebook.com/vt.isso
 likes: 3.5
 summary: Peaceful vegan Taiwanese-Japanese fusion restaurant in a traditional Japanese house
 image:

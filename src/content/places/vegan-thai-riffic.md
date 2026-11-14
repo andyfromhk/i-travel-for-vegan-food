@@ -14,8 +14,8 @@ address: 1650 Anzac Ave, North Lakes QLD 4509
 mapsUrl: https://maps.app.goo.gl/rUGGawVcNS49t9or7
 phone: +61-734823344
 website: http://veganthairifficnorthlakes.com.au/
-instagram: http://www.instagram.com/vegan_thairiffic?igsh=c2UwemFjb2ZvYTQ=
-facebook: http://facebook.com/veganthairiffic/
+instagram: https://www.instagram.com/vegan_thairiffic?igsh=c2UwemFjb2ZvYTQ=
+facebook: https://facebook.com/veganthairiffic/
 likes: 3
 summary: Northside Thai restaurant featuring a dedicated menu of vegan classics
 image:

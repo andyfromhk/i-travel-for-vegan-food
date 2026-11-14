@@ -15,8 +15,8 @@ location:
 address: 3-23 Sanjoomiyacho, Nara, 630-8123, Japan
 mapsUrl: https://maps.app.goo.gl/G3sUwD6cbdqoYX3y9
 website: https://onwashop.com
-instagram: http://www.instagram.com/onwa_cafe
-facebook: http://facebook.com/onwa-1641066875905027
+instagram: https://www.instagram.com/onwa_cafe
+facebook: https://facebook.com/onwa-1641066875905027
 likes: 5
 summary: All-vegan cafe serving delicious Japanese plates near JR Nara station
 image:

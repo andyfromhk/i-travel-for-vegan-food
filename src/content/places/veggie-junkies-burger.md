@@ -13,7 +13,7 @@ location:
   lng: 135.189784
 address: Japan, 〒650-0021 Hyogo, Kobe, Chuo Ward, Sannomiyacho, 3 Chome−5−5 2F
 mapsUrl: https://maps.app.goo.gl/mZ9bigUp8VbzMDPU7
-instagram: http://www.instagram.com/veggie_junkies_burger
+instagram: https://www.instagram.com/veggie_junkies_burger
 likes: 4.5
 summary: Takeaway vegan spot with budget-friendly and delicious burgers
 image:

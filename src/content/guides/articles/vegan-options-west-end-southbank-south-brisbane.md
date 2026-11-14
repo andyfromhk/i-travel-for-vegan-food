@@ -6,7 +6,6 @@ category: food-guide
 destination: brisbane
 destinations:
   - brisbane
-linkToMap: true
 image:
   src: /media/guides/vegan-options-west-end-southbank-south-brisbane/img-4450.jpg
 created: 2021-11-02T02:02:40.624Z

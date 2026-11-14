@@ -7,8 +7,11 @@ import { CHEAT_SHEET_COUNTRIES, countryBySlug } from "@/utils/content.ts";
 type Props = HTMLAttributes<"form"> & {
   /** Set to `false` to omit the component. */
   render?: boolean;
-  /** Where the form sits: `footer` (on the grey footer) or `box` (a card in the page). */
-  variant?: "footer" | "box";
+  /**
+   * Where the form sits: `footer` (on the grey footer), `box` (a card in the page) or `sidebar` (the same card,
+   * with less padding, in a guide's narrow sidebar).
+   */
+  variant?: "footer" | "box" | "sidebar";
   /**
    * The country the page is about. Japan, Thailand, Taiwan and Hong Kong offer their free cheat sheet
    * (sent by the email Worker); any other country, or none, shows the regular sign-up.
@@ -51,7 +54,11 @@ const id = `signup-email-${variant}`;
 {
   render && (
     <form
-      class:list={["signup_wrap", variant, className]}
+      class:list={[
+        "signup_wrap",
+        variant === "sidebar" ? ["box", "sidebar"] : variant,
+        className,
+      ]}
       data-endpoint={EMAIL_LIST.subscribeEndpoint}
       data-sitekey={EMAIL_LIST.turnstileSiteKey}
       data-country={sheet ? country : undefined}
@@ -222,10 +229,14 @@ const id = `signup-email-${variant}`;
       text-align: center;
 
       &.box {
-        padding: var(--space-6) var(--space-3);
+        padding: var(--space-6) var(--space-3) var(--space-3);
         background-color: var(--background);
         border: 0.125rem solid var(--brand-500);
         border-radius: var(--radius-main);
+      }
+
+      &.sidebar {
+        padding: var(--space-4) var(--space-2) var(--space-2);
       }
     }
 

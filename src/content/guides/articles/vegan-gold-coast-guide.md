@@ -7,7 +7,6 @@ destination: gold-coast
 destinations:
   - gold-coast
 mainGuide: true
-linkToMap: true
 image:
   src: /media/restaurants/izakaya-midori/f2712152-267c-4aa8-9a3e-fe0cb45338a6-384-0000000c0d20daf8.jpg
 created: 2021-08-15T14:00:54.941Z

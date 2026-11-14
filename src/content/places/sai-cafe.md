@@ -12,7 +12,7 @@ location:
   lat: 34.853387
   lng: 134.698693
 address: 1 Chome-1-14 Johokushinmachi, Himeji, Hyogo 670-0883, Japan
-instagram: http://www.instagram.com/saicafe__himeji
+instagram: https://www.instagram.com/saicafe__himeji
 likes: 5
 summary: Cozy vegan cafe by Himeji Castle known for its ramen & katsu sets.
 image:

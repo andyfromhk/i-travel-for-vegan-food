@@ -14,8 +14,8 @@ location:
   lng: 139.790242
 address: Japan, 〒135-0061 Tokyo, Koto City, Toyosu, 6 Chome−1−16 teamLab Planets TOKYO
 website: https://vegan-uzu.com/pages/uzu-tokyo
-instagram: http://www.instagram.com/vegan_uzu
-facebook: http://facebook.com/Vegan-Ramen-UZU-KYOTO-108557120827116
+instagram: https://www.instagram.com/vegan_uzu
+facebook: https://facebook.com/Vegan-Ramen-UZU-KYOTO-108557120827116
 likes: 3.5
 summary: Vegan ramen inside TeamLab Planets; museum ticket required.
 created: 2025-04-26T13:54:41.129Z

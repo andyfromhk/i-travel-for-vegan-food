@@ -14,6 +14,10 @@ Tick each box as you go. Times are rough.
       `preview-setup.md`.
 - [ ] **Maps work on the preview:** a map guide, a destination's restaurant map, and the small map on a
       restaurant page (that one needs the Maps Embed API switched on; see `preview-setup.md`).
+- [ ] **Email Worker deployed** with the latest version (the cheat-sheet emails): in the `worker` folder, run
+      `npx wrangler deploy`, or let its Cloudflare build deploy it (`email-checklist.md`). The forms only accept
+      sign-ups from the addresses in `ALLOWED_ORIGINS`: `www.itravelforveganfood.com` and the bare domain are
+      already there, so if the preview address isn't, test the forms on the real domain after the switch instead.
 - [ ] **Newsletter form** (footer) on the preview: sign up with a test address on a page that isn't about Japan,
       Thailand, Taiwan or Hong Kong (the home page). It appears in Kit with the tag `Website newsletter`. If the
       form says "Oops", the email Worker doesn't have the latest update yet or doesn't know the preview address:
@@ -28,23 +32,24 @@ Tick each box as you go. Times are rough.
 
 ## 2. The day before
 
-- [ ] **Stop editing in Webflow** from now on. Changes made in Webflow after this point won't reach the new site.
-- [ ] **Refresh the content from Webflow.** Ask Claude, in a session with the Webflow connection and this
-      repository, to "refresh the content from Webflow before launch". It reads Webflow (read-only), re-runs
-      the conversion and the image download, checks parity, and pushes. The converter reproduces every fix made
-      since the first conversion, so nothing is lost.
-- [ ] Check the refreshed preview: a restaurant or guide you changed recently shows your latest version.
+- [ ] **Stop editing in Webflow** if you haven't already. Make every change in Pages CMS from now on.
+- [ ] **No content refresh is needed.** On 14 November nothing had been published in Webflow since the conversion
+      on 12 November (every collection's newest change is older, and the item counts match). If you have changed
+      anything in Webflow since, list the items and ask Claude to copy them across by hand. **Don't re-run the
+      converter:** it would rebuild the content from the old export and delete everything edited since (Pages CMS
+      saves, the Thailand restaurants, photos, fixes). It now refuses to run unless forced.
 
 ## 3. On the day: before the switch (about 20 minutes)
 
-### Put the site on `main`
+### Check the site builds from `main`
 
-- [ ] On GitHub, merge `astro-migration` into `main` (open a pull request and merge it).
+- [ ] On GitHub, merge any open pull request into `main`.
 - [ ] Cloudflare dashboard → **Workers & Pages** → **itfvf-site** → **Settings** → **Build** → branch control:
-      set the **production branch** to `main`.
-- [ ] Wait for that build to finish (**Deployments** → **View build history**) and check the preview address
-      shows the site.
-- [ ] In Pages CMS, switch the branch to `main` (top left). From now on, saving there publishes to the live site.
+      the **production branch** is `main`. (It should be already, since Pages CMS saves and merged pull requests
+      go to `main`; if it says `astro-migration`, change it.)
+- [ ] The latest build finished (**Deployments** → **View build history**) and the preview address shows your
+      most recent change.
+- [ ] Pages CMS shows `main` at the top left. From the switch on, saving there publishes to the live site.
 
 ### Save the current DNS (this is your way back)
 
@@ -98,6 +103,7 @@ The site is unreachable for a minute or two between steps 1 and 2.
 - [ ] `http://www.itravelforveganfood.com/about` lands on the `https://` address.
 - [ ] Old addresses still work: `/map-guides-itineraries`, `/blog-posts/vegan-tokyo-guide`,
       `/tokyo-vegan-guide`, a restaurant you know.
+- [ ] `https://www.itravelforveganfood.com/about/` (with the slash) lands on `/about`.
 - [ ] A made-up address (`/abc123`) shows the "This page doesn't exist" page.
 - [ ] Maps: a map guide, a destination's restaurant map, a restaurant's small map.
 - [ ] Save a place, open Saved, and send "Email me my list" to yourself.

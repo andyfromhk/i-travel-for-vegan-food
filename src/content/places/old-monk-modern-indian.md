@@ -14,8 +14,8 @@ address: 1/151 Baroona Rd, Paddington QLD 4064
 mapsUrl: https://maps.app.goo.gl/SvcgU1sBn68YgqBD6
 phone: +61-731951262
 website: https://oldmonkbne.com.au
-instagram: http://www.instagram.com/oldmonkbne
-facebook: http://facebook.com/oldmonkbne
+instagram: https://www.instagram.com/oldmonkbne
+facebook: https://facebook.com/oldmonkbne
 likes: 3.5
 summary: Modern Indian eatery in Paddington with delicious and clearly marked vegan options
 image:

@@ -16,7 +16,7 @@ location:
 address: Japan, 〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3 Chome−30−13 マルイ本館 5F
 mapsUrl: https://maps.app.goo.gl/NTebeENovAWcDfKE9
 website: https://futaba-fruits-parlor.jp/
-instagram: http://www.instagram.com/futabafruitsparlor
+instagram: https://www.instagram.com/futabafruitsparlor
 likes: 2
 summary: Vegan-friendly dessert cafe located in Shinjuku Marui Department Store
 image:

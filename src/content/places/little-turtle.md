@@ -13,8 +13,8 @@ location:
 address: 10 Stanmore Rd, Enmore NSW 2042
 mapsUrl: https://maps.app.goo.gl/RXz2LeqDhG8sgWZK8
 website: https://www.littleturtlerestaurant.com
-instagram: http://www.instagram.com/littleturtlerestaurant
-facebook: http://facebook.com/LittleTurtleThaiRestaurant
+instagram: https://www.instagram.com/littleturtlerestaurant
+facebook: https://facebook.com/LittleTurtleThaiRestaurant
 likes: 4
 summary: Authentic & creative vegan Thai food with chic interior in Enmore
 image:

@@ -14,7 +14,7 @@ location:
 address: 3 Chome-11-15 Kitanagasadori, Chuo Ward, Kobe, Hyogo 650-0012, Japan
 mapsUrl: https://maps.app.goo.gl/tCxcuXGFZDmPhkE98
 website: http://modernark-cafe.chronicle.co.jp
-facebook: http://facebook.com/ModernarkPharmCafe
+facebook: https://facebook.com/ModernarkPharmCafe
 likes: 4
 summary: Casual vegetarian cafe with many vegan options & a resident cat
 image:

@@ -6,7 +6,6 @@ category: food-guide
 destination: osaka
 destinations:
   - osaka
-linkToMap: true
 image:
   src: /media/guides/vegan-options-in-universal-studios-japan/universal-studios-japan-vegan-guide-osaka.jpg
 created: 2024-06-13T01:57:34.661Z

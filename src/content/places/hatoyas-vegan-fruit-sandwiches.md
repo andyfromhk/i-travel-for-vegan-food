@@ -14,7 +14,7 @@ location:
   lng: 139.796159
 address: 2 Chome-3-3 Asakusa, Taito City, Tokyo 111-0032, Japan
 mapsUrl: https://maps.app.goo.gl/ye2z31vzSUn5k4yZ7
-instagram: http://www.instagram.com/asakusa_hatoya
+instagram: https://www.instagram.com/asakusa_hatoya
 facebook: https://www.facebook.com/profile.php?id=100070882090787#
 likes: 3.5
 summary: Vegan fruit sandwiches takeaway place located near Senso-ji in Asakusa

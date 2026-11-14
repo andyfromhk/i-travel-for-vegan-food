@@ -15,8 +15,8 @@ location:
 address: 1 Chome-3-13 Hanakawado, Taito City, Tokyo 111-0033, Japan
 mapsUrl: https://maps.app.goo.gl/dYHo74YK77chq1ui9
 website: https://dining.marugotovegan.com
-instagram: http://www.instagram.com/marugotovegan_dining
-facebook: http://facebook.com/The-Farm-Cafe-364428073966323
+instagram: https://www.instagram.com/marugotovegan_dining
+facebook: https://facebook.com/The-Farm-Cafe-364428073966323
 likes: 3.5
 summary: Cozy vegan cafe in Asakusa offering tempura, curry rice, waffles and more
 image:

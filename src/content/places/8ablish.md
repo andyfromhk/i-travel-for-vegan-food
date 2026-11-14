@@ -13,8 +13,8 @@ location:
   lng: 139.743887
 address: Japan, 〒105-0001 Tokyo, Minato City, Toranomon, 5 Chome−8−1 麻布台ヒルズ ガーデンプラザA 2F
 website: https://8ablish.com
-instagram: http://www.instagram.com/8ablish
-facebook: http://facebook.com/Restaurant8ablish
+instagram: https://www.instagram.com/8ablish
+facebook: https://facebook.com/Restaurant8ablish
 likes: 3.5
 summary: Classy vegan restaurant with beautifully presented food, located near Azabudai Hills
 image:

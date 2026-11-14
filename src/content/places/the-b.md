@@ -13,7 +13,7 @@ location:
 address: Japan, 〒107-0062 Tokyo, Minato City, Minamiaoyama, 5 Chome−10−2 第２九曜ビル 1F
 mapsUrl: https://maps.app.goo.gl/QGKi92BW48mcZWnV7
 website: https://theb.jp
-instagram: http://www.instagram.com/the_b_vegan
+instagram: https://www.instagram.com/the_b_vegan
 likes: 3
 summary: Healthy vegan salads, bowls & smoothies with limited seating
 image:

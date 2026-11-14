@@ -6,7 +6,6 @@ category: products-and-shopping
 destination: sydney
 destinations:
   - sydney
-linkToMap: true
 image:
   src: /media/guides/greens-supermarket-vegan-sydney-newtown/img-5562-2.jpg
   alt: Pasta, juices and yoghurts

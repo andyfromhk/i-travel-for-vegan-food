@@ -10,8 +10,8 @@ priceRange: mid-range
 venueType: restaurant
 cuisine: japanese
 website: https://www.mottomotto.com.au
-instagram: http://www.instagram.com/mottomotto_japanese
-facebook: http://facebook.com/MottoMottoJapanese
+instagram: https://www.instagram.com/mottomotto_japanese
+facebook: https://facebook.com/MottoMottoJapanese
 likes: 1.5
 summary: Japanese chain restaurant with clearly marked plant-based ramen & donburi
 image:

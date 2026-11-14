@@ -90,7 +90,7 @@ For burgers, you can also add on vegan egg, cheese, bacon, etc for SG$2 extra ea
 Overall, Vegan Burg is a great place in Singapore to grab a satisfying burger meal.
 
 **Vegan** | [Address and Hours](https://goo.gl/maps/ZGvKBMhcpjN5bPE76)\
-[Website](https://www.veganburg.com/aboutus-sg) | [Instagram](https://www.instagram.com/veganburg/) | [Facebook](http://www.facebook.com/veganburg)
+[Website](https://www.veganburg.com/aboutus-sg) | [Instagram](https://www.instagram.com/veganburg/) | [Facebook](https://www.facebook.com/veganburg)
 
 ---
 

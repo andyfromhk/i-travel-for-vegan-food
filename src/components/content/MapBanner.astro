@@ -8,13 +8,11 @@ interface Props {
   render?: boolean;
   /** The destination whose restaurant map is opened. */
   destination?: Destination;
-  /** Banner size. `sidebar` is the small one beside a guide. */
-  variant?: "banner" | "sidebar";
   /** Where the banner leads. Leave out on the destination page itself, where it opens the map. */
   href?: string;
 }
 
-const { render = true, destination, variant = "banner", href } = Astro.props;
+const { render = true, destination, href } = Astro.props;
 const graphic = destination?.data.mapGraphic;
 const Tag = href ? "a" : "button";
 const attrs = href
@@ -25,7 +23,7 @@ const attrs = href
 {
   render && destination && (
     <Tag
-      class:list={["map-banner_wrap", variant !== "banner" && variant]}
+      class="map-banner_wrap"
       data-vt-destination={destination.id}
       {...attrs}
     >
@@ -63,14 +61,6 @@ const attrs = href
       background-color: var(--brand-100);
       cursor: pointer;
 
-      &.sidebar {
-        align-self: stretch;
-        width: 100%;
-        height: 11rem;
-        border: var(--border-width) solid var(--brand-500);
-        border-radius: 1.25rem;
-      }
-
       @media (hover: hover) {
         &:hover .map-banner_image {
           filter: brightness(95%);
@@ -101,11 +91,6 @@ const attrs = href
       color: var(--brand-text);
       font-size: clamp(1rem, 2vw, 1.5rem);
       transition: background-color var(--hover-duration) var(--hover-ease);
-
-      .sidebar > & {
-        padding: 0.3em 1.25em;
-        font-size: 0.875rem;
-      }
     }
   }
 </style>

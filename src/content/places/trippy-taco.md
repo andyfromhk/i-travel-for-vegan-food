@@ -13,8 +13,8 @@ location:
 address: 234 Gertrude St, Fitzroy VIC 3065
 mapsUrl: https://maps.app.goo.gl/gKgjitW9XwNr5weH7
 website: http://www.trippytaco.com.au
-instagram: http://www.instagram.com/trippy.taco
-facebook: http://facebook.com/TrippyTaco
+instagram: https://www.instagram.com/trippy.taco
+facebook: https://facebook.com/TrippyTaco
 likes: 4
 summary: An authentic and affordable Mexican restaurant that doesn't compromise on taste
 image:

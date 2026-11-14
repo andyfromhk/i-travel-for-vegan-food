@@ -12,7 +12,7 @@ venueType: restaurant
 cuisine: middle-eastern
 website: http://falafelbrothers.jp
 instagram: https://www.instagram.com/falafelbrotherstokyo/
-facebook: http://facebook.com/FALAFELBROTHERSTOKYO
+facebook: https://facebook.com/FALAFELBROTHERSTOKYO
 likes: 3.5
 summary: All vegan falafel shop that's budget-friendly and reliable. Has multiple locations in Tokyo
 image:

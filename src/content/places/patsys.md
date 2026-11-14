@@ -13,8 +13,8 @@ location:
 address: 213 Franklin St, Melbourne VIC 3004
 mapsUrl: https://maps.app.goo.gl/H26ZMvkTHbMSfrVPA
 website: https://www.patsys.com.au
-instagram: http://www.instagram.com/patsys_melbourne
-facebook: http://facebook.com/PatsysMelbourne
+instagram: https://www.instagram.com/patsys_melbourne
+facebook: https://facebook.com/PatsysMelbourne
 likes: 2
 summary: A Mediterranean wine bar in the CBD with a vegetarian menu; needs to inquire for vegan options
 image:

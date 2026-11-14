@@ -108,6 +108,18 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
    or join it.
 5. **Restaurants shown on a destination page.** The first 8, by popularity, with the rest in the map. Webflow showed 4.
 
+## Done (Round 9, 14 November 2026)
+
+- Sign-up boxes: less padding at the bottom; a tighter `sidebar` version on guides.
+- Guides: no restaurant map banner in the sidebar (the "Show the restaurant map banner" setting is gone too).
+  A long table of contents fades at the bottom while there's more to scroll, and at the top once scrolled.
+- Destination pages: no top padding above the sign-up box.
+- **Pre-launch check:** canonicals, sitemap (354 pages), robots.txt, redirects (all permanent, no chains),
+  structured data, Google verification tag and Analytics are all in place. Trailing-slash addresses now redirect
+  permanently, author pages have their own titles, and Instagram and Facebook links use https.
+- Webflow checked (read-only): nothing published since the 12 November export, so no content refresh is needed.
+  The converter now refuses to run without `--replace-content`, because it would delete everything edited since.
+
 ## Done (Round 7, 14 November 2026)
 
 - **Photos for all 25 Thailand restaurants**, from the folders you uploaded. The folders are renamed to the page

@@ -14,7 +14,7 @@ location:
 address: 923-8 Tokiwa, Kamakura, Kanagawa 248-0022, Japan
 mapsUrl: https://maps.app.goo.gl/7ziqbecsTxne9eER8
 instagram: https://www.instagram.com/kamakura24sekki/
-facebook: http://facebook.com/pages/kamakura-24sekki/328461163835086
+facebook: https://facebook.com/pages/kamakura-24sekki/328461163835086
 likes: 4
 summary: Cozy all-vegan bakery & cafe with homemade bread & sandwich sets
 image:

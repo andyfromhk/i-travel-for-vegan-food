@@ -10,8 +10,8 @@ priceRange: budget-friendly
 venueType: takeaway-only
 cuisine: desserts
 website: https://gelatissimo.com.au
-instagram: http://www.instagram.com/gelatissimogelato
-facebook: http://facebook.com/GelatissimoAU
+instagram: https://www.instagram.com/gelatissimogelato
+facebook: https://facebook.com/GelatissimoAU
 likes: 1.5
 summary: Gelato chain with some decent vegan flavours
 image:

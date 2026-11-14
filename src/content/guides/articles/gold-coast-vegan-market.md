@@ -6,7 +6,6 @@ category: markets-and-festivals
 destination: gold-coast
 destinations:
   - gold-coast
-linkToMap: true
 image:
   src: /media/guides/gold-coast-vegan-market/img-0028.jpg
 gallery:

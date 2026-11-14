@@ -11,7 +11,7 @@ venueType: cafe
 cuisine: international
 website: https://mr-farmer.jp
 instagram: https://www.instagram.com/mr.farmer_/
-facebook: http://facebook.com/mrfarmerhibiya
+facebook: https://facebook.com/mrfarmerhibiya
 likes: 3
 summary: Health-focused cafe w/ vegan bowls/burgers in Midtown Hibiya.
 created: 2025-04-26T13:54:36.715Z

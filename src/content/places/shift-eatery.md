@@ -13,8 +13,8 @@ location:
 address: Shop 4/241 Commonwealth St, Surry Hills NSW 2010
 mapsUrl: https://maps.app.goo.gl/mHzRugpCW6UTC2UV6
 website: http://www.shifteatery.com.au/
-instagram: http://www.instagram.com/shifteatery
-facebook: http://facebook.com/shifteateryx
+instagram: https://www.instagram.com/shifteatery
+facebook: https://facebook.com/shifteateryx
 likes: 4
 summary: Vegan deli cafe serving classic cafe dishes like omelettes and toasties, has house-made vegan meats
 image:

@@ -7,7 +7,6 @@ destination: sydney
 destinations:
   - sydney
 mainGuide: true
-linkToMap: true
 image:
   src: /media/restaurants/gigi-pizzeria/20230519-192952.jpg
   alt: Salsiccia e Broccoli pizza

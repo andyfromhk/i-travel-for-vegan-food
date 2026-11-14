@@ -13,7 +13,7 @@ location:
   lng: 135.505531
 address: 5 Chome-11-6 Nipponbashi, Naniwa Ward, Osaka, 550-0005, Japan
 mapsUrl: https://maps.app.goo.gl/LriNw5pNNWxe8GDC8
-instagram: http://www.instagram.com/luus_bao
+instagram: https://www.instagram.com/luus_bao
 likes: 4
 summary: Vegan food stand serving a variety of fluffy baos & donuts
 image:

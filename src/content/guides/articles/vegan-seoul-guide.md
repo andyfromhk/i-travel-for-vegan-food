@@ -88,7 +88,7 @@ Closed on Sun
 
 [Website](https://www.plantcafeseoul.com/)\
 [Instagram](https://www.instagram.com/plantcafeseoul/)\
-[Facebook](http://www.facebook.com/plantcafeseoul)
+[Facebook](https://www.facebook.com/plantcafeseoul)
 
 ---
 
@@ -216,7 +216,7 @@ The shop section sells a good selection of local and imported vegan food. Also y
 
 [Website](http://lovinghut.kr/kr/bbs/board.php?bo_table=restaurants_kr_en\&wr_id=53\&sca=\&county=%EC%84%9C%EC%9A%B8\&lang=_en)\
 [Instagram](https://www.instagram.com/lovinghutcafe/)\
-[Facebook](http://www.facebook.com/lovinghutcafe)
+[Facebook](https://www.facebook.com/lovinghutcafe)
 
 ---
 

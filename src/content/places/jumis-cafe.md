@@ -12,8 +12,8 @@ location:
   lng: 144.995303
 address: 589 Chapel St, South Yarra VIC 3141
 website: https://www.jumis.com.au
-instagram: http://www.instagram.com/jumis_cafe
-facebook: http://facebook.com/pg/jumiscafe
+instagram: https://www.instagram.com/jumis_cafe
+facebook: https://facebook.com/pg/jumiscafe
 likes: 3.5
 summary: A 100% vegan South Yarra cafe focusing on healthy bowls, smoothies, and toasties; ideal for takeaway
 image:

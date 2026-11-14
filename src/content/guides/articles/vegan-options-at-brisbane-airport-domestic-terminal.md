@@ -6,7 +6,6 @@ category: food-guide
 destination: brisbane
 destinations:
   - brisbane
-linkToMap: true
 image:
   src: /media/guides/vegan-options-at-brisbane-airport-domestic-terminal/img-2939-jpg-2.jpg
 created: 2024-05-31T09:21:14.103Z

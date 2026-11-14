@@ -10,7 +10,7 @@ priceRange: budget-friendly
 venueType: takeaway-only
 cuisine: desserts
 website: https://gelatomessina.com/
-instagram: http://www.instagram.com/gelatomessina
+instagram: https://www.instagram.com/gelatomessina
 facebook: https://www.facebook.com/gelatomessina/
 likes: 3
 summary: Famous gelato chain where all sorbets (and sometimes specials) are vegan

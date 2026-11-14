@@ -14,7 +14,7 @@ location:
 address: Japan, 〒540-0006 Osaka, Chuo Ward, Hoenzaka, 1 Chome−4−6 1F102 法円坂ハイツ
 mapsUrl: https://maps.app.goo.gl/iugvaAUgu37EEA198
 website: https://asakara-good-store.business.site
-instagram: http://www.instagram.com/asakara_goodstore
+instagram: https://www.instagram.com/asakara_goodstore
 likes: 3.5
 summary: Popular cafe with clearly marked vegan options located near Osaka Castle
 image:

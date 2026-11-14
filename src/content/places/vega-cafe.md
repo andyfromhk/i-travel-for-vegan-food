@@ -14,7 +14,7 @@ location:
 address: 1/448 Boundary St, Spring Hill QLD 4000
 mapsUrl: https://maps.app.goo.gl/4nqDJmbnwdhoo1Ck6
 website: https://www.vegacafe.com.au/
-instagram: http://instagram.com/vega_cafe_/
+instagram: https://instagram.com/vega_cafe_/
 facebook: https://www.facebook.com/vegacafebrisbane/
 likes: 5
 summary: A vegan cafe in Spring Hill serving delicious Asian-inspired comfort food

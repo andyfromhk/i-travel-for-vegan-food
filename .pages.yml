@@ -469,10 +469,6 @@ content:
         label: Main guide for its destination
         type: boolean
         description: Puts this guide first on its destination's page.
-      - name: linkToMap
-        label: Show the restaurant map banner
-        type: boolean
-        description: Adds a banner linking to the main destination's restaurant map.
       - name: author
         label: Guest author
         type: reference

@@ -11,7 +11,7 @@ venueType: quick-bites
 cuisine: healthy
 website: https://cocobliss.com.au
 instagram: https://www.instagram.com/cocoblisscollective/
-facebook: http://facebook.com/cocoblisssuperfoodbar
+facebook: https://facebook.com/cocoblisssuperfoodbar
 likes: 2
 summary: A convenient healthy cafe chain for vibrant, vegan-friendly smoothie bowls
 image:

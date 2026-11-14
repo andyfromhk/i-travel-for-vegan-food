@@ -14,7 +14,7 @@ location:
 address: 2 Chome-17-23 Hase, Kamakura, Kanagawa 248-0016, Japan
 mapsUrl: https://maps.app.goo.gl/6vvNRU5gHehXhd2B6
 website: https://lunaburger.base.shop
-instagram: http://www.instagram.com/lunaburger_j
+instagram: https://www.instagram.com/lunaburger_j
 likes: 4.5
 summary: Popular all-vegan burger restaurant near the beach
 image:

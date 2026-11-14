@@ -11,12 +11,11 @@ For how to format guides (tip boxes, captions, map guide stops), see [writing-gu
 
 Until the domain moves, the live site is still Webflow. The new site only shows on the preview address.
 
-- **Pages CMS edits the branch Cloudflare builds from.** Before launch that's `astro-migration`, so whatever you
-  save shows on the preview address. After launch it will be `main`, and a save goes straight to the live site.
-- **Try things out freely on the preview.** It's a good way to learn the forms.
-- **Real content changes:** keep making them in Webflow until launch, and keep a list. Just before launch, the
-  conversion is run again from Webflow so the new site starts with everything up to date. (The converter
-  reproduces every fix made since, so nothing is lost.)
+- **Pages CMS edits `main`**, the branch Cloudflare builds from, so whatever you save shows on the preview address
+  now, and on the live site once the domain has moved.
+- **Make content changes here, not in Webflow.** The new site was converted from Webflow on 12 November 2026 and
+  has been edited directly since, so it isn't converted again. Anything changed in Webflow after that has to be
+  copied across by hand (tell your developer which items).
 - If a developer is also working on the site, tell them when you've saved something, so they pull your changes
   before pushing theirs.
 
@@ -27,7 +26,7 @@ Until the domain moves, the live site is still Webflow. The new site only shows 
 2. Pages CMS asks you to install its GitHub app. Choose **Only select repositories**, pick
    `i-travel-for-vegan-food`, and install it.
 3. Back in Pages CMS, open `andyfromhk/i-travel-for-vegan-food`.
-4. Check the branch name at the top left: `astro-migration` before launch, `main` after.
+4. Check the branch name at the top left: it should say `main`.
 
 You'll see these sections in the sidebar:
 
@@ -89,10 +88,9 @@ The first time you save one of the older guides, Pages CMS tidies its Markdown i
 3. **Main destination** is the destination the guide is mainly about. **Also show it on** lists every destination
    page the guide should appear on, including the main one.
 4. Switch on **Main guide for its destination** only for the one guide that should lead that destination's list.
-5. Switch on **Show the restaurant map banner** to add a link to the destination's restaurant map.
-6. Write the guide in **Guide**. The editor has buttons for headings, bold, links, lists, quotes and photos.
+5. Write the guide in **Guide**. The editor has buttons for headings, bold, links, lists, quotes and photos.
    To see or paste raw Markdown, use the **Source** switch above the editor.
-7. Save. Leave **Draft** on while you're still writing: drafts don't appear anywhere on the site.
+6. Save. Leave **Draft** on while you're still writing: drafts don't appear anywhere on the site.
 
 New guides appear on /articles, on the destination pages you chose, on the home page and under related
 restaurants.

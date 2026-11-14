@@ -15,8 +15,8 @@ location:
   lng: 139.706725
 address: Japan, 〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3 Chome−8−9 B1,1F,2F 新宿Ｑビル
 website: https://www.ain-soph.jp/journey-shinjuku
-instagram: http://www.instagram.com/ainsoph_jp
-facebook: http://facebook.com/ainsoph.Journey
+instagram: https://www.instagram.com/ainsoph_jp
+facebook: https://facebook.com/ainsoph.Journey
 likes: 4
 summary: Popular vegan spot for Japanese fusion dishes, including amazing fluffy pancakes.
 created: 2025-04-26T13:54:36.669Z

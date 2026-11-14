@@ -118,6 +118,24 @@
     links.forEach((_, heading) => observer.observe(heading));
   }
 
+  // When the table of contents is longer than the space for it, its edges fade where there's more to scroll to:
+  // the bottom until you reach the end, the top once you've scrolled down. (Toc.astro draws the fade.)
+  function fadeTableOfContents() {
+    const toc = document.getElementById('toc');
+    if (!toc) return;
+    const update = () => {
+      // A few pixels' overflow isn't worth a fade that would hide the last entry.
+      const hidden = toc.scrollHeight - toc.clientHeight;
+      const scrolls = hidden > 12;
+      toc.classList.toggle('fade-top', scrolls && toc.scrollTop > 1);
+      toc.classList.toggle('fade-bottom', scrolls && toc.scrollTop < hidden - 1);
+    };
+    toc.addEventListener('scroll', update, { passive: true });
+    new ResizeObserver(update).observe(toc);
+    document.fonts?.ready.then(update);
+    update();
+  }
+
   // ======================================================================
   // 3. MAP GUIDES
   // The map follows the guide: as each place's heading reaches the "reading
@@ -1043,6 +1061,7 @@
     const hasMap = !!(document.getElementById('map') && document.querySelector('.guide-rich-text'));
 
     if (isArticle) guard('table of contents', highlightTableOfContents);
+    if (isArticle) guard('table of contents fade', fadeTableOfContents);
     if (hasMap) guard('styles', injectStyles);
 
     // The rest needs core.js (saved places, Maps loader, veg-type colours, location).

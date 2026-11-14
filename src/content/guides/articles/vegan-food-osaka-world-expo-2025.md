@@ -7,7 +7,6 @@ destination: osaka
 destinations:
   - osaka
 author: anita-dollar
-linkToMap: true
 image:
   src: /media/guides/vegan-food-osaka-world-expo-2025/2025-osaka-world-expo-vegan-option-featured-image.webp
 created: 2025-05-13T05:58:03.826Z

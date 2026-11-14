@@ -15,8 +15,8 @@ location:
   lng: 139.704071
 address: B1, 3 Chome-30-13 Shinjuku, Shinjuku City, Tokyo 160-0022, Japan
 website: https://healthytokyo.com/locations/healthytokyo-cbd-shop-cafe-shinjuku-marui-honkan
-instagram: http://www.instagram.com/healthytokyo
-facebook: http://facebook.com/HealthyTYO
+instagram: https://www.instagram.com/healthytokyo
+facebook: https://facebook.com/HealthyTYO
 likes: 3
 summary: Small vegan cafe with quick-eat meals, desserts & products, with a focus on CBD oils.
 image:

@@ -7,7 +7,6 @@ destination: kyoto
 destinations:
   - kyoto
 mainGuide: true
-linkToMap: true
 image:
   src: /media/restaurants/mumokuteki-cafe/mumokuteki-cafe-kyoto-vegan-restaurants-1.webp
   alt: 3-kinds gozen meal
