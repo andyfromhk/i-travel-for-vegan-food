@@ -12,24 +12,25 @@ district: Sukhumvit
 location:
   lat: 13.7272629
   lng: 100.5682153
-address: "46/1 Sukhumvit 24 Alley, Klongton Khlong Toei, Bangkok 10110, Thailand"
+address: 46/1 Sukhumvit 24 Alley, Klongton Khlong Toei, Bangkok 10110, Thailand
 mapsUrl: https://maps.app.goo.gl/bcYmChxLbfEdsZgK8
-likes: 0
-summary: "A greenhouse-style vegan restaurant in Sukhumvit serving creative, beautifully presented fusion dishes"
+likes: 4.5
+summary: A greenhouse-style vegan restaurant in Sukhumvit serving creative,
+  beautifully presented fusion dishes
 image:
   src: /media/restaurants/vistro/main.webp
-  alt: "Pizza, Khao Soi 2.0, Vagyu Sando and dumplings"
+  alt: Pizza, Khao Soi 2.0, Vagyu Sando and dumplings
 gallery:
   - src: /media/restaurants/vistro/food.webp
     alt: Vagyu Sando
   - src: /media/restaurants/vistro/main.webp
-    alt: "Pizza, Khao Soi 2.0, Vagyu Sando and dumplings"
+    alt: Pizza, Khao Soi 2.0, Vagyu Sando and dumplings
   - src: /media/restaurants/vistro/dsc1515.webp
     alt: Khao Soi 2.0
   - src: /media/restaurants/vistro/dsc1531.webp
     alt: Vagyu Sando and dumplings
   - src: /media/restaurants/vistro/dsc1529.webp
-    alt: "Pizza, dumplings and Khao Soi 2.0"
+    alt: Pizza, dumplings and Khao Soi 2.0
   - src: /media/restaurants/vistro/dsc1512.webp
     alt: Pizza
   - src: /media/restaurants/vistro/dsc1544.webp
@@ -51,6 +52,8 @@ menu:
   - src: /media/restaurants/vistro/dsc1469.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 For an elevated and creative dining experience, Vistro in Sukhumvit is essential. The space itself is stunning, designed like a modern greenhouse filled with natural light and plants. Their menu takes inspiration from global flavours, offering fusion dishes that are exciting and beautifully presented.
 
