@@ -5,13 +5,14 @@ destination: bangkok
 page: true
 status: open
 chain: true
-storeLocator: "https://www.google.com/maps/search/?api=1&query=Veganerie%2C+Bangkok"
+storeLocator: https://www.google.com/maps/search/?api=1&query=Veganerie%2C+Bangkok
 vegType: vegan
 priceRange: mid-range
 venueType: restaurant
 cuisine: international
-likes: 0
-summary: "A popular all-vegan chain across Bangkok, known for comfort food, Thai favourites and indulgent desserts like waffles and cakes"
+likes: 4
+summary: A popular all-vegan chain across Bangkok, known for comfort food, Thai
+  favourites and indulgent desserts like waffles and cakes
 image:
   src: /media/restaurants/veganerie/main.webp
   alt: Banoffee waffle and mac and cheese
@@ -44,6 +45,7 @@ menu:
   - src: /media/restaurants/veganerie/dsc1723.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+draft: false
 ---
 If there is one name that's synonymous with the Bangkok vegan scene, it is Veganerie. As a successful chain with several branches across the city, including convenient locations at Siam Paragon (Veganerie Soul) and Sukhumvit (Veganerie Concept), it is the reliable choice for a vegan comfort meal.
 
