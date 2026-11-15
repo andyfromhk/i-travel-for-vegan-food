@@ -12,18 +12,19 @@ district: Rawai
 location:
   lat: 7.7916578
   lng: 98.3187029
-address: "39 6 ภก.4009 Rawai, Mueang Phuket District, Phuket 83100, Thailand"
+address: 39 6 ภก.4009 Rawai, Mueang Phuket District, Phuket 83100, Thailand
 mapsUrl: https://maps.app.goo.gl/tiHMoywGEwigX2qX9
-likes: 0
-summary: "A cosy wellness cafe in Rawai with healthy vegan food, from smoothie bowls to pasta, plus yoga and sound healing classes"
+likes: 2.5
+summary: A cosy wellness cafe in Rawai with healthy vegan food, from smoothie
+  bowls to pasta, plus yoga and sound healing classes
 image:
   src: /media/restaurants/go-vegan-cafe/main.webp
-  alt: "Chick-fil-A burger, fries and tea rose coffee"
+  alt: Chick-fil-A burger, fries and tea rose coffee
 gallery:
   - src: /media/restaurants/go-vegan-cafe/food.webp
     alt: Tea rose coffee
   - src: /media/restaurants/go-vegan-cafe/main.webp
-    alt: "Chick-fil-A burger, fries and tea rose coffee"
+    alt: Chick-fil-A burger, fries and tea rose coffee
   - src: /media/restaurants/go-vegan-cafe/dsc5815.webp
     alt: Chick-fil-A burger
 menu:
@@ -39,6 +40,8 @@ menu:
   - src: /media/restaurants/go-vegan-cafe/dsc5772.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 Go Vegan Cafe is a super cozy and comfortable spot in Rawai that feels part wellness centre, part home-style cafe. They have a welcoming space with both indoor (be ready to take off your shoes) and outdoor seating, and they even host yoga and sound healing classes.
 
