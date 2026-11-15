@@ -12,18 +12,19 @@ district: Old Town
 location:
   lat: 7.8836405
   lng: 98.3918827
-address: "135 Phangnga Rd, Talat Yai, Mueang Phuket District, Phuket 83000, Thailand"
+address: 135 Phangnga Rd, Talat Yai, Mueang Phuket District, Phuket 83000, Thailand
 mapsUrl: https://maps.app.goo.gl/GUnTqkZbHzCaeCvG9
-likes: 0
-summary: "A vegan restaurant in Old Town with a massive menu spanning Indian, Lebanese, Thai and Western dishes"
+likes: 5
+summary: A vegan restaurant in Old Town with a massive menu spanning Indian,
+  Lebanese, Thai and Western dishes
 image:
   src: /media/restaurants/ubuntu-eat/main.webp
-  alt: "Biryani, mezze platter and fysh fingers"
+  alt: Biryani, mezze platter and fysh fingers
 gallery:
   - src: /media/restaurants/ubuntu-eat/food.webp
     alt: Biryani
   - src: /media/restaurants/ubuntu-eat/main.webp
-    alt: "Biryani, mezze platter and fysh fingers"
+    alt: Biryani, mezze platter and fysh fingers
   - src: /media/restaurants/ubuntu-eat/dsc7460.webp
     alt: Biryani
   - src: /media/restaurants/ubuntu-eat/dsc7314.webp
@@ -48,6 +49,8 @@ menu:
   - src: /media/restaurants/ubuntu-eat/dsc7288.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 [Ubuntu Eat](https://maps.app.goo.gl/GUnTqkZbHzCaeCvG9) is easily one of the best places to have a vegan meal near Phuket's Old Town. The menu is massive, covering everything from Indian and Lebanese to Thai and Western dishes, making it perfect if you are traveling with a group who may all want something different.
 
