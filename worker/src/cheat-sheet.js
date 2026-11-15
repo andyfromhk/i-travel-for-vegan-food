@@ -4,7 +4,7 @@
 
 import { CHEAT_SHEETS } from './cheat-sheet-data.js';
 import { BOOKS } from './data.js';
-import { COLOURS, FONT, escapeHtml, a, NAME, ROW, heading, shell } from './email.js';
+import { COLOURS, FONT, escapeHtml, a, NAME, ROW, heading, shell, coverCell } from './email.js';
 
 // Added to links back to the site so you can tell which visits and sales came from this email.
 const TRACKING = 'utm_source=cheat-sheet-email&utm_medium=email&utm_campaign=cheat-sheet';
@@ -45,10 +45,7 @@ function bookBlock(sheet, siteUrl) {
   const book = BOOKS[sheet.book];
   if (!book) return '';
   const link = track(siteUrl + '/shop');
-  const cover = book.cover
-    ? '<td width="92" valign="top" style="padding:16px 0 16px 16px;">'
-      + '<a href="' + escapeHtml(link) + '"><img src="' + escapeHtml(book.cover) + '" width="76" alt="Cover of ' + escapeHtml(book.title) + '" style="display:block;width:76px;height:auto;border:0;border-radius:4px;"></a></td>'
-    : '';
+  const cover = book.cover ? coverCell(link, book) : '';
   return '<tr><td style="padding:26px 0 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' + COLOURS.sun + ';border-radius:10px;"><tr>'
     + cover
     + '<td valign="top" style="padding:16px 18px 16px ' + (book.cover ? '14px' : '18px') + ';font-family:' + FONT + ';color:' + COLOURS.sunInk + ';">'

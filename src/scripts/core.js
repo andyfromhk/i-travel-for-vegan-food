@@ -1205,6 +1205,7 @@
 .vt-email-small{margin:14px 0 0;font-size:12px;line-height:1.45;opacity:.65}
 .vt-email-sent{padding:30px 6px;text-align:center;font-size:15px;line-height:1.5}
 .vt-email-sent-title{margin-bottom:6px;font-size:20px;font-weight:700;color:var(--vt-green)}
+.vt-email-sent .vt-btn{margin-top:16px}
 .vt-sign{position:fixed;inset:0;z-index:2147483001;display:flex;flex-direction:column;overflow:auto;background:var(--vt-sun);color:var(--vt-ink);padding:calc(14px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px))}
 .vt-sign-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .vt-sign-brand{display:flex;align-items:center;gap:10px;min-width:0}

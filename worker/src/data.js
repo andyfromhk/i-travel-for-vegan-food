@@ -29,25 +29,25 @@ export const BOOKS = {
     title: 'The Vegan Foodie Guide To Japan',
     text: '130+ vegan spots across Tokyo, Kyoto, Osaka and day trips like Nara, Kamakura, Kobe and Himeji, plus a convenience store survival guide. Instant PDF download.',
     url: 'https://itravelforveganfood.gumroad.com/l/the-vegan-foodie-guide-to-japan',
-    cover: 'https://www.itravelforveganfood.com/site/books/japan.webp',
+    cover: 'https://www.itravelforveganfood.com/site/books/japan-email.png',
   },
   'hong-kong': {
     title: 'The Vegan Foodie Guide To Hong Kong',
     text: 'Vegan gems across Hong Kong Island, Kowloon and the New Territories, from street food to fine dining, by a vegan local. Instant PDF download.',
     url: 'https://itravelforveganfood.gumroad.com/l/the-vegan-foodie-guide-to-hong-kong',
-    cover: 'https://www.itravelforveganfood.com/site/books/hong-kong.webp',
+    cover: 'https://www.itravelforveganfood.com/site/books/hong-kong-email.png',
   },
   'taiwan': {
     title: 'The Vegan Foodie Guide To Taiwan',
     text: 'The best vegan food in Taipei, Taichung and Taoyuan, plus night markets and pay-by-weight buffets. Instant PDF download.',
     url: 'https://itravelforveganfood.gumroad.com/l/the-vegan-foodie-guide-to-taiwan',
-    cover: 'https://www.itravelforveganfood.com/site/books/taiwan.webp',
+    cover: 'https://www.itravelforveganfood.com/site/books/taiwan-email.png',
   },
   'thailand': {
     title: 'The Vegan Foodie Guide To Thailand',
     text: '110+ vegan-friendly cafes and restaurants across Bangkok, Chiang Mai and Phuket, plus how to spot jay food. Instant PDF download.',
     url: 'https://itravelforveganfood.gumroad.com/l/the-vegan-foodie-guide-to-thailand',
-    cover: 'https://www.itravelforveganfood.com/site/books/thailand.webp',
+    cover: 'https://www.itravelforveganfood.com/site/books/thailand-email.png',
   },
 };
 

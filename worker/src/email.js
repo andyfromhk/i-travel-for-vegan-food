@@ -100,6 +100,16 @@ function footerNote(optedIn) {
 export const a = (href, text, style) => '<a href="' + escapeHtml(href) + '" style="' + style + '">' + escapeHtml(text) + '</a>';
 
 // Place and guide names.
+// The cover beside a book's description in the yellow box: the book turned slightly, with its shadow, on a
+// transparent background (so it sits straight on the yellow). At this width it reaches about down to the
+// "See the book" button on a computer. On phones, where the text wraps into a narrow column, the shell's
+// style block shrinks it back to 76 px (email apps that ignore it just show the bigger cover).
+export const COVER_WIDTH = 100;
+export function coverCell(link, book) {
+  return '<td class="book-cover-cell" width="' + (COVER_WIDTH + 16) + '" valign="top" style="padding:12px 0 12px 16px;">'
+    + '<a href="' + escapeHtml(link) + '"><img class="book-cover" src="' + escapeHtml(book.cover) + '" width="' + COVER_WIDTH + '" alt="Cover of ' + escapeHtml(book.title) + '" style="display:block;width:' + COVER_WIDTH + 'px;height:auto;border:0;"></a></td>';
+}
+
 export const NAME = 'color:' + COLOURS.ink + ';text-decoration:none;font-weight:700;font-size:19px;line-height:1.35;';
 // Small pill-shaped link buttons, like the chips in the Saved drawer: grey text, thin outline.
 export const PILL = 'display:inline-block;margin:8px 6px 0 0;padding:5px 12px;border:1px solid ' + COLOURS.pill + ';border-radius:999px;'
@@ -147,10 +157,7 @@ function cityDetail(group) {
 function bookBlock(country, siteUrl) {
   const book = country.book;
   const link = bookUrl(siteUrl, book.url);
-  const cover = book.cover
-    ? '<td width="92" valign="top" style="padding:16px 0 16px 16px;">'
-      + '<a href="' + escapeHtml(link) + '"><img src="' + escapeHtml(book.cover) + '" width="76" alt="Cover of ' + escapeHtml(book.title) + '" style="display:block;width:76px;height:auto;border:0;border-radius:4px;"></a></td>'
-    : '';
+  const cover = book.cover ? coverCell(link, book) : '';
   return '<tr><td style="padding:26px 0 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' + COLOURS.sun + ';border-radius:10px;"><tr>'
     + cover
     + '<td valign="top" style="padding:16px 18px 16px ' + (book.cover ? '14px' : '18px') + ';font-family:' + FONT + ';color:' + COLOURS.sunInk + ';">'
@@ -205,7 +212,8 @@ export function renderHtml(items, { siteUrl, logoUrl, optedIn, truncated }) {
 // `intro`, `rows` and `footer` are HTML that is already escaped.
 export function shell({ title, preheader, siteUrl, logoUrl, h1, intro, rows, footer }) {
   return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-    + '<meta name="color-scheme" content="light only"><title>' + escapeHtml(title) + '</title></head>'
+    + '<meta name="color-scheme" content="light only"><title>' + escapeHtml(title) + '</title>'
+    + '<style>@media (max-width:480px){.book-cover{width:76px!important}.book-cover-cell{width:92px!important}}</style></head>'
     + '<body style="margin:0;padding:0;background:#ffffff;">'
     + '<div style="display:none;max-height:0;overflow:hidden;opacity:0;">' + escapeHtml(preheader) + '</div>'
     + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;"><tr><td align="center" style="padding:0;">'
