@@ -7,7 +7,7 @@
     "promoEyebrow": "Unlock Japan's Best Vegan Food",
     "promoTitle": "132+ Restaurants, Stress-Free Itineraries & Hidden Gems",
     "cover": "/site/books/japan.webp",
-    "promoImage": "/site/books/japan-square.webp",
+    "promoImage": "/site/books/japan-promo.webp",
     "url": "/shop"
   },
   {
@@ -16,7 +16,7 @@
     "promoEyebrow": "Get the full guide",
     "promoTitle": "The Vegan Foodie Guide To Taiwan",
     "cover": "/site/books/taiwan.webp",
-    "promoImage": "/site/books/taiwan.webp",
+    "promoImage": "/site/books/taiwan-promo.webp",
     "url": "/shop"
   },
   {
@@ -25,7 +25,7 @@
     "promoEyebrow": "Get the full guide",
     "promoTitle": "The Vegan Foodie Guide To Hong Kong",
     "cover": "/site/books/hong-kong.webp",
-    "promoImage": "/site/books/hong-kong.webp",
+    "promoImage": "/site/books/hong-kong-promo.webp",
     "url": "/shop"
   },
   {
@@ -34,7 +34,7 @@
     "promoEyebrow": "Get the full guide",
     "promoTitle": "The Vegan Foodie Guide To Thailand",
     "cover": "/site/books/thailand.webp",
-    "promoImage": "/site/books/thailand.webp",
+    "promoImage": "/site/books/thailand-promo.webp",
     "url": "/shop"
   }
 ]
