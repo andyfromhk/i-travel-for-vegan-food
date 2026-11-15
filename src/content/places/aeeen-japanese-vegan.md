@@ -12,18 +12,20 @@ district: Suthep
 location:
   lat: 18.7706913
   lng: 98.9480615
-address: "Unnamed Road, Tambon Su Thep, Mueang Chiang Mai District, Chiang Mai 50200, Thailand"
+address: Unnamed Road, Tambon Su Thep, Mueang Chiang Mai District, Chiang Mai
+  50200, Thailand
 mapsUrl: https://maps.app.goo.gl/2KscMstCnKBHnSdz7
-likes: 0
-summary: "A Michelin-recommended Japanese restaurant in a traditional wooden house, serving shojin-style curry rice and rice bowls"
+likes: 4
+summary: A Michelin-recommended Japanese restaurant in a traditional wooden
+  house, serving shojin-style curry rice and rice bowls
 image:
   src: /media/restaurants/aeeen-japanese-vegan/main.webp
-  alt: "Tempe katsu curry rice, tempe burg-don and tofu karaage"
+  alt: Tempe katsu curry rice, tempe burg-don and tofu karaage
 gallery:
   - src: /media/restaurants/aeeen-japanese-vegan/food.webp
     alt: Tempe katsu curry rice
   - src: /media/restaurants/aeeen-japanese-vegan/main.webp
-    alt: "Tempe katsu curry rice, tempe burg-don and tofu karaage"
+    alt: Tempe katsu curry rice, tempe burg-don and tofu karaage
   - src: /media/restaurants/aeeen-japanese-vegan/dsc5173.webp
     alt: Tempe burg-don
   - src: /media/restaurants/aeeen-japanese-vegan/dsc5199.webp
@@ -44,6 +46,8 @@ menu:
   - src: /media/restaurants/aeeen-japanese-vegan/dsc5164.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 Aeeen is a Michelin-recommended Japanese restaurant tucked away in a traditional wooden house that genuinely feels like you've stepped into rural Japan. The whole place has a very calm, homestyle vibe, and I loved seeing the shelves lined with jars of fermented ingredients they use in their cooking. You can even buy some of their sauces and dressings to take home with you.
 
