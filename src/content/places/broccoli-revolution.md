@@ -5,13 +5,14 @@ destination: bangkok
 page: true
 status: open
 chain: true
-storeLocator: "https://www.google.com/maps/search/?api=1&query=Broccoli+Revolution%2C+Bangkok"
+storeLocator: https://www.google.com/maps/search/?api=1&query=Broccoli+Revolution%2C+Bangkok
 vegType: vegan
 priceRange: mid-range
 venueType: restaurant
 cuisine: contemporary
-likes: 0
-summary: "A leafy vegan restaurant with wholesome Thai, Asian and Western dishes and an elixir bar for juices and smoothies"
+likes: 3
+summary: A leafy vegan restaurant with wholesome Thai, Asian and Western dishes
+  and an elixir bar for juices and smoothies
 image:
   src: /media/restaurants/broccoli-revolution/main.webp
   alt: Tea leaf salad and veggie balls
@@ -43,6 +44,7 @@ menu:
   - src: /media/restaurants/broccoli-revolution/dsc1885.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+draft: false
 ---
 With high ceilings and lots of flowers and greenery, Broccoli Revolution specialises in wholesome, nourishing food, which could be great if you feel like something lighter. They place a heavy emphasis on fresh ingredients, and they have an "elixir bar" for revitalising cold-pressed juices and smoothies.
 
