@@ -108,6 +108,16 @@ The original brief is `docs/astro-migration-brief.md`; the decisions made since 
    or join it.
 5. **Restaurants shown on a destination page.** The first 8, by popularity, with the rest in the map. Webflow showed 4.
 
+## Done (after launch, 15 November 2026)
+
+- New transparent book covers (`public/site/books/vegan-foodie-guide-cover-shadow-*.webp`), turned 5 degrees:
+  `*-shop.webp` on the Shop page, `*-email.png` in the emails (100 px wide, 76 px on phones), `*-promo.webp` in
+  the "Get the full guide" box on destination and restaurant pages. New file names, because `/site/*` is cached
+  for 7 days.
+- The book box title runs the full width of the box (headings otherwise balance their lines).
+- The restaurant map banner on destination pages is 4:3 on phones (narrower than 48rem).
+- "Sent!" message: a gap above the button. The email Worker now builds on Cloudflare (it needed a lockfile).
+
 ## Done (Round 9, 14 November 2026)
 
 - Sign-up boxes: less padding at the bottom; a tighter `sidebar` version on guides.

@@ -29,8 +29,8 @@ const book = key ? bookBySlug.get(key) : undefined;
           class="book-promo_image"
           src={book.promoImage}
           alt=""
-          width="120"
-          height="120"
+          width="240"
+          height="376"
           loading="lazy"
         />
       )}
@@ -59,11 +59,11 @@ const book = key ? bookBySlug.get(key) : undefined;
       border-radius: var(--radius-small);
     }
 
+    /* The cover, turned slightly, on a transparent background so it sits straight on the yellow. */
     .book-promo_image {
       flex: none;
-      width: 5rem;
-      height: 5rem;
-      object-fit: contain;
+      width: 4.5rem;
+      height: auto;
     }
 
     .book-promo_content {
@@ -81,6 +81,11 @@ const book = key ? bookBySlug.get(key) : undefined;
       font-weight: var(--primary-bold);
       letter-spacing: 0.1ch;
       text-transform: uppercase;
+    }
+
+    /* Lines run the full width (headings otherwise even out their lines, which leaves a gap on the right). */
+    .book-promo_title {
+      text-wrap: wrap;
     }
 
     /* The title is the link; it stretches over the whole box so the box works as one target. */

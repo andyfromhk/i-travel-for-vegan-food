@@ -61,6 +61,11 @@ const attrs = href
       background-color: var(--brand-100);
       cursor: pointer;
 
+      /* Taller on phones (4:3), so it stands out; the map's left and right edges are cut off. */
+      @media (width < 48rem) {
+        height: min(75vw, 25rem);
+      }
+
       @media (hover: hover) {
         &:hover .map-banner_image {
           filter: brightness(95%);
