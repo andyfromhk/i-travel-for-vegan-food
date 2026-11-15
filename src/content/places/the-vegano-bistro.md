@@ -12,19 +12,20 @@ district: Hang Dong
 location:
   lat: 18.7373225
   lng: 98.9348882
-address: "69, 69/1 Nong Kwai, Hang Dong District, Chiang Mai 50230, Thailand"
+address: 69, 69/1 Nong Kwai, Hang Dong District, Chiang Mai 50230, Thailand
 mapsUrl: https://maps.app.goo.gl/Jn8QmMJv3EgpedmV7
 instagram: https://www.instagram.com/theveganobistro/
-likes: 0
-summary: A must-visit vegan restaurant outside the city serving top-notch Thai dishes and Western comfort food
+likes: 5
+summary: A must-visit vegan restaurant outside the city serving top-notch Thai
+  dishes and Western comfort food
 image:
   src: /media/restaurants/the-vegano-bistro/main.webp
-  alt: "Pad kaprao, mushroom soup and salad"
+  alt: Pad kaprao, mushroom soup and salad
 gallery:
   - src: /media/restaurants/the-vegano-bistro/food.webp
     alt: Pad kaprao
   - src: /media/restaurants/the-vegano-bistro/main.webp
-    alt: "Pad kaprao, mushroom soup and salad"
+    alt: Pad kaprao, mushroom soup and salad
   - src: /media/restaurants/the-vegano-bistro/dsc3945.webp
     alt: Pad kaprao
   - src: /media/restaurants/the-vegano-bistro/dsc3934.webp
@@ -50,6 +51,8 @@ menu:
   - src: /media/restaurants/the-vegano-bistro/dsc3850.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 One of my favourite and most memorable meals in Chiang Mai was at [The Vegano Bistro](https://www.instagram.com/theveganobistro/). It is a must-visit for any vegans visiting the city. Even though the location is a bit out of the way (about a 20-minute drive from the Old Town or Nimman area), it is absolutely worth the trip for the impeccable and creative dishes.
 
