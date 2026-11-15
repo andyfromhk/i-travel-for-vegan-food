@@ -12,19 +12,21 @@ district: South of Old Town
 location:
   lat: 18.778374
   lng: 98.9879973
-address: "1, 4 Suriyawong Alley, Haiya Sub-district, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50100, Thailand"
+address: 1, 4 Suriyawong Alley, Haiya Sub-district, Amphoe Mueang Chiang Mai,
+  Chang Wat Chiang Mai 50100, Thailand
 mapsUrl: https://maps.app.goo.gl/PUX7a7NgBrTsoRF88
 instagram: https://www.instagram.com/aum_vegetarian/
-likes: 0
-summary: "An open-air restaurant south of Old Town serving home-style Thai and Northern Thai dishes, most of them vegan"
+likes: 3.5
+summary: An open-air restaurant south of Old Town serving home-style Thai and
+  Northern Thai dishes, most of them vegan
 image:
   src: /media/restaurants/aum-vegetarian/main.webp
-  alt: "Khao soi, nam prik ong and blue sticky rice"
+  alt: Khao soi, nam prik ong and blue sticky rice
 gallery:
   - src: /media/restaurants/aum-vegetarian/food.webp
     alt: Nam prik ong with blue sticky rice
   - src: /media/restaurants/aum-vegetarian/main.webp
-    alt: "Khao soi, nam prik ong and blue sticky rice"
+    alt: Khao soi, nam prik ong and blue sticky rice
   - src: /media/restaurants/aum-vegetarian/dsc4934.webp
     alt: Nam prik ong
   - src: /media/restaurants/aum-vegetarian/dsc4918.webp
@@ -40,6 +42,8 @@ menu:
   - src: /media/restaurants/aum-vegetarian/dsc4929.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 [Aum Vegetarian](https://www.instagram.com/aum_vegetarian/) is a great spot for home-style Thai food just south of the Old Town. It’s an open-air restaurant, and while there’s no air conditioning, the fans keep it comfortable, especially in the evening.
 
