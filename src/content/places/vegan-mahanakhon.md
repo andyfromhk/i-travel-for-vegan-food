@@ -12,10 +12,11 @@ district: Bangkok Noi
 location:
   lat: 13.7515069
   lng: 100.4832849
-address: "661 Arun Amarin Rd, ศิริราช Bangkok Noi, Bangkok 10700, Thailand"
+address: 661 Arun Amarin Rd, ศิริราช Bangkok Noi, Bangkok 10700, Thailand
 mapsUrl: https://maps.app.goo.gl/8xXEPNgBJBTduX3U6
-likes: 0
-summary: A refined all-vegan Thai restaurant in a restored 120-year-old teakwood house near Wat Arun
+likes: 5
+summary: A refined all-vegan Thai restaurant in a restored 120-year-old teakwood
+  house near Wat Arun
 image:
   src: /media/restaurants/vegan-mahanakhon/main.webp
   alt: Assorted appetiser platter and mango sticky rice
@@ -49,6 +50,8 @@ menu:
   - src: /media/restaurants/vegan-mahanakhon/dsc8711.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 For a truly special, refined Thai meal, you need to visit Vegan Mahanakhon. Located in a quiet area near the riverside (great to visit after the famous temple Wat Arun), the restaurant is housed in a beautifully restored 120-year-old teakwood house. Taking off your shoes and entering the elegant, flower-filled space feels less like visiting a restaurant and more like being a special guest in a traditional Thai home.
 
