@@ -1,5 +1,5 @@
 ---
-name: "Soul Cafe & Restaurant"
+name: Soul Cafe & Restaurant
 nameOriginal: โซล คาเฟ่
 destination: phuket
 page: true
@@ -12,18 +12,19 @@ district: Karon Beach
 location:
   lat: 7.8480269
   lng: 98.2936228
-address: "224 Karon Rd, Karon, phuket, Phuket 83100, Thailand"
+address: 224 Karon Rd, Karon, phuket, Phuket 83100, Thailand
 mapsUrl: https://maps.app.goo.gl/4Vjo2qnrGzw2vPU7A
-likes: 0
-summary: "A beachy, fully vegan cafe next to Karon Beach serving wholesome food and excellent pizza"
+likes: 4.5
+summary: A beachy, fully vegan cafe next to Karon Beach serving wholesome food
+  and excellent pizza
 image:
   src: /media/restaurants/soul-cafe-restaurant/main.webp
-  alt: "Pizza, crispy tofu with lemongrass curry and lasagna"
+  alt: Pizza, crispy tofu with lemongrass curry and lasagna
 gallery:
   - src: /media/restaurants/soul-cafe-restaurant/food.webp
     alt: Crispy tofu with lemongrass curry
   - src: /media/restaurants/soul-cafe-restaurant/main.webp
-    alt: "Pizza, crispy tofu with lemongrass curry and lasagna"
+    alt: Pizza, crispy tofu with lemongrass curry and lasagna
   - src: /media/restaurants/soul-cafe-restaurant/dsc5981.webp
     alt: Crispy tofu with lemongrass curry
   - src: /media/restaurants/soul-cafe-restaurant/dsc6048.webp
@@ -43,6 +44,8 @@ menu:
   - src: /media/restaurants/soul-cafe-restaurant/dsc5901.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 Located right next to the popular Karon Beach, you'll find [Soul Vegan Cafe](https://maps.app.goo.gl/4Vjo2qnrGzw2vPU7A) with a welcoming, beachy vibe and calming pastel decor. Soul Cafe is fully vegan and focuses on food that is good for your body and the planet, and it's also owned by the plant-based Soul Villa by the beach which I mentioned earlier.
 
