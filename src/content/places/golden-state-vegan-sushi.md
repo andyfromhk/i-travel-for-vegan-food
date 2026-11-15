@@ -12,10 +12,12 @@ district: Sukhumvit
 location:
   lat: 13.7319479
   lng: 100.5678647
-address: "3rd Floor RR Space, Sukhumvit 33 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110, Thailand"
+address: 3rd Floor RR Space, Sukhumvit 33 Alley, Khlong Tan Nuea, Watthana,
+  Bangkok 10110, Thailand
 mapsUrl: https://maps.app.goo.gl/6HRwvhUhLRP95nPw6
-likes: 0
-summary: "A retro, colourful spot for creative all-vegan sushi and Japanese-inspired dishes, open until midnight"
+likes: 4.5
+summary: A retro, colourful spot for creative all-vegan sushi and
+  Japanese-inspired dishes, open until midnight
 image:
   src: /media/restaurants/golden-state-vegan-sushi/dsc1285.webp
   alt: Volcavo and sushi rolls
@@ -42,6 +44,8 @@ menu:
   - src: /media/restaurants/golden-state-vegan-sushi/dsc1155.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 If you are looking for a fun night out, Golden State delivers cool retro vibes and incredible vegan sushi and other Japanese-inspired dishes. The interior is funky and colourful, sometimes featuring live DJs, making it a great spot for a late-night dinner (they open until midnight!)
 
