@@ -12,11 +12,13 @@ district: Old Town
 location:
   lat: 18.793906
   lng: 98.9921329
-address: "27, 2 Moon Muang Rd Soi 9, Tambon Si Phum, Mueang Chiang Mai District, Chiang Mai 50200, Thailand"
+address: 27, 2 Moon Muang Rd Soi 9, Tambon Si Phum, Mueang Chiang Mai District,
+  Chiang Mai 50200, Thailand
 mapsUrl: https://maps.app.goo.gl/hgNY9HohEbFuJDeD6
 instagram: https://www.instagram.com/radrabbitveganpizza/
-likes: 0
-summary: "Chiang Mai's first all-vegan pizzeria, with cheesy pizzas, pasta, wraps and house-made cakes"
+likes: 5
+summary: Chiang Mai's first all-vegan pizzeria, with cheesy pizzas, pasta, wraps
+  and house-made cakes
 image:
   src: /media/restaurants/rad-rabbit/main.webp
   alt: Texas BBQ pizza and egg Benedict
@@ -49,6 +51,8 @@ menu:
   - src: /media/restaurants/rad-rabbit/dsc2596.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 Inside Old Town is an all-vegan pizzeria called [Rad Rabbit](https://www.instagram.com/radrabbitveganpizza/). Being Chiang Mai's first, their menu is packed with so many irresistible options including a range of vegan cheesy pizza, pasta, wraps and more.
 
