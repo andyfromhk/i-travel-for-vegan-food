@@ -12,18 +12,20 @@ district: Chatuchak
 location:
   lat: 13.799389
   lng: 100.5470842
-address: "580-592 ชมรมมังสวิรัติแห่งประเทศไทย สาขาจตุจักร ลาดยาว Chatuchak, Bangkok 10900, Thailand"
+address: 580-592 ชมรมมังสวิรัติแห่งประเทศไทย สาขาจตุจักร ลาดยาว Chatuchak,
+  Bangkok 10900, Thailand
 mapsUrl: https://maps.app.goo.gl/awiE4EXRFsFRA8gQ6
-likes: 0
-summary: "A local, canteen-style vegan food hall near Chatuchak Market with cheap Thai dishes, paid for with food vouchers"
+likes: 3.5
+summary: A local, canteen-style vegan food hall near Chatuchak Market with cheap
+  Thai dishes, paid for with food vouchers
 image:
   src: /media/restaurants/vegetarian-society-chatuchak/dsc8105.webp
-  alt: "Grilled skewers, fried taro cake and a rice plate"
+  alt: Grilled skewers, fried taro cake and a rice plate
 gallery:
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8110.webp
     alt: Grilled mushroom and mock meat skewers
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8105.webp
-    alt: "Grilled skewers, fried taro cake and a rice plate"
+    alt: Grilled skewers, fried taro cake and a rice plate
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8113.webp
     alt: Fried taro cake
 menu:
@@ -38,6 +40,8 @@ menu:
   - src: /media/restaurants/vegetarian-society-chatuchak/dsc8082.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 Vegetarian Society near Chatuchak Market is a truly local experience. The food is tasty and cheap, but there are a few things you'll need to know beforehand for a smooth visit.
 
