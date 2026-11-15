@@ -1,5 +1,5 @@
 ---
-name: "Nature's Charm Cafe"
+name: Nature's Charm Cafe
 nameOriginal: เนเจอร์ส ชาร์ม คาเฟ่
 destination: bangkok
 page: true
@@ -12,18 +12,19 @@ district: Thong Lor
 location:
   lat: 13.7265676
   lng: 100.5765413
-address: "Sukhumvit 51 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110, Thailand"
+address: Sukhumvit 51 Alley, Khlong Tan Nuea, Watthana, Bangkok 10110, Thailand
 mapsUrl: https://maps.app.goo.gl/tKJm4HD5vb2MkD7h6
-likes: 0
-summary: "A plant-filled vegan cafe from the Nature's Charm brand, with a huge, creative menu and a shop for its coconut condensed milk"
+likes: 4.5
+summary: A plant-filled vegan cafe from the Nature's Charm brand, with a huge,
+  creative menu and a shop for its coconut condensed milk
 image:
   src: /media/restaurants/natures-charm-cafe/main.webp
-  alt: "Fish and chips, son-in-law eggs, lu rou fan and matcha crepe cake"
+  alt: Fish and chips, son-in-law eggs, lu rou fan and matcha crepe cake
 gallery:
   - src: /media/restaurants/natures-charm-cafe/food.webp
     alt: Matcha crepe cake
   - src: /media/restaurants/natures-charm-cafe/main.webp
-    alt: "Fish and chips, son-in-law eggs, lu rou fan and matcha crepe cake"
+    alt: Fish and chips, son-in-law eggs, lu rou fan and matcha crepe cake
   - src: /media/restaurants/natures-charm-cafe/dsc0749.webp
     alt: Banana blossom fish and chips
   - src: /media/restaurants/natures-charm-cafe/dsc0752.webp
@@ -53,6 +54,8 @@ menu:
   - src: /media/restaurants/natures-charm-cafe/dsc0626.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 You've probably seen Nature's Charm products in supermarkets, but I was so excited to find out they have their own vegan cafe right in Bangkok. My visit was even better than I had imagined. It's a beautiful, relaxing two-level space decorated with lots of plants. The menu is huge and incredibly creative, offering everything from Western classics like an all-day breakfast to veganised traditional Thai dishes and even Korean favourites like bibimbap and jjajangmyeon.
 
