@@ -12,18 +12,19 @@ district: Phahurat
 location:
   lat: 13.7450198
   lng: 100.4992193
-address: "80 82 Tri Phet Rd, Wang Burapha Phirom, Phra Nakhon, Bangkok 10200, Thailand"
+address: 80 82 Tri Phet Rd, Wang Burapha Phirom, Phra Nakhon, Bangkok 10200, Thailand
 mapsUrl: https://maps.app.goo.gl/srVhxGAVqXwvDDqX8
-likes: 0
-summary: "A vegan restaurant in Bangkok's Little India with a huge menu of veganised Thai dishes, from khao soi to Hainanese chicken rice"
+likes: 4
+summary: A vegan restaurant in Bangkok's Little India with a huge menu of
+  veganised Thai dishes, from khao soi to Hainanese chicken rice
 image:
   src: /media/restaurants/kem-kon/main.webp
-  alt: "Hainanese chicken rice, sai ua and clear soup"
+  alt: Hainanese chicken rice, sai ua and clear soup
 gallery:
   - src: /media/restaurants/kem-kon/food.webp
     alt: Hainanese chicken rice
   - src: /media/restaurants/kem-kon/main.webp
-    alt: "Hainanese chicken rice, sai ua and clear soup"
+    alt: Hainanese chicken rice, sai ua and clear soup
   - src: /media/restaurants/kem-kon/dsc0871.webp
     alt: Sai ua sausage
   - src: /media/restaurants/kem-kon/dsc0905.webp
@@ -47,6 +48,8 @@ menu:
   - src: /media/restaurants/kem-kon/dsc0953.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 Kem-Kon impresses with a huge variety of veganised Thai dishes on their menu. It's one of those spots you could return to again and again and always find something new to try. They have a few branches in Bangkok, including one near Khaosan Road and one relatively close to IconSiam. The branch I visited in Phahurat is in Bangkok's 'Little India', and you can see the local life of a busy intersection below as you eat if you go on the second floor.
 
