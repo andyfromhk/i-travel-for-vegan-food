@@ -12,10 +12,11 @@ district: Ratsada
 location:
   lat: 7.9070063
   lng: 98.3759822
-address: "2 Soi Yaowarat 2, Ratsada, Mueang Phuket District, Phuket 83000, Thailand"
+address: 2 Soi Yaowarat 2, Ratsada, Mueang Phuket District, Phuket 83000, Thailand
 mapsUrl: https://maps.app.goo.gl/BTtic6XQfJJqGNUCA
-likes: 0
-summary: A no-frills local vegan restaurant where you point and pick from a spread of pre-made Thai dishes
+likes: 3.5
+summary: A no-frills local vegan restaurant where you point and pick from a
+  spread of pre-made Thai dishes
 image:
   src: /media/restaurants/yo-vegan/dsc6720.webp
   alt: Green curry with vegan sausages and tofu
@@ -33,6 +34,8 @@ menu:
   - src: /media/restaurants/yo-vegan/dsc6731.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 If you want a truly local Thai dining experience in Phuket, it doesn't get more local than visiting [Yo Vegan](https://maps.app.goo.gl/BTtic6XQfJJqGNUCA). It's a no-frills restaurant where locals eat, and I was the only tourist during my visit.
 
