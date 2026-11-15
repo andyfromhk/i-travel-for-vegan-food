@@ -12,10 +12,11 @@ district: Old Town
 location:
   lat: 7.8835905
   lng: 98.3839607
-address: "215 Ranong, Talat Nuea, Mueang Phuket District, Phuket 83000, Thailand"
+address: 215 Ranong, Talat Nuea, Mueang Phuket District, Phuket 83000, Thailand
 mapsUrl: https://maps.app.goo.gl/zHkWEp77JpR17GpG7
-likes: 0
-summary: "A busy, no-frills local vegan restaurant on Ranong Road where you point and pick from dozens of Thai dishes"
+likes: 4
+summary: A busy, no-frills local vegan restaurant on Ranong Road where you point
+  and pick from dozens of Thai dishes
 image:
   src: /media/restaurants/ruamjai-vegan-restaurant/dsc7522.webp
 gallery:
@@ -32,6 +33,8 @@ menu:
   - src: /media/restaurants/ruamjai-vegan-restaurant/dsc7540.webp
 created: 2026-11-14T00:00:00.000Z
 updated: 2026-11-14T00:00:00.000Z
+chain: false
+draft: false
 ---
 If you're looking for a truly local and authentic Thai vegan experience in Phuket Town, Ruamjai Vegan Restaurant on Ranong Road is a great destination. It's a busy, no-frills spot that feels like a real community.
 
